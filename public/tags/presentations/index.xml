@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Presentations on Darya Vanichkina</title>
+    <link>/tags/presentations/</link>
+    <description>Recent content in Presentations on Darya Vanichkina</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Fri, 12 Aug 2016 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/tags/presentations/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>PyConAU 2016 Presentation</title>
+      <link>/2016/pycon2016/</link>
+      <pubDate>Fri, 12 Aug 2016 00:00:00 +0000</pubDate>
+      
+      <guid>/2016/pycon2016/</guid>
+      <description>I presented a talk on Big data biology for pythonistas: getting in on the genomics revolution at PyCon Au 2016.
+In the abstract, I promised the following:
+  In 2001 Bill Clinton unveiled &amp;ldquo;the most important, most wondrous map ever produced by humankind&amp;rdquo; - the human genome. This monumental endeavour cost \$3 billion, and took hundreds of scientists from all over the world 13 years. Today, a single person can generate such a map in ~2 days for $1000.</description>
+    </item>
+    
+    <item>
+      <title>Lorne Genome 2012 poster</title>
+      <link>/2014/lorne2012poster/</link>
+      <pubDate>Mon, 24 Mar 2014 00:00:00 +0000</pubDate>
+      
+      <guid>/2014/lorne2012poster/</guid>
+      <description>Better late than never: my now-published Lorne Genome 2012 poster</description>
+    </item>
+    
+  </channel>
+</rss>

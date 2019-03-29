@@ -1,0 +1,29 @@
+---
+title: Moving to Hugo
+author: Darya Vanichkina
+date: '2019-03-29'
+slug: moving-to-hugo
+categories:
+  - Other
+tags:
+  - other
+description: ''
+externalLink: ''
+series: []
+draft: TRUE
+math: true
+---
+
+I'm finally making the leap, and (hopefully) moving this website to Hugo + blogdown + gitlab + netlify.
+
+So far, useful resources for wrapping my head around how to do this:
+
+- [Alison Presmanes Hill's documentation](https://alison.rbind.io/post/up-and-running-with-blogdown/)
+- [Non-blogdown specific very detailed outlined (for future reference, when I want to add new page types)](https://www.sarasoueidan.com/blog/jekyll-ghpages-to-hugo-netlify/)
+- 
+
+
+Things that don't seem to work:
+
+- Math! :sob: (but, hey, emoji do!)
+- FontAwesome "social" icons apart from the default (but I think this is something I need to figure out)

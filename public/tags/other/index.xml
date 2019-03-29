@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Other on Darya Vanichkina</title>
+    <link>/tags/other/</link>
+    <description>Recent content in Other on Darya Vanichkina</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Fri, 29 Mar 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/tags/other/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Moving to Hugo</title>
+      <link>/2019/moving-to-hugo/</link>
+      <pubDate>Fri, 29 Mar 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/2019/moving-to-hugo/</guid>
+      <description>I&amp;rsquo;m finally making the leap, and (hopefully) moving this website to Hugo + blogdown + gitlab + netlify.
+So far, useful resources for wrapping my head around how to do this:
+ Alison Presmanes Hill&amp;rsquo;s documentation Non-blogdown specific very detailed outlined (for future reference, when I want to add new page types)   Things that don&amp;rsquo;t seem to work:
+ Math! 😭 (but, hey, emoji do!) FontAwesome &amp;ldquo;social&amp;rdquo; icons apart from the default (but I think this is something I need to figure out)  </description>
+    </item>
+    
+    <item>
+      <title>Training the trainer presentation</title>
+      <link>/2018/ands/</link>
+      <pubDate>Tue, 20 Feb 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/2018/ands/</guid>
+      <description>Presentation on Carpentry Instructor Training - “Training the trainers” given at ANDS Data Seminar.</description>
+    </item>
+    
+  </channel>
+</rss>

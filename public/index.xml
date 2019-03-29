@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Darya Vanichkina</title>
+    <link>/</link>
+    <description>Recent content on Darya Vanichkina</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Fri, 29 Mar 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Moving to Hugo</title>
+      <link>/2019/moving-to-hugo/</link>
+      <pubDate>Fri, 29 Mar 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/2019/moving-to-hugo/</guid>
+      <description>I&amp;rsquo;m finally making the leap, and (hopefully) moving this website to Hugo + blogdown + gitlab + netlify.
+So far, useful resources for wrapping my head around how to do this:
+ Alison Presmanes Hill&amp;rsquo;s documentation Non-blogdown specific very detailed outlined (for future reference, when I want to add new page types)   Things that don&amp;rsquo;t seem to work:
+ Math! 😭 (but, hey, emoji do!) FontAwesome &amp;ldquo;social&amp;rdquo; icons apart from the default (but I think this is something I need to figure out)  </description>
+    </item>
+    
+    <item>
+      <title>Training the trainer presentation</title>
+      <link>/2018/ands/</link>
+      <pubDate>Tue, 20 Feb 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/2018/ands/</guid>
+      <description>Presentation on Carpentry Instructor Training - “Training the trainers” given at ANDS Data Seminar.</description>
+    </item>
+    
+    <item>
+      <title>Amazon AWS workshop at the University of Sydney</title>
+      <link>/2016/awsworkshop/</link>
+      <pubDate>Tue, 01 Nov 2016 00:00:00 +0000</pubDate>
+      
+      <guid>/2016/awsworkshop/</guid>
+      <description>On October 24th I attented a talk by Adrian White about using Amazon AWS for research. Below are my notes, not extensively annotated, in the hope that they&amp;rsquo;ll be useful for someone. If something is not clear, please ask in the comments, and I&amp;rsquo;ll try to answer to the best of my knowledge
+161024_AWS workshop  SciTeam ~10 ppl  Overview of AWS services  If you need to make your data available you have availability zones.</description>
+    </item>
+    
+    <item>
+      <title>PyConAU 2016 Presentation</title>
+      <link>/2016/pycon2016/</link>
+      <pubDate>Fri, 12 Aug 2016 00:00:00 +0000</pubDate>
+      
+      <guid>/2016/pycon2016/</guid>
+      <description>I presented a talk on Big data biology for pythonistas: getting in on the genomics revolution at PyCon Au 2016.
+In the abstract, I promised the following:
+  In 2001 Bill Clinton unveiled &amp;ldquo;the most important, most wondrous map ever produced by humankind&amp;rdquo; - the human genome. This monumental endeavour cost \$3 billion, and took hundreds of scientists from all over the world 13 years. Today, a single person can generate such a map in ~2 days for $1000.</description>
+    </item>
+    
+    <item>
+      <title>Lorne Genome 2012 poster</title>
+      <link>/2014/lorne2012poster/</link>
+      <pubDate>Mon, 24 Mar 2014 00:00:00 +0000</pubDate>
+      
+      <guid>/2014/lorne2012poster/</guid>
+      <description>Better late than never: my now-published Lorne Genome 2012 poster</description>
+    </item>
+    
+    <item>
+      <title>2013 ciRNA papers</title>
+      <link>/2013/cirnapapers/</link>
+      <pubDate>Sat, 13 Jul 2013 00:00:00 +0000</pubDate>
+      
+      <guid>/2013/cirnapapers/</guid>
+      <description>A presentation I made for a journal club on the &amp;ldquo;1st&amp;rdquo; 3 ciRNA papers
+ </description>
+    </item>
+    
+    <item>
+      <title>Hello World!</title>
+      <link>/2013/helloworld/</link>
+      <pubDate>Sat, 13 Jul 2013 00:00:00 +0000</pubDate>
+      
+      <guid>/2013/helloworld/</guid>
+      <description>This is the 1st post for this new Jekyll-powered blog.
+Welcome to my blog!</description>
+    </item>
+    
+    <item>
+      <title>About me</title>
+      <link>/about/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/about/</guid>
+      <description>Hi! I&amp;rsquo;m Darya, a Data Scientist &amp;amp; Data Analytics trainer with a background in genomics and bioinformatics. I work at the University of Sydney&amp;rsquo;s Informatics Hub, where I develop advanced analytics training for research staff at the university and lend my data science and coding snafu to projects with university partners.
+ I hold a PhD in Genomics and Bioinformatics from the University of Queensland, where I investigated novel ncRNA transcription in human and mouse stem cell and nervous system development.</description>
+    </item>
+    
+    <item>
+      <title>Contact</title>
+      <link>/contact/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/contact/</guid>
+      <description> Physical address Sydney Informatics Hub 32 Queen Street Ground Floor Camperdown NSW 2008 T +61 4 2088 9939 | Skype: darya_van Electronic address d.[lastname] at gmail [dot] com
+Links to other websites  GitHub Academia.edu Epernicus Figshare ORCID  ResearchGate Slideshare  Google Scholar  </description>
+    </item>
+    
+    <item>
+      <title>Curriculum vitae</title>
+      <link>/cv/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/cv/</guid>
+      <description>Please download [my full curriculum vitae]() or an [infographic version]().</description>
+    </item>
+    
+    <item>
+      <title>Training</title>
+      <link>/training/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/training/</guid>
+      <description>I develop and deliver training for researchers at the University of Sydney. Please see here for upcoming courses.
+Recently, I:
+ Developed and delivered a 3&amp;frasl;4 day RNA-seq data analysis course using R + HPC. Slides. Co-developed and delivered a 2 day Machine learning using R course (Sydney Uni access only). Co-organised, co-developed python and machine learning content for and co-delivered a 5 day Business School Data Science Summer School (Sydney Uni access only), including running a data hackathon for the attendees.</description>
+    </item>
+    
+  </channel>
+</rss>
