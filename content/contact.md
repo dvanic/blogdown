@@ -5,16 +5,13 @@ title: Contact
 
 #### Physical address
 
-
     Sydney Informatics Hub
     32 Queen Street
     Ground Floor
     Camperdown NSW 2008
     T +61 4 2088 9939 | Skype: darya_van
-
 #### Electronic address
 d.[lastname] at gmail [dot] com
-
 #### Links to other websites
 * <a href="https://github.com/dvanic">GitHub</a>
 * <a href="http://uq.academia.edu/DaryaVanichkina">Academia.edu</a>

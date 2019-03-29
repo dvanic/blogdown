@@ -17,10 +17,10 @@
       <pubDate>Fri, 29 Mar 2019 00:00:00 +0000</pubDate>
       
       <guid>/2019/moving-to-hugo/</guid>
-      <description>I&amp;rsquo;m finally making the leap, and (hopefully) moving this website to Hugo + blogdown + gitlab + netlify.
+      <description>I&amp;rsquo;m finally making the leap, and (hopefully) moving this website to blogdown + hugo + gitlab + netlify.
 So far, useful resources for wrapping my head around how to do this:
- Alison Presmanes Hill&amp;rsquo;s documentation Non-blogdown specific very detailed outlined (for future reference, when I want to add new page types)   Things that don&amp;rsquo;t seem to work:
- Math! 😭 (but, hey, emoji do!) FontAwesome &amp;ldquo;social&amp;rdquo; icons apart from the default (but I think this is something I need to figure out)  </description>
+ Alison Presmanes Hill&amp;rsquo;s documentation Very useful gotcha for configuring Netlify Non-blogdown specific very detailed outlined (for future reference, when I want to add new page types)  Things that don&amp;rsquo;t seem to work:
+ Math! 😭 (but, hey, emoji do!</description>
     </item>
     
     <item>
