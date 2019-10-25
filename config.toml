@@ -17,12 +17,12 @@ enableEmoji = true
 disqusShortname = "dvanic"
 
 [params]
-    author = "Darya Vanichkina"
+    author = "Darya Vanichkina PhD"
     description = "Darya Vanichkina's personal website"
-    keywords = "data scientist, bioinformatician, teacher"
-    info = "Data Scientist & Data Analytics Trainer"
-    avatarurl = "images/myAvatar.png"
-    footercontent = "Bioinformatics and Genomics PhD"
+    keywords = "data scientist, bioinformatician, teacher, educator"
+    info = "Data Scientist & Professional Educator"
+    avatarurl = "images/daryaVhead1.jpg"
+    footercontent = ""
 
     dateformat = "January 2, 2006"
 
