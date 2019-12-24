@@ -113,16 +113,6 @@ function has the strata argument, which allows us to select which variable to st
     </item>
     
     <item>
-      <title></title>
-      <link>/1/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>/1/</guid>
-      <description>R for Data Science Day 1 Darya Vanichkina 2019-12-04
-I am incredibly excited that RStudio has begun an instructor certification program based on the Carpentries, so of course I signed up as soon as my overcommited nature allowed! This also provides me with the excuse and motivation to finally formally work my way through R for Data Science, a book I have read while waiting for GTT tests during my pregnancy and google-landed upon an umpteen number of times while debugging code, but never taken the time to sit down and do the exercises for - and of course the pedagogue in me knows quite well that THAT is how you actually learn and internalise the principles and concepts in any material, especially if it deals with programming and analysis.</description>
-    </item>
-    
-    <item>
       <title>About me</title>
       <link>/about/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
