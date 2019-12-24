@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="author" content="Darya Vanichkina PhD">
+    <meta name="description" content="Darya Vanichkina&#39;s personal website">
+    <meta name="keywords" content="data scientist, bioinformatician, teacher, educator">
+
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content=""/>
+<meta name="twitter:description" content="R for Data Science Day 1 Darya Vanichkina 2019-12-04
+I am incredibly excited that RStudio has begun an instructor certification program based on the Carpentries, so of course I signed up as soon as my overcommited nature allowed! This also provides me with the excuse and motivation to finally formally work my way through R for Data Science, a book I have read while waiting for GTT tests during my pregnancy and google-landed upon an umpteen number of times while debugging code, but never taken the time to sit down and do the exercises for - and of course the pedagogue in me knows quite well that THAT is how you actually learn and internalise the principles and concepts in any material, especially if it deals with programming and analysis."/>
+
+    <meta property="og:title" content="" />
+<meta property="og:description" content="R for Data Science Day 1 Darya Vanichkina 2019-12-04
+I am incredibly excited that RStudio has begun an instructor certification program based on the Carpentries, so of course I signed up as soon as my overcommited nature allowed! This also provides me with the excuse and motivation to finally formally work my way through R for Data Science, a book I have read while waiting for GTT tests during my pregnancy and google-landed upon an umpteen number of times while debugging code, but never taken the time to sit down and do the exercises for - and of course the pedagogue in me knows quite well that THAT is how you actually learn and internalise the principles and concepts in any material, especially if it deals with programming and analysis." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/1/" />
+
+
+
+    
+      <base href="/1/">
+    
+    <title>
+   · Darya Vanichkina
+</title>
+
+    
+      <link rel="canonical" href="/1/">
+    
+
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700%7CMerriweather:300,700%7CSource+Code+Pro:400,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css" integrity="sha256-oSrCnRYXvHG31SBifqP2PM1uje7SJUyX0nTwO2RJV54=" crossorigin="anonymous" />
+
+    
+      
+      
+      <link rel="stylesheet" href="/css/coder.min.28d751104f30c16da1aa1bb04015cbe662cacfe0d1b01af4f2240ad58580069c.css" integrity="sha256-KNdREE8wwW2hqhuwQBXL5mLKz&#43;DRsBr08iQK1YWABpw=" crossorigin="anonymous" media="screen" />
+    
+
+    
+
+    
+      
+        
+        
+        <link rel="stylesheet" href="/css/coder-inverted.min.b275a7d098cfe39135a5644e9c6d811e77fc4bdeac01e8e339c7d767146340a8.css" integrity="sha256-snWn0JjP45E1pWROnG2BHnf8S96sAejjOcfXZxRjQKg=" crossorigin="anonymous" media="screen" />
+      
+    
+
+    
+      <link rel="stylesheet" href="/static/css/custom.css">
+    
+
+    <link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="/images/favicon-16x16.png" sizes="16x16">
+
+    <meta name="generator" content="Hugo 0.54.0" />
+  </head>
+
+  <body class=" inverted">
+    <main class="wrapper">
+      <nav class="navigation">
+  <section class="container">
+    <a class="navigation-title" href="/">
+      Darya Vanichkina
+    </a>
+    <input type="checkbox" id="menu-toggle" />
+    <label class="menu-button float-right" for="menu-toggle"><i class="fas fa-bars"></i></label>
+    <ul class="navigation-list">
+      
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="/about/">About</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="/post/">Blog</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="/training/">Training</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="/contact/">Contact</a>
+          </li>
+        
+      
+      
+    </ul>
+  </section>
+</nav>
+
+
+      <div class="content">
+        
+  <section class="container page">
+  <article>
+    <header>
+      <h1></h1>
+    </header>
+
+    
+
+<h1 id="r-for-data-science-day-1">R for Data Science Day 1</h1>
+
+<p>Darya Vanichkina
+2019-12-04</p>
+
+<p>I am incredibly excited that RStudio has begun an <a href="https://education.rstudio.com/trainers/">instructor
+certification program</a> based on
+the Carpentries, so of course I signed up as soon as my overcommited
+nature allowed! This also provides me with the excuse and motivation to
+finally formally work my way through <a href="https://r4ds.had.co.nz/">R for Data
+Science</a>, a book I have read while waiting for
+GTT tests during my pregnancy and google-landed upon an umpteen number
+of times while debugging code, but never taken the time to sit down and
+do the exercises for - and of course the pedagogue in me knows quite
+well that THAT is how you actually learn and internalise the principles
+and concepts in any material, especially if it deals with programming
+and analysis. So over the next few weeks I plan to work my way through
+R4DS, and this post is the first in which I dive into the exercises.</p>
+
+<h2 id="notes-on-1-introduction">Notes on 1 Introduction</h2>
+
+<p>Steps of the data
+pipeline:</p>
+
+<p><img src="https://d33wubrfki0l68.cloudfront.net/795c039ba2520455d833b4034befc8cf360a70ba/558a5/diagrams/data-science-explore.png" alt="&lt;https://r4ds.had.co.nz/explore-intro.html&gt;" title="Tidy Data Pipeline" /></p>
+
+<ul>
+<li><strong>Import</strong>: take data stored in a file, database, or web API, and
+load it into a data frame in R.</li>
+</ul>
+
+<h3 id="wrangling">Wrangling:</h3>
+
+<ul>
+<li><p><strong>Tidying</strong> - storing data in a consistent form that matches the
+semantics of the dataset with the way it is stored. In brief, when
+your data is tidy, each column is a variable, and each row is an
+observation.</p></li>
+
+<li><p><strong>Transformation</strong></p>
+
+<ul>
+<li>narrowing in on observations of interest (like all people in one
+city, or all data from the last year),</li>
+<li>creating new variables that are functions of existing variables
+(like computing speed from distance and time),</li>
+<li>calculating a set of summary statistics (like counts or means).
+Together, tidying and transforming are called wrangling</li>
+</ul></li>
+</ul>
+
+<h2 id="small-data-vs-big-data">Small data vs big data</h2>
+
+<ul>
+<li>Small/medium data: hundreds of megabytes of data, and with a little
+care up to 1-2 Gb of data.</li>
+<li>If you’re routinely working with larger data (10-100 Gb, say), you
+should learn more about data.table.</li>
+</ul>
+
+<h2 id="is-big-data-really-big-two-ways-of-thinking-small-about-big-data">Is big data really big? Two ways of thinking small about big data</h2>
+
+<h3 id="sampling">Sampling</h3>
+
+<p>Sampling may be enough to answer the
+question.</p>
+
+<h3 id="your-vig-data-problem-is-actually-a-large-number-of-small-data-problems">Your vig data problem is actually a large number of small data problems</h3>
+
+<ul>
+<li>Each individual problem might fit in memory, but you have millions
+of them. For example, you might want to fit a model to each person
+in your dataset. That would be trivial if you had just 10 or 100
+people, but instead you have a million.</li>
+<li>So you need a system (like Hadoop or Spark) that allows you to send
+different datasets to different computers for processing.</li>
+<li>Once you’ve figured out how to answer the question for a single
+subset using the tools described in this book, you can use tools
+like sparklyr, rhipe, and ddr to solve it for the full dataset.</li>
+</ul>
+
+<h2 id="notes-on-2-introduction">Notes on 2 Introduction</h2>
+
+<p>Data exploration is the art of looking at your data, rapidly generating
+hypotheses, quickly testing them, then repeating again and again and
+again.</p>
+
+<hr />
+
+<h2 id="exercises-on-3-data-visualisation">Exercises on 3 Data Visualisation</h2>
+
+<h3 id="3-2-4-exercises">3.2.4 Exercises</h3>
+
+<ol>
+<li>Run ggplot(data = mpg). What do you
+see?</li>
+</ol>
+
+<!-- end list -->
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#fff;font-weight:bold">library</span>(tidyverse)</code></pre></div><div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4">## ── Attaching packages ─────────────────────────────────────────────────────────── tidyverse 1.3.0 ──
+
+## ✓ ggplot2 3.2.1     ✓ purrr   0.3.3
+## ✓ tibble  2.1.3     ✓ dplyr   0.8.3
+## ✓ tidyr   1.0.0     ✓ stringr 1.4.0
+## ✓ readr   1.3.1     ✓ forcats 0.4.0
+
+## ── Conflicts ────────────────────────────────────────────────────────────── tidyverse_conflicts() ──
+## x dplyr::filter() masks stats::filter()
+## x dplyr::lag()    masks stats::lag()</pre></div><div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">ggplot(data = mpg)</code></pre></div>
+<p><img src="2019-12-04-r-for-data-science-day-1_files/figure-gfm/ex3241-1.png" alt="" /><!-- --></p>
+
+<p>Nothing, because we haven’t selected a geom.</p>
+
+<ol>
+<li>How many rows are in mpg? How many columns?</li>
+</ol>
+
+<!-- end list -->
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#fff;font-weight:bold">nrow</span>(mpg)</code></pre></div><div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4">## [1] 234</pre></div><div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#fff;font-weight:bold">ncol</span>(mpg)</code></pre></div><div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4">## [1] 11</pre></div><div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#fff;font-weight:bold">dim</span>(mpg)</code></pre></div><div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4">## [1] 234  11</pre></div>
+<ol>
+<li>What does the drv variable describe? Read the help for ?mpg to find
+out.</li>
+</ol>
+
+<!-- end list -->
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">?mpg</code></pre></div>
+<ul>
+<li>f = front-wheel drive, r = rear wheel drive, 4 = 4wd</li>
+</ul>
+
+<p>4.Make a scatterplot of hwy vs cyl.</p>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#007f7f"># set all ggplot figures to use minimal theme</span>
+theme_set(theme_minimal())
+mpg %&gt;%
+  ggplot(aes(x = cyl, y = hwy)) + geom_point()</code></pre></div>
+<p><img src="2019-12-04-r-for-data-science-day-1_files/figure-gfm/ex3244-1.png" alt="" /><!-- --></p>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#007f7f"># use transparency and jitter to make the points separate better</span>
+mpg %&gt;%
+  ggplot(aes(x = cyl, y = hwy)) + geom_jitter(width = <span style="color:#ff0;font-weight:bold">0.4</span>, alpha = <span style="color:#ff0;font-weight:bold">0.5</span>)</code></pre></div>
+<p><img src="2019-12-04-r-for-data-science-day-1_files/figure-gfm/ex3244-2.png" alt="" /><!-- --></p>
+
+<ol>
+<li>What happens if you make a scatterplot of class vs drv? Why is the
+plot not useful?</li>
+</ol>
+
+<!-- end list -->
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">theme_set(theme_minimal())
+mpg %&gt;%
+  ggplot(aes(x = <span style="color:#fff;font-weight:bold">class</span>, y = drv)) + geom_point()</code></pre></div>
+<p><img src="2019-12-04-r-for-data-science-day-1_files/figure-gfm/ex3245-1.png" alt="" /><!-- --></p>
+
+<p>Because it is plotting a category vs a category, so most of the space in
+the plot cannot be filled. However, I’d argue that it’s not completely
+useless as it does show that all 2 seater cars have rear wheel drive,
+while all minivans have forward wheel drive.</p>
+
+<p>The barplot below probably presents a better visualisation, as it also
+shows that we may not have sampled enough 2 seater vehicles to identify
+whether any of them could possibly have forward drive. Having said that,
+I do like the dot-plot visualisation as well.</p>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">theme_set(theme_minimal())
+mpg %&gt;%
+  ggplot(aes(x = <span style="color:#fff;font-weight:bold">class</span>, fill = drv)) + geom_bar()</code></pre></div>
+<p><img src="2019-12-04-r-for-data-science-day-1_files/figure-gfm/ex3245b-1.png" alt="" /><!-- --></p>
+
+<hr />
+
+<p>3.3.1</p>
+
+  </article>
+</section>
+
+
+      </div>
+
+      <footer class="footer">
+  <section class="container">
+    
+    
+    
+    
+  </section>
+
+</footer>
+
+    </main>
+
+    
+
+  </body>
+
+</html>
