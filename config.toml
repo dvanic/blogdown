@@ -100,7 +100,9 @@ disqusShortname = "dvanicw"
     "disquscdn.com",
     "*.disqus.com",
     "*.disquscdn.com",
-    "*.slideshare.net"]
+    "*.slideshare.net",
+    "*.figshare.com",
+    ]
 
 
 [languages]
