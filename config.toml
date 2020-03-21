@@ -50,7 +50,7 @@ disqusShortname = "dvanic"
     uglyURLs = true
     
 [permalinks]
-    post = "/:slug/"
+    post = "/posts/:slug/"
 
 [taxonomies]
   series = "series"
