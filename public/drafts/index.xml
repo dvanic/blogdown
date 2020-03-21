@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Drafts on Darya Vanichkina</title>
@@ -11,12 +11,12 @@
     
     
     <item>
-      <title></title>
-      <link>/drafts/2019-12-12-r2pyml/</link>
+      <title>Moving Machine Learning from R to python</title>
+      <link>/drafts/2020-ml-r2py/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/drafts/2019-12-12-r2pyml/</guid>
-      <description>As part of a project for work, I needed to port some R machine learning code to python. We weren’t trying to achieve 100% identity of results, instead opting to try to implement things “natively” to the language, and…
+      <guid>/drafts/2020-ml-r2py/</guid>
+      <description>As part of a project for work, I needed to port some R machine learning code to python. We weren&amp;rsquo;t trying to achieve 100% identity of results, instead opting to try to implement things &amp;ldquo;natively&amp;rdquo; to the language, and&amp;hellip;
 The rsample package has the
 initial_split(data, prop = 3/4, strata = NULL, ...)
 function has the strata argument, which allows us to select which variable to stratify with. If this variable is categorical, porting the code to python is easy, as we would use</description>

@@ -28,11 +28,6 @@
   </url>
   
   <url>
-    <loc>/tags/r4ds/</loc>
-    <lastmod>2019-12-04T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>/series/</loc>
     <lastmod>2019-12-04T00:00:00+00:00</lastmod>
   </url>
@@ -112,6 +107,30 @@
   
   <url>
     <loc>/cv/</loc>
+  </url>
+  
+  <url>
+    <loc>/tags/data-science/</loc>
+  </url>
+  
+  <url>
+    <loc>/drafts/</loc>
+  </url>
+  
+  <url>
+    <loc>/tags/machine-learning/</loc>
+  </url>
+  
+  <url>
+    <loc>/drafts/2020-ml-r2py/</loc>
+  </url>
+  
+  <url>
+    <loc>/tags/python/</loc>
+  </url>
+  
+  <url>
+    <loc>/series/r-to-python/</loc>
   </url>
   
   <url>

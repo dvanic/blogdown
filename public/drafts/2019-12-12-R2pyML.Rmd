@@ -1,3 +1,19 @@
+---
+title: Moving Machine Learning from R to python
+author: Darya Vanichkina
+date: '2020-00-00'
+layout: post
+slug: 2020-ML-R2py
+series:
+  - R to python
+tags:
+  - machine learning
+  - R
+  - data science
+  - python
+externalLink: ''
+---
+
 As part of a project for work, I needed to port some R machine learning code to python. We weren't trying to achieve 100% identity of results, instead opting to try to implement things "natively" to the language, and...
 
 

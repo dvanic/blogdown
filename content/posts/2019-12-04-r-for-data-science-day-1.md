@@ -5,14 +5,12 @@ date: '2019-12-04'
 layout: post
 slug: 2019-r-for-data-science-day-1
 series:
-  - Certifications
+  - R4DS
 tags:
   - tidyverse
   - R
-  - r4ds
 description: 'Working through the R for Data Science Exercises'
 externalLink: ''
-series: [R4DS]
 ---
 
 I am incredibly excited that RStudio has begun an [instructor certification program](https://education.rstudio.com/trainers/) based on the Carpentries, so of course I signed up as soon as my overcommited nature allowed! This also provides me with the excuse and motivation to finally formally work my way through [R for Data Science](https://r4ds.had.co.nz/), a book I have read while waiting for GTT tests during my pregnancy and google-landed upon an umpteen number of times while debugging code, but never taken the time to sit down and do the exercises for - and of course the pedagogue in me knows quite well that THAT is how you actually learn and internalise the principles and concepts in any material, especially if it deals with programming and analysis. So over the next few weeks I plan to work my way through R4DS, and this post is the first in which I dive into the exercises. 
