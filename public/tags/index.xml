@@ -56,5 +56,32 @@
       <description></description>
     </item>
     
+    <item>
+      <title>data science</title>
+      <link>/tags/data-science/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/data-science/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>machine learning</title>
+      <link>/tags/machine-learning/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/machine-learning/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>python</title>
+      <link>/tags/python/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/python/</guid>
+      <description></description>
+    </item>
+    
   </channel>
 </rss>
