@@ -101,7 +101,7 @@ ggplot(data = diamonds) +
 ggplot(data = diamonds) + 
   geom_bar(mapping = aes(x = 1, fill = clarity)) + coord_polar(theta = "y")
 ```
-![pie chart](../../1912_piechart.png)
+![pie chart](../../images/1912_piechart.png)
 
 - `+ coord_cartesian(xlim = c(1,2), ylim)` - retain outlier
 - `+ xlim()` - remove outlier
