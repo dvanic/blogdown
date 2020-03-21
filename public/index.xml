@@ -96,8 +96,8 @@ Welcome to my blog!</description>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>/about/</guid>
-      <description>Hi! I&amp;rsquo;m Darya, a Data Scientist &amp;amp; Professional Educator. I work at the University of Sydney&amp;rsquo;s Informatics Hub, where I develop advanced analytics training for researchers and consult on data science projects for researchers from across the university&amp;rsquo;s schools and faculties.
-  I hold a PhD in Genomics and Bioinformatics from the University of Queensland, where I investigated novel ncRNA transcription in human and mouse stem cell and nervous system development.</description>
+      <description>Hi! I&amp;rsquo;m Darya, a Data Scientist &amp;amp; Professional Educator. I work at the University of Sydney&amp;rsquo;s Informatics Hub as a data science consultant, supporting researchers from across the university by solving their big (and not-so-big) data problems. I also coordinate SIH&amp;rsquo;s data science training program, where I mentor staff in best teaching practices, develop and deliver advanced analytics training for researchers.
+I&amp;rsquo;m passionate about using data to understand the world, and love solving real problems using data science, machine learning, statistics and high-performance/cloud computing.</description>
     </item>
     
     <item>
@@ -106,8 +106,8 @@ Welcome to my blog!</description>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>/contact/</guid>
-      <description>Physical address Sydney Informatics Hub 32 Queen Street Ground Floor Camperdown NSW 2008 T +61 4 2088 9939 | Skype: darya_van  Electronic address d.[lastname] at gmail [dot] com
-Links to other websites  GitHub Academia.edu Epernicus Figshare ORCID  ResearchGate Slideshare  Google Scholar  </description>
+      <description>Electronic address d.[lastname] at gmail [dot] com
+Physical address Sydney Informatics Hub 32 Queen Street Ground Floor Chippendale NSW 2008  Links to other websites  GitHub Academia.edu Figshare ORCID  ResearchGate Slideshare  Google Scholar  </description>
     </item>
     
     <item>
@@ -137,9 +137,9 @@ function has the strata argument, which allows us to select which variable to st
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>/training/</guid>
-      <description>I develop and deliver training for researchers at the University of Sydney. Please see here for upcoming courses.
-Recently, I:
- Developed and delivered a 3/4 day RNA-seq data analysis course using R + HPC. Slides. Co-developed and delivered a 2 day Machine learning using R course (Sydney Uni access only). Co-organised, co-developed python and machine learning content for and co-delivered a 5 day Business School Data Science Summer School (Sydney Uni access only), including running a data hackathon for the attendees.</description>
+      <description>I am a Fellow of the UK Higher Education Academy (FHEA) and am passionate about using evidence-based teaching practices for supporting adult leaners in developing digital skills.
+As part of my role at the Sydney Informatics Hub, I develop and deliver training for researchers at the University of Sydney. Please see here for upcoming courses. Recently, I:
+ Developed and delivered a 2 day Machine learning using R course (Sydney Uni access only).</description>
     </item>
     
   </channel>

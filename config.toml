@@ -35,7 +35,7 @@ disqusShortname = "dvanicw"
     rtl = false
 
     # Use inverted colors
-    inverted = true
+    inverted = false
 
     # Series see also post count
     maxSeeAlsoItems = 5
