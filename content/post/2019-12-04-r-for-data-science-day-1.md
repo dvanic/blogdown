@@ -86,7 +86,7 @@ Sampling may be enough to answer the question.
 ggplot(data = diamonds) + geom_bar(aes(x = cut, y = ..count.. / sum(..count..), fill = color))
 ```
 
-![Ggplot proportion chart](./fig/ggplotproportion.png)
+![Ggplot proportion chart](../../images/1912_ggplotproportion.png)
 
 ```
 # not really new, but I'm sure I'll forget position = "fill"
@@ -94,14 +94,14 @@ ggplot(data = diamonds) +
   geom_bar(mapping = aes(x = cut, fill = clarity), position = "fill")
 ```
 
-![proportion](./fig/1912_proportionchart.png)
+![proportion](../../images/1912_proportionchart.png)
 
 ```
 # pie chart from bar
 ggplot(data = diamonds) + 
   geom_bar(mapping = aes(x = 1, fill = clarity)) + coord_polar(theta = "y")
 ```
-![pie chart](./fig/1912_piechart.png)
+![pie chart](../../1912_piechart.png)
 
 - `+ coord_cartesian(xlim = c(1,2), ylim)` - retain outlier
 - `+ xlim()` - remove outlier
@@ -195,8 +195,7 @@ select(flights, time_hour, air_time, everything())
 
 ### Very clear table of ggplot stats (from [here](https://jrnold.github.io/r4ds-exercise-solutions/data-visualisation.html))
 
-
-| stat | default geom | shared docs | 
+| stat | default geom | shared docs |
 | :------ | :------ | :------ |
 | stat_ecdf() | geom_step() | | 
 | stat_ellipse() | geom_path() | | 
@@ -207,24 +206,25 @@ select(flights, time_hour, air_time, everything())
 | stat_summary_bin() | geom_pointrange() | | 
 | stat_summary() | geom_pointrange() | | 
 | stat_unique() | geom_point() | | 
-| stat_count() | geom_bar() |x |
-| stat_bin_2d() | geom_tile() |x |
-| stat_boxplot() | geom_boxplot() |x |
-| stat_countour() | geom_contour() |x |
-| stat_sum() | geom_point() |x |
-| stat_density() | geom_area() |x |
-| stat_density_2d() | geom_density_2d() |x |
-| stat_bin_hex() | geom_hex() |x |
-| stat_bin() | geom_bar() |x |
-| stat_qq_line() | geom_path() |x |
-| stat_qq() | geom_point() |x |
-| stat_quantile() | geom_quantile() |x |
-| stat_smooth() | geom_smooth() |x |
-| stat_ydensity() | geom_violin() |x |
-| stat_sf() | geom_rect() |x |
+| stat_count() | geom_bar() | x |
+| stat_bin_2d() | geom_tile() | x |
+| stat_boxplot() | geom_boxplot() | x |
+| stat_countour() | geom_contour() | x |
+| stat_sum() | geom_point() | x |
+| stat_density() | geom_area() | x |
+| stat_density_2d() | geom_density_2d() | x |
+| stat_bin_hex() | geom_hex() | x |
+| stat_bin() | geom_bar() | x |
+| stat_qq_line() | geom_path() | x |
+| stat_qq() | geom_point() | x |
+| stat_quantile() | geom_quantile() | x |
+| stat_smooth() | geom_smooth() | x |
+| stat_ydensity() | geom_violin() | x |
+| stat_sf() | geom_rect() | x |
 
 
-## 
+
+
 
 
 

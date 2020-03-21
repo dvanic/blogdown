@@ -191,15 +191,15 @@ theme_set(theme_minimal())</pre></div>
 <div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4">ggplot(data = diamonds) + geom_bar(aes(x = cut, y = ..count.. / sum(..count..), fill = color))</pre></div></li>
 </ul>
 
-<p><img src="./fig/ggplotproportion.png" alt="Ggplot proportion chart" /></p>
+<p><img src="../../images/1912_ggplotproportion.png" alt="Ggplot proportion chart" /></p>
 <div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"># not really new, but I&#39;m sure I&#39;ll forget position = &#34;fill&#34;
 ggplot(data = diamonds) + 
   geom_bar(mapping = aes(x = cut, fill = clarity), position = &#34;fill&#34;)</pre></div>
-<p><img src="./fig/1912_proportionchart.png" alt="proportion" /></p>
+<p><img src="../../images/1912_proportionchart.png" alt="proportion" /></p>
 <div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"># pie chart from bar
 ggplot(data = diamonds) + 
   geom_bar(mapping = aes(x = 1, fill = clarity)) + coord_polar(theta = &#34;y&#34;)</pre></div>
-<p><img src="./fig/1912_piechart.png" alt="pie chart" /></p>
+<p><img src="../../1912_piechart.png" alt="pie chart" /></p>
 
 <ul>
 <li><code>+ coord_cartesian(xlim = c(1,2), ylim)</code> - retain outlier</li>
@@ -516,32 +516,161 @@ time_hour           air_time  year month   day dep_time sched_dep_time dep_delay
 
 <h3 id="very-clear-table-of-ggplot-stats-from-here-https-jrnold-github-io-r4ds-exercise-solutions-data-visualisation-html">Very clear table of ggplot stats (from <a href="https://jrnold.github.io/r4ds-exercise-solutions/data-visualisation.html">here</a>)</h3>
 
-<p>| stat | default geom | shared docs |
-| :&mdash;&mdash; | :&mdash;&mdash; | :&mdash;&mdash; |
-| stat_ecdf() | geom_step() | |
-| stat_ellipse() | geom_path() | |
-| stat_function() | geom_path() | |
-| stat_identity() | geom_point() | |
-| stat_summary_2d() | geom_tile() | |
-| stat_summary_hex() | geom_hex() | |
-| stat_summary_bin() | geom_pointrange() | |
-| stat_summary() | geom_pointrange() | |
-| stat_unique() | geom_point() | |
-| stat_count() | geom_bar() |x |
-| stat_bin_2d() | geom_tile() |x |
-| stat_boxplot() | geom_boxplot() |x |
-| stat_countour() | geom_contour() |x |
-| stat_sum() | geom_point() |x |
-| stat_density() | geom_area() |x |
-| stat_density_2d() | geom_density_2d() |x |
-| stat_bin_hex() | geom_hex() |x |
-| stat_bin() | geom_bar() |x |
-| stat_qq_line() | geom_path() |x |
-| stat_qq() | geom_point() |x |
-| stat_quantile() | geom_quantile() |x |
-| stat_smooth() | geom_smooth() |x |
-| stat_ydensity() | geom_violin() |x |
-| stat_sf() | geom_rect() |x |</p>
+<table>
+<thead>
+<tr>
+<th align="left">stat</th>
+<th align="left">default geom</th>
+<th align="left">shared docs</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="left">stat_ecdf()</td>
+<td align="left">geom_step()</td>
+<td align="left"></td>
+</tr>
+
+<tr>
+<td align="left">stat_ellipse()</td>
+<td align="left">geom_path()</td>
+<td align="left"></td>
+</tr>
+
+<tr>
+<td align="left">stat_function()</td>
+<td align="left">geom_path()</td>
+<td align="left"></td>
+</tr>
+
+<tr>
+<td align="left">stat_identity()</td>
+<td align="left">geom_point()</td>
+<td align="left"></td>
+</tr>
+
+<tr>
+<td align="left">stat_summary_2d()</td>
+<td align="left">geom_tile()</td>
+<td align="left"></td>
+</tr>
+
+<tr>
+<td align="left">stat_summary_hex()</td>
+<td align="left">geom_hex()</td>
+<td align="left"></td>
+</tr>
+
+<tr>
+<td align="left">stat_summary_bin()</td>
+<td align="left">geom_pointrange()</td>
+<td align="left"></td>
+</tr>
+
+<tr>
+<td align="left">stat_summary()</td>
+<td align="left">geom_pointrange()</td>
+<td align="left"></td>
+</tr>
+
+<tr>
+<td align="left">stat_unique()</td>
+<td align="left">geom_point()</td>
+<td align="left"></td>
+</tr>
+
+<tr>
+<td align="left">stat_count()</td>
+<td align="left">geom_bar()</td>
+<td align="left">x</td>
+</tr>
+
+<tr>
+<td align="left">stat_bin_2d()</td>
+<td align="left">geom_tile()</td>
+<td align="left">x</td>
+</tr>
+
+<tr>
+<td align="left">stat_boxplot()</td>
+<td align="left">geom_boxplot()</td>
+<td align="left">x</td>
+</tr>
+
+<tr>
+<td align="left">stat_countour()</td>
+<td align="left">geom_contour()</td>
+<td align="left">x</td>
+</tr>
+
+<tr>
+<td align="left">stat_sum()</td>
+<td align="left">geom_point()</td>
+<td align="left">x</td>
+</tr>
+
+<tr>
+<td align="left">stat_density()</td>
+<td align="left">geom_area()</td>
+<td align="left">x</td>
+</tr>
+
+<tr>
+<td align="left">stat_density_2d()</td>
+<td align="left">geom_density_2d()</td>
+<td align="left">x</td>
+</tr>
+
+<tr>
+<td align="left">stat_bin_hex()</td>
+<td align="left">geom_hex()</td>
+<td align="left">x</td>
+</tr>
+
+<tr>
+<td align="left">stat_bin()</td>
+<td align="left">geom_bar()</td>
+<td align="left">x</td>
+</tr>
+
+<tr>
+<td align="left">stat_qq_line()</td>
+<td align="left">geom_path()</td>
+<td align="left">x</td>
+</tr>
+
+<tr>
+<td align="left">stat_qq()</td>
+<td align="left">geom_point()</td>
+<td align="left">x</td>
+</tr>
+
+<tr>
+<td align="left">stat_quantile()</td>
+<td align="left">geom_quantile()</td>
+<td align="left">x</td>
+</tr>
+
+<tr>
+<td align="left">stat_smooth()</td>
+<td align="left">geom_smooth()</td>
+<td align="left">x</td>
+</tr>
+
+<tr>
+<td align="left">stat_ydensity()</td>
+<td align="left">geom_violin()</td>
+<td align="left">x</td>
+</tr>
+
+<tr>
+<td align="left">stat_sf()</td>
+<td align="left">geom_rect()</td>
+<td align="left">x</td>
+</tr>
+</tbody>
+</table>
 
   </article>
 </section>
