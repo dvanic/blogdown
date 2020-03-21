@@ -1,7 +1,7 @@
 ---
 layout: post
 date: "2016-11-01"
-slug: AWSworkshop
+slug: 2016-AWSworkshop
 title: Amazon AWS workshop at the University of Sydney
 comments: true
 tags:

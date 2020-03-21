@@ -2,7 +2,7 @@
 title: "2013 ciRNA papers"
 date: '2013-07-13'
 layout: post
-slug: ciRNApapers
+slug: 2013-ciRNApapers
 comments: yes
 ---
 A presentation I made for a journal club on the "1st" 3 ciRNA papers

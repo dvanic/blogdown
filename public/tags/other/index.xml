@@ -13,10 +13,10 @@
     
     <item>
       <title>Moving to Hugo</title>
-      <link>/2019/moving-to-hugo/</link>
+      <link>/2019-moving-to-hugo/</link>
       <pubDate>Fri, 29 Mar 2019 00:00:00 +0000</pubDate>
       
-      <guid>/2019/moving-to-hugo/</guid>
+      <guid>/2019-moving-to-hugo/</guid>
       <description>I&amp;rsquo;m finally making the leap, and (hopefully) moving this website to blogdown + hugo + gitlab + netlify.
 So far, useful resources for wrapping my head around how to do this:
  Alison Presmanes Hill&amp;rsquo;s documentation Very useful gotcha for configuring Netlify Non-blogdown specific very detailed outlined (for future reference, when I want to add new page types)  Things that don&amp;rsquo;t seem to work:
@@ -25,10 +25,10 @@ So far, useful resources for wrapping my head around how to do this:
     
     <item>
       <title>Training the trainer presentation</title>
-      <link>/2018/ands/</link>
+      <link>/2018-ands/</link>
       <pubDate>Tue, 20 Feb 2018 00:00:00 +0000</pubDate>
       
-      <guid>/2018/ands/</guid>
+      <guid>/2018-ands/</guid>
       <description>Presentation on Carpentry Instructor Training - “Training the trainers” given at ANDS Data Seminar.</description>
     </item>
     

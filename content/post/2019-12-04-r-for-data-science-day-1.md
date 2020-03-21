@@ -2,7 +2,8 @@
 title: R for Data Science Day 1
 author: Darya Vanichkina
 date: '2019-12-04'
-slug: r-for-data-science-day-1
+layout: post
+slug: 2019-r-for-data-science-day-1
 categories:
   - Certifications
 tags:

@@ -2,7 +2,7 @@
 title: Moving to Hugo
 author: Darya Vanichkina
 date: '2019-03-29'
-slug: moving-to-hugo
+slug: 2019-moving-to-hugo
 categories:
   - Other
 tags:

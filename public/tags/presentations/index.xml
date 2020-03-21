@@ -12,11 +12,11 @@
     
     
     <item>
-      <title>PyConAU 2016 Presentation</title>
-      <link>/2016/pycon2016/</link>
+      <title>2016-PyConAU 2016 Presentation</title>
+      <link>/pycon2016/</link>
       <pubDate>Fri, 12 Aug 2016 00:00:00 +0000</pubDate>
       
-      <guid>/2016/pycon2016/</guid>
+      <guid>/pycon2016/</guid>
       <description>I presented a talk on Big data biology for pythonistas: getting in on the genomics revolution at PyCon Au 2016.
 In the abstract, I promised the following:
   In 2001 Bill Clinton unveiled &amp;ldquo;the most important, most wondrous map ever produced by humankind&amp;rdquo; - the human genome. This monumental endeavour cost \$3 billion, and took hundreds of scientists from all over the world 13 years. Today, a single person can generate such a map in ~2 days for $1000.</description>
@@ -24,10 +24,10 @@ In the abstract, I promised the following:
     
     <item>
       <title>Lorne Genome 2012 poster</title>
-      <link>/2014/lorne2012poster/</link>
+      <link>/2014-lorne2012poster/</link>
       <pubDate>Mon, 24 Mar 2014 00:00:00 +0000</pubDate>
       
-      <guid>/2014/lorne2012poster/</guid>
+      <guid>/2014-lorne2012poster/</guid>
       <description>Better late than never: my now-published Lorne Genome 2012 poster</description>
     </item>
     

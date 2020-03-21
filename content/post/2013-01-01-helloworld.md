@@ -5,7 +5,7 @@ title: Hello World!
 comments: true
 tags: ""
 author: "Darya Vanichkina"
-slug: "helloworld"
+slug: 2013-helloworld
 ---
 This is the 1st post for this new Jekyll-powered blog.
 
