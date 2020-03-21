@@ -6,10 +6,19 @@
     <description>Recent content in presentations on Darya Vanichkina</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Fri, 12 Aug 2016 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 20 Feb 2018 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/tags/presentations/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Training the trainer presentation</title>
+      <link>/posts/2018-ands/</link>
+      <pubDate>Tue, 20 Feb 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/2018-ands/</guid>
+      <description>Presentation on Carpentry Instructor Training - “Training the trainers” given at ANDS Data Seminar.</description>
+    </item>
     
     <item>
       <title>2016-PyConAU 2016 Presentation</title>
@@ -28,7 +37,17 @@ In the abstract, I promised the following:
       <pubDate>Mon, 24 Mar 2014 00:00:00 +0000</pubDate>
       
       <guid>/posts/2014-lorne2012poster/</guid>
-      <description>Better late than never: my now-published Lorne Genome 2012 poster</description>
+      <description>Better late than never: my now-published Lorne Genome 2012 poster:</description>
+    </item>
+    
+    <item>
+      <title>2013 ciRNA papers</title>
+      <link>/posts/2013-cirnapapers/</link>
+      <pubDate>Sat, 13 Jul 2013 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/2013-cirnapapers/</guid>
+      <description>A presentation I made for a journal club on the &amp;ldquo;1st&amp;rdquo; 3 ciRNA papers
+ </description>
     </item>
     
   </channel>

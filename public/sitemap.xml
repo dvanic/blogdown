@@ -58,7 +58,12 @@
   </url>
   
   <url>
-    <loc>/series/archive/</loc>
+    <loc>/tags/presentations/</loc>
+    <lastmod>2018-02-20T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/series/training/</loc>
     <lastmod>2018-02-20T00:00:00+00:00</lastmod>
   </url>
   
@@ -73,17 +78,12 @@
   </url>
   
   <url>
-    <loc>/tags/seminarnotes/</loc>
+    <loc>/tags/conferences/</loc>
     <lastmod>2016-11-01T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>/posts/pycon2016/</loc>
-    <lastmod>2016-08-12T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tags/presentations/</loc>
     <lastmod>2016-08-12T00:00:00+00:00</lastmod>
   </url>
   

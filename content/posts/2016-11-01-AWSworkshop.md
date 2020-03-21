@@ -3,9 +3,8 @@ layout: post
 date: "2016-11-01"
 slug: 2016-AWSworkshop
 title: Amazon AWS workshop at the University of Sydney
-comments: true
 tags:
-- seminarnotes
+- conferences
 ---
 
 On October 24th I attented a talk by Adrian White about using Amazon AWS for research. Below are my notes, not extensively annotated, in the hope that they'll be useful for someone. If something is not clear, please ask in the comments, and I'll try to answer to the best of my knowledge

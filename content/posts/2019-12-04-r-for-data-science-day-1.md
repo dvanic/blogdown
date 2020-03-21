@@ -4,7 +4,7 @@ author: Darya Vanichkina
 date: '2019-12-04'
 layout: post
 slug: 2019-r-for-data-science-day-1
-categories:
+series:
   - Certifications
 tags:
   - tidyverse

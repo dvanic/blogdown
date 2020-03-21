@@ -2,8 +2,6 @@
 layout: post
 date: "2013-07-13"
 title: Hello World!
-comments: true
-tags: ""
 author: "Darya Vanichkina"
 slug: 2013-helloworld
 ---
