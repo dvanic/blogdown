@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Posts on Darya Vanichkina</title>
@@ -48,7 +48,7 @@ So far, useful resources for wrapping my head around how to do this:
       
       <guid>/posts/2016-awsworkshop/</guid>
       <description>On October 24th I attented a talk by Adrian White about using Amazon AWS for research. Below are my notes, not extensively annotated, in the hope that they&amp;rsquo;ll be useful for someone. If something is not clear, please ask in the comments, and I&amp;rsquo;ll try to answer to the best of my knowledge
-161024_AWS workshop  SciTeam ~10 ppl  Overview of AWS services  If you need to make your data available you have availability zones.</description>
+161024_AWS workshop  SciTeam ~10 ppl  Overview of AWS services   If you need to make your data available you have availability zones.</description>
     </item>
     
     <item>
@@ -59,7 +59,7 @@ So far, useful resources for wrapping my head around how to do this:
       <guid>/posts/pycon2016/</guid>
       <description>I presented a talk on Big data biology for pythonistas: getting in on the genomics revolution at PyCon Au 2016.
 In the abstract, I promised the following:
-  In 2001 Bill Clinton unveiled &amp;ldquo;the most important, most wondrous map ever produced by humankind&amp;rdquo; - the human genome. This monumental endeavour cost \$3 billion, and took hundreds of scientists from all over the world 13 years. Today, a single person can generate such a map in ~2 days for $1000.</description>
+  In 2001 Bill Clinton unveiled &amp;ldquo;the most important, most wondrous map ever produced by humankind&amp;rdquo; - the human genome. This monumental endeavour cost $3 billion, and took hundreds of scientists from all over the world 13 years. Today, a single person can generate such a map in ~2 days for $1000.</description>
     </item>
     
     <item>
@@ -68,7 +68,8 @@ In the abstract, I promised the following:
       <pubDate>Mon, 24 Mar 2014 00:00:00 +0000</pubDate>
       
       <guid>/posts/2014-lorne2012poster/</guid>
-      <description>Better late than never: my now-published Lorne Genome 2012 poster:</description>
+      <description>Better late than never: my now-published Lorne Genome 2012 poster:
+ </description>
     </item>
     
     <item>

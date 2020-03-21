@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
@@ -103,11 +103,6 @@
   </url>
   
   <url>
-    <loc>/drafts/2019-12-12-r2pyml/</loc>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>/about/</loc>
   </url>
   
@@ -117,10 +112,6 @@
   
   <url>
     <loc>/cv/</loc>
-  </url>
-  
-  <url>
-    <loc>/drafts/</loc>
   </url>
   
   <url>

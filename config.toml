@@ -127,3 +127,5 @@ disqusShortname = "dvanicw"
         weight = 5
         url = "/contact/"
 
+[markup.goldmark.renderer]
+unsafe= true

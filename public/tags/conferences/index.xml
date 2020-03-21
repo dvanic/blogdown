@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>conferences on Darya Vanichkina</title>
@@ -18,7 +18,7 @@
       
       <guid>/posts/2016-awsworkshop/</guid>
       <description>On October 24th I attented a talk by Adrian White about using Amazon AWS for research. Below are my notes, not extensively annotated, in the hope that they&amp;rsquo;ll be useful for someone. If something is not clear, please ask in the comments, and I&amp;rsquo;ll try to answer to the best of my knowledge
-161024_AWS workshop  SciTeam ~10 ppl  Overview of AWS services  If you need to make your data available you have availability zones.</description>
+161024_AWS workshop  SciTeam ~10 ppl  Overview of AWS services   If you need to make your data available you have availability zones.</description>
     </item>
     
   </channel>

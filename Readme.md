@@ -8,4 +8,4 @@ It is served via Netlify.
 
 - If working in markdown, place images into the `static/images` folder, and then refer to them via `../../filename.png` in the blog post.
 - Run `blogdown::serve_site()` to test the deployment locally, and `blogdown::build_site()` when you're ready to push up to github. 
-- You can group things into "tags" and "series".
+- You can group things into "tags" and "series". 
