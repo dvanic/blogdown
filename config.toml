@@ -77,7 +77,29 @@ disqusShortname = "dvanic"
     weight = 3
     url = "https://www.linkedin.com/in/daryavanichkina"
 
-    
+ [params.csp]
+  childsrc = ["'self'"]
+  fontsrc = ["'self'"]
+  formaction = ["'self'"]
+  framesrc = ["'self'"]
+  imgsrc = ["'self'"]
+  objectsrc = ["'none'"]
+  stylesrc = ["'self'"]
+  scriptsrc = ["'self'",
+    "'unsafe-inline'",
+    "https://platform.twitter.com",
+    "*.amazon-adsystem.com",
+    "https://www.google-analytics.com",
+    "cse.google.com",
+    "https://www.google.com",
+    "https://pagead2.googlesyndication.com",
+    "https://adservice.google.com",
+    "https://www.googletagservices.com",
+    "www.instagram.com",
+    "disqus.com",
+    "disquscdn.com",
+    "*.disqus.com",
+    "*.disquscdn.com"]
 
 
 [languages]
