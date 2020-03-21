@@ -1,9 +1,9 @@
 ---
+title: "2013 ciRNA papers"
+date: '2013-07-13'
 layout: post
-date: "2013-07-13"
-title: 2013 ciRNA papers
 slug: ciRNApapers
-comments: true
+comments: yes
 ---
 A presentation I made for a journal club on the "1st" 3 ciRNA papers
 

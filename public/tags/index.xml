@@ -6,22 +6,40 @@
     <description>Recent content in Tags on Darya Vanichkina</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sat, 13 Jul 2013 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 04 Dec 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title></title>
-      <link>/tags/</link>
-      <pubDate>Sat, 13 Jul 2013 00:00:00 +0000</pubDate>
+      <title>R</title>
+      <link>/tags/r/</link>
+      <pubDate>Wed, 04 Dec 2019 00:00:00 +0000</pubDate>
       
-      <guid>/tags/</guid>
+      <guid>/tags/r/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Other</title>
+      <title>r4ds</title>
+      <link>/tags/r4ds/</link>
+      <pubDate>Wed, 04 Dec 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/r4ds/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>tidyverse</title>
+      <link>/tags/tidyverse/</link>
+      <pubDate>Wed, 04 Dec 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/tidyverse/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>other</title>
       <link>/tags/other/</link>
       <pubDate>Fri, 29 Mar 2019 00:00:00 +0000</pubDate>
       
@@ -30,34 +48,7 @@
     </item>
     
     <item>
-      <title>Presentations</title>
-      <link>/tags/presentations/</link>
-      <pubDate>Fri, 12 Aug 2016 00:00:00 +0000</pubDate>
-      
-      <guid>/tags/presentations/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>R</title>
-      <link>/tags/r/</link>
-      <pubDate>Mon, 23 Dec 2019 00:00:00 +0000</pubDate>
-      
-      <guid>/tags/r/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>R4ds</title>
-      <link>/tags/r4ds/</link>
-      <pubDate>Mon, 23 Dec 2019 00:00:00 +0000</pubDate>
-      
-      <guid>/tags/r4ds/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Seminarnotes</title>
+      <title>seminarnotes</title>
       <link>/tags/seminarnotes/</link>
       <pubDate>Tue, 01 Nov 2016 00:00:00 +0000</pubDate>
       
@@ -66,11 +57,11 @@
     </item>
     
     <item>
-      <title>Tidyverse</title>
-      <link>/tags/tidyverse/</link>
-      <pubDate>Mon, 23 Dec 2019 00:00:00 +0000</pubDate>
+      <title>presentations</title>
+      <link>/tags/presentations/</link>
+      <pubDate>Fri, 12 Aug 2016 00:00:00 +0000</pubDate>
       
-      <guid>/tags/tidyverse/</guid>
+      <guid>/tags/presentations/</guid>
       <description></description>
     </item>
     
