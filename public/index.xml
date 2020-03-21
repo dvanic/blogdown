@@ -58,8 +58,7 @@ So far, useful resources for wrapping my head around how to do this:
       
       <guid>/posts/pycon2016/</guid>
       <description>I presented a talk on Big data biology for pythonistas: getting in on the genomics revolution at PyCon Au 2016.
-Video See the full video on youtube here.
-Slides   Big data biology for pythonistas: getting in on the genomics revolution  from Darya Vanichkina  Abstract In 2001 Bill Clinton unveiled &amp;ldquo;the most important, most wondrous map ever produced by humankind&amp;rdquo; - the human genome. This monumental endeavour cost $3 billion, and took hundreds of scientists from all over the world 13 years.</description>
+Video  Slides   Big data biology for pythonistas: getting in on the genomics revolution  from Darya Vanichkina  Abstract In 2001 Bill Clinton unveiled &amp;ldquo;the most important, most wondrous map ever produced by humankind&amp;rdquo; - the human genome. This monumental endeavour cost $3 billion, and took hundreds of scientists from all over the world 13 years.</description>
     </item>
     
     <item>
@@ -118,18 +117,6 @@ Links to other websites  GitHub Academia.edu Epernicus Figshare ORCID  ResearchG
       
       <guid>/cv/</guid>
       <description>Please download my full curriculum vitae or an infographic version.</description>
-    </item>
-    
-    <item>
-      <title>Moving Machine Learning from R to python</title>
-      <link>/drafts/2020-ml-r2py/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>/drafts/2020-ml-r2py/</guid>
-      <description>As part of a project for work, I needed to port some R machine learning code to python. We weren&amp;rsquo;t trying to achieve 100% identity of results, instead opting to try to implement things &amp;ldquo;natively&amp;rdquo; to the language, and&amp;hellip;
-The rsample package has the
-initial_split(data, prop = 3/4, strata = NULL, ...)
-function has the strata argument, which allows us to select which variable to stratify with. If this variable is categorical, porting the code to python is easy, as we would use</description>
     </item>
     
     <item>
