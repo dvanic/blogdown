@@ -13,7 +13,7 @@ tags:
 
 With the advent of COVID-19 we’re all having to do the unthinkable, which for an instructor like me means moving hands-on, practical coding workshops online. I've already written a post with a student-facing map of the process (and some tips for students), but I wanted to focus on a few instructor-related aspects of the map in this post.
 
-![mysetup](../../static/images/mysetup2.jpg)
+![mysetup](../../mysetup2.jpg)
 
 
 ## My personal teaching setup

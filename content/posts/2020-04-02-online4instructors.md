@@ -82,13 +82,13 @@ These form the core of our workshops, with sessions of coding along interspersed
 1. Make sure you use/share/project only 1/2 of your screen, and use an appropriate coding "tool" that encompasses everything in that 1/2 screen. This means jupyter notebooks and the terminal are in, but RStudio/a .R script, in it's native implementation, is out - they just take up too much screen real estate! The best work-around I've found so far is to use an Rmarkdown document, with inline output for figures. This is what you get the settings to look like:
 
 <p align="centre">
-![picture alt](../../static/images/200401_RstudioInline.png)
+![picture alt](../../200401_RstudioInline.png)
 </p>
 
 And this is what the learners' screens looked like:
 
 <p align="centre">
-![picture alt](../../static/images/2004_howtoscreen.png)
+![picture alt](../../2004_howtoscreen.png)
 </p>
 
 
