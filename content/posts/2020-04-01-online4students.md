@@ -50,7 +50,7 @@ If you don't have a secondary monitor, there are a few things you can still do. 
 
 1. **Don't** enter full-screen by default when joining a meeting. You can configure this in the Zoom Settings tab. This will allow you to have your instructor's video on 1/2 of your screen, and your own code on the other half.
 
-![General Zoom Settings](../../2003_zoomsettingsGeneral.png)
+![General Zoom Settings](../../images/2003_zoomsettingsGeneral.png)
 
 
 2. Make sure you are always muted by default when you join a meeting, and can selectively unmute!
