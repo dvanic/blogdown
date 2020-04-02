@@ -4,12 +4,42 @@
   
   <url>
     <loc>/</loc>
-    <lastmod>2019-12-04T00:00:00+00:00</lastmod>
+    <lastmod>2020-03-24T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/posts/2020-great-online-learning-student/</loc>
+    <lastmod>2020-03-24T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/series/learning-in-an-online-live-coding-workshop/</loc>
+    <lastmod>2020-03-24T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>/posts/</loc>
-    <lastmod>2019-12-04T00:00:00+00:00</lastmod>
+    <lastmod>2020-03-24T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/series/</loc>
+    <lastmod>2020-03-24T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/</loc>
+    <lastmod>2020-03-24T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/series/training/</loc>
+    <lastmod>2020-03-24T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/zoom/</loc>
+    <lastmod>2020-03-24T00:00:00+00:00</lastmod>
   </url>
   
   <url>
@@ -24,16 +54,6 @@
   
   <url>
     <loc>/series/r4ds/</loc>
-    <lastmod>2019-12-04T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/series/</loc>
-    <lastmod>2019-12-04T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tags/</loc>
     <lastmod>2019-12-04T00:00:00+00:00</lastmod>
   </url>
   
@@ -54,11 +74,6 @@
   
   <url>
     <loc>/tags/presentations/</loc>
-    <lastmod>2018-02-20T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/series/training/</loc>
     <lastmod>2018-02-20T00:00:00+00:00</lastmod>
   </url>
   
