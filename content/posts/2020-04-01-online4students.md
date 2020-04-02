@@ -6,16 +6,15 @@ layout: post
 slug: 2020-great-online-learning-student
 series:
   - Learning in an online live coding workshop
-  - Training
 tags:
-  - zoom
+  - training
 ---
 
 With the advent of COVID-19 we’re all having to do the unthinkable, which for an instructor like me means moving hands-on, practical coding workshops online. In this post, I'll outline a few key things you can do as a **learner** to have what is hopefully the best possible experience attending synchronous online training.
 
-<p align="centre">
-![picture alt](https://images.unsplash.com/photo-1534481016308-0fca71578ae5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60)
-</p>
+
+![airplane](https://images.unsplash.com/photo-1534481016308-0fca71578ae5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=100)
+
 
 ### 1. Follow your instructor's instructions
 #### Install all the things - and test them
@@ -32,6 +31,9 @@ If you have an older machine, can't update some packages OR are getting errors:
 3. Let your instructors/TAs know as soon as possible, for example via email. Attach a screenshot of the error, and a link to any Google stuff you found - this will help them solve the problem faster.
 4. If you're working on an older machine and can't get the things you need working: if you email them your instructors will know in advance. This means they may be able to provide you with access to Google Colab or RStudio Cloud or another platform, where you are likely to be able to do most if not all of the things - but these require advanced setup, so it's very helpful to give your instructor a heads up!
   
+
+![setup](https://images.unsplash.com/photo-1428223501723-d821c5d00ca3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=100)
+
 ### 2. Setup your setup
 #### Use headphones with a mic (if you can)
 
@@ -60,15 +62,24 @@ This prevents you from accidentally interrupting your instructor - or having you
 
 If you'd like (and can - this feature requires some processing power), zoom can hide the room behind you with a virtual background. This can conceal partners, kids, pets and piles of laundry - although it's not magic, so you will have to fold it eventually. 
 
+
+![testing](https://images.unsplash.com/photo-1516534775068-ba3e7458af70?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=80)
+
 ### 3. Test your setup!
 
 1. Most online meeting tools will allow you to have a meeting with yourself, or to join a test meeting. It's great to try this the night before the workshop, at the latest, as you set up your workspace. [Here](https://support.zoom.us/hc/en-us/articles/201362283-Testing-computer-or-device-audio) is a link for how to do this in zoom.
 
 2. For the programming tools, try opening them and seeing what start-up messages are printed. If there's a warning or something doesn't look right or hangs it might be helpful to reach out to your instructor. 
 
+
+![notes](https://images.unsplash.com/photo-1517842645767-c639042777db?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=80)
+
 ### 4. Set up for notes 
 
 Think about how you plan to take notes. In a face to face class, it's usually easy to have a note-taking app open on your computer, but with the extra windows that you'll have open with digital teaching, it might be a bit much to try to switch windows all the time. Consider whether you'd prefer to take paper notes, or use a tablet or other secondary device for note-taking instead.
+
+
+![norms](https://images.unsplash.com/photo-1508726096737-5ac7ca26345f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=80)
 
 ### 5. Make sure to note the norms
 

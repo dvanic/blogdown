@@ -6,17 +6,16 @@ layout: post
 slug: 2020-map-digital-2
 series:
   - Learning in an online live coding workshop
-  - Training
 tags:
-  - zoom
+  - training
 ---
 
 With the advent of COVID-19 we’re all having to do the unthinkable, which for an instructor like me means moving hands-on, practical coding workshops online. I've already written a post with a student-facing map of the process (and some tips for students), but I wanted to focus on a few instructor-related aspects of the map in this post.
 
-![mysetup](../../mysetup2.jpg)
-
 
 ## My personal teaching setup
+
+![mysetup](../../images/mysetup2.jpg)
 
 - I'm incredibly lucky to have access to several machines, which I use to work through materials  on all of the platforms and also while teaching. 
 
@@ -28,13 +27,21 @@ With the advent of COVID-19 we’re all having to do the unthinkable, which for 
   3. A third machine, which has one (small-ish) screen, and shows me what a learner with only one laptop/desktop screen is seeing. This is not essential, but helps me adjust font sizes and window widths to make sure people can actually live code along with me, without needing to rely on my co-instructors (I still ask students if it's OK, of course, but this helps me self-adjust faster). 
   4. I use an iPad if I need access to whiteboard (see below).
 
+
+
+
 ## Back-channel communication: whispering in someone's ear
+![whisper](https://images.unsplash.com/photo-1482356432770-3a99f07aba35?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=80)
 
 - You need a quick and easy way to communicate between you and your co-instructors. I recommend a different, secondary chat application for this, for example Microsoft Teams or Slack (or Telegram/Whatsapp - whatever), if you're using Zoom as your primary teaching tool.
 
 - Ideally, you set up two channels in this: one for urgent messages to the instructor who's teaching ("YOUR SCREEN IS TINY!"), and another for non-teaching instructors to communicate with each other. This allows your helpers to communicate about challenging software installs ("Do you have any experience updating R libraries on Ubuntu?"), delegate responsibilities ("Can you take over host please? I really need a break for 3 minutes!") and otherwise manage the class - but all of this is not relevant for the instructor who's teaching and can actually distract them if they keep getting pinged about it.
 
+
+
 ## Common problems: learner with setup challenges
+
+![challenges](https://images.unsplash.com/photo-1495821697794-a40e5fca2830?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60)
 
 - First and foremost, send out detailed setup and installation instructions, complete with screenshots, to your learners several days before the course. Remind them to email you with screenshots of any error messages, or - if you're teaching a large class - get them to post the screenshots into a shared document, and encourage peers to help.
 
@@ -49,22 +56,27 @@ With the advent of COVID-19 we’re all having to do the unthinkable, which for 
 
 ## Common problems: poor internet connectivity
 
+![connectivity](https://images.unsplash.com/photo-1518016491499-75f85ea4c86d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60)
+
 - If you are having issues with your connection, consider (1) switching to slides/screenshare-only mode, (2) ensuring your device has priority on your home WiFi network, (3) trying to teach via a personal hotspot or (4) swapping to another instructor teaching[^1]. This is something you can communicate about with your team via the back-channel - and a key reason the back-channel needs to use very little bandwidth!
 
 - For learners, you can try asking them to turn off their video, and possibly also closing other tabs/devices connected to the internet.
 
-<p align="centre">
-![picture alt](https://images.unsplash.com/photo-1516537219851-920e2670c6e3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=80)
-</p>
+
 
 ## Common problems: Tool stack meltdown
+
+![volcano](https://images.unsplash.com/photo-1516537219851-920e2670c6e3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=80)
 
 - **EXPECT** your primary tool stack to melt down. If you are using Zoom/Teams/GoToMeeting, expect your platform to go down at least once during the training (it's great if it doesn't, but you're prepared if it does!). Have a plan, with your co-instructors, what you're going to do: switch to another tool? take an off-schedule break? Something else?
 
 - Explicitly tell your students how you'll communicate with them to let them know where to go in the event of a breakdown. For us, I prefer using the shared doc, but an email would also work (albeit might be slower, as they're hopefully not checking email while we're teaching).
 
 
+
 ## Shared documents
+
+![shareddoc](https://images.unsplash.com/photo-1545377079-08d414f11a5f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60)
 
 - A shared, student-editable document is essential for successful delivery of training. 
 
@@ -95,11 +107,15 @@ With the advent of COVID-19 we’re all having to do the unthinkable, which for 
 
 ## Code transfer
 
+![codetransfer](https://images.unsplash.com/photo-1542903660-eedba2cda473?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60)
+
 - Sometimes you need to share a chunk of code with your learners. While you can paste it into the shared document or Zoom chat, often these tools will do strange things with spaces and quotes. 
 
 - Instead, I recommend pasting them into a public [GitHub gist](https://gist.github.com/), sharing the link with your learners via the chat, and screen sharing how you would access the gist and move it into your R/python session.
 
 ## Whiteboard
+
+![whiteboard](https://images.unsplash.com/photo-1532619675605-1ede6c2ed2b0?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=80)
 
 - In an in-person live coding class, I often use the whiteboard when answering student questions or working through problems. 
 

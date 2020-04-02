@@ -6,7 +6,7 @@
     <description>Recent content in Series on Darya Vanichkina</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Tue, 24 Mar 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 02 Apr 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/series/index.xml" rel="self" type="application/rss+xml" />
     
@@ -14,18 +14,9 @@
     <item>
       <title>Learning in an online live coding workshop</title>
       <link>/series/learning-in-an-online-live-coding-workshop/</link>
-      <pubDate>Tue, 24 Mar 2020 00:00:00 +0000</pubDate>
+      <pubDate>Thu, 02 Apr 2020 00:00:00 +0000</pubDate>
       
       <guid>/series/learning-in-an-online-live-coding-workshop/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Training</title>
-      <link>/series/training/</link>
-      <pubDate>Tue, 24 Mar 2020 00:00:00 +0000</pubDate>
-      
-      <guid>/series/training/</guid>
       <description></description>
     </item>
     
@@ -39,11 +30,11 @@
     </item>
     
     <item>
-      <title>R to python</title>
-      <link>/series/r-to-python/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <title>Training</title>
+      <link>/series/training/</link>
+      <pubDate>Tue, 20 Feb 2018 00:00:00 +0000</pubDate>
       
-      <guid>/series/r-to-python/</guid>
+      <guid>/series/training/</guid>
       <description></description>
     </item>
     

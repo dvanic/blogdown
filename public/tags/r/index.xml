@@ -20,17 +20,5 @@
       <description>I am incredibly excited that RStudio has begun an instructor certification program based on the Carpentries, so of course I signed up as soon as my overcommited nature allowed! This also provides me with the excuse and motivation to finally formally work my way through R for Data Science, a book I have read while waiting for GTT tests during my pregnancy and google-landed upon an umpteen number of times while debugging code, but never taken the time to sit down and do the exercises for - and of course the pedagogue in me knows quite well that THAT is how you actually learn and internalise the principles and concepts in any material, especially if it deals with programming and analysis.</description>
     </item>
     
-    <item>
-      <title>Moving Machine Learning from R to python</title>
-      <link>/drafts/2020-ml-r2py/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>/drafts/2020-ml-r2py/</guid>
-      <description>As part of a project for work, I needed to port some R machine learning code to python. We weren&amp;rsquo;t trying to achieve 100% identity of results, instead opting to try to implement things &amp;ldquo;natively&amp;rdquo; to the language, and&amp;hellip;
-The rsample package has the
-initial_split(data, prop = 3/4, strata = NULL, ...)
-function has the strata argument, which allows us to select which variable to stratify with. If this variable is categorical, porting the code to python is easy, as we would use</description>
-    </item>
-    
   </channel>
 </rss>

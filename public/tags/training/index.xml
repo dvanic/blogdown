@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>training on Darya Vanichkina</title>
+    <link>/tags/training/</link>
+    <description>Recent content in training on Darya Vanichkina</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Thu, 02 Apr 2020 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/tags/training/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Mapping a live coding workshop for digital delivery</title>
+      <link>/posts/2020-map-digital-1/</link>
+      <pubDate>Thu, 02 Apr 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/2020-map-digital-1/</guid>
+      <description>With the advent of COVID-19 we’re all having to do the unthinkable, which for an instructor like me means moving hands-on, practical coding workshops online. In this post, I&amp;rsquo;ll provide a map that helped me formalise how I broke down our workshops into components, and tried to map each of them to an online tool, platform or approach. I&amp;rsquo;ve used Zoom for most of the examples below, since that&amp;rsquo;s what I&amp;rsquo;ve used for teaching, but I&amp;rsquo;m sure that most of this functionality is well supported by other online meeting tools.</description>
+    </item>
+    
+    <item>
+      <title>Having a great online learning experience: a guide for students</title>
+      <link>/posts/2020-great-online-learning-student/</link>
+      <pubDate>Wed, 01 Apr 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/2020-great-online-learning-student/</guid>
+      <description>With the advent of COVID-19 we’re all having to do the unthinkable, which for an instructor like me means moving hands-on, practical coding workshops online. In this post, I&amp;rsquo;ll outline a few key things you can do as a learner to have what is hopefully the best possible experience attending synchronous online training.
+1. Follow your instructor&amp;rsquo;s instructions Install all the things - and test them First and foremost, triple-check that you have installed everything your instructor has suggested, and tested - as much as you know how to - that it works.</description>
+    </item>
+    
+    <item>
+      <title>Training the trainer presentation</title>
+      <link>/posts/2018-ands/</link>
+      <pubDate>Tue, 20 Feb 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/2018-ands/</guid>
+      <description>  ANDS_TrainingTheTrainer  from Darya Vanichkina </description>
+    </item>
+    
+  </channel>
+</rss>

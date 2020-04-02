@@ -6,16 +6,13 @@ layout: post
 slug: 2020-map-digital-1
 series:
   - Learning in an online live coding workshop
-  - Training
 tags:
-  - zoom
+  - training
 ---
 
-With the advent of COVID-19 we’re all having to do the unthinkable, which for an instructor like me means moving hands-on, practical coding workshops online. In this post, I'll provide a map that helped me formalise how I broke down our workshops into components, and tried to map each of them to an online tool, platform or approach. I've used Zoom for most of the examples below, since that's what I've used for teaching, but I'm sure that most of this functionality is well supported by other online meeting tools. 
+With the advent of COVID-19 we’re all having to do the unthinkable, which for an instructor like me means moving hands-on, practical coding workshops online. In this post, I'll provide a map that helped me formalise how I broke down our workshops into components, and tried to map each of them to an online tool, platform or approach. I've used Zoom for most of the examples below, since that's what I've used for teaching, but I'm sure that most of this functionality is well supported by other online meeting tools.
 
-<p align="centre">
-![name tag](https://images.unsplash.com/photo-1581043144435-ebcd25885809?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=80)
-</p>
+![NameTag](https://images.unsplash.com/photo-1581043144435-ebcd25885809?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=80)
 
 ## Preliminaries
 
@@ -51,17 +48,15 @@ A learners arrives in my training room. They:
     - In a Carpentries workshop, we have a very special way of using [sticky notes](https://dynamicecology.wordpress.com/2015/01/13/sticky-notes-as-a-teaching-and-lab-meeting-tool/) to gauge learner state and assess who needs help - without them having to hold their hand up for hours. Zoom is great because it's a digital platform that allows us to replicate the same - BUT it's important to recognise that using this feature in Zoom costs screen real estate (and cognitive load!), so may need to be relied on sparingly during some portions of the class, especially the live coding ones!
    - To replicate stickies in Zoom you can use the **[Non-verbal Feedback](https://support.zoom.us/hc/en-us/articles/115001286183-Non-verbal-Feedback-During-Meetings) functionality**:
 
-<p align="centre">
+
 ![NonverbalFeedback](https://assets.zoom.us/images/en-us/desktop/generic/in-meeting/participants-list-status-icons.png)
-</p>
+
 
   - While there are a LOT of options, we tended to use only the "Hand up", "Yes" and "No" options, as (1) you can only use one of these statuses at a time, and (2) we wanted to know whether students were good ("Yes"), needed a helper to reach out ("No"), or wanted to ask a question ("Hand"). The Hand functionality is also quite helpful for the instructor, as it automatically places the person with the hand up at the top left in Gallery view mode.
 
    - I'll also mention [**Reactions**](https://support.zoom.us/hc/en-us/articles/360038311212-Meeting-reactions) here, which unlike Non-verbal feedback are a non-persistent way learners can tell you that all is good: they're displayed on screen for 5 seconds, and are overlaid *over* a learners picture in Gallery view. You can only show "thumbs up"  or "clap", so they're not very helpful for getting negative feedback.  Our learners used them intuitively, without us providing explicit instructions, to  let us know that they didn't have any questions during the frequent pauses we made to ask "Does anyone have any questions?/Are there any questions?/What's unclear about what we just did?".
   
-<p align="centre">
 ![galleryviewwithreactions](https://zoom-support-cdn.s3.amazonaws.com/images/en-us/desktop/generic/shared-screen-with-reactions.png)
-</p>
 
 
 ## Slide-centric sessions
@@ -81,15 +76,14 @@ These form the core of our workshops, with sessions of coding along interspersed
 
 1. Make sure you use/share/project only 1/2 of your screen, and use an appropriate coding "tool" that encompasses everything in that 1/2 screen. This means jupyter notebooks and the terminal are in, but RStudio/a .R script, in it's native implementation, is out - they just take up too much screen real estate! The best work-around I've found so far is to use an Rmarkdown document, with inline output for figures. This is what you get the settings to look like:
 
-<p align="centre">
-![picture alt](../../200401_RstudioInline.png)
-</p>
+![inlinesetup](../../images/200401_RstudioInline.png)
+
 
 And this is what the learners' screens looked like:
 
-<p align="centre">
-![picture alt](../../2004_howtoscreen.png)
-</p>
+
+![howtoo](../../images/2004_howtoscreen.png)
+
 
 
 
@@ -109,9 +103,9 @@ Peer learning has been shown in numerous studies to be one of the most effective
 
 3. Right before a challenge task we'd paste the text of the task into the chat AND add it into our shared document. This meant that all learners had easy access to the activity. Note that the chat in a breakout room can only happen between people IN that room, so if learners are all in a room and want to message the host, who is NOT in their room, they can't do this! So if you've got more rooms than co-instructors it can be helpful to have them post requests for help into the shared document, after which you can jump into the room; they can also ask for help via the app:
 
-<p align="centre">
-![picture alt](https://assets.zoom.us/images/en-us/desktop/generic/ask-for-help-button.png)
-</p>
+
+![help](https://assets.zoom.us/images/en-us/desktop/generic/ask-for-help-button.png)
+
 
   - The red/green "No"/"Yes" participant statuses are not visible to the host from outside a breakout room, so using them to replace stickies doesn't work in this context.
   - Note that users joined via the web client, Chromebooks/Chrome OS or Zoom Rooms are unable to join Breakout Rooms! Zoom suggests the main room as an alternative session for these users, but we'd recommend explicitly requesting learners to use an installed version of the app/an individual machine instead of the web client or room.
