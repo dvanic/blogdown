@@ -131,7 +131,7 @@ What does that instructor do? Small talk at the least, and - usually - after get
 
 ***
 
-Whew! That ended up being a long post! In the next post of this series, I'll explore some common problems and how to deal with them, as well as discuss how to replicate instructor-instructor communication. If you're a learner, this post is for you!
+Whew! That ended up being a long post! In the [next post](https://daryavanichkina.com/posts/2020-map-digital-2/) of this series, I'll explore some common problems and how to deal with them, as well as discuss how to replicate instructor-instructor communication. If you're a learner, [this post](https://daryavanichkina.com/posts/2020-great-online-learning-student/) is for you!
 
 
 
