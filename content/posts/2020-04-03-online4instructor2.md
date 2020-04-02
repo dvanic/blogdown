@@ -51,7 +51,7 @@ With the advent of COVID-19 we’re all having to do the unthinkable, which for 
 
 - Tools like Zoom do provide the functionality to share screens and take over someone's desktop, BUT I've found taking screenshots is faster, doesn't require you to jump out into a breakout room (so the learner doesn't miss out on core content), and doesn't cause bandwidth problems (I've tried taking over learners' desktops with suboptimal bandwidth, and it kicked both of us out of the session).
 
-- Finally, it can be helpful to have a backup cloud platform for teaching as well, as the digital equivalent of spare laptops. We've been successful using [mybinder.org](mybinder.org/) for python, and have tried but not productionised [rstudio.cloud](rstudio.cloud) for R. I'd love a suggestion for an online terminal for teaching basic Unix!
+- Finally, it can be helpful to have a backup cloud platform for teaching as well, as the digital equivalent of spare laptops. We've been successful using [mybinder.org](https://mybinder.org/) for python, and have tried but not productionised [rstudio.cloud](https://rstudio.cloud) for R. I'd love a suggestion for an online terminal for teaching basic Unix!
 
 
 ## Common problems: poor internet connectivity
