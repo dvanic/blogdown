@@ -6,10 +6,20 @@
     <description>Recent content in training on Darya Vanichkina</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Thu, 02 Apr 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 03 Apr 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/tags/training/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Mapping a live coding workshop for digital delivery (part 2)</title>
+      <link>/posts/2020-map-digital-2/</link>
+      <pubDate>Fri, 03 Apr 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/2020-map-digital-2/</guid>
+      <description>With the advent of COVID-19 we’re all having to do the unthinkable, which for an instructor like me means moving hands-on, practical coding workshops online. I&amp;rsquo;ve already written a post with a student-facing map of the process (and some tips for students), but I wanted to focus on a few instructor-related aspects of the map in this post.
+My personal teaching setup   I&amp;rsquo;m incredibly lucky to have access to several machines, which I use to work through materials on all of the platforms and also while teaching.</description>
+    </item>
     
     <item>
       <title>Mapping a live coding workshop for digital delivery</title>
