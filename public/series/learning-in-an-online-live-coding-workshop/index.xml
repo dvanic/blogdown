@@ -6,10 +6,20 @@
     <description>Recent content in Learning in an online live coding workshop on Darya Vanichkina</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Tue, 07 Apr 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 01 May 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/series/learning-in-an-online-live-coding-workshop/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Living dangerously: a newbie guide to running multiple version of R on a Mac</title>
+      <link>/posts/2020-rswitch-guide/</link>
+      <pubDate>Fri, 01 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/2020-rswitch-guide/</guid>
+      <description>You&amp;rsquo;d have to be living under a rock in the R community to not be aware of the fact that R 4.0 has been released, with some major changes, the biggest of which is probably the new default for read.table(): stringsAsFactors = FALSE, as well as the fact that matrix() now converts character columns to factors and factors to integers.
+In the past, I&amp;rsquo;ve always been too &amp;ldquo;chicken&amp;rdquo; to try running multiple versions of R on my work laptop, as I&amp;rsquo;ve usually got a few key analysis projects going that need to be delivered on time and within full feature scope - which means I don&amp;rsquo;t have time to fix basic version incompatibility bugs.</description>
+    </item>
     
     <item>
       <title>Jumping into digital: Lessons learned while moving live-coding workshops online</title>
@@ -17,8 +27,8 @@
       <pubDate>Tue, 07 Apr 2020 00:00:00 +0000</pubDate>
       
       <guid>/posts/2020-ardc-presentation-codingonline/</guid>
-      <description>I will be presenting a talk about &amp;ldquo;Jumping into digital: Lessons learned while moving live-coding workshops online&amp;rdquo; at the ARDC community webinar series. You can sign up here.
-This is the abstract of my talk:
+      <description>I presented a talk about &amp;ldquo;Jumping into digital: Lessons learned while moving live-coding workshops online&amp;rdquo; at the ARDC community webinar series in April 2020.
+The abstract of my talk was:
 At ResBaz 2019, I said (on camera) that it is impossible to run a hands-on, live-coding digital skills training workshop online. In March 2020, I led a team of trainers to do exactly this - move our 2-day, Carpentries-style, hands-on Machine Learning in R and Machine Learning in python workshops fully online - in a week!</description>
     </item>
     

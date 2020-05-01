@@ -1,25 +1,24 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>data science on Darya Vanichkina</title>
+    <title>Data science on Darya Vanichkina</title>
     <link>/tags/data-science/</link>
-    <description>Recent content in data science on Darya Vanichkina</description>
+    <description>Recent content in Data science on Darya Vanichkina</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
+    <lastBuildDate>Fri, 01 May 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/tags/data-science/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>Moving Machine Learning from R to python</title>
-      <link>/drafts/2020-ml-r2py/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <title>Living dangerously: a newbie guide to running multiple version of R on a Mac</title>
+      <link>/posts/2020-rswitch-guide/</link>
+      <pubDate>Fri, 01 May 2020 00:00:00 +0000</pubDate>
       
-      <guid>/drafts/2020-ml-r2py/</guid>
-      <description>As part of a project for work, I needed to port some R machine learning code to python. We weren&amp;rsquo;t trying to achieve 100% identity of results, instead opting to try to implement things &amp;ldquo;natively&amp;rdquo; to the language, and&amp;hellip;
-The rsample package has the
-initial_split(data, prop = 3/4, strata = NULL, ...)
-function has the strata argument, which allows us to select which variable to stratify with. If this variable is categorical, porting the code to python is easy, as we would use</description>
+      <guid>/posts/2020-rswitch-guide/</guid>
+      <description>You&amp;rsquo;d have to be living under a rock in the R community to not be aware of the fact that R 4.0 has been released, with some major changes, the biggest of which is probably the new default for read.table(): stringsAsFactors = FALSE, as well as the fact that matrix() now converts character columns to factors and factors to integers.
+In the past, I&amp;rsquo;ve always been too &amp;ldquo;chicken&amp;rdquo; to try running multiple versions of R on my work laptop, as I&amp;rsquo;ve usually got a few key analysis projects going that need to be delivered on time and within full feature scope - which means I don&amp;rsquo;t have time to fix basic version incompatibility bugs.</description>
     </item>
     
   </channel>
