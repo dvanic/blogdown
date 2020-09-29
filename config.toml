@@ -63,6 +63,12 @@ disqusShortname = "dvanicw"
   series = "series"
   tags = "tags"
 
+[author]
+    name = "Darya Vanichkina"
+
+languageCode = "en-us"
+copyright = "This work is licensed under a Creative Commons Attribution-ShareAlike 4.0 International License."
+
 [[params.social]]
     name = "Github"
     icon = "fab fa-github"
