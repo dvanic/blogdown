@@ -9,9 +9,9 @@ d.[lastname] at gmail [dot] com
 #### Physical address
 
     Sydney Informatics Hub
-    32 Queen Street
-    Ground Floor
-    Chippendale NSW 2008
+    Merewether Building (H04)
+    University of Sydney
+    Darlington NSW 2008
 
 #### Links to other websites
 * <a href="https://github.com/dvanic">GitHub</a>
