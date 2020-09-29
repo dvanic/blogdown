@@ -4,7 +4,7 @@ title: About me
 ---
 
 
-<img src="../images/Darya1.jpg" height="200" style="padding: 30 10px; float: right;">
+<img src="images/Darya1.jpg" height="200" style="float: right;">
 
 Hi! I'm Darya, a Data Scientist & Professional Educator. I work at the University of Sydney's [Informatics Hub](https://informatics.sydney.edu.au) as a data science consultant, supporting researchers from across the university by solving their big (and not-so-big) data problems. I also coordinate SIH's data science training program, where I mentor staff in best teaching practices, develop and deliver advanced analytics training for researchers.
 
