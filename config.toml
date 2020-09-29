@@ -1,4 +1,4 @@
-baseurl = "/"
+baseurl = "https://daryavanichkina.com"
 title = "Darya Vanichkina"
 googleAnalytics = "UA-54373354-1"
 theme = "hugo-coder"
