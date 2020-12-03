@@ -19,7 +19,7 @@ I am incredibly excited that RStudio has begun an [instructor certification prog
 
 ## Personal, highly non-exhaustive notes on section I: Explore
 
-```
+```r
 library(tidyverse)
 theme_set(theme_minimal())
 ```
@@ -81,13 +81,14 @@ Sampling may be enough to answer the question.
 
 - You can generally use geoms and stats interchangeably! For example, you can use stat_count() instead of geom_bar() to make the same plot!
 
-```
-ggplot(data = diamonds) + geom_bar(aes(x = cut, y = ..count.. / sum(..count..), fill = color))
+```r
+ggplot(data = diamonds) + 
+  geom_bar(aes(x = cut, y = ..count.. / sum(..count..), fill = color))
 ```
 
 ![Ggplot proportion chart](../../images/1912_ggplotproportion.png)
 
-```
+```r
 # not really new, but I'm sure I'll forget position = "fill"
 ggplot(data = diamonds) + 
   geom_bar(mapping = aes(x = cut, fill = clarity), position = "fill")
@@ -95,7 +96,7 @@ ggplot(data = diamonds) +
 
 ![proportion](../../images/1912_proportionchart.png)
 
-```
+```r
 # pie chart from bar
 ggplot(data = diamonds) + 
   geom_bar(mapping = aes(x = 1, fill = clarity)) + coord_polar(theta = "y")
@@ -114,7 +115,7 @@ ggplot(data = diamonds) +
 
 - Use `select()` in conjunction with the `everything()` helper, when you want to , for example, move a handful of variables to the start of the data frame.
 
-```r
+```R
 select(flights, time_hour, air_time, everything())
 ```
 

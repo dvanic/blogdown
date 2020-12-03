@@ -2,23 +2,339 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>conferences on Darya Vanichkina</title>
-    <link>/tags/conferences/</link>
+    <link>https://daryavanichkina.com/tags/conferences/</link>
     <description>Recent content in conferences on Darya Vanichkina</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Tue, 01 Nov 2016 00:00:00 +0000</lastBuildDate>
-    
-	<atom:link href="/tags/conferences/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Tue, 01 Nov 2016 00:00:00 +0000</lastBuildDate><atom:link href="https://daryavanichkina.com/tags/conferences/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Amazon AWS workshop at the University of Sydney</title>
-      <link>/posts/2016-awsworkshop/</link>
+      <link>https://daryavanichkina.com/posts/2016-awsworkshop/</link>
       <pubDate>Tue, 01 Nov 2016 00:00:00 +0000</pubDate>
       
-      <guid>/posts/2016-awsworkshop/</guid>
-      <description>On October 24th I attented a talk by Adrian White about using Amazon AWS for research. Below are my notes, not extensively annotated, in the hope that they&amp;rsquo;ll be useful for someone. If something is not clear, please ask in the comments, and I&amp;rsquo;ll try to answer to the best of my knowledge
-161024_AWS workshop  SciTeam ~10 ppl  Overview of AWS services   If you need to make your data available you have availability zones.</description>
+      <guid>https://daryavanichkina.com/posts/2016-awsworkshop/</guid>
+      <description>&lt;p&gt;On October 24th I attented a talk by Adrian White about using Amazon AWS for research. Below are my notes, not extensively annotated, in the hope that they&amp;rsquo;ll be useful for someone. If something is not clear, please ask in the comments, and I&amp;rsquo;ll try to answer to the best of my knowledge&lt;/p&gt;
+&lt;h1 id=&#34;161024_aws-workshop&#34;&gt;161024_AWS workshop&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;SciTeam ~10 ppl&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;overview-of-aws-services&#34;&gt;Overview of AWS services&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;If you need to make your data available you have availability zones. For an ultra-stable website we can make our app accessible in multiple AZs.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Networking - pair with AARNet in Australia&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;spark to run GATK&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;ML module - developed for ecommerce based on how people visit websites&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;supervised learning only, basic linear regression&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;essential-services&#34;&gt;Essential services&lt;/h2&gt;
+&lt;h3 id=&#34;elastic-compute-ec2&#34;&gt;Elastic compute (EC2)&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;elastic load balance capability interesting for when you&amp;rsquo;re firing up a shiny analytics environment&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;networking-services&#34;&gt;Networking Services&lt;/h3&gt;
+&lt;h4 id=&#34;amazon-vpc-virtual-private-cloud&#34;&gt;Amazon VPC (virtual private cloud)&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;own network isolated, within a region, you control addressing, DNS servers, whether it connects to the internet&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;aws-directconnect&#34;&gt;AWS DirectConnect&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;if you need to transfer data faster&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;amazon-route-53&#34;&gt;Amazon Route 53&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;Domain Name System (DNS) web service.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;storage&#34;&gt;Storage&lt;/h3&gt;
+&lt;h4 id=&#34;amazon-s3&#34;&gt;Amazon S3&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;object storage service (put/get/delete) not a file system (so can&amp;rsquo;t do byte range retrievals and other subsets of the files)&lt;/li&gt;
+&lt;li&gt;durability with a 10^6 objects you have 1:10k chance of losing it&lt;/li&gt;
+&lt;li&gt;File size - up to 5 Tb.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;amazon-ebs&#34;&gt;Amazon EBS&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;up to 16 Tb&lt;/li&gt;
+&lt;li&gt;disk that fires up and is mounted to a server on EC2&lt;/li&gt;
+&lt;li&gt;can still use magnetic disk to cut cost (default is SSD)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;glacier&#34;&gt;Glacier&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;file size up to 50 Tb&lt;/li&gt;
+&lt;li&gt;cold storage&lt;/li&gt;
+&lt;li&gt;can take 3-5 hours to retrieve object&lt;/li&gt;
+&lt;li&gt;also 11 9s durability&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;aws-storage-gateway&#34;&gt;AWS Storage Gateway&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;storage on premise&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;databases&#34;&gt;Databases&lt;/h3&gt;
+&lt;h3 id=&#34;amazon-rds&#34;&gt;Amazon RDS&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Standard relational database. Maintained/run by amazon so you can just use the data&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;amazon-dynamodb&#34;&gt;Amazon DynamoDB&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;Managed NoSQL database service&lt;/li&gt;
+&lt;li&gt;today need 100 reads/sec, tomorrow 1000k&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;amazon-elasticache&#34;&gt;Amazon ElastiCache&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;reddis&lt;/li&gt;
+&lt;li&gt;some there open source libraries&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;big-data-services&#34;&gt;Big Data Services&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Amazon EMR (Elastic Map Reduce)&lt;/li&gt;
+&lt;li&gt;AWS Data Pipeline Hosted Hadoop framework
+&lt;ul&gt;
+&lt;li&gt;Move data among AWS services and on premises data sources&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Amazon Redshift
+&lt;ul&gt;
+&lt;li&gt;Petabyte-scale data warehouse service&lt;/li&gt;
+&lt;li&gt;OLAP style DB environment (massively parallel processing database)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;monitoring-services&#34;&gt;Monitoring services&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Amazon CloudWatch (free)
+&lt;ul&gt;
+&lt;li&gt;Monitor resources&lt;/li&gt;
+&lt;li&gt;you can make your own monitors such as how many times a function is run and send you notifications or make graphs&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;AWS IAM (Identity &amp;amp; Access Mgmt)
+&lt;ul&gt;
+&lt;li&gt;Manage users, groups &amp;amp; permissions&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;AWS OpsWorks
+&lt;ul&gt;
+&lt;li&gt;Dev-Ops framework for application lifecycle management&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;AWS CloudFormation
+&lt;ul&gt;
+&lt;li&gt;Templates to deploy &amp;amp; manage&lt;/li&gt;
+&lt;li&gt;This is useful for us. You build a cluster based on templates = users ,roles, storage, databases, etc&lt;/li&gt;
+&lt;li&gt;infrastructure as a configuration file&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;AWS Elastic Beanstalk
+&lt;ul&gt;
+&lt;li&gt;Automate resource management&lt;/li&gt;
+&lt;li&gt;can host apps with python or java or docker containers (find out more)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;accessing-your-resources&#34;&gt;Accessing your resources&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Everything you can do through the Console, you can do through the CLI or an SDK&lt;/li&gt;
+&lt;li&gt;SDK’s for most programming languages
+&lt;ul&gt;
+&lt;li&gt;Andriod, IOS, Java, .Net, Node.js, PHP, Python, Ruby, Go&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;commercial-models&#34;&gt;Commercial models&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;on-demand
+&lt;ul&gt;
+&lt;li&gt;On-Demand Pay for compute capacity by the hour with no long-term commitments For spiky workloads, or to define needs&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;spot
+&lt;ul&gt;
+&lt;li&gt;Bid for unused capacity, charged at a Spot Price which fluctuates based on supply and demand For time-insensitive or transient workloads&lt;/li&gt;
+&lt;li&gt;60-70% savings on on demand price when it&amp;rsquo;s on Spot&lt;/li&gt;
+&lt;li&gt;if price goes above that cost, it gets shut down in 2 minutes&lt;/li&gt;
+&lt;li&gt;RNA-seq on spot to have disappearing servers on 250 k samples&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Reserved
+&lt;ul&gt;
+&lt;li&gt;Make a low, one-time payment and receive a significant discount on the hourly charge. For committed utilization&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Dedicated
+&lt;ul&gt;
+&lt;li&gt;you are the &lt;em&gt;only&lt;/em&gt; user on a particular physical piece of hardware&lt;/li&gt;
+&lt;li&gt;health care data compliancy (in the US)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Amazon won&amp;rsquo;t kill jobs for you itself if your bill goes higher than X. You can configure this yourself, specifying what should happen to storage.&lt;/p&gt;
+&lt;h3 id=&#34;security&#34;&gt;Security&lt;/h3&gt;
+&lt;h3 id=&#34;popular-hpc-workloads-on-aws&#34;&gt;Popular HPC workloads on AWS&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Genome processing&lt;/li&gt;
+&lt;li&gt;Modeling and Simulation&lt;/li&gt;
+&lt;li&gt;Government and Educational Research&lt;/li&gt;
+&lt;li&gt;Monte Carlo Simulations&lt;/li&gt;
+&lt;li&gt;Transcoding and Encoding (video)&lt;/li&gt;
+&lt;li&gt;Computational Chemistry&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;educate&#34;&gt;Educate&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;aws.amazon.com/training/- self-paced-labs&lt;/li&gt;
+&lt;li&gt;aws.amazon.com/training&lt;/li&gt;
+&lt;li&gt;aws.amazon.com/certification&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Can also be used in class:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;AWS blog - best place to get updates on the main stuff that changes&lt;/li&gt;
+&lt;li&gt;Deeper into a topic - product page + documentation&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;moving-data-to-aws&#34;&gt;Moving data to AWS&lt;/h1&gt;
+&lt;h3 id=&#34;storing-data-in-s3-and-ec2&#34;&gt;Storing data in S3 and EC2&lt;/h3&gt;
+&lt;p&gt;Amazon S3 is object based storage&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Data is an object (treat each file as a single object)&lt;/li&gt;
+&lt;li&gt;Consists of data (globally unique identifier) and metadata&lt;/li&gt;
+&lt;li&gt;Very simple operations: (not POSIX!)&lt;/li&gt;
+&lt;li&gt;PUT, GET, DELETE, LIST&lt;/li&gt;
+&lt;li&gt;Cannot do an lseek, partial read or write, over-write existing data&lt;/li&gt;
+&lt;li&gt;Versioning is allowed (only differences are stored)&lt;/li&gt;
+&lt;li&gt;You control where data is located (Amazon never moves or copies it)&lt;/li&gt;
+&lt;li&gt;Flat hierarchy (no concept of directories)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;amazon-s3-is&#34;&gt;Amazon S3 is&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Extremely Durable (99.999999999%)&lt;/li&gt;
+&lt;li&gt;Extremely Available (99.99%)&lt;/li&gt;
+&lt;li&gt;Virtually infinite (scalable)&lt;/li&gt;
+&lt;li&gt;Pay only for what you use&lt;/li&gt;
+&lt;li&gt;You control who has access to your data (and the location of the data)&lt;/li&gt;
+&lt;li&gt;Data Encryption
+&lt;ul&gt;
+&lt;li&gt;not encrypted by default&lt;/li&gt;
+&lt;li&gt;can tick a box to get amazon to manage encryption&lt;/li&gt;
+&lt;li&gt;can be completely client side encryption only&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Event notifications&lt;/li&gt;
+&lt;li&gt;Lifecycle Management&lt;/li&gt;
+&lt;li&gt;Amazon S3 is more read oriented than write oriented&lt;/li&gt;
+&lt;li&gt;However, write performance is still very good&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;QIMR: Moving data to Europe via snowball - a data store device&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Optimising data transfer to S3&lt;/li&gt;
+&lt;li&gt;Examples&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;preliminaries&#34;&gt;Preliminaries&lt;/h3&gt;
+&lt;h4 id=&#34;before-worrying-about-upload-performance&#34;&gt;Before worrying about upload performance:&lt;/h4&gt;
+&lt;ol&gt;
+&lt;li&gt;Know file size distribution and the amount of data
+&lt;ul&gt;
+&lt;li&gt;Average file size? Largest? Smallest? Standard Deviation?&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Know how you are connected to Internet and AWS
+&lt;ul&gt;
+&lt;li&gt;Perform preliminary tests to S3 to understand network performance&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Know how you will use data in an Amazon S3 bucket
+&lt;ul&gt;
+&lt;li&gt;Will it be shared?&lt;/li&gt;
+&lt;li&gt;How is it organized? How do applications access the data?&lt;/li&gt;
+&lt;li&gt;Read vs. Write?&lt;/li&gt;
+&lt;li&gt;Being able to answer these questions will make things much, much easier (with faster uploads)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;non-network-keys-to-the-fastest-upload&#34;&gt;Non-Network Keys to the fastest upload&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;The following are general principles for the quickest data
+upload from outside of AWS&lt;/li&gt;
+&lt;li&gt;Multi-part upload
+&lt;ul&gt;
+&lt;li&gt;aws s3 create-multipart-upload&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;aws s3 sync # Better command that will try to optimise the performance for you!!!&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;All high-level commands that involve uploading objects into S3 (aws s3 cp, aws s3 mv, and aws s3 sync) automatically perform a multipart upload when the object is large&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Parallel upload
+&lt;ul&gt;
+&lt;li&gt;each process uses a cpu&lt;/li&gt;
+&lt;li&gt;How you do this is very specific to the language (SDK)&lt;/li&gt;
+&lt;li&gt;In Python use multi-processing module&lt;/li&gt;
+&lt;li&gt;Can use threads (C++, Java)
+&lt;ul&gt;
+&lt;li&gt;Some tools already available:&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;s3-parallel-put (&lt;a href=&#34;https://github.com/twpayne/s3-parallel-put&#34;&gt;https://github.com/twpayne/s3-parallel-put&lt;/a&gt; )&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Random prefix to key name
+&lt;ul&gt;
+&lt;li&gt;first two characters of filename are part of the key, and should be randomised (evenly) by the alphabet so that they get put onto different partitions and hence the performance is much better&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;tar
+&lt;ul&gt;
+&lt;li&gt;can put everything into a tar archive (such as images), then look at the TOC of the tar and pull out only the byte range of the image you need from AWS&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Data compression&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;examples&#34;&gt;Examples&lt;/h3&gt;
+&lt;h4 id=&#34;ska-square-kilometer-array&#34;&gt;SKA (square kilometer) array&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;s3-parallel-upload script (python/boto2)&lt;/li&gt;
+&lt;li&gt;performance dropped off after ~30 parallel processes&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;hpc&#34;&gt;HPC&lt;/h3&gt;
+&lt;h4 id=&#34;cluster-hpc&#34;&gt;Cluster HPC&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;can do placement groups - which means the compute nodes are close to each other physically at the server farm&lt;/li&gt;
+&lt;li&gt;storage is ephemeral, EBS, NFSv4 Amazon EFS or Lustre Intel cloud edition (PAYG), BeeGFS&lt;/li&gt;
+&lt;li&gt;is still redundant within your region (so not as durable as S3)&lt;/li&gt;
+&lt;li&gt;minimum use time on Amazon HPC is 1 hour (so cost is that of 1 hour)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;instance-types&#34;&gt;Instance types&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;Family - optimised for a particular use
+&lt;ul&gt;
+&lt;li&gt;ex R3 - memory&lt;/li&gt;
+&lt;li&gt;ex G2/P2 - GPU&lt;/li&gt;
+&lt;li&gt;ec C3/ CPU use type&lt;/li&gt;
+&lt;li&gt;P2
+&lt;ul&gt;
+&lt;li&gt;machine learning genomics (tensor flow)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;data-lakes&#34;&gt;Data lakes&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;store datasets of different types&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;research-on-aws&#34;&gt;Research on AWS&lt;/h1&gt;
+&lt;h1 id=&#34;lab-alces-flight--cfncluster&#34;&gt;Lab: Alces Flight &amp;amp; CfnCluster&lt;/h1&gt;
+&lt;p&gt;Apart from Alces flight, what other launch a cluster configurations are there?&lt;/p&gt;
+&lt;p&gt;In order to relaunch a snapshot you have you can use CfnCluster.&lt;/p&gt;
+&lt;p&gt;spark R machine learning&lt;/p&gt;
+&lt;p&gt;jupiter gnu  (ask him via email)&lt;/p&gt;
+&lt;h2 id=&#34;if-you-need-to-use-a-key-on-windows&#34;&gt;If you need to use a key on Windows&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/putty.html&#34;&gt;Puttylink&lt;/a&gt;&lt;/p&gt;
+</description>
     </item>
     
   </channel>

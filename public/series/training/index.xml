@@ -2,22 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Training on Darya Vanichkina</title>
-    <link>/series/training/</link>
+    <link>https://daryavanichkina.com/series/training/</link>
     <description>Recent content in Training on Darya Vanichkina</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Tue, 20 Feb 2018 00:00:00 +0000</lastBuildDate>
-    
-	<atom:link href="/series/training/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Tue, 20 Feb 2018 00:00:00 +0000</lastBuildDate><atom:link href="https://daryavanichkina.com/series/training/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Training the trainer presentation</title>
-      <link>/posts/2018-ands/</link>
+      <link>https://daryavanichkina.com/posts/2018-ands/</link>
       <pubDate>Tue, 20 Feb 2018 00:00:00 +0000</pubDate>
       
-      <guid>/posts/2018-ands/</guid>
-      <description>  ANDS_TrainingTheTrainer  from Darya Vanichkina </description>
+      <guid>https://daryavanichkina.com/posts/2018-ands/</guid>
+      <description>&lt;iframe src=&#34;//www.slideshare.net/slideshow/embed_code/key/o4RIOWAd7j4rrE&#34; width=&#34;595&#34; height=&#34;485&#34; frameborder=&#34;0&#34; marginwidth=&#34;0&#34; marginheight=&#34;0&#34; scrolling=&#34;no&#34; style=&#34;border:1px solid #CCC; border-width:1px; margin-bottom:5px; max-width: 100%;&#34; allowfullscreen&gt; &lt;/iframe&gt; &lt;div style=&#34;margin-bottom:5px&#34;&gt; &lt;strong&gt; &lt;a href=&#34;//www.slideshare.net/DaryaVanichkina1/andstrainingthetrainer&#34; title=&#34;ANDS_TrainingTheTrainer&#34; target=&#34;_blank&#34;&gt;ANDS_TrainingTheTrainer&lt;/a&gt; &lt;/strong&gt; from &lt;strong&gt;&lt;a href=&#34;//www.slideshare.net/DaryaVanichkina1&#34; target=&#34;_blank&#34;&gt;Darya Vanichkina&lt;/a&gt;&lt;/strong&gt; &lt;/div&gt;</description>
     </item>
     
   </channel>

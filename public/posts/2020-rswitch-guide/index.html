@@ -4,10 +4,16 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Language" content="en">
 
     <meta name="author" content="Darya Vanichkina PhD">
-    <meta name="description" content="Darya Vanichkina&#39;s personal website">
+    <meta name="description" content="You&rsquo;d have to be living under a rock in the R community to not be aware of the fact that R 4.0 has been released, with some major changes, the biggest of which is probably the new default for read.table(): stringsAsFactors = FALSE, as well as the fact that matrix() now converts character columns to factors and factors to integers.
+In the past, I&rsquo;ve always been too &ldquo;chicken&rdquo; to try running multiple versions of R on my work laptop, as I&rsquo;ve usually got a few key analysis projects going that need to be delivered on time and within full feature scope - which means I don&rsquo;t have time to fix basic version incompatibility bugs.">
     <meta name="keywords" content="data scientist, bioinformatician, consultant, educator">
+
+    
+      <script src="https://twemoji.maxcdn.com/v/latest/twemoji.min.js" crossorigin="anonymous"></script>
+    
 
     <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Living dangerously: a newbie guide to running multiple version of R on a Mac"/>
@@ -18,78 +24,102 @@ In the past, I&rsquo;ve always been too &ldquo;chicken&rdquo; to try running mul
 <meta property="og:description" content="You&rsquo;d have to be living under a rock in the R community to not be aware of the fact that R 4.0 has been released, with some major changes, the biggest of which is probably the new default for read.table(): stringsAsFactors = FALSE, as well as the fact that matrix() now converts character columns to factors and factors to integers.
 In the past, I&rsquo;ve always been too &ldquo;chicken&rdquo; to try running multiple versions of R on my work laptop, as I&rsquo;ve usually got a few key analysis projects going that need to be delivered on time and within full feature scope - which means I don&rsquo;t have time to fix basic version incompatibility bugs." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="/posts/2020-rswitch-guide/" />
+<meta property="og:url" content="https://daryavanichkina.com/posts/2020-rswitch-guide/" />
 <meta property="article:published_time" content="2020-05-01T00:00:00+00:00" />
 <meta property="article:modified_time" content="2020-05-01T00:00:00+00:00" />
 
 
 
-    
-      <base href="/posts/2020-rswitch-guide/">
-    
     <title>
   Living dangerously: a newbie guide to running multiple version of R on a Mac · Darya Vanichkina
 </title>
 
     
-      <link rel="canonical" href="/posts/2020-rswitch-guide/">
+      <link rel="canonical" href="https://daryavanichkina.com/posts/2020-rswitch-guide/">
     
 
-    <link href="https://fonts.googleapis.com/css?family=Lato:400,700%7CMerriweather:300,700%7CSource+Code+Pro:400,700" rel="stylesheet">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css" integrity="sha256-oSrCnRYXvHG31SBifqP2PM1uje7SJUyX0nTwO2RJV54=" crossorigin="anonymous" />
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700%7CMerriweather:300,700%7CSource+Code+Pro:400,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css" integrity="sha384-Bfad6CLCknfcloXFOyFnlgtENryhrpZCe29RTifKEixXQZ38WheV+i/6YWSzkz3V" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha256-l85OmPOjvil/SOvVt3HnSSjzF1TUMyT9eV0c2BzEGzU=" crossorigin="anonymous" />
 
     
       
       
-      <link rel="stylesheet" href="/css/coder.min.28d751104f30c16da1aa1bb04015cbe662cacfe0d1b01af4f2240ad58580069c.css" integrity="sha256-KNdREE8wwW2hqhuwQBXL5mLKz&#43;DRsBr08iQK1YWABpw=" crossorigin="anonymous" media="screen" />
+      <link rel="stylesheet" href="https://daryavanichkina.com/css/coder.min.9836c03fe5c87d102278a33e86d0591ef36c89b1e17e8e547ebf84c05cee010e.css" integrity="sha256-mDbAP&#43;XIfRAieKM&#43;htBZHvNsibHhfo5Ufr&#43;EwFzuAQ4=" crossorigin="anonymous" media="screen" />
     
 
     
 
     
+      
+        
+        
+        <link rel="stylesheet" href="https://daryavanichkina.com/css/coder-dark.min.717236c74e0a5208ef73964a9f44c6b443b689a95b270d8b2a40d0c012460dac.css" integrity="sha256-cXI2x04KUgjvc5ZKn0TGtEO2ialbJw2LKkDQwBJGDaw=" crossorigin="anonymous" media="screen" />
+      
+    
 
     
-      <link rel="stylesheet" href="/static/css/custom.css">
+      <link rel="stylesheet" href="https://daryavanichkina.com/static/css/custom.css" />
     
 
-    <link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32">
-    <link rel="icon" type="image/png" href="/images/favicon-16x16.png" sizes="16x16">
+    
 
-    <meta name="generator" content="Hugo 0.67.1" />
+    <link rel="icon" type="image/png" href="https://daryavanichkina.com/images/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="https://daryavanichkina.com/images/favicon-16x16.png" sizes="16x16">
+
+    <link rel="apple-touch-icon" href="https://daryavanichkina.com/images/apple-touch-icon.png">
+    <link rel="apple-touch-icon"  sizes="180x180" href="https://daryavanichkina.com/images/apple-touch-icon.png">
+
+    <meta name="generator" content="Hugo 0.75.1" />
   </head>
-
-  <body class=" ">
+  
+  
+  
+    
+  
+  <body class="colorscheme-auto"
+        onload=" twemoji.parse(document.body); "
+  >
     <main class="wrapper">
       <nav class="navigation">
   <section class="container">
-    <a class="navigation-title" href="/">
+    <a class="navigation-title" href="https://daryavanichkina.com/">
       Darya Vanichkina
     </a>
-    <input type="checkbox" id="menu-toggle" />
-    <label class="menu-button float-right" for="menu-toggle"><i class="fas fa-bars"></i></label>
-    <ul class="navigation-list">
-      
+    
+      <span id="dark-mode-toggle" class="float-right">
+        <i class="fas fa-adjust fa-fw"></i>
+      </span>
+      <input type="checkbox" id="menu-toggle" />
+      <label class="menu-button float-right" for="menu-toggle">
+        <i class="fas fa-bars fa-fw"></i>
+      </label>
+      <ul class="navigation-list">
         
-          <li class="navigation-item">
-            <a class="navigation-link" href="/about/">About</a>
-          </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link" href="https://daryavanichkina.com/about/">About</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link" href="https://daryavanichkina.com/posts/">Blog</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link" href="https://daryavanichkina.com/training/">Training</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link" href="https://daryavanichkina.com/contact/">Contact</a>
+            </li>
+          
         
-          <li class="navigation-item">
-            <a class="navigation-link" href="/posts/">Blog</a>
-          </li>
         
-          <li class="navigation-item">
-            <a class="navigation-link" href="/training/">Training</a>
-          </li>
-        
-          <li class="navigation-item">
-            <a class="navigation-link" href="/contact/">Contact</a>
-          </li>
-        
-      
-      
-    </ul>
+        <li class="navigation-item separator">
+          <span>|</span>
+        </li>
+      </ul>
+    
   </section>
 </nav>
 
@@ -112,22 +142,23 @@ In the past, I&rsquo;ve always been too &ldquo;chicken&rdquo; to try running mul
             </span>
             <span class="reading-time">
               <i class="fas fa-clock"></i>
-              4 minutes read
+              4-minute read
             </span>
           </div>
           
           <div class="tags">
   <i class="fas fa-tag"></i>
-    <a href="/tags/data-science/">Data science</a>
+    <a href="https://daryavanichkina.com/tags/data-science/">Data science</a>
       <span class="separator">•</span>
-    <a href="/tags/r/">R</a>
+    <a href="https://daryavanichkina.com/tags/r/">R</a>
       <span class="separator">•</span>
-    <a href="/tags/workjournal/">WorkJournal</a></div>
+    <a href="https://daryavanichkina.com/tags/workjournal/">WorkJournal</a></div>
 
         </div>
       </header>
 
       <div>
+        
         <p><img src="https://unsplash.com/photos/3uunq0n1WRY" alt="TBH I want to be this chicken&hellip;"></p>
 <p>You&rsquo;d have to be living under a rock in the R community to not be aware of the fact that R 4.0 has been released, with some major changes, the biggest of which is probably the new default for <code>read.table()</code>: <code>stringsAsFactors = FALSE</code>, as well as the fact that <code>matrix()</code> now converts character columns to factors and factors to integers.</p>
 <p>In the past, I&rsquo;ve always been too &ldquo;chicken&rdquo; to try running multiple versions of R on my work laptop, as I&rsquo;ve usually got a few key analysis projects going that need to be delivered on time and within full feature scope - which means I don&rsquo;t have time to fix basic version incompatibility bugs. But with this major new release I was sorely tempted, so have gone down the rabbit-hole of installing <a href="https://rud.is/rswitch/guide/">RSwitch</a> and R4.0 on my Mac (Catalina 10.15.4). Below I document, in what is probably excruciating detail, the steps of how I got this to work. I&rsquo;ve played with it for all of two days, and it seems to work - so I&rsquo;ve written this post in the hopes of helping others. Also, I had some funky hiccups with getting the right filepath and not using sudo at the outset, so I&rsquo;m hoping this helps someone avoid some extra <code>rm -r ...path...</code></p>
@@ -147,11 +178,11 @@ In the past, I&rsquo;ve always been too &ldquo;chicken&rdquo; to try running mul
 <h2 id="step-3-apply-funky-magic">Step 3: Apply funky magic</h2>
 <h4 id="option-1-gui">Option 1: GUI</h4>
 <p>So the reason I think the GUI is &ldquo;riskier&rdquo; is because usually when you run the GUI for a new version of R, it cleanly removes the old version of R from your machine. The workaround to prevent this from happening is to make your system, and hence the R installer, &ldquo;forget&rdquo; it has R installed. To do this you need to open a Terminal and type the following command:</p>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">sudo pkgutil --forget org.r-project.R.el-capitan.fw.pkg \
+<pre><code>sudo pkgutil --forget org.r-project.R.el-capitan.fw.pkg \
              --forget org.r-project.x86_64.tcltk.x11 \
              --forget org.r-project.x86_64.texinfo \
              --forget org.r-project.R.el-capitan.GUI.pkg
-</code></pre></div><p>For details about <strong>why</strong> this works see <a href="https://cran.rstudio.org/doc/manuals/R-admin.html#Multiple-versions">here</a>.</p>
+</code></pre><p>For details about <strong>why</strong> this works see <a href="https://cran.rstudio.org/doc/manuals/R-admin.html#Multiple-versions">here</a>.</p>
 <p>After that completes successfully (note:  you&rsquo;ll need to enter your password to use sudo) you can run the GUI installer.</p>
 <h4 id="option-2-command-line">Option 2: Command line</h4>
 <p>I&rsquo;m fairly comfortable with the command line, so was happy to use that option, but did make a few silly mistakes with the paths, so am documenting what worked below, in the hope that it helps others:</p>
@@ -179,15 +210,16 @@ In the past, I&rsquo;ve always been too &ldquo;chicken&rdquo; to try running mul
 
       </div>
 
+
       <footer>
         
 
 <section class="see-also">
   
-    <h3>See also in Learning in an online live coding workshop</h3>
     
     
     
+      <h3>See also in Learning in an online live coding workshop</h3>
       <nav>
         <ul>
         
@@ -196,25 +228,25 @@ In the past, I&rsquo;ve always been too &ldquo;chicken&rdquo; to try running mul
         
           
             <li>
-              <a href="/posts/2020-ardc-presentation-codingonline/">Jumping into digital: Lessons learned while moving live-coding workshops online</a>
+              <a href="https://daryavanichkina.com/posts/2020-ardc-presentation-codingonline/">Jumping into digital: Lessons learned while moving live-coding workshops online</a>
             </li>
           
         
           
             <li>
-              <a href="/posts/2020-map-digital-2/">Mapping a live coding workshop for digital delivery (part 2)</a>
+              <a href="https://daryavanichkina.com/posts/2020-map-digital-2/">Mapping a live coding workshop for digital delivery (part 2)</a>
             </li>
           
         
           
             <li>
-              <a href="/posts/2020-map-digital-1/">Mapping a live coding workshop for digital delivery</a>
+              <a href="https://daryavanichkina.com/posts/2020-map-digital-1/">Mapping a live coding workshop for digital delivery</a>
             </li>
           
         
           
             <li>
-              <a href="/posts/2020-great-online-learning-student/">Having a great online learning experience: a guide for students</a>
+              <a href="https://daryavanichkina.com/posts/2020-great-online-learning-student/">Having a great online learning experience: a guide for students</a>
             </li>
           
         
@@ -226,15 +258,27 @@ In the past, I&rsquo;ve always been too &ldquo;chicken&rdquo; to try running mul
 
 
         <div id="disqus_thread"></div>
-<script>
-(function() {
-var d = document, s = d.createElement('script');
-s.src = 'https://dvanicw.disqus.com/embed.js';
-s.setAttribute('data-timestamp', +new Date());
-(d.head || d.body).appendChild(s);
-})();
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "dvanicw" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
 </script>
 <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+        
+        
       </footer>
     </article>
 
@@ -243,17 +287,24 @@ s.setAttribute('data-timestamp', +new Date());
 
       </div>
 
-      <footer class="footer">
-  <section class="container">
-    
-    
-    
-    
-  </section>
-
-</footer>
+      
+  <footer class="footer">
+    <section class="container">
+      
+      
+      
+      
+    </section>
+  </footer>
 
     </main>
+
+    
+      
+      <script src="https://daryavanichkina.com/js/dark-mode.min.0213e1773e6d1c5a644f847c67a6f8abac49a3776e2976f6008038af8c5b76a1.js"></script>
+    
+
+    
 
     
 <script type="application/javascript">
@@ -269,6 +320,10 @@ if (!doNotTrack) {
 }
 </script>
 
+
+    
+
+    
 
   </body>
 

@@ -2,84 +2,80 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on Darya Vanichkina</title>
-    <link>/tags/</link>
+    <link>https://daryavanichkina.com/tags/</link>
     <description>Recent content in Tags on Darya Vanichkina</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Fri, 01 May 2020 00:00:00 +0000</lastBuildDate>
-    
-	<atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Fri, 02 Oct 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://daryavanichkina.com/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Data science</title>
-      <link>/tags/data-science/</link>
-      <pubDate>Fri, 01 May 2020 00:00:00 +0000</pubDate>
+      <title>R</title>
+      <link>https://daryavanichkina.com/tags/r/</link>
+      <pubDate>Fri, 02 Oct 2020 00:00:00 +0000</pubDate>
       
-      <guid>/tags/data-science/</guid>
+      <guid>https://daryavanichkina.com/tags/r/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>R</title>
-      <link>/tags/r/</link>
+      <title>Data science</title>
+      <link>https://daryavanichkina.com/tags/data-science/</link>
       <pubDate>Fri, 01 May 2020 00:00:00 +0000</pubDate>
       
-      <guid>/tags/r/</guid>
+      <guid>https://daryavanichkina.com/tags/data-science/</guid>
       <description></description>
     </item>
     
     <item>
       <title>WorkJournal</title>
-      <link>/tags/workjournal/</link>
+      <link>https://daryavanichkina.com/tags/workjournal/</link>
       <pubDate>Fri, 01 May 2020 00:00:00 +0000</pubDate>
       
-      <guid>/tags/workjournal/</guid>
+      <guid>https://daryavanichkina.com/tags/workjournal/</guid>
       <description></description>
     </item>
     
     <item>
       <title>training</title>
-      <link>/tags/training/</link>
+      <link>https://daryavanichkina.com/tags/training/</link>
       <pubDate>Tue, 07 Apr 2020 00:00:00 +0000</pubDate>
       
-      <guid>/tags/training/</guid>
+      <guid>https://daryavanichkina.com/tags/training/</guid>
       <description></description>
     </item>
     
     <item>
       <title>tidyverse</title>
-      <link>/tags/tidyverse/</link>
+      <link>https://daryavanichkina.com/tags/tidyverse/</link>
       <pubDate>Wed, 04 Dec 2019 00:00:00 +0000</pubDate>
       
-      <guid>/tags/tidyverse/</guid>
+      <guid>https://daryavanichkina.com/tags/tidyverse/</guid>
       <description></description>
     </item>
     
     <item>
       <title>other</title>
-      <link>/tags/other/</link>
+      <link>https://daryavanichkina.com/tags/other/</link>
       <pubDate>Fri, 29 Mar 2019 00:00:00 +0000</pubDate>
       
-      <guid>/tags/other/</guid>
+      <guid>https://daryavanichkina.com/tags/other/</guid>
       <description></description>
     </item>
     
     <item>
       <title>presentations</title>
-      <link>/tags/presentations/</link>
+      <link>https://daryavanichkina.com/tags/presentations/</link>
       <pubDate>Tue, 20 Feb 2018 00:00:00 +0000</pubDate>
       
-      <guid>/tags/presentations/</guid>
+      <guid>https://daryavanichkina.com/tags/presentations/</guid>
       <description></description>
     </item>
     
     <item>
       <title>conferences</title>
-      <link>/tags/conferences/</link>
+      <link>https://daryavanichkina.com/tags/conferences/</link>
       <pubDate>Tue, 01 Nov 2016 00:00:00 +0000</pubDate>
       
-      <guid>/tags/conferences/</guid>
+      <guid>https://daryavanichkina.com/tags/conferences/</guid>
       <description></description>
     </item>
     

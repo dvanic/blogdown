@@ -3,159 +3,169 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>/</loc>
+    <loc>https://daryavanichkina.com/</loc>
+    <lastmod>2020-10-02T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://daryavanichkina.com/posts/2020-colorblind/</loc>
+    <lastmod>2020-10-02T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://daryavanichkina.com/posts/</loc>
+    <lastmod>2020-10-02T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://daryavanichkina.com/tags/r/</loc>
+    <lastmod>2020-10-02T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://daryavanichkina.com/tags/</loc>
+    <lastmod>2020-10-02T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://daryavanichkina.com/tags/data-science/</loc>
     <lastmod>2020-05-01T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/data-science/</loc>
+    <loc>https://daryavanichkina.com/series/learning-in-an-online-live-coding-workshop/</loc>
     <lastmod>2020-05-01T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/series/learning-in-an-online-live-coding-workshop/</loc>
+    <loc>https://daryavanichkina.com/posts/2020-rswitch-guide/</loc>
     <lastmod>2020-05-01T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/posts/2020-rswitch-guide/</loc>
+    <loc>https://daryavanichkina.com/series/</loc>
     <lastmod>2020-05-01T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/posts/</loc>
+    <loc>https://daryavanichkina.com/tags/workjournal/</loc>
     <lastmod>2020-05-01T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/r/</loc>
-    <lastmod>2020-05-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/series/</loc>
-    <lastmod>2020-05-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tags/</loc>
-    <lastmod>2020-05-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tags/workjournal/</loc>
-    <lastmod>2020-05-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/posts/2020-ardc-presentation-codingonline/</loc>
+    <loc>https://daryavanichkina.com/posts/2020-ardc-presentation-codingonline/</loc>
     <lastmod>2020-04-07T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/training/</loc>
+    <loc>https://daryavanichkina.com/tags/training/</loc>
     <lastmod>2020-04-07T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/posts/2020-map-digital-2/</loc>
+    <loc>https://daryavanichkina.com/posts/2020-map-digital-2/</loc>
     <lastmod>2020-04-03T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/posts/2020-map-digital-1/</loc>
+    <loc>https://daryavanichkina.com/posts/2020-map-digital-1/</loc>
     <lastmod>2020-04-02T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/posts/2020-great-online-learning-student/</loc>
+    <loc>https://daryavanichkina.com/posts/2020-great-online-learning-student/</loc>
     <lastmod>2020-04-01T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/posts/2019-r-for-data-science-day-1/</loc>
+    <loc>https://daryavanichkina.com/posts/2019-r-for-data-science-day-1/</loc>
     <lastmod>2019-12-04T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/series/r4ds/</loc>
+    <loc>https://daryavanichkina.com/series/r4ds/</loc>
     <lastmod>2019-12-04T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/tidyverse/</loc>
+    <loc>https://daryavanichkina.com/tags/tidyverse/</loc>
     <lastmod>2019-12-04T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/posts/2019-moving-to-hugo/</loc>
+    <loc>https://daryavanichkina.com/posts/2019-moving-to-hugo/</loc>
     <lastmod>2019-03-29T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/other/</loc>
+    <loc>https://daryavanichkina.com/tags/other/</loc>
     <lastmod>2019-03-29T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/presentations/</loc>
+    <loc>https://daryavanichkina.com/tags/presentations/</loc>
     <lastmod>2018-02-20T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/series/training/</loc>
+    <loc>https://daryavanichkina.com/series/training/</loc>
     <lastmod>2018-02-20T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/posts/2018-ands/</loc>
+    <loc>https://daryavanichkina.com/posts/2018-ands/</loc>
     <lastmod>2018-02-20T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/posts/2016-awsworkshop/</loc>
+    <loc>https://daryavanichkina.com/posts/2016-awsworkshop/</loc>
     <lastmod>2016-11-01T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/conferences/</loc>
+    <loc>https://daryavanichkina.com/tags/conferences/</loc>
     <lastmod>2016-11-01T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/posts/pycon2016/</loc>
+    <loc>https://daryavanichkina.com/posts/pycon2016/</loc>
     <lastmod>2016-08-12T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/posts/2014-lorne2012poster/</loc>
+    <loc>https://daryavanichkina.com/posts/2014-lorne2012poster/</loc>
     <lastmod>2014-03-24T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/posts/2013-cirnapapers/</loc>
+    <loc>https://daryavanichkina.com/posts/2013-cirnapapers/</loc>
     <lastmod>2013-07-13T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/posts/2013-helloworld/</loc>
+    <loc>https://daryavanichkina.com/posts/2013-helloworld/</loc>
     <lastmod>2013-07-13T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/about/</loc>
+    <loc>https://daryavanichkina.com/2020aoc/</loc>
+    <priority>0</priority>
   </url>
   
   <url>
-    <loc>/contact/</loc>
+    <loc>https://daryavanichkina.com/about/</loc>
   </url>
   
   <url>
-    <loc>/cv/</loc>
+    <loc>https://daryavanichkina.com/contact/</loc>
   </url>
   
   <url>
-    <loc>/training/</loc>
+    <loc>https://daryavanichkina.com/cv/</loc>
+  </url>
+  
+  <url>
+    <loc>https://daryavanichkina.com/training/</loc>
   </url>
   
 </urlset>

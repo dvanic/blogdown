@@ -2,39 +2,35 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Series on Darya Vanichkina</title>
-    <link>/series/</link>
+    <link>https://daryavanichkina.com/series/</link>
     <description>Recent content in Series on Darya Vanichkina</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Fri, 01 May 2020 00:00:00 +0000</lastBuildDate>
-    
-	<atom:link href="/series/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Fri, 01 May 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://daryavanichkina.com/series/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Learning in an online live coding workshop</title>
-      <link>/series/learning-in-an-online-live-coding-workshop/</link>
+      <link>https://daryavanichkina.com/series/learning-in-an-online-live-coding-workshop/</link>
       <pubDate>Fri, 01 May 2020 00:00:00 +0000</pubDate>
       
-      <guid>/series/learning-in-an-online-live-coding-workshop/</guid>
+      <guid>https://daryavanichkina.com/series/learning-in-an-online-live-coding-workshop/</guid>
       <description></description>
     </item>
     
     <item>
       <title>R4DS</title>
-      <link>/series/r4ds/</link>
+      <link>https://daryavanichkina.com/series/r4ds/</link>
       <pubDate>Wed, 04 Dec 2019 00:00:00 +0000</pubDate>
       
-      <guid>/series/r4ds/</guid>
+      <guid>https://daryavanichkina.com/series/r4ds/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Training</title>
-      <link>/series/training/</link>
+      <link>https://daryavanichkina.com/series/training/</link>
       <pubDate>Tue, 20 Feb 2018 00:00:00 +0000</pubDate>
       
-      <guid>/series/training/</guid>
+      <guid>https://daryavanichkina.com/series/training/</guid>
       <description></description>
     </item>
     
