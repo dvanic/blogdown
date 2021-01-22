@@ -6,19 +6,7 @@
     <description>Recent content in Posts on Darya Vanichkina</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Fri, 02 Oct 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://daryavanichkina.com/posts/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Making colorblind-friendly plots in R</title>
-      <link>https://daryavanichkina.com/posts/2020-colorblind/</link>
-      <pubDate>Fri, 02 Oct 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://daryavanichkina.com/posts/2020-colorblind/</guid>
-      <description>&lt;p&gt;I&amp;rsquo;m currently working on a project where all figures need to be colourblind-friendly - and we&amp;rsquo;ve got lots of them, with over a dozen discrete variables plotted on some. In the past, I&amp;rsquo;ve used the excellent &lt;a href=&#34;&#34;&gt;colorbrewer&lt;/a&gt; web page and &lt;a href=&#34;&#34;&gt;RColorBrewer&lt;/a&gt; packages to generate colour schemes, but these don&amp;rsquo;t quite have built-in support for 12+ (12?!?!?) colours - so I&amp;rsquo;ve gone down into the depths of the stackoverflows to find out what to use.&lt;/p&gt;
-&lt;h2 id=&#34;how-to-assess-and-preview-any-palette-for-colourblind-friendliness&#34;&gt;How to assess and preview any palette for colourblind-friendliness?&lt;/h2&gt;
-&lt;p&gt;The first tool that&amp;rsquo;s now permanently in my arsenal is the &lt;a href=&#34;&#34;&gt;colorblindcheck&lt;/a&gt; R package, which allows one to preview any palette (supplied as a list of hex codes) to&lt;/p&gt;
-</description>
-    </item>
-    
+    <lastBuildDate>Fri, 01 May 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://daryavanichkina.com/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Living dangerously: a newbie guide to running multiple version of R on a Mac</title>
       <link>https://daryavanichkina.com/posts/2020-rswitch-guide/</link>

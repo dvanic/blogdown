@@ -7,7 +7,7 @@
     <meta http-equiv="Content-Language" content="en">
 
     <meta name="author" content="Darya Vanichkina PhD">
-    <meta name="description" content="Darya Vanichkina&#39;s personal website">
+    <meta name="description" content="I&rsquo;m currently working on a project where all figures need to be colourblind-friendly - and we&rsquo;ve got lots of them, with over a dozen discrete variables plotted on some. In the past, I&rsquo;ve used the excellent colorbrewer web page and RColorBrewer packages to generate colour schemes, but these don&rsquo;t quite have built-in support for 12&#43; colours - so I&rsquo;ve gone down into the depths of the stackoverflows to find out what to use.">
     <meta name="keywords" content="data scientist, bioinformatician, consultant, educator">
 
     
@@ -15,20 +15,23 @@
     
 
     <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Drafts"/>
-<meta name="twitter:description" content="Darya Vanichkina&#39;s personal website"/>
+<meta name="twitter:title" content="Making colorblind-friendly plots in R"/>
+<meta name="twitter:description" content="I&rsquo;m currently working on a project where all figures need to be colourblind-friendly - and we&rsquo;ve got lots of them, with over a dozen discrete variables plotted on some. In the past, I&rsquo;ve used the excellent colorbrewer web page and RColorBrewer packages to generate colour schemes, but these don&rsquo;t quite have built-in support for 12&#43; colours - so I&rsquo;ve gone down into the depths of the stackoverflows to find out what to use."/>
 
-    <meta property="og:title" content="Drafts" />
-<meta property="og:description" content="Darya Vanichkina&#39;s personal website" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://daryavanichkina.com/drafts/" />
-<meta property="og:updated_time" content="2020-10-02T00:00:00+00:00" />
+    <meta property="og:title" content="Making colorblind-friendly plots in R" />
+<meta property="og:description" content="I&rsquo;m currently working on a project where all figures need to be colourblind-friendly - and we&rsquo;ve got lots of them, with over a dozen discrete variables plotted on some. In the past, I&rsquo;ve used the excellent colorbrewer web page and RColorBrewer packages to generate colour schemes, but these don&rsquo;t quite have built-in support for 12&#43; colours - so I&rsquo;ve gone down into the depths of the stackoverflows to find out what to use." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://daryavanichkina.com/drafts/2020-colorblind/" />
+<meta property="article:published_time" content="2020-10-02T00:00:00+00:00" />
+<meta property="article:modified_time" content="2020-10-02T00:00:00+00:00" />
 
 
-    <title>Drafts · Darya Vanichkina</title>
+    <title>
+  Making colorblind-friendly plots in R · Darya Vanichkina
+</title>
 
     
-      <link rel="canonical" href="https://daryavanichkina.com/drafts/">
+      <link rel="canonical" href="https://daryavanichkina.com/drafts/2020-colorblind/">
     
 
     <link href="https://fonts.googleapis.com/css?family=Lato:400,700%7CMerriweather:300,700%7CSource+Code+Pro:400,700&display=swap" rel="stylesheet">
@@ -63,7 +66,6 @@
     <link rel="apple-touch-icon" href="https://daryavanichkina.com/images/apple-touch-icon.png">
     <link rel="apple-touch-icon"  sizes="180x180" href="https://daryavanichkina.com/images/apple-touch-icon.png">
 
-    <link rel="alternate" type="application/rss+xml" href="https://daryavanichkina.com/drafts/index.xml" title="Darya Vanichkina" />
     <meta name="generator" content="Hugo 0.75.1" />
   </head>
   
@@ -120,26 +122,27 @@
 
       <div class="content">
         
-  <section class="container list">
-  <h1 class="title">Drafts</h1>
-  
-  <ul>
-    
-    <li>
-      <span class="date">October 2, 2020</span>
-      <a class="title" href="https://daryavanichkina.com/drafts/2020-colorblind/">Making colorblind-friendly plots in R</a>
-    </li>
-    
-  </ul>
-  
+  <section class="container page">
+  <article>
+    <header>
+      <h1>Making colorblind-friendly plots in R</h1>
+    </header>
 
+    <p>I&rsquo;m currently working on a project where all figures need to be colourblind-friendly - and we&rsquo;ve got lots of them, with over a dozen discrete variables plotted on some. In the past, I&rsquo;ve used the excellent <a href="">colorbrewer</a> web page and <a href="">RColorBrewer</a> packages to generate colour schemes, but these don&rsquo;t quite have built-in support for 12+ colours - so I&rsquo;ve gone down into the depths of the stackoverflows to find out what to use. But before I dive into what I found - a digression into tools for checking a palette myself.</p>
+<h2 id="how-to-assess-and-preview-any-palette-for-colourblind-friendliness">How to assess and preview any palette for colourblind-friendliness?</h2>
+<p>The first tool that&rsquo;s now permanently in my arsenal is the <a href="">colorblindcheck</a> R package, which allows one to preview any palette (supplied as a list of hex codes) in how it would be visible to someone with common types of colour blindness.</p>
+<h2 id="my-crazy-find---the-largest-number-of-colours-in-a-pallette">My &lsquo;crazy&rsquo; find - the largest number of colours in a pallette</h2>
+<p>In trawling through stack overflow, I came across the following post: <a href="https://stackoverflow.com/questions/65013406/how-to-generate-30-distinct-colors-that-are-color-blind-friendly">&ldquo;How to generate 30 distinct colors that are color-blind friendly?&quot;</a>. That post, in turn, has a link to this <a href="https://jacksonlab.agronomy.wisc.edu/2016/05/23/15-level-colorblind-friendly-palette/">blog post</a>, which in turn</p>
+<h2 id="other-useful-links">Other useful links</h2>
+<ul>
+<li><a href="https://stackoverflow.com/questions/37482977/what-is-a-good-palette-for-divergent-colors-in-r-or-can-viridis-and-magma-b/52812120">What is a “good” palette for divergent colors in R? (or: can viridis and magma be combined together?)</a></li>
+<li><a href="https://stackoverflow.com/questions/9563711/r-color-palettes-for-many-data-classes/56066712">R color palettes for many data classes</a></li>
+</ul>
 
-
-
-
-
+  </article>
 </section>
 
+  
 
       </div>
 

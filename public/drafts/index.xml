@@ -2,56 +2,27 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Drafts on Darya Vanichkina</title>
-    <link>/drafts/</link>
+    <link>https://daryavanichkina.com/drafts/</link>
     <description>Recent content in Drafts on Darya Vanichkina</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en</language><atom:link href="/drafts/index.xml" rel="self" type="application/rss+xml" />
+    <language>en</language>
+    <lastBuildDate>Fri, 02 Oct 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://daryavanichkina.com/drafts/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Moving Machine Learning from R to python</title>
-      <link>/drafts/2020-ml-r2py/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <title>Making colorblind-friendly plots in R</title>
+      <link>https://daryavanichkina.com/drafts/2020-colorblind/</link>
+      <pubDate>Fri, 02 Oct 2020 00:00:00 +0000</pubDate>
       
-      <guid>/drafts/2020-ml-r2py/</guid>
-      <description>&lt;p&gt;As part of a project for work, I needed to port some R machine learning code to python. We weren&amp;rsquo;t trying to achieve 100% identity of results, instead opting to try to implement things &amp;ldquo;natively&amp;rdquo; to the language, and&amp;hellip;&lt;/p&gt;
-&lt;p&gt;The rsample package has the&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;initial_split(data, prop = 3/4, strata = NULL, ...)&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;function has the strata argument, which allows us to select which variable to stratify with. If this variable is categorical, porting the code to python is easy, as we would use&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;sklearn.model_selection.train_test_split(*arrays, **options)&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;If the variable is numerical, it&amp;rsquo;s harder to figure out what rsample is doing by default. There is, however, a&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;make_strata(x, nunique = 5, pool = 0.15, depth = 20)&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;function, which most likely is operating with the same principles.&lt;/p&gt;
-&lt;p&gt;The help for this states that:&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;
-&lt;p&gt;For numeric data, if the number of unique levels is less than nunique, the data are treated as categorical data.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;For categorical inputs, the function will find levels of x than occur in the data with percentage less than pool. The values from these groups will be randomly assigned to the remaining strata (as will data points that have missing values in x). (i.e. by default, categories that represent less than 15% of the dataset will be pooled before sampling happens)&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;For numeric data with more unique values than nunique, the data will be converted to being categorical based on percentiles of the data. The percentile groups will have no more than 20 percent of the data in each group. Again, missing values in x are randomly assigned to groups.&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;I am assuming this 20% is being specified by the depth parameter.&lt;/p&gt;
-&lt;p&gt;The easiest way to replicate this in python for numeric data seems to be to create a &amp;ldquo;dummy&amp;rdquo; variable, which will contain the quartiles as factors, and then to stratify using that:&lt;/p&gt;
-&lt;p&gt;pd.qcut(ameshousingClean[&amp;lsquo;Sale_Price&amp;rsquo;], 10, labels=range(10))&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Moving Machine Learning from R to python</title>
-      <link>/drafts/2020-vaccines-1/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>/drafts/2020-vaccines-1/</guid>
-      <description>&lt;p&gt;Vaccine efficacy&lt;/p&gt;
-&lt;p&gt;How is it measured?&lt;/p&gt;
-&lt;p&gt;How is the conf int calculated?&lt;/p&gt;
-&lt;p&gt;IRR stands for incidence rate ratio&lt;/p&gt;
-&lt;p&gt;The sample vaccine efficacy can be defined as 1 - IRR = 1 - (cv/nv)/(cp/np)
-nv/np - subjects in each group
-cp/cv - subjects that got the disease&lt;/p&gt;
-&lt;p&gt;The press release stated that so far 38955 subjects got the two doses of the vaccine or placebo of which 94 subjects fell ill with Covid-19. Furthermore, the study plan stated that the same number of subjects was assigned to the treatment and control group and let’s assume that also in the 38955 subjects analysed so far the ratio is almost equal. An efficacy of at least 90% then implies that from the 94 subjects with Covid-19 at most 8 could have been vaccinated.&lt;/p&gt;
+      <guid>https://daryavanichkina.com/drafts/2020-colorblind/</guid>
+      <description>&lt;p&gt;I&amp;rsquo;m currently working on a project where all figures need to be colourblind-friendly - and we&amp;rsquo;ve got lots of them, with over a dozen discrete variables plotted on some. In the past, I&amp;rsquo;ve used the excellent &lt;a href=&#34;&#34;&gt;colorbrewer&lt;/a&gt; web page and &lt;a href=&#34;&#34;&gt;RColorBrewer&lt;/a&gt; packages to generate colour schemes, but these don&amp;rsquo;t quite have built-in support for 12+ colours - so I&amp;rsquo;ve gone down into the depths of the stackoverflows to find out what to use. But before I dive into what I found - a digression into tools for checking a palette myself.&lt;/p&gt;
+&lt;h2 id=&#34;how-to-assess-and-preview-any-palette-for-colourblind-friendliness&#34;&gt;How to assess and preview any palette for colourblind-friendliness?&lt;/h2&gt;
+&lt;p&gt;The first tool that&amp;rsquo;s now permanently in my arsenal is the &lt;a href=&#34;&#34;&gt;colorblindcheck&lt;/a&gt; R package, which allows one to preview any palette (supplied as a list of hex codes) in how it would be visible to someone with common types of colour blindness.&lt;/p&gt;
+&lt;h2 id=&#34;my-crazy-find---the-largest-number-of-colours-in-a-pallette&#34;&gt;My &amp;lsquo;crazy&amp;rsquo; find - the largest number of colours in a pallette&lt;/h2&gt;
+&lt;p&gt;In trawling through stack overflow, I came across the following post: &lt;a href=&#34;https://stackoverflow.com/questions/65013406/how-to-generate-30-distinct-colors-that-are-color-blind-friendly&#34;&gt;&amp;ldquo;How to generate 30 distinct colors that are color-blind friendly?&amp;quot;&lt;/a&gt;. That post, in turn, has a link to this &lt;a href=&#34;https://jacksonlab.agronomy.wisc.edu/2016/05/23/15-level-colorblind-friendly-palette/&#34;&gt;blog post&lt;/a&gt;, which in turn&lt;/p&gt;
+&lt;h2 id=&#34;other-useful-links&#34;&gt;Other useful links&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://stackoverflow.com/questions/37482977/what-is-a-good-palette-for-divergent-colors-in-r-or-can-viridis-and-magma-b/52812120&#34;&gt;What is a “good” palette for divergent colors in R? (or: can viridis and magma be combined together?)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://stackoverflow.com/questions/9563711/r-color-palettes-for-many-data-classes/56066712&#34;&gt;R color palettes for many data classes&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
 </description>
     </item>
     
