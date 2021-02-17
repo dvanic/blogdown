@@ -1,160 +1,121 @@
 <!DOCTYPE html>
-<html lang="en">
-
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="Content-Language" content="en">
-
-    <meta name="author" content="Darya Vanichkina PhD">
-    <meta name="description" content="With the advent of COVID-19 we’re all having to do the unthinkable, which for an instructor like me means moving hands-on, practical coding workshops online. In this post, I&rsquo;ll provide a map that helped me formalise how I broke down our workshops into components, and tried to map each of them to an online tool, platform or approach. I&rsquo;ve used Zoom for most of the examples below, since that&rsquo;s what I&rsquo;ve used for teaching, but I&rsquo;m sure that most of this functionality is well supported by other online meeting tools.">
-    <meta name="keywords" content="data scientist, bioinformatician, consultant, educator">
-
-    
-      <script src="https://twemoji.maxcdn.com/v/latest/twemoji.min.js" crossorigin="anonymous"></script>
-    
-
-    <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Mapping a live coding workshop for digital delivery"/>
-<meta name="twitter:description" content="With the advent of COVID-19 we’re all having to do the unthinkable, which for an instructor like me means moving hands-on, practical coding workshops online. In this post, I&rsquo;ll provide a map that helped me formalise how I broke down our workshops into components, and tried to map each of them to an online tool, platform or approach. I&rsquo;ve used Zoom for most of the examples below, since that&rsquo;s what I&rsquo;ve used for teaching, but I&rsquo;m sure that most of this functionality is well supported by other online meeting tools."/>
-
-    <meta property="og:title" content="Mapping a live coding workshop for digital delivery" />
-<meta property="og:description" content="With the advent of COVID-19 we’re all having to do the unthinkable, which for an instructor like me means moving hands-on, practical coding workshops online. In this post, I&rsquo;ll provide a map that helped me formalise how I broke down our workshops into components, and tried to map each of them to an online tool, platform or approach. I&rsquo;ve used Zoom for most of the examples below, since that&rsquo;s what I&rsquo;ve used for teaching, but I&rsquo;m sure that most of this functionality is well supported by other online meeting tools." />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://daryavanichkina.com/posts/2020-map-digital-1/" />
-<meta property="article:published_time" content="2020-04-02T00:00:00+00:00" />
-<meta property="article:modified_time" content="2020-04-02T00:00:00+00:00" />
-
-
-
-    <title>
-  Mapping a live coding workshop for digital delivery · Darya Vanichkina
-</title>
-
-    
-      <link rel="canonical" href="https://daryavanichkina.com/posts/2020-map-digital-1/">
-    
-
-    <link href="https://fonts.googleapis.com/css?family=Lato:400,700%7CMerriweather:300,700%7CSource+Code+Pro:400,700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css" integrity="sha384-Bfad6CLCknfcloXFOyFnlgtENryhrpZCe29RTifKEixXQZ38WheV+i/6YWSzkz3V" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha256-l85OmPOjvil/SOvVt3HnSSjzF1TUMyT9eV0c2BzEGzU=" crossorigin="anonymous" />
-
-    
-      
-      
-      <link rel="stylesheet" href="https://daryavanichkina.com/css/coder.min.9836c03fe5c87d102278a33e86d0591ef36c89b1e17e8e547ebf84c05cee010e.css" integrity="sha256-mDbAP&#43;XIfRAieKM&#43;htBZHvNsibHhfo5Ufr&#43;EwFzuAQ4=" crossorigin="anonymous" media="screen" />
-    
-
-    
-
-    
-      
-        
-        
-        <link rel="stylesheet" href="https://daryavanichkina.com/css/coder-dark.min.717236c74e0a5208ef73964a9f44c6b443b689a95b270d8b2a40d0c012460dac.css" integrity="sha256-cXI2x04KUgjvc5ZKn0TGtEO2ialbJw2LKkDQwBJGDaw=" crossorigin="anonymous" media="screen" />
-      
-    
-
-    
-      <link rel="stylesheet" href="https://daryavanichkina.com/static/css/custom.css" />
-    
-
-    
-
-    <link rel="icon" type="image/png" href="https://daryavanichkina.com/images/favicon-32x32.png" sizes="32x32">
-    <link rel="icon" type="image/png" href="https://daryavanichkina.com/images/favicon-16x16.png" sizes="16x16">
-
-    <link rel="apple-touch-icon" href="https://daryavanichkina.com/images/apple-touch-icon.png">
-    <link rel="apple-touch-icon"  sizes="180x180" href="https://daryavanichkina.com/images/apple-touch-icon.png">
-
-    <meta name="generator" content="Hugo 0.75.1" />
-  </head>
+<html lang="en" dir="ltr"><head>
   
-  
+                           
+     
+
+
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="generator" content="Hugo 0.80.0" />
+<title>Mapping a live coding workshop for digital delivery | Darya Vanichkina</title>
+
+
+<meta property="twitter:site" content="@dvanichkina">
+<meta property="twitter:creator" content="@dvanichkina">
+
+
+
+
+
+
+
   
     
   
-  <body class="colorscheme-auto"
-        onload=" twemoji.parse(document.body); "
-  >
-    <main class="wrapper">
-      <nav class="navigation">
-  <section class="container">
-    <a class="navigation-title" href="https://daryavanichkina.com/">
-      Darya Vanichkina
+<meta name="description" content="Darya Vanichkina&#39;s personal website">
+
+
+<meta property="og:site_name" content="Darya Vanichkina">
+<meta property="og:title" content="Mapping a live coding workshop for digital delivery | Darya Vanichkina">
+<meta property="og:description" content="Darya Vanichkina&#39;s personal website" />
+<meta property="og:type" content="page" />
+<meta property="og:url" content="/posts/2020-map-digital-1/" />
+<meta property="og:locale" content="en">
+
+
+
+
+    
+        <meta property="og:image" content="/img/papillons.jpg" >
+        <meta property="twitter:card" content="summary_large_image">
+        <meta name="twitter:image" content="/img/papillons.jpg" >
+    
+  <meta itemprop="name" content="Mapping a live coding workshop for digital delivery">
+<meta itemprop="description" content="With the advent of COVID-19 we’re all having to do the unthinkable, which for an instructor like me means moving hands-on, practical coding workshops online. In this post, I&rsquo;ll provide a map that helped me formalise how I broke down our workshops into components, and tried to map each of them to an online tool, platform or approach. I&rsquo;ve used Zoom for most of the examples below, since that&rsquo;s what I&rsquo;ve used for teaching, but I&rsquo;m sure that most of this functionality is well supported by other online meeting tools.">
+<meta itemprop="datePublished" content="2020-04-02T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2020-04-02T00:00:00+00:00" />
+<meta itemprop="wordCount" content="2116">
+
+
+
+<meta itemprop="keywords" content="training," />
+
+  
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-54373354-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+  <!--[if IE]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  <link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="/img/favicon.ico" type="image/x-icon">
+  
+  
+  <link rel="stylesheet" href="/style.main.min.cc5b224aa9852140150525ea8526888014ef923ac1ad86154498bbd9f4b487f9.css" integrity="sha256-zFsiSqmFIUAVBSXqhSaIgBTvkjrBrYYVRJi72fS0h/k=" media="screen">
+  
+  
+  <script src="/panelset.min.41f62c42d5f25dd80e81136866f4f1baa1bc17669edfd002e75c0e107953789b.js" type="text/javascript"></script>
+  
+  
+  <script src="/main.min.07ec8e08cbb63db3a2cf7d4a7df6f7be00c715f13b64d8df6a2c48441ba8b14b.js" type="text/javascript"></script>
+</head>
+<body>
+      <div class="grid-container post">
+<header class="site-header pt4 pb2 mb4 bb b--transparent ph5 headroom z-max" role="banner">
+  <nav class="site-nav db dt-l w-100" role="navigation">
+    <a class="site-brand db dtc-l v-mid link no-underline w-100 w-33-l tc tl-l" href="/" title="Home">
+      <img src="/img/blogophonic-mark-dark.png" class="dib db-l h2 w-auto" alt="Darya Vanichkina">
     </a>
-    
-      <span id="dark-mode-toggle" class="float-right">
-        <i class="fas fa-adjust fa-fw"></i>
-      </span>
-      <input type="checkbox" id="menu-toggle" />
-      <label class="menu-button float-right" for="menu-toggle">
-        <i class="fas fa-bars fa-fw"></i>
-      </label>
-      <ul class="navigation-list">
-        
-          
-            <li class="navigation-item">
-              <a class="navigation-link" href="https://daryavanichkina.com/about/">About</a>
-            </li>
-          
-            <li class="navigation-item">
-              <a class="navigation-link" href="https://daryavanichkina.com/posts/">Blog</a>
-            </li>
-          
-            <li class="navigation-item">
-              <a class="navigation-link" href="https://daryavanichkina.com/training/">Training</a>
-            </li>
-          
-            <li class="navigation-item">
-              <a class="navigation-link" href="https://daryavanichkina.com/contact/">Contact</a>
-            </li>
-          
-        
-        
-        <li class="navigation-item separator">
-          <span>|</span>
-        </li>
-      </ul>
-    
-  </section>
-</nav>
+    <div class="site-links db dtc-l v-mid w-100 w-47-l tc tr-l mt3 mt0-l ttu tracked">
+      
+      
+    </div>
+  </nav>
+</header>
 
-
-      <div class="content">
+<main class="page-main pa4" role="main">
+  <section class="page-content mw7 center">
+    <article class="post-content pa0 ph4-l">
+      <header class="post-header">
+        <h1 class="f1 lh-solid measure-narrow mb3 fw4">Mapping a live coding workshop for digital delivery</h1>
         
-  <section class="container post">
-    <article>
-      <header>
-        <div class="post-title">
-          <h1 class="title">Mapping a live coding workshop for digital delivery</h1>
-        </div>
-        <div class="post-meta">
-          <div class="date">
-            <span class="posted-on">
-              <i class="fas fa-calendar"></i>
-              <time datetime='2020-04-02T00:00:00Z'>
-                April 2, 2020
-              </time>
-            </span>
-            <span class="reading-time">
-              <i class="fas fa-clock"></i>
-              10-minute read
-            </span>
-          </div>
-          
-          <div class="tags">
-  <i class="fas fa-tag"></i>
-    <a href="https://daryavanichkina.com/tags/training/">training</a></div>
+        
+        
 
-        </div>
+      
+
       </header>
-
-      <div>
-        
+      <section class="post-body pt5 pb4">
         <p>With the advent of COVID-19 we’re all having to do the unthinkable, which for an instructor like me means moving hands-on, practical coding workshops online. In this post, I&rsquo;ll provide a map that helped me formalise how I broke down our workshops into components, and tried to map each of them to an online tool, platform or approach. I&rsquo;ve used Zoom for most of the examples below, since that&rsquo;s what I&rsquo;ve used for teaching, but I&rsquo;m sure that most of this functionality is well supported by other online meeting tools.</p>
 <p><img src="https://images.unsplash.com/photo-1581043144435-ebcd25885809?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=500&amp;q=80" alt="NameTag"></p>
-<h2 id="preliminaries">Preliminaries</h2>
+
+
+
+
+<h2 id="preliminaries">Preliminaries
+  <a href="#preliminaries"><svg class="anchor-symbol" aria-hidden="true" height="26" width="26" viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0 0h24v24H0z" fill="currentColor"></path>
+      <path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76.0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71.0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71.0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76.0 5-2.24 5-5s-2.24-5-5-5z"></path>
+    </svg></a>
+</h2>
 <p>A learners arrives in my training room. They:</p>
 <ol>
 <li><strong>Sign in on a sign-in sheet</strong>
@@ -179,20 +140,32 @@
 </ul>
 </li>
 </ol>
-<h2 id="workshop-start">Workshop start</h2>
+
+
+
+
+<h2 id="workshop-start">Workshop start
+  <a href="#workshop-start"><svg class="anchor-symbol" aria-hidden="true" height="26" width="26" viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0 0h24v24H0z" fill="currentColor"></path>
+      <path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76.0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71.0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71.0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76.0 5-2.24 5-5s-2.24-5-5-5z"></path>
+    </svg></a>
+</h2>
 <ol>
 <li>
 <p><strong>Chat to their neighbours</strong></p>
 <ul>
 <li>In a 3D workshop this is part of the preliminaries, but you as the instructor have to actively normalise this online.</li>
 <li>It&rsquo;s one of the hardest things to replicate: the productive interactions and relationship-building/networking among learners that happens when you work together on a bunch of tasks for 2 days straight.</li>
-<li>A somewhat useful replacement that gets learners talking is an icebreaker task (<a href="https://carpentries.github.io/instructor-training/icebreakers/">ideas here</a>), which can either be posted into the shared document OR carried out orally in small groups in breakout rooms. I find it helpful, in addition to asking about something relatable (&ldquo;What was the most interesting thing you learned working from home last week?&quot;) to ask about learners' setups and screens (&ldquo;What does your learning setup look like today?&quot;). That way, I can suggest tweaks, such as logging in from a mobile device as a modification of a two screen setup. Another option is to ask the latter <a href="https://support.zoom.us/hc/en-us/articles/213756303-Polling-for-Meetings">as a poll</a>.</li>
+<li>A somewhat useful replacement that gets learners talking is an icebreaker task (
+<a href="https://carpentries.github.io/instructor-training/icebreakers/" target="_blank" rel="noopener">ideas here</a>), which can either be posted into the shared document OR carried out orally in small groups in breakout rooms. I find it helpful, in addition to asking about something relatable (&ldquo;What was the most interesting thing you learned working from home last week?&quot;) to ask about learners' setups and screens (&ldquo;What does your learning setup look like today?&quot;). That way, I can suggest tweaks, such as logging in from a mobile device as a modification of a two screen setup. Another option is to ask the latter 
+<a href="https://support.zoom.us/hc/en-us/articles/213756303-Polling-for-Meetings" target="_blank" rel="noopener">as a poll</a>.</li>
 </ul>
 </li>
 <li>
 <p><strong>Code of Conduct</strong></p>
 <ul>
-<li>All workshops need a <a href="https://sydney-informatics-hub.github.io/codeofconduct/">Code of Conduct</a>, which establishes the norms of behaviour you expect to support everyone&rsquo;s learning. Online, I add information about expectations for private messaging and screen sharing, as well as recording (nope!).</li>
+<li>All workshops need a 
+<a href="https://sydney-informatics-hub.github.io/codeofconduct/" target="_blank" rel="noopener">Code of Conduct</a>, which establishes the norms of behaviour you expect to support everyone&rsquo;s learning. Online, I add information about expectations for private messaging and screen sharing, as well as recording (nope!).</li>
 <li>I also ask people to let me know (via a private chat message, at any point in the workshop) if they&rsquo;re uncomfortable with me explicitly calling on them, as one of the biggest challenges of teaching online (and off) is extroverts dominating the conversation. To prevent this, I keep a tally of who I&rsquo;ve called on, but I also want to make sure I don&rsquo;t make someone who&rsquo;s wrangling a child or responding to 50 emails about a grant deadline to feel uncomfortable or pressured.</li>
 </ul>
 </li>
@@ -205,8 +178,10 @@
 <li>
 <p><strong>Sticky notes</strong></p>
 <ul>
-<li>In a Carpentries workshop, we have a very special way of using <a href="https://dynamicecology.wordpress.com/2015/01/13/sticky-notes-as-a-teaching-and-lab-meeting-tool/">sticky notes</a> to gauge learner state and assess who needs help - without them having to hold their hand up for hours. Zoom is great because it&rsquo;s a digital platform that allows us to replicate the same - BUT it&rsquo;s important to recognise that using this feature in Zoom costs screen real estate (and cognitive load!), so may need to be relied on sparingly during some portions of the class, especially the live coding ones!</li>
-<li>To replicate stickies in Zoom you can use the <strong><a href="https://support.zoom.us/hc/en-us/articles/115001286183-Non-verbal-Feedback-During-Meetings">Non-verbal Feedback</a> functionality</strong>:</li>
+<li>In a Carpentries workshop, we have a very special way of using 
+<a href="https://dynamicecology.wordpress.com/2015/01/13/sticky-notes-as-a-teaching-and-lab-meeting-tool/" target="_blank" rel="noopener">sticky notes</a> to gauge learner state and assess who needs help - without them having to hold their hand up for hours. Zoom is great because it&rsquo;s a digital platform that allows us to replicate the same - BUT it&rsquo;s important to recognise that using this feature in Zoom costs screen real estate (and cognitive load!), so may need to be relied on sparingly during some portions of the class, especially the live coding ones!</li>
+<li>To replicate stickies in Zoom you can use the <strong>
+<a href="https://support.zoom.us/hc/en-us/articles/115001286183-Non-verbal-Feedback-During-Meetings" target="_blank" rel="noopener">Non-verbal Feedback</a> functionality</strong>:</li>
 </ul>
 </li>
 </ol>
@@ -216,11 +191,21 @@
 <p>While there are a LOT of options, we tended to use only the &ldquo;Hand up&rdquo;, &ldquo;Yes&rdquo; and &ldquo;No&rdquo; options, as (1) you can only use one of these statuses at a time, and (2) we wanted to know whether students were good (&ldquo;Yes&rdquo;), needed a helper to reach out (&ldquo;No&rdquo;), or wanted to ask a question (&ldquo;Hand&rdquo;). The Hand functionality is also quite helpful for the instructor, as it automatically places the person with the hand up at the top left in Gallery view mode.</p>
 </li>
 <li>
-<p>I&rsquo;ll also mention <a href="https://support.zoom.us/hc/en-us/articles/360038311212-Meeting-reactions"><strong>Reactions</strong></a> here, which unlike Non-verbal feedback are a non-persistent way learners can tell you that all is good: they&rsquo;re displayed on screen for 5 seconds, and are overlaid <em>over</em> a learners picture in Gallery view. You can only show &ldquo;thumbs up&rdquo;  or &ldquo;clap&rdquo;, so they&rsquo;re not very helpful for getting negative feedback.  Our learners used them intuitively, without us providing explicit instructions, to  let us know that they didn&rsquo;t have any questions during the frequent pauses we made to ask &ldquo;Does anyone have any questions?/Are there any questions?/What&rsquo;s unclear about what we just did?&rdquo;.</p>
+<p>I&rsquo;ll also mention 
+<a href="https://support.zoom.us/hc/en-us/articles/360038311212-Meeting-reactions" target="_blank" rel="noopener"><strong>Reactions</strong></a> here, which unlike Non-verbal feedback are a non-persistent way learners can tell you that all is good: they&rsquo;re displayed on screen for 5 seconds, and are overlaid <em>over</em> a learners picture in Gallery view. You can only show &ldquo;thumbs up&rdquo;  or &ldquo;clap&rdquo;, so they&rsquo;re not very helpful for getting negative feedback.  Our learners used them intuitively, without us providing explicit instructions, to  let us know that they didn&rsquo;t have any questions during the frequent pauses we made to ask &ldquo;Does anyone have any questions?/Are there any questions?/What&rsquo;s unclear about what we just did?&rdquo;.</p>
 </li>
 </ul>
 <p><img src="https://zoom-support-cdn.s3.amazonaws.com/images/en-us/desktop/generic/shared-screen-with-reactions.png" alt="galleryviewwithreactions"></p>
-<h2 id="slide-centric-sessions">Slide-centric sessions</h2>
+
+
+
+
+<h2 id="slide-centric-sessions">Slide-centric sessions
+  <a href="#slide-centric-sessions"><svg class="anchor-symbol" aria-hidden="true" height="26" width="26" viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0 0h24v24H0z" fill="currentColor"></path>
+      <path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76.0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71.0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71.0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76.0 5-2.24 5-5s-2.24-5-5-5z"></path>
+    </svg></a>
+</h2>
 <p>In some of our intermediate sessions, we then dive into slides, with a small slide deck (20 minutes max) that provides some theory and a few conceptual challenge tasks. With these sessions, I</p>
 <ol>
 <li>
@@ -233,7 +218,16 @@
 <p>Set up the norms of asking questions: use the chat (or the shared doc, but ideally not both), and have my hosting co-instructor interrupt me during short pauses if I miss a question that a learner asked that would be best answered during that particular slide/mini-session vs at the end of the presentation.</p>
 </li>
 </ol>
-<h2 id="live-coding-sessions">Live coding sessions</h2>
+
+
+
+
+<h2 id="live-coding-sessions">Live coding sessions
+  <a href="#live-coding-sessions"><svg class="anchor-symbol" aria-hidden="true" height="26" width="26" viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0 0h24v24H0z" fill="currentColor"></path>
+      <path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76.0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71.0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71.0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76.0 5-2.24 5-5s-2.24-5-5-5z"></path>
+    </svg></a>
+</h2>
 <p>These form the core of our workshops, with sessions of coding along interspersed with short, formative assessment tasks, including multiple choice questions, faded examples and more complex, unscaffolded challenge tasks. Live coding is the most challenging aspect to &ldquo;port&rdquo; to digital. The key things that help make these work (somewhat):</p>
 <ol>
 <li>Make sure you use/share/project only 1/2 of your screen, and use an appropriate coding &ldquo;tool&rdquo; that encompasses everything in that 1/2 screen. This means jupyter notebooks and the terminal are in, but RStudio/a .R script, in it&rsquo;s native implementation, is out - they just take up too much screen real estate! The best work-around I&rsquo;ve found so far is to use an Rmarkdown document, with inline output for figures. This is what you get the settings to look like:</li>
@@ -249,8 +243,18 @@
 <p>If you do decide (or your learners just go) to move to more of a watch me narrate and code, I highly recommend having the challenge tasks commented out in a single code file you distribute throughout the day - so a .py or a .R or (possibly) even a .sh script, although I&rsquo;m not sure about the latter, as most intro Unix courses don&rsquo;t necessarily work a lot with shell scripts. Learners can then uncomment the challenges as they go, and work through them at the appropriate times.</p>
 </li>
 </ol>
-<h2 id="breakout-rooms-and-challenge-tasks">Breakout rooms and challenge tasks</h2>
-<p>Peer learning has been shown in numerous studies to be one of the most effective ways of getting students to learn. In our in-person training sessions, we encourage learners to sit in a group and, for every challenge task, to start working on it themselves, then share their solution or any encountered problems with their neighbour, then their table and - finally - when the group has solves it - with the class. To replicate this in an online environment we used Zoom <a href="https://support.zoom.us/hc/en-us/articles/206476093-Getting-Started-with-Breakout-Rooms">breakout rooms</a>, with a few caveats:</p>
+
+
+
+
+<h2 id="breakout-rooms-and-challenge-tasks">Breakout rooms and challenge tasks
+  <a href="#breakout-rooms-and-challenge-tasks"><svg class="anchor-symbol" aria-hidden="true" height="26" width="26" viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0 0h24v24H0z" fill="currentColor"></path>
+      <path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76.0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71.0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71.0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76.0 5-2.24 5-5s-2.24-5-5-5z"></path>
+    </svg></a>
+</h2>
+<p>Peer learning has been shown in numerous studies to be one of the most effective ways of getting students to learn. In our in-person training sessions, we encourage learners to sit in a group and, for every challenge task, to start working on it themselves, then share their solution or any encountered problems with their neighbour, then their table and - finally - when the group has solves it - with the class. To replicate this in an online environment we used Zoom 
+<a href="https://support.zoom.us/hc/en-us/articles/206476093-Getting-Started-with-Breakout-Rooms" target="_blank" rel="noopener">breakout rooms</a>, with a few caveats:</p>
 <ol>
 <li>
 <p>The host - who is NOT the person teaching - needs to set up the maximum number of breakout rooms at the beginning of the training session. Note that ONLY the host, and NOT the co-hosts, can set up breakout rooms and allocate people to them!</p>
@@ -271,7 +275,16 @@
 <ul>
 <li>When everyone&rsquo;s back together ask for a volunteer early on, then, later in the day, call on people to prevent extroverts from dominating the reporting.</li>
 </ul>
-<h2 id="casual-chats-with-instructors-and-other-learners">Casual chats with instructors and other learners</h2>
+
+
+
+
+<h2 id="casual-chats-with-instructors-and-other-learners">Casual chats with instructors and other learners
+  <a href="#casual-chats-with-instructors-and-other-learners"><svg class="anchor-symbol" aria-hidden="true" height="26" width="26" viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0 0h24v24H0z" fill="currentColor"></path>
+      <path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76.0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71.0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71.0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76.0 5-2.24 5-5s-2.24-5-5-5z"></path>
+    </svg></a>
+</h2>
 <p>This is impossible to fully replicate online, BUT as a workaround: plan for at least one of your instructors to be in the meeting during the morning and afternoon &ldquo;tea&rdquo; breaks (Labelled &ldquo;HERE&rdquo; below). My &ldquo;standard&rdquo; workshop schedule looks like this:</p>
 <ul>
 <li>09:00 am - 10:30 am - Training</li>
@@ -284,7 +297,9 @@
 </ul>
 <p>What does that instructor do? Small talk at the least, and - usually - after getting to know the learners a bit, they WILL ask you questions about their research, your work or other &ldquo;stuff&rdquo; related to the course. It also allows you to reassure them you believe they can learn the content AND that even if their setup is &ldquo;weird&rdquo; (according to them) they can still succeed in the course and  use the tools and techniques later on.</p>
 <hr>
-<p>Whew! That ended up being a long post! In the <a href="https://daryavanichkina.com/posts/2020-map-digital-2/">next post</a> of this series, I&rsquo;ll explore some common problems and how to deal with them, as well as discuss how to replicate instructor-instructor communication. If you&rsquo;re a learner, <a href="https://daryavanichkina.com/posts/2020-great-online-learning-student/">this post</a> is for you!</p>
+<p>Whew! That ended up being a long post! In the 
+<a href="https://daryavanichkina.com/posts/2020-map-digital-2/" target="_blank" rel="noopener">next post</a> of this series, I&rsquo;ll explore some common problems and how to deal with them, as well as discuss how to replicate instructor-instructor communication. If you&rsquo;re a learner, 
+<a href="https://daryavanichkina.com/posts/2020-great-online-learning-student/" target="_blank" rel="noopener">this post</a> is for you!</p>
 <section class="footnotes" role="doc-endnotes">
 <hr>
 <ol>
@@ -294,123 +309,76 @@
 </ol>
 </section>
 
-      </div>
-
-
-      <footer>
         
-
-<section class="see-also">
+        <details closed class="f6 fw7 input-reset">
+  <dl class="f6 lh-copy">
+    <dt class="fw7">Posted on:</dt>
+    <dd class="fw5 ml0">April 2, 2020</dd>
+  </dl>
+  <dl class="f6 lh-copy">
+    <dt class="fw7">Length:</dt>
+    <dd class="fw5 ml0">10 minute read, 2116 words</dd>
+  </dl>
   
-    
-    
-    
-      <h3>See also in Learning in an online live coding workshop</h3>
-      <nav>
-        <ul>
-        
-        
-          
-            <li>
-              <a href="https://daryavanichkina.com/posts/2020-rswitch-guide/">Living dangerously: a newbie guide to running multiple version of R on a Mac</a>
-            </li>
-          
-        
-          
-            <li>
-              <a href="https://daryavanichkina.com/posts/2020-ardc-presentation-codingonline/">Jumping into digital: Lessons learned while moving live-coding workshops online</a>
-            </li>
-          
-        
-          
-            <li>
-              <a href="https://daryavanichkina.com/posts/2020-map-digital-2/">Mapping a live coding workshop for digital delivery (part 2)</a>
-            </li>
-          
-        
-          
-        
-          
-            <li>
-              <a href="https://daryavanichkina.com/posts/2020-great-online-learning-student/">Having a great online learning experience: a guide for students</a>
-            </li>
-          
-        
-        </ul>
-      </nav>
-    
   
-</section>
+  <dl class="f6 lh-copy">
+    <dt class="fw7">Series:</dt>
+    <dd class="fw5 ml0"> <a href="/series/learning-in-an-online-live-coding-workshop">Learning in an online live coding workshop</a> </dd>
+  </dl>
+  
+  
+  <dl class="f6 lh-copy">
+    <dt class="fw7">Tags:</dt>
+    <dd class="fw5 ml0"> <a href="/tags/training">training</a> </dd>
+  </dl>
+  
+  <dl class="f6 lh-copy">
+    <dt class="fw7">See Also:</dt>
+    
+    <dd class="fw5 ml0"><a href="/posts/2020-ardc-presentation-codingonline/">Jumping into digital: Lessons learned while moving live-coding workshops online</a></dd>
+    
+    <dd class="fw5 ml0"><a href="/posts/2020-map-digital-2/">Mapping a live coding workshop for digital delivery (part 2)</a></dd>
+    
+    <dd class="fw5 ml0"><a href="/posts/2020-great-online-learning-student/">Having a great online learning experience: a guide for students</a></dd>
+    
+  </dl>
+</details>
 
+      </section>
+      <footer class="post-footer">
+        <div class="post-pagination dt w-100 mt4 mb2">
+  
+    <a class="prev dtc pr2 tl v-top fw6"
+    href="/posts/2020-great-online-learning-student/">&larr; Having a great online learning experience: a guide for students</a>
+  
+  
+    <a class="next dtc pl2 tr v-top fw6"
+    href="/posts/2020-map-digital-2/">Mapping a live coding workshop for digital delivery (part 2) &rarr;</a>
+  
+</div>
 
-        <div id="disqus_thread"></div>
-<script type="application/javascript">
-    var disqus_config = function () {
-    
-    
-    
-    };
-    (function() {
-        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
-            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
-            return;
-        }
-        var d = document, s = d.createElement('script'); s.async = true;
-        s.src = '//' + "dvanicw" + '.disqus.com/embed.js';
-        s.setAttribute('data-timestamp', +new Date());
-        (d.head || d.body).appendChild(s);
-    })();
-</script>
-<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
-        
-        
       </footer>
     </article>
-
     
   </section>
+</main>
+<footer class="site-footer pv4 bt b--transparent ph5" role="contentinfo">
+  <nav class="db dt-l w-100">
+    <p class="site-copyright f7 db dtc-l v-mid w-100 w-33-l tc tl-l pv2 pv0-l mv0 lh-copy">
+      &copy; 2021 Darya Vanichkina, Sydney, Australia
+      <br />
+      
+Based on <span xmlns:dct="http://purl.org/dc/terms/" property="dct:title"><a xmlns:dct="http://purl.org/dc/terms/" href="https://github.com/formspree/blogophonic-hugo" rel="dct:source">Blogophonic</a></span> by <a xmlns:cc="http://creativecommons.org/ns#" href="https://formspree.io" property="cc:attributionName" rel="cc:attributionURL">Formspree</a>.
+    </p>
+    
+      
+    
+    <div class="site-links f6 db dtc-l v-mid w-100 w-67-l tc tr-l pv2 pv0-l mv0">
+      
+    </div>
+  </nav>
+</footer>
 
       </div>
-
-      
-  <footer class="footer">
-    <section class="container">
-      
-      
-      
-      
-    </section>
-  </footer>
-
-    </main>
-
-    
-      
-      <script src="https://daryavanichkina.com/js/dark-mode.min.0213e1773e6d1c5a644f847c67a6f8abac49a3776e2976f6008038af8c5b76a1.js"></script>
-    
-
-    
-
-    
-<script type="application/javascript">
-var doNotTrack = false;
-if (!doNotTrack) {
-	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-	ga('create', 'UA-54373354-1', 'auto');
-	
-	ga('send', 'pageview');
-}
-</script>
-
-
-    
-
-    
-
-  </body>
-
+    </body>
 </html>

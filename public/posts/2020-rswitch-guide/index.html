@@ -1,190 +1,201 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr"><head>
+  
+                           
+     
 
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="Content-Language" content="en">
 
-    <meta name="author" content="Darya Vanichkina PhD">
-    <meta name="description" content="You&rsquo;d have to be living under a rock in the R community to not be aware of the fact that R 4.0 has been released, with some major changes, the biggest of which is probably the new default for read.table(): stringsAsFactors = FALSE, as well as the fact that matrix() now converts character columns to factors and factors to integers.
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="generator" content="Hugo 0.80.0" />
+<title>Living dangerously: a newbie guide to running multiple version of R on a Mac | Darya Vanichkina</title>
+
+
+<meta property="twitter:site" content="@dvanichkina">
+<meta property="twitter:creator" content="@dvanichkina">
+
+
+
+
+
+
+
+  
+    
+  
+<meta name="description" content="Darya Vanichkina&#39;s personal website">
+
+
+<meta property="og:site_name" content="Darya Vanichkina">
+<meta property="og:title" content="Living dangerously: a newbie guide to running multiple version of R on a Mac | Darya Vanichkina">
+<meta property="og:description" content="Darya Vanichkina&#39;s personal website" />
+<meta property="og:type" content="page" />
+<meta property="og:url" content="/posts/2020-rswitch-guide/" />
+<meta property="og:locale" content="en">
+
+
+
+
+    
+        <meta property="og:image" content="/img/papillons.jpg" >
+        <meta property="twitter:card" content="summary_large_image">
+        <meta name="twitter:image" content="/img/papillons.jpg" >
+    
+  <meta itemprop="name" content="Living dangerously: a newbie guide to running multiple version of R on a Mac">
+<meta itemprop="description" content="You&rsquo;d have to be living under a rock in the R community to not be aware of the fact that R 4.0 has been released, with some major changes, the biggest of which is probably the new default for read.table(): stringsAsFactors = FALSE, as well as the fact that matrix() now converts character columns to factors and factors to integers.
 In the past, I&rsquo;ve always been too &ldquo;chicken&rdquo; to try running multiple versions of R on my work laptop, as I&rsquo;ve usually got a few key analysis projects going that need to be delivered on time and within full feature scope - which means I don&rsquo;t have time to fix basic version incompatibility bugs.">
-    <meta name="keywords" content="data scientist, bioinformatician, consultant, educator">
-
-    
-      <script src="https://twemoji.maxcdn.com/v/latest/twemoji.min.js" crossorigin="anonymous"></script>
-    
-
-    <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Living dangerously: a newbie guide to running multiple version of R on a Mac"/>
-<meta name="twitter:description" content="You&rsquo;d have to be living under a rock in the R community to not be aware of the fact that R 4.0 has been released, with some major changes, the biggest of which is probably the new default for read.table(): stringsAsFactors = FALSE, as well as the fact that matrix() now converts character columns to factors and factors to integers.
-In the past, I&rsquo;ve always been too &ldquo;chicken&rdquo; to try running multiple versions of R on my work laptop, as I&rsquo;ve usually got a few key analysis projects going that need to be delivered on time and within full feature scope - which means I don&rsquo;t have time to fix basic version incompatibility bugs."/>
-
-    <meta property="og:title" content="Living dangerously: a newbie guide to running multiple version of R on a Mac" />
-<meta property="og:description" content="You&rsquo;d have to be living under a rock in the R community to not be aware of the fact that R 4.0 has been released, with some major changes, the biggest of which is probably the new default for read.table(): stringsAsFactors = FALSE, as well as the fact that matrix() now converts character columns to factors and factors to integers.
-In the past, I&rsquo;ve always been too &ldquo;chicken&rdquo; to try running multiple versions of R on my work laptop, as I&rsquo;ve usually got a few key analysis projects going that need to be delivered on time and within full feature scope - which means I don&rsquo;t have time to fix basic version incompatibility bugs." />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://daryavanichkina.com/posts/2020-rswitch-guide/" />
-<meta property="article:published_time" content="2020-05-01T00:00:00+00:00" />
-<meta property="article:modified_time" content="2020-05-01T00:00:00+00:00" />
+<meta itemprop="datePublished" content="2020-05-01T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2020-05-01T00:00:00+00:00" />
+<meta itemprop="wordCount" content="755">
 
 
 
-    <title>
-  Living dangerously: a newbie guide to running multiple version of R on a Mac · Darya Vanichkina
-</title>
+<meta itemprop="keywords" content="Data science,R,WorkJournal," />
 
-    
-      <link rel="canonical" href="https://daryavanichkina.com/posts/2020-rswitch-guide/">
-    
+  
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-54373354-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
 
-    <link href="https://fonts.googleapis.com/css?family=Lato:400,700%7CMerriweather:300,700%7CSource+Code+Pro:400,700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css" integrity="sha384-Bfad6CLCknfcloXFOyFnlgtENryhrpZCe29RTifKEixXQZ38WheV+i/6YWSzkz3V" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha256-l85OmPOjvil/SOvVt3HnSSjzF1TUMyT9eV0c2BzEGzU=" crossorigin="anonymous" />
-
-    
-      
-      
-      <link rel="stylesheet" href="https://daryavanichkina.com/css/coder.min.9836c03fe5c87d102278a33e86d0591ef36c89b1e17e8e547ebf84c05cee010e.css" integrity="sha256-mDbAP&#43;XIfRAieKM&#43;htBZHvNsibHhfo5Ufr&#43;EwFzuAQ4=" crossorigin="anonymous" media="screen" />
-    
-
-    
-
-    
-      
-        
-        
-        <link rel="stylesheet" href="https://daryavanichkina.com/css/coder-dark.min.717236c74e0a5208ef73964a9f44c6b443b689a95b270d8b2a40d0c012460dac.css" integrity="sha256-cXI2x04KUgjvc5ZKn0TGtEO2ialbJw2LKkDQwBJGDaw=" crossorigin="anonymous" media="screen" />
-      
-    
-
-    
-      <link rel="stylesheet" href="https://daryavanichkina.com/static/css/custom.css" />
-    
-
-    
-
-    <link rel="icon" type="image/png" href="https://daryavanichkina.com/images/favicon-32x32.png" sizes="32x32">
-    <link rel="icon" type="image/png" href="https://daryavanichkina.com/images/favicon-16x16.png" sizes="16x16">
-
-    <link rel="apple-touch-icon" href="https://daryavanichkina.com/images/apple-touch-icon.png">
-    <link rel="apple-touch-icon"  sizes="180x180" href="https://daryavanichkina.com/images/apple-touch-icon.png">
-
-    <meta name="generator" content="Hugo 0.75.1" />
-  </head>
+  <!--[if IE]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  <link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="/img/favicon.ico" type="image/x-icon">
   
   
+  <link rel="stylesheet" href="/style.main.min.cc5b224aa9852140150525ea8526888014ef923ac1ad86154498bbd9f4b487f9.css" integrity="sha256-zFsiSqmFIUAVBSXqhSaIgBTvkjrBrYYVRJi72fS0h/k=" media="screen">
   
-    
   
-  <body class="colorscheme-auto"
-        onload=" twemoji.parse(document.body); "
-  >
-    <main class="wrapper">
-      <nav class="navigation">
-  <section class="container">
-    <a class="navigation-title" href="https://daryavanichkina.com/">
-      Darya Vanichkina
+  <script src="/panelset.min.41f62c42d5f25dd80e81136866f4f1baa1bc17669edfd002e75c0e107953789b.js" type="text/javascript"></script>
+  
+  
+  <script src="/main.min.07ec8e08cbb63db3a2cf7d4a7df6f7be00c715f13b64d8df6a2c48441ba8b14b.js" type="text/javascript"></script>
+</head>
+<body>
+      <div class="grid-container post">
+<header class="site-header pt4 pb2 mb4 bb b--transparent ph5 headroom z-max" role="banner">
+  <nav class="site-nav db dt-l w-100" role="navigation">
+    <a class="site-brand db dtc-l v-mid link no-underline w-100 w-33-l tc tl-l" href="/" title="Home">
+      <img src="/img/blogophonic-mark-dark.png" class="dib db-l h2 w-auto" alt="Darya Vanichkina">
     </a>
-    
-      <span id="dark-mode-toggle" class="float-right">
-        <i class="fas fa-adjust fa-fw"></i>
-      </span>
-      <input type="checkbox" id="menu-toggle" />
-      <label class="menu-button float-right" for="menu-toggle">
-        <i class="fas fa-bars fa-fw"></i>
-      </label>
-      <ul class="navigation-list">
-        
-          
-            <li class="navigation-item">
-              <a class="navigation-link" href="https://daryavanichkina.com/about/">About</a>
-            </li>
-          
-            <li class="navigation-item">
-              <a class="navigation-link" href="https://daryavanichkina.com/posts/">Blog</a>
-            </li>
-          
-            <li class="navigation-item">
-              <a class="navigation-link" href="https://daryavanichkina.com/training/">Training</a>
-            </li>
-          
-            <li class="navigation-item">
-              <a class="navigation-link" href="https://daryavanichkina.com/contact/">Contact</a>
-            </li>
-          
-        
-        
-        <li class="navigation-item separator">
-          <span>|</span>
-        </li>
-      </ul>
-    
-  </section>
-</nav>
+    <div class="site-links db dtc-l v-mid w-100 w-47-l tc tr-l mt3 mt0-l ttu tracked">
+      
+      
+    </div>
+  </nav>
+</header>
 
-
-      <div class="content">
+<main class="page-main pa4" role="main">
+  <section class="page-content mw7 center">
+    <article class="post-content pa0 ph4-l">
+      <header class="post-header">
+        <h1 class="f1 lh-solid measure-narrow mb3 fw4">Living dangerously: a newbie guide to running multiple version of R on a Mac</h1>
         
-  <section class="container post">
-    <article>
-      <header>
-        <div class="post-title">
-          <h1 class="title">Living dangerously: a newbie guide to running multiple version of R on a Mac</h1>
-        </div>
-        <div class="post-meta">
-          <div class="date">
-            <span class="posted-on">
-              <i class="fas fa-calendar"></i>
-              <time datetime='2020-05-01T00:00:00Z'>
-                May 1, 2020
-              </time>
-            </span>
-            <span class="reading-time">
-              <i class="fas fa-clock"></i>
-              4-minute read
-            </span>
-          </div>
-          
-          <div class="tags">
-  <i class="fas fa-tag"></i>
-    <a href="https://daryavanichkina.com/tags/data-science/">Data science</a>
-      <span class="separator">•</span>
-    <a href="https://daryavanichkina.com/tags/r/">R</a>
-      <span class="separator">•</span>
-    <a href="https://daryavanichkina.com/tags/workjournal/">WorkJournal</a></div>
+        
+        
 
-        </div>
+      
+
       </header>
-
-      <div>
-        
+      <section class="post-body pt5 pb4">
         <p><img src="https://unsplash.com/photos/3uunq0n1WRY" alt="TBH I want to be this chicken&hellip;"></p>
 <p>You&rsquo;d have to be living under a rock in the R community to not be aware of the fact that R 4.0 has been released, with some major changes, the biggest of which is probably the new default for <code>read.table()</code>: <code>stringsAsFactors = FALSE</code>, as well as the fact that <code>matrix()</code> now converts character columns to factors and factors to integers.</p>
-<p>In the past, I&rsquo;ve always been too &ldquo;chicken&rdquo; to try running multiple versions of R on my work laptop, as I&rsquo;ve usually got a few key analysis projects going that need to be delivered on time and within full feature scope - which means I don&rsquo;t have time to fix basic version incompatibility bugs. But with this major new release I was sorely tempted, so have gone down the rabbit-hole of installing <a href="https://rud.is/rswitch/guide/">RSwitch</a> and R4.0 on my Mac (Catalina 10.15.4). Below I document, in what is probably excruciating detail, the steps of how I got this to work. I&rsquo;ve played with it for all of two days, and it seems to work - so I&rsquo;ve written this post in the hopes of helping others. Also, I had some funky hiccups with getting the right filepath and not using sudo at the outset, so I&rsquo;m hoping this helps someone avoid some extra <code>rm -r ...path...</code></p>
-<h2 id="step-0-critical-close-r--rstudio">Step 0 (CRITICAL): Close R &amp; RStudio</h2>
+<p>In the past, I&rsquo;ve always been too &ldquo;chicken&rdquo; to try running multiple versions of R on my work laptop, as I&rsquo;ve usually got a few key analysis projects going that need to be delivered on time and within full feature scope - which means I don&rsquo;t have time to fix basic version incompatibility bugs. But with this major new release I was sorely tempted, so have gone down the rabbit-hole of installing 
+<a href="https://rud.is/rswitch/guide/" target="_blank" rel="noopener">RSwitch</a> and R4.0 on my Mac (Catalina 10.15.4). Below I document, in what is probably excruciating detail, the steps of how I got this to work. I&rsquo;ve played with it for all of two days, and it seems to work - so I&rsquo;ve written this post in the hopes of helping others. Also, I had some funky hiccups with getting the right filepath and not using sudo at the outset, so I&rsquo;m hoping this helps someone avoid some extra <code>rm -r ...path...</code></p>
+
+
+
+
+<h2 id="step-0-critical-close-r--rstudio">Step 0 (CRITICAL): Close R &amp; RStudio
+  <a href="#step-0-critical-close-r--rstudio"><svg class="anchor-symbol" aria-hidden="true" height="26" width="26" viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0 0h24v24H0z" fill="currentColor"></path>
+      <path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76.0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71.0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71.0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76.0 5-2.24 5-5s-2.24-5-5-5z"></path>
+    </svg></a>
+</h2>
 <p>Make sure you have closed R and RStudio prior to embarking on the below. Updating R versions mid-analysis can have &hellip; unintended consequences.</p>
-<h2 id="step-1-download-rswitch-and-install-it">Step 1: Download RSwitch and install it</h2>
+
+
+
+
+<h2 id="step-1-download-rswitch-and-install-it">Step 1: Download RSwitch and install it
+  <a href="#step-1-download-rswitch-and-install-it"><svg class="anchor-symbol" aria-hidden="true" height="26" width="26" viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0 0h24v24H0z" fill="currentColor"></path>
+      <path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76.0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71.0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71.0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76.0 5-2.24 5-5s-2.24-5-5-5z"></path>
+    </svg></a>
+</h2>
 <ol>
-<li><a href="https://rud.is/rswitch/">Download RSwitch</a> and install it. Go through all of the hoops of getting it approved by MacOS and able to be run by accepting the risks of running software from an unidentified developer. (Eventually) End up with a nice switch icon in your menubar.</li>
+<li>
+<a href="https://rud.is/rswitch/" target="_blank" rel="noopener">Download RSwitch</a> and install it. Go through all of the hoops of getting it approved by MacOS and able to be run by accepting the risks of running software from an unidentified developer. (Eventually) End up with a nice switch icon in your menubar.</li>
 </ol>
-<h2 id="step-2-get-new-r">Step 2: Get new R</h2>
+
+
+
+
+<h2 id="step-2-get-new-r">Step 2: Get new R
+  <a href="#step-2-get-new-r"><svg class="anchor-symbol" aria-hidden="true" height="26" width="26" viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0 0h24v24H0z" fill="currentColor"></path>
+      <path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76.0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71.0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71.0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76.0 5-2.24 5-5s-2.24-5-5-5z"></path>
+    </svg></a>
+</h2>
 <p>[As usual] There is more than one way to get a new version of R onto your machine.</p>
-<h4 id="option-1-gui-imho-riskier">Option 1: GUI (IMHO riskier)</h4>
-<p>Download the graphical installer <code>R-4.0.0.pkg</code>, which is the top link when on <a href="https://cran.r-project.org/">CRAN</a> you click on &ldquo;Download R for (Mac) OS X&rdquo;. This is NOT the approach I took, because if done wrong this approach can remove your existing R installation, but I will describe how in theory I think it&rsquo;s meant to be used below.</p>
-<h4 id="option-2-pre-built-copy-the-approach-i-took">Option 2: Pre-built copy (the approach I took)</h4>
-<p>Download a pre-built <code>.tar.gz</code> copy of the R framework from the <a href="https://mac.r-project.org/">developer page</a>. In my case, I downloaded the latest stable branch <code>R-4.0-branch.tar.gz (72 Mb)</code>:</p>
+
+
+
+
+<h4 id="option-1-gui-imho-riskier">Option 1: GUI (IMHO riskier)
+  <a href="#option-1-gui-imho-riskier"></a>
+</h4>
+<p>Download the graphical installer <code>R-4.0.0.pkg</code>, which is the top link when on 
+<a href="https://cran.r-project.org/" target="_blank" rel="noopener">CRAN</a> you click on &ldquo;Download R for (Mac) OS X&rdquo;. This is NOT the approach I took, because if done wrong this approach can remove your existing R installation, but I will describe how in theory I think it&rsquo;s meant to be used below.</p>
+
+
+
+
+<h4 id="option-2-pre-built-copy-the-approach-i-took">Option 2: Pre-built copy (the approach I took)
+  <a href="#option-2-pre-built-copy-the-approach-i-took"></a>
+</h4>
+<p>Download a pre-built <code>.tar.gz</code> copy of the R framework from the 
+<a href="https://mac.r-project.org/" target="_blank" rel="noopener">developer page</a>. In my case, I downloaded the latest stable branch <code>R-4.0-branch.tar.gz (72 Mb)</code>:</p>
 <p><img src="../../images/200501_RBuilds.png" alt="Which R?"></p>
-<h2 id="step-3-apply-funky-magic">Step 3: Apply funky magic</h2>
-<h4 id="option-1-gui">Option 1: GUI</h4>
+
+
+
+
+<h2 id="step-3-apply-funky-magic">Step 3: Apply funky magic
+  <a href="#step-3-apply-funky-magic"><svg class="anchor-symbol" aria-hidden="true" height="26" width="26" viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0 0h24v24H0z" fill="currentColor"></path>
+      <path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76.0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71.0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71.0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76.0 5-2.24 5-5s-2.24-5-5-5z"></path>
+    </svg></a>
+</h2>
+
+
+
+
+<h4 id="option-1-gui">Option 1: GUI
+  <a href="#option-1-gui"></a>
+</h4>
 <p>So the reason I think the GUI is &ldquo;riskier&rdquo; is because usually when you run the GUI for a new version of R, it cleanly removes the old version of R from your machine. The workaround to prevent this from happening is to make your system, and hence the R installer, &ldquo;forget&rdquo; it has R installed. To do this you need to open a Terminal and type the following command:</p>
 <pre><code>sudo pkgutil --forget org.r-project.R.el-capitan.fw.pkg \
              --forget org.r-project.x86_64.tcltk.x11 \
              --forget org.r-project.x86_64.texinfo \
              --forget org.r-project.R.el-capitan.GUI.pkg
-</code></pre><p>For details about <strong>why</strong> this works see <a href="https://cran.rstudio.org/doc/manuals/R-admin.html#Multiple-versions">here</a>.</p>
+</code></pre><p>For details about <strong>why</strong> this works see 
+<a href="https://cran.rstudio.org/doc/manuals/R-admin.html#Multiple-versions" target="_blank" rel="noopener">here</a>.</p>
 <p>After that completes successfully (note:  you&rsquo;ll need to enter your password to use sudo) you can run the GUI installer.</p>
-<h4 id="option-2-command-line">Option 2: Command line</h4>
+
+
+
+
+<h4 id="option-2-command-line">Option 2: Command line
+  <a href="#option-2-command-line"></a>
+</h4>
 <p>I&rsquo;m fairly comfortable with the command line, so was happy to use that option, but did make a few silly mistakes with the paths, so am documenting what worked below, in the hope that it helps others:</p>
 <ol>
 <li>
@@ -197,134 +208,102 @@ In the past, I&rsquo;ve always been too &ldquo;chicken&rdquo; to try running mul
 <p>Run <code>sudo tar -xvzf path_to_R_tar.gz_file</code>, where <code>path_to_R_tar.gz_file</code> is the path you saved to the clipboard. After you enter your password, R should be installed and you should have the latest version of R active on your machine.</p>
 </li>
 </ol>
-<h2 id="step-4-painfully-battle-the-security-stuff">Step 4: Painfully battle the security stuff</h2>
+
+
+
+
+<h2 id="step-4-painfully-battle-the-security-stuff">Step 4: Painfully battle the security stuff
+  <a href="#step-4-painfully-battle-the-security-stuff"><svg class="anchor-symbol" aria-hidden="true" height="26" width="26" viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0 0h24v24H0z" fill="currentColor"></path>
+      <path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76.0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71.0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71.0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76.0 5-2.24 5-5s-2.24-5-5-5z"></path>
+    </svg></a>
+</h2>
 <p>Try to open Rstudio. This is probably something that happens only with Option 2 above, but I got a bunch of security warnings from MacOS and had to &ldquo;Allow Anyway&rdquo; a ton (twice) before RStudio was able to load R 4.0.</p>
 <p><img src="../../images/200501_Harm2.png" alt="Harm2"></p>
 <p>Accept all the things:</p>
 <p><img src="../../images/200501_Harm1.png" alt="Harm1"></p>
-<h2 id="step-5-switch">Step 5: Switch</h2>
+
+
+
+
+<h2 id="step-5-switch">Step 5: Switch
+  <a href="#step-5-switch"><svg class="anchor-symbol" aria-hidden="true" height="26" width="26" viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0 0h24v24H0z" fill="currentColor"></path>
+      <path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76.0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71.0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71.0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76.0 5-2.24 5-5s-2.24-5-5-5z"></path>
+    </svg></a>
+</h2>
 <p>To go back to having your existing, &ldquo;production&rdquo; version of R active on your machine use RSwitch to select that older version:</p>
 <p><img src="../../images/200501_Rswitch.png" alt="pRSwitch"></p>
 <hr>
 <p>I hope this post has been helpful, and let me know in a comment if something isn&rsquo;t working as described or something&rsquo;s not clear. (Probably) next post: updating libraries&hellip;</p>
 
-      </div>
-
-
-      <footer>
         
-
-<section class="see-also">
+        <details closed class="f6 fw7 input-reset">
+  <dl class="f6 lh-copy">
+    <dt class="fw7">Posted on:</dt>
+    <dd class="fw5 ml0">May 1, 2020</dd>
+  </dl>
+  <dl class="f6 lh-copy">
+    <dt class="fw7">Length:</dt>
+    <dd class="fw5 ml0">4 minute read, 755 words</dd>
+  </dl>
   
-    
-    
-    
-      <h3>See also in Learning in an online live coding workshop</h3>
-      <nav>
-        <ul>
-        
-        
-          
-        
-          
-            <li>
-              <a href="https://daryavanichkina.com/posts/2020-ardc-presentation-codingonline/">Jumping into digital: Lessons learned while moving live-coding workshops online</a>
-            </li>
-          
-        
-          
-            <li>
-              <a href="https://daryavanichkina.com/posts/2020-map-digital-2/">Mapping a live coding workshop for digital delivery (part 2)</a>
-            </li>
-          
-        
-          
-            <li>
-              <a href="https://daryavanichkina.com/posts/2020-map-digital-1/">Mapping a live coding workshop for digital delivery</a>
-            </li>
-          
-        
-          
-            <li>
-              <a href="https://daryavanichkina.com/posts/2020-great-online-learning-student/">Having a great online learning experience: a guide for students</a>
-            </li>
-          
-        
-        </ul>
-      </nav>
-    
   
-</section>
+  <dl class="f6 lh-copy">
+    <dt class="fw7">Series:</dt>
+    <dd class="fw5 ml0"> <a href="/series/learning-in-an-online-live-coding-workshop">Learning in an online live coding workshop</a> </dd>
+  </dl>
+  
+  
+  <dl class="f6 lh-copy">
+    <dt class="fw7">Tags:</dt>
+    <dd class="fw5 ml0"> <a href="/tags/data-science">Data science</a>  <a href="/tags/r">R</a>  <a href="/tags/workjournal">WorkJournal</a> </dd>
+  </dl>
+  
+  <dl class="f6 lh-copy">
+    <dt class="fw7">See Also:</dt>
+    
+    <dd class="fw5 ml0"><a href="/drafts/2020-colorblind/">Making colorblind-friendly plots in R</a></dd>
+    
+    <dd class="fw5 ml0"><a href="/posts/2019-r-for-data-science-day-1/">R for Data Science Day 1</a></dd>
+    
+    <dd class="fw5 ml0"><a href="/drafts/2020-ml-r2py/">Moving Machine Learning from R to python</a></dd>
+    
+  </dl>
+</details>
 
+      </section>
+      <footer class="post-footer">
+        <div class="post-pagination dt w-100 mt4 mb2">
+  
+    <a class="prev dtc pr2 tl v-top fw6"
+    href="/posts/2020-ardc-presentation-codingonline/">&larr; Jumping into digital: Lessons learned while moving live-coding workshops online</a>
+  
+  
+</div>
 
-        <div id="disqus_thread"></div>
-<script type="application/javascript">
-    var disqus_config = function () {
-    
-    
-    
-    };
-    (function() {
-        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
-            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
-            return;
-        }
-        var d = document, s = d.createElement('script'); s.async = true;
-        s.src = '//' + "dvanicw" + '.disqus.com/embed.js';
-        s.setAttribute('data-timestamp', +new Date());
-        (d.head || d.body).appendChild(s);
-    })();
-</script>
-<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
-        
-        
       </footer>
     </article>
-
     
   </section>
+</main>
+<footer class="site-footer pv4 bt b--transparent ph5" role="contentinfo">
+  <nav class="db dt-l w-100">
+    <p class="site-copyright f7 db dtc-l v-mid w-100 w-33-l tc tl-l pv2 pv0-l mv0 lh-copy">
+      &copy; 2021 Darya Vanichkina, Sydney, Australia
+      <br />
+      
+Based on <span xmlns:dct="http://purl.org/dc/terms/" property="dct:title"><a xmlns:dct="http://purl.org/dc/terms/" href="https://github.com/formspree/blogophonic-hugo" rel="dct:source">Blogophonic</a></span> by <a xmlns:cc="http://creativecommons.org/ns#" href="https://formspree.io" property="cc:attributionName" rel="cc:attributionURL">Formspree</a>.
+    </p>
+    
+      
+    
+    <div class="site-links f6 db dtc-l v-mid w-100 w-67-l tc tr-l pv2 pv0-l mv0">
+      
+    </div>
+  </nav>
+</footer>
 
       </div>
-
-      
-  <footer class="footer">
-    <section class="container">
-      
-      
-      
-      
-    </section>
-  </footer>
-
-    </main>
-
-    
-      
-      <script src="https://daryavanichkina.com/js/dark-mode.min.0213e1773e6d1c5a644f847c67a6f8abac49a3776e2976f6008038af8c5b76a1.js"></script>
-    
-
-    
-
-    
-<script type="application/javascript">
-var doNotTrack = false;
-if (!doNotTrack) {
-	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-	ga('create', 'UA-54373354-1', 'auto');
-	
-	ga('send', 'pageview');
-}
-</script>
-
-
-    
-
-    
-
-  </body>
-
+    </body>
 </html>

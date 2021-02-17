@@ -1,165 +1,131 @@
 <!DOCTYPE html>
-<html lang="en">
-
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="Content-Language" content="en">
-
-    <meta name="author" content="Darya Vanichkina PhD">
-    <meta name="description" content="On October 24th I attented a talk by Adrian White about using Amazon AWS for research. Below are my notes, not extensively annotated, in the hope that they&rsquo;ll be useful for someone. If something is not clear, please ask in the comments, and I&rsquo;ll try to answer to the best of my knowledge
-161024_AWS workshop  SciTeam ~10 ppl  Overview of AWS services   If you need to make your data available you have availability zones.">
-    <meta name="keywords" content="data scientist, bioinformatician, consultant, educator">
-
-    
-      <script src="https://twemoji.maxcdn.com/v/latest/twemoji.min.js" crossorigin="anonymous"></script>
-    
-
-    <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Amazon AWS workshop at the University of Sydney"/>
-<meta name="twitter:description" content="On October 24th I attented a talk by Adrian White about using Amazon AWS for research. Below are my notes, not extensively annotated, in the hope that they&rsquo;ll be useful for someone. If something is not clear, please ask in the comments, and I&rsquo;ll try to answer to the best of my knowledge
-161024_AWS workshop  SciTeam ~10 ppl  Overview of AWS services   If you need to make your data available you have availability zones."/>
-
-    <meta property="og:title" content="Amazon AWS workshop at the University of Sydney" />
-<meta property="og:description" content="On October 24th I attented a talk by Adrian White about using Amazon AWS for research. Below are my notes, not extensively annotated, in the hope that they&rsquo;ll be useful for someone. If something is not clear, please ask in the comments, and I&rsquo;ll try to answer to the best of my knowledge
-161024_AWS workshop  SciTeam ~10 ppl  Overview of AWS services   If you need to make your data available you have availability zones." />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://daryavanichkina.com/posts/2016-awsworkshop/" />
-<meta property="article:published_time" content="2016-11-01T00:00:00+00:00" />
-<meta property="article:modified_time" content="2016-11-01T00:00:00+00:00" />
-
-
-    <title>
-  Amazon AWS workshop at the University of Sydney · Darya Vanichkina
-</title>
-
-    
-      <link rel="canonical" href="https://daryavanichkina.com/posts/2016-awsworkshop/">
-    
-
-    <link href="https://fonts.googleapis.com/css?family=Lato:400,700%7CMerriweather:300,700%7CSource+Code+Pro:400,700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css" integrity="sha384-Bfad6CLCknfcloXFOyFnlgtENryhrpZCe29RTifKEixXQZ38WheV+i/6YWSzkz3V" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha256-l85OmPOjvil/SOvVt3HnSSjzF1TUMyT9eV0c2BzEGzU=" crossorigin="anonymous" />
-
-    
-      
-      
-      <link rel="stylesheet" href="https://daryavanichkina.com/css/coder.min.9836c03fe5c87d102278a33e86d0591ef36c89b1e17e8e547ebf84c05cee010e.css" integrity="sha256-mDbAP&#43;XIfRAieKM&#43;htBZHvNsibHhfo5Ufr&#43;EwFzuAQ4=" crossorigin="anonymous" media="screen" />
-    
-
-    
-
-    
-      
-        
-        
-        <link rel="stylesheet" href="https://daryavanichkina.com/css/coder-dark.min.717236c74e0a5208ef73964a9f44c6b443b689a95b270d8b2a40d0c012460dac.css" integrity="sha256-cXI2x04KUgjvc5ZKn0TGtEO2ialbJw2LKkDQwBJGDaw=" crossorigin="anonymous" media="screen" />
-      
-    
-
-    
-      <link rel="stylesheet" href="https://daryavanichkina.com/static/css/custom.css" />
-    
-
-    
-
-    <link rel="icon" type="image/png" href="https://daryavanichkina.com/images/favicon-32x32.png" sizes="32x32">
-    <link rel="icon" type="image/png" href="https://daryavanichkina.com/images/favicon-16x16.png" sizes="16x16">
-
-    <link rel="apple-touch-icon" href="https://daryavanichkina.com/images/apple-touch-icon.png">
-    <link rel="apple-touch-icon"  sizes="180x180" href="https://daryavanichkina.com/images/apple-touch-icon.png">
-
-    <meta name="generator" content="Hugo 0.75.1" />
-  </head>
+<html lang="en" dir="ltr"><head>
   
-  
+                           
+     
+
+
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="generator" content="Hugo 0.80.0" />
+<title>Amazon AWS workshop at the University of Sydney | Darya Vanichkina</title>
+
+
+<meta property="twitter:site" content="@dvanichkina">
+<meta property="twitter:creator" content="@dvanichkina">
+
+
+
+
+
+
+
   
     
   
-  <body class="colorscheme-auto"
-        onload=" twemoji.parse(document.body); "
-  >
-    <main class="wrapper">
-      <nav class="navigation">
-  <section class="container">
-    <a class="navigation-title" href="https://daryavanichkina.com/">
-      Darya Vanichkina
+<meta name="description" content="Darya Vanichkina&#39;s personal website">
+
+
+<meta property="og:site_name" content="Darya Vanichkina">
+<meta property="og:title" content="Amazon AWS workshop at the University of Sydney | Darya Vanichkina">
+<meta property="og:description" content="Darya Vanichkina&#39;s personal website" />
+<meta property="og:type" content="page" />
+<meta property="og:url" content="/posts/2016-awsworkshop/" />
+<meta property="og:locale" content="en">
+
+
+
+
+    
+        <meta property="og:image" content="/img/papillons.jpg" >
+        <meta property="twitter:card" content="summary_large_image">
+        <meta name="twitter:image" content="/img/papillons.jpg" >
+    
+  <meta itemprop="name" content="Amazon AWS workshop at the University of Sydney">
+<meta itemprop="description" content="On October 24th I attented a talk by Adrian White about using Amazon AWS for research. Below are my notes, not extensively annotated, in the hope that they&rsquo;ll be useful for someone. If something is not clear, please ask in the comments, and I&rsquo;ll try to answer to the best of my knowledge
+161024_AWS workshop    SciTeam ~10 ppl  Overview of AWS services       If you need to make your data available you have availability zones.">
+<meta itemprop="datePublished" content="2016-11-01T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2016-11-01T00:00:00+00:00" />
+<meta itemprop="wordCount" content="1277">
+
+
+
+<meta itemprop="keywords" content="conferences," />
+
+  
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-54373354-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+  <!--[if IE]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  <link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="/img/favicon.ico" type="image/x-icon">
+  
+  
+  <link rel="stylesheet" href="/style.main.min.cc5b224aa9852140150525ea8526888014ef923ac1ad86154498bbd9f4b487f9.css" integrity="sha256-zFsiSqmFIUAVBSXqhSaIgBTvkjrBrYYVRJi72fS0h/k=" media="screen">
+  
+  
+  <script src="/panelset.min.41f62c42d5f25dd80e81136866f4f1baa1bc17669edfd002e75c0e107953789b.js" type="text/javascript"></script>
+  
+  
+  <script src="/main.min.07ec8e08cbb63db3a2cf7d4a7df6f7be00c715f13b64d8df6a2c48441ba8b14b.js" type="text/javascript"></script>
+</head>
+<body>
+      <div class="grid-container post">
+<header class="site-header pt4 pb2 mb4 bb b--transparent ph5 headroom z-max" role="banner">
+  <nav class="site-nav db dt-l w-100" role="navigation">
+    <a class="site-brand db dtc-l v-mid link no-underline w-100 w-33-l tc tl-l" href="/" title="Home">
+      <img src="/img/blogophonic-mark-dark.png" class="dib db-l h2 w-auto" alt="Darya Vanichkina">
     </a>
-    
-      <span id="dark-mode-toggle" class="float-right">
-        <i class="fas fa-adjust fa-fw"></i>
-      </span>
-      <input type="checkbox" id="menu-toggle" />
-      <label class="menu-button float-right" for="menu-toggle">
-        <i class="fas fa-bars fa-fw"></i>
-      </label>
-      <ul class="navigation-list">
-        
-          
-            <li class="navigation-item">
-              <a class="navigation-link" href="https://daryavanichkina.com/about/">About</a>
-            </li>
-          
-            <li class="navigation-item">
-              <a class="navigation-link" href="https://daryavanichkina.com/posts/">Blog</a>
-            </li>
-          
-            <li class="navigation-item">
-              <a class="navigation-link" href="https://daryavanichkina.com/training/">Training</a>
-            </li>
-          
-            <li class="navigation-item">
-              <a class="navigation-link" href="https://daryavanichkina.com/contact/">Contact</a>
-            </li>
-          
-        
-        
-        <li class="navigation-item separator">
-          <span>|</span>
-        </li>
-      </ul>
-    
-  </section>
-</nav>
+    <div class="site-links db dtc-l v-mid w-100 w-47-l tc tr-l mt3 mt0-l ttu tracked">
+      
+      
+    </div>
+  </nav>
+</header>
 
-
-      <div class="content">
+<main class="page-main pa4" role="main">
+  <section class="page-content mw7 center">
+    <article class="post-content pa0 ph4-l">
+      <header class="post-header">
+        <h1 class="f1 lh-solid measure-narrow mb3 fw4">Amazon AWS workshop at the University of Sydney</h1>
         
-  <section class="container post">
-    <article>
-      <header>
-        <div class="post-title">
-          <h1 class="title">Amazon AWS workshop at the University of Sydney</h1>
-        </div>
-        <div class="post-meta">
-          <div class="date">
-            <span class="posted-on">
-              <i class="fas fa-calendar"></i>
-              <time datetime='2016-11-01T00:00:00Z'>
-                November 1, 2016
-              </time>
-            </span>
-            <span class="reading-time">
-              <i class="fas fa-clock"></i>
-              6-minute read
-            </span>
-          </div>
-          
-          <div class="tags">
-  <i class="fas fa-tag"></i>
-    <a href="https://daryavanichkina.com/tags/conferences/">conferences</a></div>
+        
+        
 
-        </div>
+      
+
       </header>
-
-      <div>
-        
+      <section class="post-body pt5 pb4">
         <p>On October 24th I attented a talk by Adrian White about using Amazon AWS for research. Below are my notes, not extensively annotated, in the hope that they&rsquo;ll be useful for someone. If something is not clear, please ask in the comments, and I&rsquo;ll try to answer to the best of my knowledge</p>
-<h1 id="161024_aws-workshop">161024_AWS workshop</h1>
+
+
+
+
+<h1 id="161024_aws-workshop">161024_AWS workshop
+  <a href="#161024_aws-workshop"></a>
+</h1>
 <ul>
 <li>SciTeam ~10 ppl</li>
 </ul>
-<h2 id="overview-of-aws-services">Overview of AWS services</h2>
+
+
+
+
+<h2 id="overview-of-aws-services">Overview of AWS services
+  <a href="#overview-of-aws-services"><svg class="anchor-symbol" aria-hidden="true" height="26" width="26" viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0 0h24v24H0z" fill="currentColor"></path>
+      <path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76.0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71.0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71.0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76.0 5-2.24 5-5s-2.24-5-5-5z"></path>
+    </svg></a>
+</h2>
 <ul>
 <li>
 <p>If you need to make your data available you have availability zones. For an ultra-stable website we can make our app accessible in multiple AZs.</p>
@@ -177,64 +143,181 @@
 <p>supervised learning only, basic linear regression</p>
 </li>
 </ul>
-<h2 id="essential-services">Essential services</h2>
-<h3 id="elastic-compute-ec2">Elastic compute (EC2)</h3>
+
+
+
+
+<h2 id="essential-services">Essential services
+  <a href="#essential-services"><svg class="anchor-symbol" aria-hidden="true" height="26" width="26" viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0 0h24v24H0z" fill="currentColor"></path>
+      <path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76.0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71.0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71.0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76.0 5-2.24 5-5s-2.24-5-5-5z"></path>
+    </svg></a>
+</h2>
+
+
+
+
+<h3 id="elastic-compute-ec2">Elastic compute (EC2)
+  <a href="#elastic-compute-ec2"><svg class="anchor-symbol" aria-hidden="true" height="26" width="26" viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0 0h24v24H0z" fill="currentColor"></path>
+      <path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76.0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71.0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71.0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76.0 5-2.24 5-5s-2.24-5-5-5z"></path>
+    </svg></a>
+</h3>
 <ul>
 <li>elastic load balance capability interesting for when you&rsquo;re firing up a shiny analytics environment</li>
 </ul>
-<h3 id="networking-services">Networking Services</h3>
-<h4 id="amazon-vpc-virtual-private-cloud">Amazon VPC (virtual private cloud)</h4>
+
+
+
+
+<h3 id="networking-services">Networking Services
+  <a href="#networking-services"><svg class="anchor-symbol" aria-hidden="true" height="26" width="26" viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0 0h24v24H0z" fill="currentColor"></path>
+      <path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76.0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71.0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71.0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76.0 5-2.24 5-5s-2.24-5-5-5z"></path>
+    </svg></a>
+</h3>
+
+
+
+
+<h4 id="amazon-vpc-virtual-private-cloud">Amazon VPC (virtual private cloud)
+  <a href="#amazon-vpc-virtual-private-cloud"></a>
+</h4>
 <ul>
 <li>own network isolated, within a region, you control addressing, DNS servers, whether it connects to the internet</li>
 </ul>
-<h4 id="aws-directconnect">AWS DirectConnect</h4>
+
+
+
+
+<h4 id="aws-directconnect">AWS DirectConnect
+  <a href="#aws-directconnect"></a>
+</h4>
 <ul>
 <li>if you need to transfer data faster</li>
 </ul>
-<h4 id="amazon-route-53">Amazon Route 53</h4>
+
+
+
+
+<h4 id="amazon-route-53">Amazon Route 53
+  <a href="#amazon-route-53"></a>
+</h4>
 <ul>
 <li>Domain Name System (DNS) web service.</li>
 </ul>
-<h3 id="storage">Storage</h3>
-<h4 id="amazon-s3">Amazon S3</h4>
+
+
+
+
+<h3 id="storage">Storage
+  <a href="#storage"><svg class="anchor-symbol" aria-hidden="true" height="26" width="26" viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0 0h24v24H0z" fill="currentColor"></path>
+      <path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76.0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71.0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71.0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76.0 5-2.24 5-5s-2.24-5-5-5z"></path>
+    </svg></a>
+</h3>
+
+
+
+
+<h4 id="amazon-s3">Amazon S3
+  <a href="#amazon-s3"></a>
+</h4>
 <ul>
 <li>object storage service (put/get/delete) not a file system (so can&rsquo;t do byte range retrievals and other subsets of the files)</li>
 <li>durability with a 10^6 objects you have 1:10k chance of losing it</li>
 <li>File size - up to 5 Tb.</li>
 </ul>
-<h4 id="amazon-ebs">Amazon EBS</h4>
+
+
+
+
+<h4 id="amazon-ebs">Amazon EBS
+  <a href="#amazon-ebs"></a>
+</h4>
 <ul>
 <li>up to 16 Tb</li>
 <li>disk that fires up and is mounted to a server on EC2</li>
 <li>can still use magnetic disk to cut cost (default is SSD)</li>
 </ul>
-<h4 id="glacier">Glacier</h4>
+
+
+
+
+<h4 id="glacier">Glacier
+  <a href="#glacier"></a>
+</h4>
 <ul>
 <li>file size up to 50 Tb</li>
 <li>cold storage</li>
 <li>can take 3-5 hours to retrieve object</li>
 <li>also 11 9s durability</li>
 </ul>
-<h4 id="aws-storage-gateway">AWS Storage Gateway</h4>
+
+
+
+
+<h4 id="aws-storage-gateway">AWS Storage Gateway
+  <a href="#aws-storage-gateway"></a>
+</h4>
 <ul>
 <li>storage on premise</li>
 </ul>
-<h3 id="databases">Databases</h3>
-<h3 id="amazon-rds">Amazon RDS</h3>
+
+
+
+
+<h3 id="databases">Databases
+  <a href="#databases"><svg class="anchor-symbol" aria-hidden="true" height="26" width="26" viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0 0h24v24H0z" fill="currentColor"></path>
+      <path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76.0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71.0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71.0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76.0 5-2.24 5-5s-2.24-5-5-5z"></path>
+    </svg></a>
+</h3>
+
+
+
+
+<h3 id="amazon-rds">Amazon RDS
+  <a href="#amazon-rds"><svg class="anchor-symbol" aria-hidden="true" height="26" width="26" viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0 0h24v24H0z" fill="currentColor"></path>
+      <path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76.0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71.0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71.0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76.0 5-2.24 5-5s-2.24-5-5-5z"></path>
+    </svg></a>
+</h3>
 <ul>
 <li>Standard relational database. Maintained/run by amazon so you can just use the data</li>
 </ul>
-<h4 id="amazon-dynamodb">Amazon DynamoDB</h4>
+
+
+
+
+<h4 id="amazon-dynamodb">Amazon DynamoDB
+  <a href="#amazon-dynamodb"></a>
+</h4>
 <ul>
 <li>Managed NoSQL database service</li>
 <li>today need 100 reads/sec, tomorrow 1000k</li>
 </ul>
-<h4 id="amazon-elasticache">Amazon ElastiCache</h4>
+
+
+
+
+<h4 id="amazon-elasticache">Amazon ElastiCache
+  <a href="#amazon-elasticache"></a>
+</h4>
 <ul>
 <li>reddis</li>
 <li>some there open source libraries</li>
 </ul>
-<h3 id="big-data-services">Big Data Services</h3>
+
+
+
+
+<h3 id="big-data-services">Big Data Services
+  <a href="#big-data-services"><svg class="anchor-symbol" aria-hidden="true" height="26" width="26" viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0 0h24v24H0z" fill="currentColor"></path>
+      <path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76.0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71.0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71.0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76.0 5-2.24 5-5s-2.24-5-5-5z"></path>
+    </svg></a>
+</h3>
 <ul>
 <li>Amazon EMR (Elastic Map Reduce)</li>
 <li>AWS Data Pipeline Hosted Hadoop framework
@@ -249,7 +332,16 @@
 </ul>
 </li>
 </ul>
-<h3 id="monitoring-services">Monitoring services</h3>
+
+
+
+
+<h3 id="monitoring-services">Monitoring services
+  <a href="#monitoring-services"><svg class="anchor-symbol" aria-hidden="true" height="26" width="26" viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0 0h24v24H0z" fill="currentColor"></path>
+      <path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76.0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71.0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71.0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76.0 5-2.24 5-5s-2.24-5-5-5z"></path>
+    </svg></a>
+</h3>
 <ul>
 <li>Amazon CloudWatch (free)
 <ul>
@@ -281,7 +373,16 @@
 </ul>
 </li>
 </ul>
-<h3 id="accessing-your-resources">Accessing your resources</h3>
+
+
+
+
+<h3 id="accessing-your-resources">Accessing your resources
+  <a href="#accessing-your-resources"><svg class="anchor-symbol" aria-hidden="true" height="26" width="26" viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0 0h24v24H0z" fill="currentColor"></path>
+      <path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76.0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71.0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71.0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76.0 5-2.24 5-5s-2.24-5-5-5z"></path>
+    </svg></a>
+</h3>
 <ul>
 <li>Everything you can do through the Console, you can do through the CLI or an SDK</li>
 <li>SDK’s for most programming languages
@@ -290,7 +391,13 @@
 </ul>
 </li>
 </ul>
-<h4 id="commercial-models">Commercial models</h4>
+
+
+
+
+<h4 id="commercial-models">Commercial models
+  <a href="#commercial-models"></a>
+</h4>
 <ul>
 <li>on-demand
 <ul>
@@ -318,8 +425,26 @@
 </li>
 </ul>
 <p>Amazon won&rsquo;t kill jobs for you itself if your bill goes higher than X. You can configure this yourself, specifying what should happen to storage.</p>
-<h3 id="security">Security</h3>
-<h3 id="popular-hpc-workloads-on-aws">Popular HPC workloads on AWS</h3>
+
+
+
+
+<h3 id="security">Security
+  <a href="#security"><svg class="anchor-symbol" aria-hidden="true" height="26" width="26" viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0 0h24v24H0z" fill="currentColor"></path>
+      <path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76.0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71.0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71.0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76.0 5-2.24 5-5s-2.24-5-5-5z"></path>
+    </svg></a>
+</h3>
+
+
+
+
+<h3 id="popular-hpc-workloads-on-aws">Popular HPC workloads on AWS
+  <a href="#popular-hpc-workloads-on-aws"><svg class="anchor-symbol" aria-hidden="true" height="26" width="26" viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0 0h24v24H0z" fill="currentColor"></path>
+      <path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76.0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71.0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71.0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76.0 5-2.24 5-5s-2.24-5-5-5z"></path>
+    </svg></a>
+</h3>
 <ul>
 <li>Genome processing</li>
 <li>Modeling and Simulation</li>
@@ -328,7 +453,16 @@
 <li>Transcoding and Encoding (video)</li>
 <li>Computational Chemistry</li>
 </ul>
-<h3 id="educate">Educate</h3>
+
+
+
+
+<h3 id="educate">Educate
+  <a href="#educate"><svg class="anchor-symbol" aria-hidden="true" height="26" width="26" viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0 0h24v24H0z" fill="currentColor"></path>
+      <path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76.0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71.0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71.0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76.0 5-2.24 5-5s-2.24-5-5-5z"></path>
+    </svg></a>
+</h3>
 <ul>
 <li>aws.amazon.com/training/- self-paced-labs</li>
 <li>aws.amazon.com/training</li>
@@ -339,8 +473,23 @@
 <li>AWS blog - best place to get updates on the main stuff that changes</li>
 <li>Deeper into a topic - product page + documentation</li>
 </ul>
-<h1 id="moving-data-to-aws">Moving data to AWS</h1>
-<h3 id="storing-data-in-s3-and-ec2">Storing data in S3 and EC2</h3>
+
+
+
+
+<h1 id="moving-data-to-aws">Moving data to AWS
+  <a href="#moving-data-to-aws"></a>
+</h1>
+
+
+
+
+<h3 id="storing-data-in-s3-and-ec2">Storing data in S3 and EC2
+  <a href="#storing-data-in-s3-and-ec2"><svg class="anchor-symbol" aria-hidden="true" height="26" width="26" viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0 0h24v24H0z" fill="currentColor"></path>
+      <path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76.0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71.0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71.0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76.0 5-2.24 5-5s-2.24-5-5-5z"></path>
+    </svg></a>
+</h3>
 <p>Amazon S3 is object based storage</p>
 <ul>
 <li>Data is an object (treat each file as a single object)</li>
@@ -352,7 +501,16 @@
 <li>You control where data is located (Amazon never moves or copies it)</li>
 <li>Flat hierarchy (no concept of directories)</li>
 </ul>
-<h3 id="amazon-s3-is">Amazon S3 is</h3>
+
+
+
+
+<h3 id="amazon-s3-is">Amazon S3 is
+  <a href="#amazon-s3-is"><svg class="anchor-symbol" aria-hidden="true" height="26" width="26" viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0 0h24v24H0z" fill="currentColor"></path>
+      <path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76.0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71.0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71.0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76.0 5-2.24 5-5s-2.24-5-5-5z"></path>
+    </svg></a>
+</h3>
 <ul>
 <li>Extremely Durable (99.999999999%)</li>
 <li>Extremely Available (99.99%)</li>
@@ -376,8 +534,23 @@
 <li>Optimising data transfer to S3</li>
 <li>Examples</li>
 </ul>
-<h3 id="preliminaries">Preliminaries</h3>
-<h4 id="before-worrying-about-upload-performance">Before worrying about upload performance:</h4>
+
+
+
+
+<h3 id="preliminaries">Preliminaries
+  <a href="#preliminaries"><svg class="anchor-symbol" aria-hidden="true" height="26" width="26" viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0 0h24v24H0z" fill="currentColor"></path>
+      <path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76.0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71.0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71.0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76.0 5-2.24 5-5s-2.24-5-5-5z"></path>
+    </svg></a>
+</h3>
+
+
+
+
+<h4 id="before-worrying-about-upload-performance">Before worrying about upload performance:
+  <a href="#before-worrying-about-upload-performance"></a>
+</h4>
 <ol>
 <li>Know file size distribution and the amount of data
 <ul>
@@ -398,7 +571,16 @@
 </ul>
 </li>
 </ol>
-<h3 id="non-network-keys-to-the-fastest-upload">Non-Network Keys to the fastest upload</h3>
+
+
+
+
+<h3 id="non-network-keys-to-the-fastest-upload">Non-Network Keys to the fastest upload
+  <a href="#non-network-keys-to-the-fastest-upload"><svg class="anchor-symbol" aria-hidden="true" height="26" width="26" viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0 0h24v24H0z" fill="currentColor"></path>
+      <path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76.0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71.0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71.0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76.0 5-2.24 5-5s-2.24-5-5-5z"></path>
+    </svg></a>
+</h3>
 <ul>
 <li>The following are general principles for the quickest data
 upload from outside of AWS</li>
@@ -434,21 +616,57 @@ upload from outside of AWS</li>
 </li>
 <li>Data compression</li>
 </ul>
-<h3 id="examples">Examples</h3>
-<h4 id="ska-square-kilometer-array">SKA (square kilometer) array</h4>
+
+
+
+
+<h3 id="examples">Examples
+  <a href="#examples"><svg class="anchor-symbol" aria-hidden="true" height="26" width="26" viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0 0h24v24H0z" fill="currentColor"></path>
+      <path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76.0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71.0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71.0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76.0 5-2.24 5-5s-2.24-5-5-5z"></path>
+    </svg></a>
+</h3>
+
+
+
+
+<h4 id="ska-square-kilometer-array">SKA (square kilometer) array
+  <a href="#ska-square-kilometer-array"></a>
+</h4>
 <ul>
 <li>s3-parallel-upload script (python/boto2)</li>
 <li>performance dropped off after ~30 parallel processes</li>
 </ul>
-<h3 id="hpc">HPC</h3>
-<h4 id="cluster-hpc">Cluster HPC</h4>
+
+
+
+
+<h3 id="hpc">HPC
+  <a href="#hpc"><svg class="anchor-symbol" aria-hidden="true" height="26" width="26" viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0 0h24v24H0z" fill="currentColor"></path>
+      <path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76.0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71.0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71.0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76.0 5-2.24 5-5s-2.24-5-5-5z"></path>
+    </svg></a>
+</h3>
+
+
+
+
+<h4 id="cluster-hpc">Cluster HPC
+  <a href="#cluster-hpc"></a>
+</h4>
 <ul>
 <li>can do placement groups - which means the compute nodes are close to each other physically at the server farm</li>
 <li>storage is ephemeral, EBS, NFSv4 Amazon EFS or Lustre Intel cloud edition (PAYG), BeeGFS</li>
 <li>is still redundant within your region (so not as durable as S3)</li>
 <li>minimum use time on Amazon HPC is 1 hour (so cost is that of 1 hour)</li>
 </ul>
-<h4 id="instance-types">Instance types</h4>
+
+
+
+
+<h4 id="instance-types">Instance types
+  <a href="#instance-types"></a>
+</h4>
 <ul>
 <li>Family - optimised for a particular use
 <ul>
@@ -463,94 +681,106 @@ upload from outside of AWS</li>
 </ul>
 </li>
 </ul>
-<h4 id="data-lakes">Data lakes</h4>
+
+
+
+
+<h4 id="data-lakes">Data lakes
+  <a href="#data-lakes"></a>
+</h4>
 <ul>
 <li>store datasets of different types</li>
 </ul>
-<h1 id="research-on-aws">Research on AWS</h1>
-<h1 id="lab-alces-flight--cfncluster">Lab: Alces Flight &amp; CfnCluster</h1>
+
+
+
+
+<h1 id="research-on-aws">Research on AWS
+  <a href="#research-on-aws"></a>
+</h1>
+
+
+
+
+<h1 id="lab-alces-flight--cfncluster">Lab: Alces Flight &amp; CfnCluster
+  <a href="#lab-alces-flight--cfncluster"></a>
+</h1>
 <p>Apart from Alces flight, what other launch a cluster configurations are there?</p>
 <p>In order to relaunch a snapshot you have you can use CfnCluster.</p>
 <p>spark R machine learning</p>
 <p>jupiter gnu  (ask him via email)</p>
-<h2 id="if-you-need-to-use-a-key-on-windows">If you need to use a key on Windows</h2>
-<p><a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/putty.html">Puttylink</a></p>
-
-      </div>
 
 
-      <footer>
+
+
+<h2 id="if-you-need-to-use-a-key-on-windows">If you need to use a key on Windows
+  <a href="#if-you-need-to-use-a-key-on-windows"><svg class="anchor-symbol" aria-hidden="true" height="26" width="26" viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0 0h24v24H0z" fill="currentColor"></path>
+      <path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76.0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71.0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71.0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76.0 5-2.24 5-5s-2.24-5-5-5z"></path>
+    </svg></a>
+</h2>
+<p>
+<a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/putty.html" target="_blank" rel="noopener">Puttylink</a></p>
+
         
+        <details closed class="f6 fw7 input-reset">
+  <dl class="f6 lh-copy">
+    <dt class="fw7">Posted on:</dt>
+    <dd class="fw5 ml0">November 1, 2016</dd>
+  </dl>
+  <dl class="f6 lh-copy">
+    <dt class="fw7">Length:</dt>
+    <dd class="fw5 ml0">6 minute read, 1277 words</dd>
+  </dl>
+  
+  
+  
+  <dl class="f6 lh-copy">
+    <dt class="fw7">Tags:</dt>
+    <dd class="fw5 ml0"> <a href="/tags/conferences">conferences</a> </dd>
+  </dl>
+  
+  <dl class="f6 lh-copy">
+    <dt class="fw7">See Also:</dt>
+    
+  </dl>
+</details>
 
+      </section>
+      <footer class="post-footer">
+        <div class="post-pagination dt w-100 mt4 mb2">
+  
+    <a class="prev dtc pr2 tl v-top fw6"
+    href="/posts/pycon2016/">&larr; 2016-PyConAU 2016 Presentation</a>
+  
+  
+    <a class="next dtc pl2 tr v-top fw6"
+    href="/posts/2018-ands/">Training the trainer presentation &rarr;</a>
+  
+</div>
 
-        <div id="disqus_thread"></div>
-<script type="application/javascript">
-    var disqus_config = function () {
-    
-    
-    
-    };
-    (function() {
-        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
-            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
-            return;
-        }
-        var d = document, s = d.createElement('script'); s.async = true;
-        s.src = '//' + "dvanicw" + '.disqus.com/embed.js';
-        s.setAttribute('data-timestamp', +new Date());
-        (d.head || d.body).appendChild(s);
-    })();
-</script>
-<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
-        
-        
       </footer>
     </article>
-
     
   </section>
+</main>
+<footer class="site-footer pv4 bt b--transparent ph5" role="contentinfo">
+  <nav class="db dt-l w-100">
+    <p class="site-copyright f7 db dtc-l v-mid w-100 w-33-l tc tl-l pv2 pv0-l mv0 lh-copy">
+      &copy; 2021 Darya Vanichkina, Sydney, Australia
+      <br />
+      
+Based on <span xmlns:dct="http://purl.org/dc/terms/" property="dct:title"><a xmlns:dct="http://purl.org/dc/terms/" href="https://github.com/formspree/blogophonic-hugo" rel="dct:source">Blogophonic</a></span> by <a xmlns:cc="http://creativecommons.org/ns#" href="https://formspree.io" property="cc:attributionName" rel="cc:attributionURL">Formspree</a>.
+    </p>
+    
+      
+    
+    <div class="site-links f6 db dtc-l v-mid w-100 w-67-l tc tr-l pv2 pv0-l mv0">
+      
+    </div>
+  </nav>
+</footer>
 
       </div>
-
-      
-  <footer class="footer">
-    <section class="container">
-      
-      
-      
-      
-    </section>
-  </footer>
-
-    </main>
-
-    
-      
-      <script src="https://daryavanichkina.com/js/dark-mode.min.0213e1773e6d1c5a644f847c67a6f8abac49a3776e2976f6008038af8c5b76a1.js"></script>
-    
-
-    
-
-    
-<script type="application/javascript">
-var doNotTrack = false;
-if (!doNotTrack) {
-	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-	ga('create', 'UA-54373354-1', 'auto');
-	
-	ga('send', 'pageview');
-}
-</script>
-
-
-    
-
-    
-
-  </body>
-
+    </body>
 </html>

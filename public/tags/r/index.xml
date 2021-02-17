@@ -2,62 +2,161 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>R on Darya Vanichkina</title>
-    <link>https://daryavanichkina.com/tags/r/</link>
+    <link>/tags/r/</link>
     <description>Recent content in R on Darya Vanichkina</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Fri, 02 Oct 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://daryavanichkina.com/tags/r/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 02 Oct 2020 00:00:00 +0000</lastBuildDate><atom:link href="/tags/r/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Making colorblind-friendly plots in R</title>
-      <link>https://daryavanichkina.com/drafts/2020-colorblind/</link>
+      <link>/drafts/2020-colorblind/</link>
       <pubDate>Fri, 02 Oct 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://daryavanichkina.com/drafts/2020-colorblind/</guid>
-      <description>&lt;p&gt;I&amp;rsquo;m currently working on a project where all figures need to be colourblind-friendly - and we&amp;rsquo;ve got lots of them, with over a dozen discrete variables plotted on some. In the past, I&amp;rsquo;ve used the excellent &lt;a href=&#34;&#34;&gt;colorbrewer&lt;/a&gt; web page and &lt;a href=&#34;&#34;&gt;RColorBrewer&lt;/a&gt; packages to generate colour schemes, but these don&amp;rsquo;t quite have built-in support for 12+ colours - so I&amp;rsquo;ve gone down into the depths of the stackoverflows to find out what to use. But before I dive into what I found - a digression into tools for checking a palette myself.&lt;/p&gt;
-&lt;h2 id=&#34;how-to-assess-and-preview-any-palette-for-colourblind-friendliness&#34;&gt;How to assess and preview any palette for colourblind-friendliness?&lt;/h2&gt;
-&lt;p&gt;The first tool that&amp;rsquo;s now permanently in my arsenal is the &lt;a href=&#34;&#34;&gt;colorblindcheck&lt;/a&gt; R package, which allows one to preview any palette (supplied as a list of hex codes) in how it would be visible to someone with common types of colour blindness.&lt;/p&gt;
-&lt;h2 id=&#34;my-crazy-find---the-largest-number-of-colours-in-a-pallette&#34;&gt;My &amp;lsquo;crazy&amp;rsquo; find - the largest number of colours in a pallette&lt;/h2&gt;
-&lt;p&gt;In trawling through stack overflow, I came across the following post: &lt;a href=&#34;https://stackoverflow.com/questions/65013406/how-to-generate-30-distinct-colors-that-are-color-blind-friendly&#34;&gt;&amp;ldquo;How to generate 30 distinct colors that are color-blind friendly?&amp;quot;&lt;/a&gt;. That post, in turn, has a link to this &lt;a href=&#34;https://jacksonlab.agronomy.wisc.edu/2016/05/23/15-level-colorblind-friendly-palette/&#34;&gt;blog post&lt;/a&gt;, which in turn&lt;/p&gt;
-&lt;h2 id=&#34;other-useful-links&#34;&gt;Other useful links&lt;/h2&gt;
+      <guid>/drafts/2020-colorblind/</guid>
+      <description>&lt;p&gt;I&amp;rsquo;m currently working on a project where all figures need to be colourblind-friendly - and we&amp;rsquo;ve got lots of them, with over a dozen discrete variables plotted on some. In the past, I&amp;rsquo;ve used the excellent 
+&lt;a href=&#34;&#34;&gt;colorbrewer&lt;/a&gt; web page and 
+&lt;a href=&#34;&#34;&gt;RColorBrewer&lt;/a&gt; packages to generate colour schemes, but these don&amp;rsquo;t quite have built-in support for 12+ colours - so I&amp;rsquo;ve gone down into the depths of the stackoverflows to find out what to use. But before I dive into what I found - a digression into tools for checking a palette myself.&lt;/p&gt;
+
+
+
+
+&lt;h2 id=&#34;how-to-assess-and-preview-any-palette-for-colourblind-friendliness&#34;&gt;How to assess and preview any palette for colourblind-friendliness?
+  &lt;a href=&#34;#how-to-assess-and-preview-any-palette-for-colourblind-friendliness&#34;&gt;&lt;svg class=&#34;anchor-symbol&#34; aria-hidden=&#34;true&#34; height=&#34;26&#34; width=&#34;26&#34; viewBox=&#34;0 0 22 22&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34;&gt;
+      &lt;path d=&#34;M0 0h24v24H0z&#34; fill=&#34;currentColor&#34;&gt;&lt;/path&gt;
+      &lt;path d=&#34;M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76.0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71.0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71.0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76.0 5-2.24 5-5s-2.24-5-5-5z&#34;&gt;&lt;/path&gt;
+    &lt;/svg&gt;&lt;/a&gt;
+&lt;/h2&gt;
+&lt;p&gt;The first tool that&amp;rsquo;s now permanently in my arsenal is the 
+&lt;a href=&#34;&#34;&gt;colorblindcheck&lt;/a&gt; R package, which allows one to preview any palette (supplied as a list of hex codes) in how it would be visible to someone with common types of colour blindness.&lt;/p&gt;
+
+
+
+
+&lt;h2 id=&#34;my-crazy-find---the-largest-number-of-colours-in-a-pallette&#34;&gt;My &amp;lsquo;crazy&amp;rsquo; find - the largest number of colours in a pallette
+  &lt;a href=&#34;#my-crazy-find---the-largest-number-of-colours-in-a-pallette&#34;&gt;&lt;svg class=&#34;anchor-symbol&#34; aria-hidden=&#34;true&#34; height=&#34;26&#34; width=&#34;26&#34; viewBox=&#34;0 0 22 22&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34;&gt;
+      &lt;path d=&#34;M0 0h24v24H0z&#34; fill=&#34;currentColor&#34;&gt;&lt;/path&gt;
+      &lt;path d=&#34;M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76.0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71.0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71.0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76.0 5-2.24 5-5s-2.24-5-5-5z&#34;&gt;&lt;/path&gt;
+    &lt;/svg&gt;&lt;/a&gt;
+&lt;/h2&gt;
+&lt;p&gt;In trawling through stack overflow, I came across the following post: 
+&lt;a href=&#34;https://stackoverflow.com/questions/65013406/how-to-generate-30-distinct-colors-that-are-color-blind-friendly&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&amp;ldquo;How to generate 30 distinct colors that are color-blind friendly?&amp;quot;&lt;/a&gt;. That post, in turn, has a link to this 
+&lt;a href=&#34;https://jacksonlab.agronomy.wisc.edu/2016/05/23/15-level-colorblind-friendly-palette/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;blog post&lt;/a&gt;, which in turn&lt;/p&gt;
+
+
+
+
+&lt;h2 id=&#34;other-useful-links&#34;&gt;Other useful links
+  &lt;a href=&#34;#other-useful-links&#34;&gt;&lt;svg class=&#34;anchor-symbol&#34; aria-hidden=&#34;true&#34; height=&#34;26&#34; width=&#34;26&#34; viewBox=&#34;0 0 22 22&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34;&gt;
+      &lt;path d=&#34;M0 0h24v24H0z&#34; fill=&#34;currentColor&#34;&gt;&lt;/path&gt;
+      &lt;path d=&#34;M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76.0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71.0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71.0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76.0 5-2.24 5-5s-2.24-5-5-5z&#34;&gt;&lt;/path&gt;
+    &lt;/svg&gt;&lt;/a&gt;
+&lt;/h2&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://stackoverflow.com/questions/37482977/what-is-a-good-palette-for-divergent-colors-in-r-or-can-viridis-and-magma-b/52812120&#34;&gt;What is a “good” palette for divergent colors in R? (or: can viridis and magma be combined together?)&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://stackoverflow.com/questions/9563711/r-color-palettes-for-many-data-classes/56066712&#34;&gt;R color palettes for many data classes&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;a href=&#34;https://stackoverflow.com/questions/37482977/what-is-a-good-palette-for-divergent-colors-in-r-or-can-viridis-and-magma-b/52812120&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;What is a “good” palette for divergent colors in R? (or: can viridis and magma be combined together?)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;a href=&#34;https://stackoverflow.com/questions/9563711/r-color-palettes-for-many-data-classes/56066712&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;R color palettes for many data classes&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 </description>
     </item>
     
     <item>
       <title>Living dangerously: a newbie guide to running multiple version of R on a Mac</title>
-      <link>https://daryavanichkina.com/posts/2020-rswitch-guide/</link>
+      <link>/posts/2020-rswitch-guide/</link>
       <pubDate>Fri, 01 May 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://daryavanichkina.com/posts/2020-rswitch-guide/</guid>
+      <guid>/posts/2020-rswitch-guide/</guid>
       <description>&lt;p&gt;&lt;img src=&#34;https://unsplash.com/photos/3uunq0n1WRY&#34; alt=&#34;TBH I want to be this chicken&amp;hellip;&#34;&gt;&lt;/p&gt;
 &lt;p&gt;You&amp;rsquo;d have to be living under a rock in the R community to not be aware of the fact that R 4.0 has been released, with some major changes, the biggest of which is probably the new default for &lt;code&gt;read.table()&lt;/code&gt;: &lt;code&gt;stringsAsFactors = FALSE&lt;/code&gt;, as well as the fact that &lt;code&gt;matrix()&lt;/code&gt; now converts character columns to factors and factors to integers.&lt;/p&gt;
-&lt;p&gt;In the past, I&amp;rsquo;ve always been too &amp;ldquo;chicken&amp;rdquo; to try running multiple versions of R on my work laptop, as I&amp;rsquo;ve usually got a few key analysis projects going that need to be delivered on time and within full feature scope - which means I don&amp;rsquo;t have time to fix basic version incompatibility bugs. But with this major new release I was sorely tempted, so have gone down the rabbit-hole of installing &lt;a href=&#34;https://rud.is/rswitch/guide/&#34;&gt;RSwitch&lt;/a&gt; and R4.0 on my Mac (Catalina 10.15.4). Below I document, in what is probably excruciating detail, the steps of how I got this to work. I&amp;rsquo;ve played with it for all of two days, and it seems to work - so I&amp;rsquo;ve written this post in the hopes of helping others. Also, I had some funky hiccups with getting the right filepath and not using sudo at the outset, so I&amp;rsquo;m hoping this helps someone avoid some extra &lt;code&gt;rm -r ...path...&lt;/code&gt;&lt;/p&gt;
-&lt;h2 id=&#34;step-0-critical-close-r--rstudio&#34;&gt;Step 0 (CRITICAL): Close R &amp;amp; RStudio&lt;/h2&gt;
+&lt;p&gt;In the past, I&amp;rsquo;ve always been too &amp;ldquo;chicken&amp;rdquo; to try running multiple versions of R on my work laptop, as I&amp;rsquo;ve usually got a few key analysis projects going that need to be delivered on time and within full feature scope - which means I don&amp;rsquo;t have time to fix basic version incompatibility bugs. But with this major new release I was sorely tempted, so have gone down the rabbit-hole of installing 
+&lt;a href=&#34;https://rud.is/rswitch/guide/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;RSwitch&lt;/a&gt; and R4.0 on my Mac (Catalina 10.15.4). Below I document, in what is probably excruciating detail, the steps of how I got this to work. I&amp;rsquo;ve played with it for all of two days, and it seems to work - so I&amp;rsquo;ve written this post in the hopes of helping others. Also, I had some funky hiccups with getting the right filepath and not using sudo at the outset, so I&amp;rsquo;m hoping this helps someone avoid some extra &lt;code&gt;rm -r ...path...&lt;/code&gt;&lt;/p&gt;
+
+
+
+
+&lt;h2 id=&#34;step-0-critical-close-r--rstudio&#34;&gt;Step 0 (CRITICAL): Close R &amp;amp; RStudio
+  &lt;a href=&#34;#step-0-critical-close-r--rstudio&#34;&gt;&lt;svg class=&#34;anchor-symbol&#34; aria-hidden=&#34;true&#34; height=&#34;26&#34; width=&#34;26&#34; viewBox=&#34;0 0 22 22&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34;&gt;
+      &lt;path d=&#34;M0 0h24v24H0z&#34; fill=&#34;currentColor&#34;&gt;&lt;/path&gt;
+      &lt;path d=&#34;M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76.0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71.0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71.0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76.0 5-2.24 5-5s-2.24-5-5-5z&#34;&gt;&lt;/path&gt;
+    &lt;/svg&gt;&lt;/a&gt;
+&lt;/h2&gt;
 &lt;p&gt;Make sure you have closed R and RStudio prior to embarking on the below. Updating R versions mid-analysis can have &amp;hellip; unintended consequences.&lt;/p&gt;
-&lt;h2 id=&#34;step-1-download-rswitch-and-install-it&#34;&gt;Step 1: Download RSwitch and install it&lt;/h2&gt;
+
+
+
+
+&lt;h2 id=&#34;step-1-download-rswitch-and-install-it&#34;&gt;Step 1: Download RSwitch and install it
+  &lt;a href=&#34;#step-1-download-rswitch-and-install-it&#34;&gt;&lt;svg class=&#34;anchor-symbol&#34; aria-hidden=&#34;true&#34; height=&#34;26&#34; width=&#34;26&#34; viewBox=&#34;0 0 22 22&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34;&gt;
+      &lt;path d=&#34;M0 0h24v24H0z&#34; fill=&#34;currentColor&#34;&gt;&lt;/path&gt;
+      &lt;path d=&#34;M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76.0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71.0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71.0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76.0 5-2.24 5-5s-2.24-5-5-5z&#34;&gt;&lt;/path&gt;
+    &lt;/svg&gt;&lt;/a&gt;
+&lt;/h2&gt;
 &lt;ol&gt;
-&lt;li&gt;&lt;a href=&#34;https://rud.is/rswitch/&#34;&gt;Download RSwitch&lt;/a&gt; and install it. Go through all of the hoops of getting it approved by MacOS and able to be run by accepting the risks of running software from an unidentified developer. (Eventually) End up with a nice switch icon in your menubar.&lt;/li&gt;
+&lt;li&gt;
+&lt;a href=&#34;https://rud.is/rswitch/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Download RSwitch&lt;/a&gt; and install it. Go through all of the hoops of getting it approved by MacOS and able to be run by accepting the risks of running software from an unidentified developer. (Eventually) End up with a nice switch icon in your menubar.&lt;/li&gt;
 &lt;/ol&gt;
-&lt;h2 id=&#34;step-2-get-new-r&#34;&gt;Step 2: Get new R&lt;/h2&gt;
+
+
+
+
+&lt;h2 id=&#34;step-2-get-new-r&#34;&gt;Step 2: Get new R
+  &lt;a href=&#34;#step-2-get-new-r&#34;&gt;&lt;svg class=&#34;anchor-symbol&#34; aria-hidden=&#34;true&#34; height=&#34;26&#34; width=&#34;26&#34; viewBox=&#34;0 0 22 22&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34;&gt;
+      &lt;path d=&#34;M0 0h24v24H0z&#34; fill=&#34;currentColor&#34;&gt;&lt;/path&gt;
+      &lt;path d=&#34;M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76.0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71.0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71.0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76.0 5-2.24 5-5s-2.24-5-5-5z&#34;&gt;&lt;/path&gt;
+    &lt;/svg&gt;&lt;/a&gt;
+&lt;/h2&gt;
 &lt;p&gt;[As usual] There is more than one way to get a new version of R onto your machine.&lt;/p&gt;
-&lt;h4 id=&#34;option-1-gui-imho-riskier&#34;&gt;Option 1: GUI (IMHO riskier)&lt;/h4&gt;
-&lt;p&gt;Download the graphical installer &lt;code&gt;R-4.0.0.pkg&lt;/code&gt;, which is the top link when on &lt;a href=&#34;https://cran.r-project.org/&#34;&gt;CRAN&lt;/a&gt; you click on &amp;ldquo;Download R for (Mac) OS X&amp;rdquo;. This is NOT the approach I took, because if done wrong this approach can remove your existing R installation, but I will describe how in theory I think it&amp;rsquo;s meant to be used below.&lt;/p&gt;
-&lt;h4 id=&#34;option-2-pre-built-copy-the-approach-i-took&#34;&gt;Option 2: Pre-built copy (the approach I took)&lt;/h4&gt;
-&lt;p&gt;Download a pre-built &lt;code&gt;.tar.gz&lt;/code&gt; copy of the R framework from the &lt;a href=&#34;https://mac.r-project.org/&#34;&gt;developer page&lt;/a&gt;. In my case, I downloaded the latest stable branch &lt;code&gt;R-4.0-branch.tar.gz (72 Mb)&lt;/code&gt;:&lt;/p&gt;
+
+
+
+
+&lt;h4 id=&#34;option-1-gui-imho-riskier&#34;&gt;Option 1: GUI (IMHO riskier)
+  &lt;a href=&#34;#option-1-gui-imho-riskier&#34;&gt;&lt;/a&gt;
+&lt;/h4&gt;
+&lt;p&gt;Download the graphical installer &lt;code&gt;R-4.0.0.pkg&lt;/code&gt;, which is the top link when on 
+&lt;a href=&#34;https://cran.r-project.org/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CRAN&lt;/a&gt; you click on &amp;ldquo;Download R for (Mac) OS X&amp;rdquo;. This is NOT the approach I took, because if done wrong this approach can remove your existing R installation, but I will describe how in theory I think it&amp;rsquo;s meant to be used below.&lt;/p&gt;
+
+
+
+
+&lt;h4 id=&#34;option-2-pre-built-copy-the-approach-i-took&#34;&gt;Option 2: Pre-built copy (the approach I took)
+  &lt;a href=&#34;#option-2-pre-built-copy-the-approach-i-took&#34;&gt;&lt;/a&gt;
+&lt;/h4&gt;
+&lt;p&gt;Download a pre-built &lt;code&gt;.tar.gz&lt;/code&gt; copy of the R framework from the 
+&lt;a href=&#34;https://mac.r-project.org/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;developer page&lt;/a&gt;. In my case, I downloaded the latest stable branch &lt;code&gt;R-4.0-branch.tar.gz (72 Mb)&lt;/code&gt;:&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;../../images/200501_RBuilds.png&#34; alt=&#34;Which R?&#34;&gt;&lt;/p&gt;
-&lt;h2 id=&#34;step-3-apply-funky-magic&#34;&gt;Step 3: Apply funky magic&lt;/h2&gt;
-&lt;h4 id=&#34;option-1-gui&#34;&gt;Option 1: GUI&lt;/h4&gt;
+
+
+
+
+&lt;h2 id=&#34;step-3-apply-funky-magic&#34;&gt;Step 3: Apply funky magic
+  &lt;a href=&#34;#step-3-apply-funky-magic&#34;&gt;&lt;svg class=&#34;anchor-symbol&#34; aria-hidden=&#34;true&#34; height=&#34;26&#34; width=&#34;26&#34; viewBox=&#34;0 0 22 22&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34;&gt;
+      &lt;path d=&#34;M0 0h24v24H0z&#34; fill=&#34;currentColor&#34;&gt;&lt;/path&gt;
+      &lt;path d=&#34;M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76.0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71.0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71.0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76.0 5-2.24 5-5s-2.24-5-5-5z&#34;&gt;&lt;/path&gt;
+    &lt;/svg&gt;&lt;/a&gt;
+&lt;/h2&gt;
+
+
+
+
+&lt;h4 id=&#34;option-1-gui&#34;&gt;Option 1: GUI
+  &lt;a href=&#34;#option-1-gui&#34;&gt;&lt;/a&gt;
+&lt;/h4&gt;
 &lt;p&gt;So the reason I think the GUI is &amp;ldquo;riskier&amp;rdquo; is because usually when you run the GUI for a new version of R, it cleanly removes the old version of R from your machine. The workaround to prevent this from happening is to make your system, and hence the R installer, &amp;ldquo;forget&amp;rdquo; it has R installed. To do this you need to open a Terminal and type the following command:&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;sudo pkgutil --forget org.r-project.R.el-capitan.fw.pkg \
              --forget org.r-project.x86_64.tcltk.x11 \
              --forget org.r-project.x86_64.texinfo \
              --forget org.r-project.R.el-capitan.GUI.pkg
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;For details about &lt;strong&gt;why&lt;/strong&gt; this works see &lt;a href=&#34;https://cran.rstudio.org/doc/manuals/R-admin.html#Multiple-versions&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;For details about &lt;strong&gt;why&lt;/strong&gt; this works see 
+&lt;a href=&#34;https://cran.rstudio.org/doc/manuals/R-admin.html#Multiple-versions&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;After that completes successfully (note:  you&amp;rsquo;ll need to enter your password to use sudo) you can run the GUI installer.&lt;/p&gt;
-&lt;h4 id=&#34;option-2-command-line&#34;&gt;Option 2: Command line&lt;/h4&gt;
+
+
+
+
+&lt;h4 id=&#34;option-2-command-line&#34;&gt;Option 2: Command line
+  &lt;a href=&#34;#option-2-command-line&#34;&gt;&lt;/a&gt;
+&lt;/h4&gt;
 &lt;p&gt;I&amp;rsquo;m fairly comfortable with the command line, so was happy to use that option, but did make a few silly mistakes with the paths, so am documenting what worked below, in the hope that it helps others:&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;
@@ -70,12 +169,30 @@
 &lt;p&gt;Run &lt;code&gt;sudo tar -xvzf path_to_R_tar.gz_file&lt;/code&gt;, where &lt;code&gt;path_to_R_tar.gz_file&lt;/code&gt; is the path you saved to the clipboard. After you enter your password, R should be installed and you should have the latest version of R active on your machine.&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
-&lt;h2 id=&#34;step-4-painfully-battle-the-security-stuff&#34;&gt;Step 4: Painfully battle the security stuff&lt;/h2&gt;
+
+
+
+
+&lt;h2 id=&#34;step-4-painfully-battle-the-security-stuff&#34;&gt;Step 4: Painfully battle the security stuff
+  &lt;a href=&#34;#step-4-painfully-battle-the-security-stuff&#34;&gt;&lt;svg class=&#34;anchor-symbol&#34; aria-hidden=&#34;true&#34; height=&#34;26&#34; width=&#34;26&#34; viewBox=&#34;0 0 22 22&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34;&gt;
+      &lt;path d=&#34;M0 0h24v24H0z&#34; fill=&#34;currentColor&#34;&gt;&lt;/path&gt;
+      &lt;path d=&#34;M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76.0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71.0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71.0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76.0 5-2.24 5-5s-2.24-5-5-5z&#34;&gt;&lt;/path&gt;
+    &lt;/svg&gt;&lt;/a&gt;
+&lt;/h2&gt;
 &lt;p&gt;Try to open Rstudio. This is probably something that happens only with Option 2 above, but I got a bunch of security warnings from MacOS and had to &amp;ldquo;Allow Anyway&amp;rdquo; a ton (twice) before RStudio was able to load R 4.0.&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;../../images/200501_Harm2.png&#34; alt=&#34;Harm2&#34;&gt;&lt;/p&gt;
 &lt;p&gt;Accept all the things:&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;../../images/200501_Harm1.png&#34; alt=&#34;Harm1&#34;&gt;&lt;/p&gt;
-&lt;h2 id=&#34;step-5-switch&#34;&gt;Step 5: Switch&lt;/h2&gt;
+
+
+
+
+&lt;h2 id=&#34;step-5-switch&#34;&gt;Step 5: Switch
+  &lt;a href=&#34;#step-5-switch&#34;&gt;&lt;svg class=&#34;anchor-symbol&#34; aria-hidden=&#34;true&#34; height=&#34;26&#34; width=&#34;26&#34; viewBox=&#34;0 0 22 22&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34;&gt;
+      &lt;path d=&#34;M0 0h24v24H0z&#34; fill=&#34;currentColor&#34;&gt;&lt;/path&gt;
+      &lt;path d=&#34;M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76.0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71.0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71.0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76.0 5-2.24 5-5s-2.24-5-5-5z&#34;&gt;&lt;/path&gt;
+    &lt;/svg&gt;&lt;/a&gt;
+&lt;/h2&gt;
 &lt;p&gt;To go back to having your existing, &amp;ldquo;production&amp;rdquo; version of R active on your machine use RSwitch to select that older version:&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;../../images/200501_Rswitch.png&#34; alt=&#34;pRSwitch&#34;&gt;&lt;/p&gt;
 &lt;hr&gt;
@@ -85,21 +202,50 @@
     
     <item>
       <title>R for Data Science Day 1</title>
-      <link>https://daryavanichkina.com/posts/2019-r-for-data-science-day-1/</link>
+      <link>/posts/2019-r-for-data-science-day-1/</link>
       <pubDate>Wed, 04 Dec 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://daryavanichkina.com/posts/2019-r-for-data-science-day-1/</guid>
-      <description>&lt;p&gt;I am incredibly excited that RStudio has begun an &lt;a href=&#34;https://education.rstudio.com/trainers/&#34;&gt;instructor certification program&lt;/a&gt; based on the Carpentries, so of course I signed up as soon as my overcommited nature allowed! This also provides me with the excuse and motivation to finally formally work my way through &lt;a href=&#34;https://r4ds.had.co.nz/&#34;&gt;R for Data Science&lt;/a&gt;, a book I have read while waiting for GTT tests during my pregnancy and google-landed upon an umpteen number of times while debugging code, but never taken the time to sit down and do the exercises for - and of course the pedagogue in me knows quite well that THAT is how you actually learn and internalise the principles and concepts in any material, especially if it deals with programming and analysis. So over the next few weeks I plan to work my way through R4DS, and this post is the first in which I dive into the exercises.&lt;/p&gt;
+      <guid>/posts/2019-r-for-data-science-day-1/</guid>
+      <description>&lt;p&gt;I am incredibly excited that RStudio has begun an 
+&lt;a href=&#34;https://education.rstudio.com/trainers/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;instructor certification program&lt;/a&gt; based on the Carpentries, so of course I signed up as soon as my overcommited nature allowed! This also provides me with the excuse and motivation to finally formally work my way through 
+&lt;a href=&#34;https://r4ds.had.co.nz/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;R for Data Science&lt;/a&gt;, a book I have read while waiting for GTT tests during my pregnancy and google-landed upon an umpteen number of times while debugging code, but never taken the time to sit down and do the exercises for - and of course the pedagogue in me knows quite well that THAT is how you actually learn and internalise the principles and concepts in any material, especially if it deals with programming and analysis. So over the next few weeks I plan to work my way through R4DS, and this post is the first in which I dive into the exercises.&lt;/p&gt;
 &lt;hr&gt;
-&lt;h2 id=&#34;personal-highly-non-exhaustive-notes-on-section-i-explore&#34;&gt;Personal, highly non-exhaustive notes on section I: Explore&lt;/h2&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-r&#34; data-lang=&#34;r&#34;&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;library&lt;/span&gt;(tidyverse)
-&lt;span style=&#34;color:#a6e22e&#34;&gt;theme_set&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;theme_minimal&lt;/span&gt;())
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;steps-of-the-data-pipeline&#34;&gt;Steps of the data pipeline:&lt;/h3&gt;
+
+
+
+
+&lt;h2 id=&#34;personal-highly-non-exhaustive-notes-on-section-i-explore&#34;&gt;Personal, highly non-exhaustive notes on section I: Explore
+  &lt;a href=&#34;#personal-highly-non-exhaustive-notes-on-section-i-explore&#34;&gt;&lt;svg class=&#34;anchor-symbol&#34; aria-hidden=&#34;true&#34; height=&#34;26&#34; width=&#34;26&#34; viewBox=&#34;0 0 22 22&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34;&gt;
+      &lt;path d=&#34;M0 0h24v24H0z&#34; fill=&#34;currentColor&#34;&gt;&lt;/path&gt;
+      &lt;path d=&#34;M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76.0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71.0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71.0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76.0 5-2.24 5-5s-2.24-5-5-5z&#34;&gt;&lt;/path&gt;
+    &lt;/svg&gt;&lt;/a&gt;
+&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-r&#34; data-lang=&#34;r&#34;&gt;&lt;span style=&#34;color:#900;font-weight:bold&#34;&gt;library&lt;/span&gt;(tidyverse)
+&lt;span style=&#34;color:#900;font-weight:bold&#34;&gt;theme_set&lt;/span&gt;(&lt;span style=&#34;color:#900;font-weight:bold&#34;&gt;theme_minimal&lt;/span&gt;())
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+
+&lt;h3 id=&#34;steps-of-the-data-pipeline&#34;&gt;Steps of the data pipeline:
+  &lt;a href=&#34;#steps-of-the-data-pipeline&#34;&gt;&lt;svg class=&#34;anchor-symbol&#34; aria-hidden=&#34;true&#34; height=&#34;26&#34; width=&#34;26&#34; viewBox=&#34;0 0 22 22&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34;&gt;
+      &lt;path d=&#34;M0 0h24v24H0z&#34; fill=&#34;currentColor&#34;&gt;&lt;/path&gt;
+      &lt;path d=&#34;M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76.0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71.0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71.0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76.0 5-2.24 5-5s-2.24-5-5-5z&#34;&gt;&lt;/path&gt;
+    &lt;/svg&gt;&lt;/a&gt;
+&lt;/h3&gt;
 &lt;p&gt;&lt;img src=&#34;https://d33wubrfki0l68.cloudfront.net/795c039ba2520455d833b4034befc8cf360a70ba/558a5/diagrams/data-science-explore.png&#34; alt=&#34;https://r4ds.had.co.nz/explore-intro.html&#34; title=&#34;Tidy Data Pipeline&#34;&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;Import&lt;/strong&gt;: take data stored in a file, database, or web API, and load it into a data frame in R.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3 id=&#34;wrangling&#34;&gt;Wrangling:&lt;/h3&gt;
+
+
+
+
+&lt;h3 id=&#34;wrangling&#34;&gt;Wrangling:
+  &lt;a href=&#34;#wrangling&#34;&gt;&lt;svg class=&#34;anchor-symbol&#34; aria-hidden=&#34;true&#34; height=&#34;26&#34; width=&#34;26&#34; viewBox=&#34;0 0 22 22&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34;&gt;
+      &lt;path d=&#34;M0 0h24v24H0z&#34; fill=&#34;currentColor&#34;&gt;&lt;/path&gt;
+      &lt;path d=&#34;M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76.0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71.0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71.0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76.0 5-2.24 5-5s-2.24-5-5-5z&#34;&gt;&lt;/path&gt;
+    &lt;/svg&gt;&lt;/a&gt;
+&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;&lt;strong&gt;Tidying&lt;/strong&gt; - storing data in a consistent form that matches the semantics of the dataset with the way it is stored. In brief, when your data is tidy, each column is a variable, and each row is an observation.&lt;/p&gt;
@@ -113,39 +259,111 @@
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;h2 id=&#34;small-data-vs-big-data&#34;&gt;Small data vs big data&lt;/h2&gt;
+
+
+
+
+&lt;h2 id=&#34;small-data-vs-big-data&#34;&gt;Small data vs big data
+  &lt;a href=&#34;#small-data-vs-big-data&#34;&gt;&lt;svg class=&#34;anchor-symbol&#34; aria-hidden=&#34;true&#34; height=&#34;26&#34; width=&#34;26&#34; viewBox=&#34;0 0 22 22&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34;&gt;
+      &lt;path d=&#34;M0 0h24v24H0z&#34; fill=&#34;currentColor&#34;&gt;&lt;/path&gt;
+      &lt;path d=&#34;M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76.0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71.0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71.0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76.0 5-2.24 5-5s-2.24-5-5-5z&#34;&gt;&lt;/path&gt;
+    &lt;/svg&gt;&lt;/a&gt;
+&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;Small/medium data: hundreds of megabytes of data, and with a little care up to 1-2 Gb of data.&lt;/li&gt;
 &lt;li&gt;If you’re routinely working with larger data (10-100 Gb, say), you should learn more about data.table.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h2 id=&#34;is-big-data-really-big-two-ways-of-thinking-small-about-big-data&#34;&gt;Is big data really big? Two ways of thinking small about big data&lt;/h2&gt;
-&lt;h3 id=&#34;sampling&#34;&gt;Sampling&lt;/h3&gt;
+
+
+
+
+&lt;h2 id=&#34;is-big-data-really-big-two-ways-of-thinking-small-about-big-data&#34;&gt;Is big data really big? Two ways of thinking small about big data
+  &lt;a href=&#34;#is-big-data-really-big-two-ways-of-thinking-small-about-big-data&#34;&gt;&lt;svg class=&#34;anchor-symbol&#34; aria-hidden=&#34;true&#34; height=&#34;26&#34; width=&#34;26&#34; viewBox=&#34;0 0 22 22&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34;&gt;
+      &lt;path d=&#34;M0 0h24v24H0z&#34; fill=&#34;currentColor&#34;&gt;&lt;/path&gt;
+      &lt;path d=&#34;M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76.0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71.0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71.0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76.0 5-2.24 5-5s-2.24-5-5-5z&#34;&gt;&lt;/path&gt;
+    &lt;/svg&gt;&lt;/a&gt;
+&lt;/h2&gt;
+
+
+
+
+&lt;h3 id=&#34;sampling&#34;&gt;Sampling
+  &lt;a href=&#34;#sampling&#34;&gt;&lt;svg class=&#34;anchor-symbol&#34; aria-hidden=&#34;true&#34; height=&#34;26&#34; width=&#34;26&#34; viewBox=&#34;0 0 22 22&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34;&gt;
+      &lt;path d=&#34;M0 0h24v24H0z&#34; fill=&#34;currentColor&#34;&gt;&lt;/path&gt;
+      &lt;path d=&#34;M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76.0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71.0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71.0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76.0 5-2.24 5-5s-2.24-5-5-5z&#34;&gt;&lt;/path&gt;
+    &lt;/svg&gt;&lt;/a&gt;
+&lt;/h3&gt;
 &lt;p&gt;Sampling may be enough to answer the question.&lt;/p&gt;
-&lt;h3 id=&#34;your-big-data-problem-is-actually-a-large-number-of-small-data-problems&#34;&gt;Your big data problem is actually a large number of small data problems&lt;/h3&gt;
+
+
+
+
+&lt;h3 id=&#34;your-big-data-problem-is-actually-a-large-number-of-small-data-problems&#34;&gt;Your big data problem is actually a large number of small data problems
+  &lt;a href=&#34;#your-big-data-problem-is-actually-a-large-number-of-small-data-problems&#34;&gt;&lt;svg class=&#34;anchor-symbol&#34; aria-hidden=&#34;true&#34; height=&#34;26&#34; width=&#34;26&#34; viewBox=&#34;0 0 22 22&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34;&gt;
+      &lt;path d=&#34;M0 0h24v24H0z&#34; fill=&#34;currentColor&#34;&gt;&lt;/path&gt;
+      &lt;path d=&#34;M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76.0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71.0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71.0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76.0 5-2.24 5-5s-2.24-5-5-5z&#34;&gt;&lt;/path&gt;
+    &lt;/svg&gt;&lt;/a&gt;
+&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;Each individual problem might fit in memory, but you have millions of them. For example, you might want to fit a model to each person in your dataset. That would be trivial if you had just 10 or 100 people, but instead you have a million.&lt;/li&gt;
 &lt;li&gt;So you need a system (like Hadoop or Spark) that allows you to send different datasets to different computers for processing.&lt;/li&gt;
 &lt;li&gt;Once you’ve figured out how to answer the question for a single subset using the tools described in this book, you can use tools like sparklyr, rhipe, and ddr to solve it for the full dataset.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h2 id=&#34;key-definitions-for-tidy-data-reference&#34;&gt;Key definitions for tidy data (reference)&lt;/h2&gt;
+
+
+
+
+&lt;h2 id=&#34;key-definitions-for-tidy-data-reference&#34;&gt;Key definitions for tidy data (reference)
+  &lt;a href=&#34;#key-definitions-for-tidy-data-reference&#34;&gt;&lt;svg class=&#34;anchor-symbol&#34; aria-hidden=&#34;true&#34; height=&#34;26&#34; width=&#34;26&#34; viewBox=&#34;0 0 22 22&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34;&gt;
+      &lt;path d=&#34;M0 0h24v24H0z&#34; fill=&#34;currentColor&#34;&gt;&lt;/path&gt;
+      &lt;path d=&#34;M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76.0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71.0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71.0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76.0 5-2.24 5-5s-2.24-5-5-5z&#34;&gt;&lt;/path&gt;
+    &lt;/svg&gt;&lt;/a&gt;
+&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;A &lt;strong&gt;variable&lt;/strong&gt; is a quantity, quality, or property that you can measure.&lt;/li&gt;
 &lt;li&gt;A &lt;strong&gt;value&lt;/strong&gt; is the state of a variable when you measure it. The value of a variable may change from measurement to measurement.&lt;/li&gt;
 &lt;li&gt;An &lt;strong&gt;observation&lt;/strong&gt; is a set of measurements made under similar conditions (you usually make all of the measurements in an observation at the same time and on the same object). An observation will contain several values, each associated with a different variable. I’ll sometimes refer to an observation as a data point.&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Tabular data&lt;/strong&gt; is a set of values, each associated with a variable and an observation. Tabular data is tidy if each value is placed in its own “cell”, each variable in its own column, and each observation in its own row.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h2 id=&#34;variable-types&#34;&gt;Variable types&lt;/h2&gt;
+
+
+
+
+&lt;h2 id=&#34;variable-types&#34;&gt;Variable types
+  &lt;a href=&#34;#variable-types&#34;&gt;&lt;svg class=&#34;anchor-symbol&#34; aria-hidden=&#34;true&#34; height=&#34;26&#34; width=&#34;26&#34; viewBox=&#34;0 0 22 22&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34;&gt;
+      &lt;path d=&#34;M0 0h24v24H0z&#34; fill=&#34;currentColor&#34;&gt;&lt;/path&gt;
+      &lt;path d=&#34;M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76.0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71.0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71.0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76.0 5-2.24 5-5s-2.24-5-5-5z&#34;&gt;&lt;/path&gt;
+    &lt;/svg&gt;&lt;/a&gt;
+&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;A variable is continuous if it can take any of an infinite set of ordered values.&lt;/li&gt;
 &lt;li&gt;A variable is categorical if it can only take one of a small set of values. In R, categorical variables are usually saved as factors or character vectors.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h2 id=&#34;eda-key-definitions&#34;&gt;EDA key definitions&lt;/h2&gt;
+
+
+
+
+&lt;h2 id=&#34;eda-key-definitions&#34;&gt;EDA key definitions
+  &lt;a href=&#34;#eda-key-definitions&#34;&gt;&lt;svg class=&#34;anchor-symbol&#34; aria-hidden=&#34;true&#34; height=&#34;26&#34; width=&#34;26&#34; viewBox=&#34;0 0 22 22&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34;&gt;
+      &lt;path d=&#34;M0 0h24v24H0z&#34; fill=&#34;currentColor&#34;&gt;&lt;/path&gt;
+      &lt;path d=&#34;M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76.0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71.0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71.0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76.0 5-2.24 5-5s-2.24-5-5-5z&#34;&gt;&lt;/path&gt;
+    &lt;/svg&gt;&lt;/a&gt;
+&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;Variation&lt;/strong&gt; is the tendency of the values of a variable to change from measurement to measurement.&lt;/li&gt;
 &lt;li&gt;Covariation is the tendency for the values of two or more variables to vary together in a related way. T&lt;/li&gt;
 &lt;li&gt;he residuals give us a view of the price of the diamond, once the effect of carat has been removed.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3 id=&#34;new-to-me-ggplot-aesthetics&#34;&gt;New (to me) &lt;code&gt;ggplot()&lt;/code&gt; aesthetics&lt;/h3&gt;
+
+
+
+
+&lt;h3 id=&#34;new-to-me-ggplot-aesthetics&#34;&gt;New (to me) &lt;code&gt;ggplot()&lt;/code&gt; aesthetics
+  &lt;a href=&#34;#new-to-me-ggplot-aesthetics&#34;&gt;&lt;svg class=&#34;anchor-symbol&#34; aria-hidden=&#34;true&#34; height=&#34;26&#34; width=&#34;26&#34; viewBox=&#34;0 0 22 22&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34;&gt;
+      &lt;path d=&#34;M0 0h24v24H0z&#34; fill=&#34;currentColor&#34;&gt;&lt;/path&gt;
+      &lt;path d=&#34;M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76.0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71.0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71.0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76.0 5-2.24 5-5s-2.24-5-5-5z&#34;&gt;&lt;/path&gt;
+    &lt;/svg&gt;&lt;/a&gt;
+&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;&lt;code&gt;stroke&lt;/code&gt; - is either the size of the point (for a default &lt;code&gt;geom_point()&lt;/code&gt;) OR, if used with shape 21-25, which have both a colour and a fill, is the thickness of the stroke around the plotted shape.&lt;/p&gt;
@@ -154,16 +372,16 @@
 &lt;p&gt;You can generally use geoms and stats interchangeably! For example, you can use stat_count() instead of geom_bar() to make the same plot!&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-r&#34; data-lang=&#34;r&#34;&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;ggplot&lt;/span&gt;(data &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; diamonds) &lt;span style=&#34;color:#f92672&#34;&gt;+&lt;/span&gt; 
-  &lt;span style=&#34;color:#a6e22e&#34;&gt;geom_bar&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;aes&lt;/span&gt;(x &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; cut, y &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; ..count.. &lt;span style=&#34;color:#f92672&#34;&gt;/&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;sum&lt;/span&gt;(..count..), fill &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; color))
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-r&#34; data-lang=&#34;r&#34;&gt;&lt;span style=&#34;color:#900;font-weight:bold&#34;&gt;ggplot&lt;/span&gt;(data &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;=&lt;/span&gt; diamonds) &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;+&lt;/span&gt; 
+  &lt;span style=&#34;color:#900;font-weight:bold&#34;&gt;geom_bar&lt;/span&gt;(&lt;span style=&#34;color:#900;font-weight:bold&#34;&gt;aes&lt;/span&gt;(x &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;=&lt;/span&gt; cut, y &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;=&lt;/span&gt; ..count.. &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;/&lt;/span&gt; &lt;span style=&#34;color:#900;font-weight:bold&#34;&gt;sum&lt;/span&gt;(..count..), fill &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;=&lt;/span&gt; color))
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;../../images/1912_ggplotproportion.png&#34; alt=&#34;Ggplot proportion chart&#34;&gt;&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-r&#34; data-lang=&#34;r&#34;&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# not really new, but I&amp;#39;m sure I&amp;#39;ll forget position = &amp;#34;fill&amp;#34;&lt;/span&gt;
-&lt;span style=&#34;color:#a6e22e&#34;&gt;ggplot&lt;/span&gt;(data &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; diamonds) &lt;span style=&#34;color:#f92672&#34;&gt;+&lt;/span&gt; 
-  &lt;span style=&#34;color:#a6e22e&#34;&gt;geom_bar&lt;/span&gt;(mapping &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;aes&lt;/span&gt;(x &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; cut, fill &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; clarity), position &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;fill&amp;#34;&lt;/span&gt;)
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-r&#34; data-lang=&#34;r&#34;&gt;&lt;span style=&#34;color:#998;font-style:italic&#34;&gt;# not really new, but I&amp;#39;m sure I&amp;#39;ll forget position = &amp;#34;fill&amp;#34;&lt;/span&gt;
+&lt;span style=&#34;color:#900;font-weight:bold&#34;&gt;ggplot&lt;/span&gt;(data &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;=&lt;/span&gt; diamonds) &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;+&lt;/span&gt; 
+  &lt;span style=&#34;color:#900;font-weight:bold&#34;&gt;geom_bar&lt;/span&gt;(mapping &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#900;font-weight:bold&#34;&gt;aes&lt;/span&gt;(x &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;=&lt;/span&gt; cut, fill &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;=&lt;/span&gt; clarity), position &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#d14&#34;&gt;&amp;#34;fill&amp;#34;&lt;/span&gt;)
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;../../images/1912_proportionchart.png&#34; alt=&#34;proportion&#34;&gt;&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-r&#34; data-lang=&#34;r&#34;&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# pie chart from bar&lt;/span&gt;
-&lt;span style=&#34;color:#a6e22e&#34;&gt;ggplot&lt;/span&gt;(data &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; diamonds) &lt;span style=&#34;color:#f92672&#34;&gt;+&lt;/span&gt; 
-  &lt;span style=&#34;color:#a6e22e&#34;&gt;geom_bar&lt;/span&gt;(mapping &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;aes&lt;/span&gt;(x &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;, fill &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; clarity)) &lt;span style=&#34;color:#f92672&#34;&gt;+&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;coord_polar&lt;/span&gt;(theta &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;y&amp;#34;&lt;/span&gt;)
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-r&#34; data-lang=&#34;r&#34;&gt;&lt;span style=&#34;color:#998;font-style:italic&#34;&gt;# pie chart from bar&lt;/span&gt;
+&lt;span style=&#34;color:#900;font-weight:bold&#34;&gt;ggplot&lt;/span&gt;(data &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;=&lt;/span&gt; diamonds) &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;+&lt;/span&gt; 
+  &lt;span style=&#34;color:#900;font-weight:bold&#34;&gt;geom_bar&lt;/span&gt;(mapping &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#900;font-weight:bold&#34;&gt;aes&lt;/span&gt;(x &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#099&#34;&gt;1&lt;/span&gt;, fill &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;=&lt;/span&gt; clarity)) &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;+&lt;/span&gt; &lt;span style=&#34;color:#900;font-weight:bold&#34;&gt;coord_polar&lt;/span&gt;(theta &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#d14&#34;&gt;&amp;#34;y&amp;#34;&lt;/span&gt;)
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;../../images/1912_piechart.png&#34; alt=&#34;pie chart&#34;&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;
@@ -185,7 +403,7 @@
 &lt;p&gt;Use &lt;code&gt;select()&lt;/code&gt; in conjunction with the &lt;code&gt;everything()&lt;/code&gt; helper, when you want to , for example, move a handful of variables to the start of the data frame.&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-R&#34; data-lang=&#34;R&#34;&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;select&lt;/span&gt;(flights, time_hour, air_time, &lt;span style=&#34;color:#a6e22e&#34;&gt;everything&lt;/span&gt;())
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-R&#34; data-lang=&#34;R&#34;&gt;&lt;span style=&#34;color:#900;font-weight:bold&#34;&gt;select&lt;/span&gt;(flights, time_hour, air_time, &lt;span style=&#34;color:#900;font-weight:bold&#34;&gt;everything&lt;/span&gt;())
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;pre&gt;&lt;code&gt;# A tibble: 336,776 x 19
    time_hour           air_time  year month   day dep_time sched_dep_time dep_delay arr_time sched_arr_time arr_delay carrier
    &amp;lt;dttm&amp;gt;                 &amp;lt;dbl&amp;gt; &amp;lt;int&amp;gt; &amp;lt;int&amp;gt; &amp;lt;int&amp;gt;    &amp;lt;int&amp;gt;          &amp;lt;int&amp;gt;     &amp;lt;dbl&amp;gt;    &amp;lt;int&amp;gt;          &amp;lt;int&amp;gt;     &amp;lt;dbl&amp;gt; &amp;lt;chr&amp;gt;  
@@ -212,7 +430,17 @@
 &lt;p&gt;Use &lt;code&gt;%/%&lt;/code&gt; and &lt;code&gt;%%&lt;/code&gt; for modular division and remainders.&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3 id=&#34;very-clear-table-of-ggplot-mappings-from-herehttpsjrnoldgithubior4ds-exercise-solutionsdata-visualisationhtml&#34;&gt;Very clear table of ggplot mappings (from &lt;a href=&#34;https://jrnold.github.io/r4ds-exercise-solutions/data-visualisation.html&#34;&gt;here&lt;/a&gt;)&lt;/h3&gt;
+Very clear table of ggplot mappings (from 
+
+
+
+&lt;h3 id=&#34;very-clear-table-of-ggplot-mappings-from-herehttpsjrnoldgithubior4ds-exercise-solutionsdata-visualisationhtml&#34;&gt;
+&lt;a href=&#34;https://jrnold.github.io/r4ds-exercise-solutions/data-visualisation.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;here&lt;/a&gt;)
+  &lt;a href=&#34;#very-clear-table-of-ggplot-mappings-from-herehttpsjrnoldgithubior4ds-exercise-solutionsdata-visualisationhtml&#34;&gt;&lt;svg class=&#34;anchor-symbol&#34; aria-hidden=&#34;true&#34; height=&#34;26&#34; width=&#34;26&#34; viewBox=&#34;0 0 22 22&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34;&gt;
+      &lt;path d=&#34;M0 0h24v24H0z&#34; fill=&#34;currentColor&#34;&gt;&lt;/path&gt;
+      &lt;path d=&#34;M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76.0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71.0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71.0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76.0 5-2.24 5-5s-2.24-5-5-5z&#34;&gt;&lt;/path&gt;
+    &lt;/svg&gt;&lt;/a&gt;
+&lt;/h3&gt;
 &lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;
@@ -444,7 +672,17 @@
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
-&lt;h3 id=&#34;very-clear-table-of-ggplot-stats-from-herehttpsjrnoldgithubior4ds-exercise-solutionsdata-visualisationhtml&#34;&gt;Very clear table of ggplot stats (from &lt;a href=&#34;https://jrnold.github.io/r4ds-exercise-solutions/data-visualisation.html&#34;&gt;here&lt;/a&gt;)&lt;/h3&gt;
+Very clear table of ggplot stats (from 
+
+
+
+&lt;h3 id=&#34;very-clear-table-of-ggplot-stats-from-herehttpsjrnoldgithubior4ds-exercise-solutionsdata-visualisationhtml&#34;&gt;
+&lt;a href=&#34;https://jrnold.github.io/r4ds-exercise-solutions/data-visualisation.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;here&lt;/a&gt;)
+  &lt;a href=&#34;#very-clear-table-of-ggplot-stats-from-herehttpsjrnoldgithubior4ds-exercise-solutionsdata-visualisationhtml&#34;&gt;&lt;svg class=&#34;anchor-symbol&#34; aria-hidden=&#34;true&#34; height=&#34;26&#34; width=&#34;26&#34; viewBox=&#34;0 0 22 22&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34;&gt;
+      &lt;path d=&#34;M0 0h24v24H0z&#34; fill=&#34;currentColor&#34;&gt;&lt;/path&gt;
+      &lt;path d=&#34;M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76.0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71.0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71.0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76.0 5-2.24 5-5s-2.24-5-5-5z&#34;&gt;&lt;/path&gt;
+    &lt;/svg&gt;&lt;/a&gt;
+&lt;/h3&gt;
 &lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;
@@ -576,6 +814,38 @@
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Moving Machine Learning from R to python</title>
+      <link>/drafts/2020-ml-r2py/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/drafts/2020-ml-r2py/</guid>
+      <description>&lt;p&gt;As part of a project for work, I needed to port some R machine learning code to python. We weren&amp;rsquo;t trying to achieve 100% identity of results, instead opting to try to implement things &amp;ldquo;natively&amp;rdquo; to the language, and&amp;hellip;&lt;/p&gt;
+&lt;p&gt;The rsample package has the&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;initial_split(data, prop = 3/4, strata = NULL, ...)&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;function has the strata argument, which allows us to select which variable to stratify with. If this variable is categorical, porting the code to python is easy, as we would use&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;sklearn.model_selection.train_test_split(*arrays, **options)&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;If the variable is numerical, it&amp;rsquo;s harder to figure out what rsample is doing by default. There is, however, a&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;make_strata(x, nunique = 5, pool = 0.15, depth = 20)&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;function, which most likely is operating with the same principles.&lt;/p&gt;
+&lt;p&gt;The help for this states that:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;For numeric data, if the number of unique levels is less than nunique, the data are treated as categorical data.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;For categorical inputs, the function will find levels of x than occur in the data with percentage less than pool. The values from these groups will be randomly assigned to the remaining strata (as will data points that have missing values in x). (i.e. by default, categories that represent less than 15% of the dataset will be pooled before sampling happens)&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;For numeric data with more unique values than nunique, the data will be converted to being categorical based on percentiles of the data. The percentile groups will have no more than 20 percent of the data in each group. Again, missing values in x are randomly assigned to groups.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;I am assuming this 20% is being specified by the depth parameter.&lt;/p&gt;
+&lt;p&gt;The easiest way to replicate this in python for numeric data seems to be to create a &amp;ldquo;dummy&amp;rdquo; variable, which will contain the quartiles as factors, and then to stratify using that:&lt;/p&gt;
+&lt;p&gt;pd.qcut(ameshousingClean[&amp;lsquo;Sale_Price&amp;rsquo;], 10, labels=range(10))&lt;/p&gt;
 </description>
     </item>
     

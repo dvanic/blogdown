@@ -1,7 +1,7 @@
 baseurl = "https://daryavanichkina.com"
 title = "Darya Vanichkina"
-googleAnalytics = "UA-54373354-1"
-theme = "hugo-coder"
+
+theme = "hugo-apero"
 
 languagecode = "en"
 defaultcontentlanguage = "en"
@@ -12,7 +12,25 @@ canonifyurls = true
 
 enableEmoji = true
 
+googleAnalytics = "UA-54373354-1"
 disqusShortname = "dvanicw"
+
+# apero stuff
+metaDataFormat = "yaml"
+footnoteReturnLinkContents = "&#8617;"
+
+[markup]
+  defaultMarkdownHandler = "goldmark"
+  [markup.goldmark.renderer]
+    unsafe = true  # Enable user to embed HTML snippets in Markdown content.
+    hardwraps = false 
+  [markup.tableOfContents]
+    startLevel = 2
+    endLevel = 2
+    ordered = false
+  [markup.highlight]
+    # one of: https://xyproto.github.io/splash/docs/ 
+    style = "github"
 
 [params]
     author = "Darya Vanichkina PhD"
@@ -21,30 +39,61 @@ disqusShortname = "dvanicw"
     info = "Data Scientist & Professional Educator"
     avatarurl = "images/daryaVhead1.jpg"
     footercontent = ""
-
     dateformat = "January 2, 2006"
-
     hideCredits = true
     hideCopyright = true
+    #
+    #
+    # apero stuff
+    orgName = "Darya Vanichkina"
+    orgLocal = "Sydney, Australia"
+    favicon = "/img/favicon.ico"
+    logo = "/img/blogophonic-mark-dark.png"
+    mainSections = ["blog", "project", "talk"]
+    navallcaps = true
+    # show/hide social icons in site header & footer
+    # configure social icons and links below in [[params.social]]
+    socialInHeader = false
+    socialInFooter = true
+    # Default image for social sharing and search engines. 
+    # Place image file in `static` folder and specify image name here.
+    sharing_image = "/img/papillons.jpg"
+    # Twitter username (without @). Used when a visitor shares your site on Twitter.
+    twitter = "dvanichkina"
+    theme = "violet"
+    # or, leave theme empty & make your own palette
+    # see docs at https://hugo-apero.netlify.app/blog/color-themes/
+    # the custom scss file must be in the assets/ folder
+    # add the filename name here, without extension
+    # to use hex colors instead of named tachyons colors, include "hex" in filename
+    custom_theme = ""
+    # use an embedded font-family
+    # serif options: Fraunces / EB Garamond / Bitter
+    # sans-serif options: Commissioner / Alegreya Sans / Metropolis
+    # if you import your own fonts, name them here too
+    customtextFontFamily = "Commissioner"
+    customheadingFontFamily = "Fraunces"
+    # alternatively, leave empty and select basic font options: sans-serif or serif
+    # for more http://tachyons.io/docs/typography/font-family/
+    textFontFamily = "sans-serif"
+    headingFontFamily = "sans-serif"
+    
 
+    # coder stuff
     # Git Commit in Footer, uncomment the line below to enable it.
     # commit = "https://github.com/luizdepra/hugo-coder/tree/"
-
     rtl = false
-
     # Specify light/dark colorscheme
     # Supported values:
     # "auto" (use preference set by browser)
     # "dark" (dark background, light foreground)
     # "light" (light background, dark foreground) (default)
     colorscheme = "auto"
-
     # Series see also post count
     maxSeeAlsoItems = 5
-
     # Enable Twemoji
     enableTwemoji = true
-
+    
     # Custom CSS
     custom_css = [ "static/css/custom.css"]
     
@@ -53,8 +102,52 @@ disqusShortname = "dvanicw"
     
     # make ugly urls
     uglyURLs = true
-
-
+    
+    
+[menu]
+  [[menu.header]]
+    name = "About"
+    title = "About Blogophonic"
+    url = "/about/"
+    weight = 1
+  [[menu.header]]
+    name = "Blog"
+    title = "Blog"
+    url = "/blog/"
+    weight = 2
+  [[menu.header]]
+    name = "Projects"
+    title = "Project Portfolio"
+    url = "/project/"
+    weight = 3
+  [[menu.header]]
+    name = "Talks"
+    title = "Talks"
+    url = "/talk/"
+    weight = 4
+  [[menu.header]]
+    name = "Elements"
+    title = "Element Page"
+    url = "/elements/"
+    weight = 5
+    
+  # Configure footer  
+  [[menu.footer]]
+    name = "License"
+    title = "License"
+    url = "/license/"
+    weight = 1
+  [[menu.footer]]
+    name = "Contact"
+    title = "Contact form"
+    url = "/contact/"
+    weight = 2
+  [[menu.footer]]
+    name = "Contributors"
+    title = "Contributors"
+    url = "/contributors/"
+    weight = 3
+    
     
 [permalinks]
     post = "/posts/:slug/"
@@ -142,6 +235,3 @@ copyright = "This work is licensed under a Creative Commons Attribution-ShareAli
         name = "Contact"
         weight = 5
         url = "/contact/"
-
-[markup.goldmark.renderer]
-unsafe= true
