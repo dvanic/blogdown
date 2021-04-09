@@ -4,8 +4,7 @@
     <title>python on Darya Vanichkina</title>
     <link>/tags/python/</link>
     <description>Recent content in python on Darya Vanichkina</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en</language><atom:link href="/tags/python/index.xml" rel="self" type="application/rss+xml" />
+    <generator>Hugo -- gohugo.io</generator><atom:link href="/tags/python/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Moving Machine Learning from R to python</title>
       <link>/drafts/2020-ml-r2py/</link>

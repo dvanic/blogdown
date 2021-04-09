@@ -1,0 +1,21 @@
+---
+## Configure page content in wide column
+title: "Hi!" # leave blank to exclude
+number_featured: 1 # pulling from mainSections in config.toml
+number_categories: 0 # set to zero to exclude
+show_intro: true
+intro: |
+  I'm Darya, a Data Scientist & Professional Educator. I work at the University of Sydney's [Informatics Hub](https://informatics.sydney.edu.au) as a data science consultant, supporting researchers from across the university by solving their big (and not-so-big) data problems. I also coordinate SIH's data science training program, where I mentor staff in best teaching practices, develop and deliver advanced analytics training for researchers.
+
+  I'm passionate about using data to understand the world, and love solving real problems using data science, machine learning, statistics and high-performance/cloud computing. I've had a lot of amazing opportunities in my life, and my way of giving back to the universe for them is to train and teach.
+
+  I’m proud to be a [Carpentries](carpentries.org/) Instructor and Trainer and have been a maintainer and mentor in the past. I'm also an [RStudio certified trainer](https://education.rstudio.com/trainers/); reach out to me [here](https://daryavanichkina.com/contact/) if you're interested in custom corporate training.
+
+  I spent over a decade as a biomedical scientist before joining the "dark side". I hold a PhD in Genomics and Bioinformatics from the University of Queensland, where I investigated novel ncRNA transcription in human and mouse stem cell and nervous system development. I've also done a PostDoc at the Centenary Institute, investigating alternative splicing dynamics and regulation. You can have a look at my papers [here](https://www.ncbi.nlm.nih.gov/pubmed/?term=Vanichkina+D%5BAuthor%5D).
+show_outro: false
+outro: |
+  This could be an outro
+---
+
+** index doesn't contain a body, just front matter above.
+See about/list.html in the layouts folder **

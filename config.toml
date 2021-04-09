@@ -3,9 +3,6 @@ title = "Darya Vanichkina"
 
 theme = "hugo-apero"
 
-languagecode = "en"
-defaultcontentlanguage = "en"
-
 paginate = 20
 canonifyurls = true
 
@@ -38,7 +35,6 @@ footnoteReturnLinkContents = "&#8617;"
     keywords = "data scientist, bioinformatician, consultant, educator"
     info = "Data Scientist & Professional Educator"
     avatarurl = "images/daryaVhead1.jpg"
-    footercontent = ""
     dateformat = "January 2, 2006"
     hideCredits = true
     hideCopyright = true
@@ -95,7 +91,7 @@ footnoteReturnLinkContents = "&#8617;"
     enableTwemoji = true
     
     # Custom CSS
-    custom_css = [ "static/css/custom.css"]
+    custom_css = ["static/css/custom.css"]
     
     # Ignore files
     ignoreFiles = ["\\.Rmd$", "\\.Rmarkdown$", "_files$", "_cache$"]
@@ -113,7 +109,7 @@ footnoteReturnLinkContents = "&#8617;"
   [[menu.header]]
     name = "Blog"
     title = "Blog"
-    url = "/blog/"
+    url = "/posts/"
     weight = 2
   [[menu.header]]
     name = "Projects"
@@ -212,26 +208,3 @@ copyright = "This work is licensed under a Creative Commons Attribution-ShareAli
     ]
 
 
-[languages]
-    [languages.en]
-        languagename = "English"
-
-        [[languages.en.menu.main]]
-        name = "About"
-        weight = 1
-        url = "/about/"
-
-        [[languages.en.menu.main]]
-        name = "Blog"
-        weight = 2
-        url = "/posts/"
-
-        [[languages.en.menu.main]]
-        name = "Training"
-        weight = 3
-        url = "/training/"
-
-        [[languages.en.menu.main]]
-        name = "Contact"
-        weight = 5
-        url = "/contact/"
