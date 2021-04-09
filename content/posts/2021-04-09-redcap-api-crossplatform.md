@@ -11,7 +11,7 @@ tags:
   - REDCap
 ---
 
-Like many other educational and research institutions, the University of Sydney (where I work) supports the use of REDCap as a survey platform. I also use it, in part because one of the most attractive features of the REDCap API over other survey tools like Qualtrics, Google Forms and SurveyMonkey is the fact that the API playground supports GUI-style selection of what you want, with REDCap providing template code in a wide variety of languages. 
+Like many other educational and research institutions, the University of Sydney (where I currently work) supports the use of REDCap as a survey platform. I also use it, in part because one of the most attractive features of the REDCap API over other survey tools like Qualtrics, Google Forms and SurveyMonkey is the fact that the API playground supports GUI-style selection of what you want, with REDCap providing template code in a wide variety of languages. 
 
 ![What to export](../../images/2104_what2exportREDCap.png)
 
@@ -82,7 +82,7 @@ surveyresults <- read.csv(text = rawToChar(
   )
 ```
 
-Now, the `curl::handle_setform()` command looks pretty similar to the `RCurl::postForm()` request, but it needs to be combined with the `curl::curl_fetch_memory()` command^[1 Yes, we could have used the `curl::curl_fetch_disk()` command to download the file to disk, which seems to work a lot better and actually save the file as a non-binary .csv file. However, for this particular project, I'm doing a lot of data cleaning *before* I write the output to disk, and I'd rather not store two copies of the same scrape.], which has a few quirks:
+Now, the `curl::handle_setform()` command looks pretty similar to the `RCurl::postForm()` request, but it needs to be combined with the `curl::curl_fetch_memory()` command[^1], which has a few quirks:
 
 1. It returns the actual data in the `content` attribute, and not the data frame directly - hence the need for the `$content`
 2. It returns the data in raw format (and, no, setting the `rawOrLabel` to label does not solve this), so you need to pass it into `base::rawToChar()`.
@@ -108,3 +108,5 @@ datadict <- read.csv(text = rawToChar(
 ```
 
 I hope this is helpful for others who use REDCap on Windows, or who need to write code that works across all of the major operating system platforms!
+
+[^1]: Yes, we could have used the `curl::curl_fetch_disk()` command to download the file to disk, which seems to work a lot better and actually save the file as a non-binary .csv file. However, for this particular project, I'm doing a lot of data cleaning *before* I write the output to disk, and I'd rather not store two copies of the same scrape.

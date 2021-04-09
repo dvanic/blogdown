@@ -7,7 +7,7 @@
     <meta http-equiv="Content-Language" content="en">
 
     <meta name="author" content="Darya Vanichkina PhD">
-    <meta name="description" content="Like many other educational and research institutions, the University of Sydney (where I work) supports the use of REDCap as a survey platform. I also use it, in part because one of the most attractive features of the REDCap API over other survey tools like Qualtrics, Google Forms and SurveyMonkey is the fact that the API playground supports GUI-style selection of what you want, with REDCap providing template code in a wide variety of languages.">
+    <meta name="description" content="Like many other educational and research institutions, the University of Sydney (where I currently work) supports the use of REDCap as a survey platform. I also use it, in part because one of the most attractive features of the REDCap API over other survey tools like Qualtrics, Google Forms and SurveyMonkey is the fact that the API playground supports GUI-style selection of what you want, with REDCap providing template code in a wide variety of languages.">
     <meta name="keywords" content="data scientist, bioinformatician, consultant, educator">
 
     
@@ -16,10 +16,10 @@
 
     <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Querying the REDCap API on Windows: avoiding 443 errors and RCurl woes"/>
-<meta name="twitter:description" content="Like many other educational and research institutions, the University of Sydney (where I work) supports the use of REDCap as a survey platform. I also use it, in part because one of the most attractive features of the REDCap API over other survey tools like Qualtrics, Google Forms and SurveyMonkey is the fact that the API playground supports GUI-style selection of what you want, with REDCap providing template code in a wide variety of languages."/>
+<meta name="twitter:description" content="Like many other educational and research institutions, the University of Sydney (where I currently work) supports the use of REDCap as a survey platform. I also use it, in part because one of the most attractive features of the REDCap API over other survey tools like Qualtrics, Google Forms and SurveyMonkey is the fact that the API playground supports GUI-style selection of what you want, with REDCap providing template code in a wide variety of languages."/>
 
     <meta property="og:title" content="Querying the REDCap API on Windows: avoiding 443 errors and RCurl woes" />
-<meta property="og:description" content="Like many other educational and research institutions, the University of Sydney (where I work) supports the use of REDCap as a survey platform. I also use it, in part because one of the most attractive features of the REDCap API over other survey tools like Qualtrics, Google Forms and SurveyMonkey is the fact that the API playground supports GUI-style selection of what you want, with REDCap providing template code in a wide variety of languages." />
+<meta property="og:description" content="Like many other educational and research institutions, the University of Sydney (where I currently work) supports the use of REDCap as a survey platform. I also use it, in part because one of the most attractive features of the REDCap API over other survey tools like Qualtrics, Google Forms and SurveyMonkey is the fact that the API playground supports GUI-style selection of what you want, with REDCap providing template code in a wide variety of languages." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://daryavanichkina.com/posts/2021-04-09-redcap-api-crossplatform/" />
 <meta property="article:published_time" content="2021-04-09T00:00:00+00:00" />
@@ -157,7 +157,7 @@
 
       <div>
         
-        <p>Like many other educational and research institutions, the University of Sydney (where I work) supports the use of REDCap as a survey platform. I also use it, in part because one of the most attractive features of the REDCap API over other survey tools like Qualtrics, Google Forms and SurveyMonkey is the fact that the API playground supports GUI-style selection of what you want, with REDCap providing template code in a wide variety of languages.</p>
+        <p>Like many other educational and research institutions, the University of Sydney (where I currently work) supports the use of REDCap as a survey platform. I also use it, in part because one of the most attractive features of the REDCap API over other survey tools like Qualtrics, Google Forms and SurveyMonkey is the fact that the API playground supports GUI-style selection of what you want, with REDCap providing template code in a wide variety of languages.</p>
 <p><img src="../../images/2104_what2exportREDCap.png" alt="What to export"></p>
 <p>Languages include PHP, Perl, Python, R, Ruby, Java &amp; UNIX&rsquo;s curl, and output format options include json, csv and XML.</p>
 <p>Further, when you request to export Records, it will nicely provide you with even more options that allow you to point and click to get the actual, real data you want, without needing to delve into the joys of XPATHs and XML.</p>
@@ -209,7 +209,7 @@ surveyresults <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22
   <span style="color:#a6e22e">curl_fetch_memory</span>(<span style="color:#e6db74">&#34;https://redcap.sydney.edu.au/api/&#34;</span>, handle <span style="color:#f92672">=</span> h1)<span style="color:#f92672">$</span>content),
   na.strings <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;&#34;</span>
   )
-</code></pre></div><p>Now, the <code>curl::handle_setform()</code> command looks pretty similar to the <code>RCurl::postForm()</code> request, but it needs to be combined with the <code>curl::curl_fetch_memory()</code> command^[1 Yes, we could have used the <code>curl::curl_fetch_disk()</code> command to download the file to disk, which seems to work a lot better and actually save the file as a non-binary .csv file. However, for this particular project, I&rsquo;m doing a lot of data cleaning <em>before</em> I write the output to disk, and I&rsquo;d rather not store two copies of the same scrape.], which has a few quirks:</p>
+</code></pre></div><p>Now, the <code>curl::handle_setform()</code> command looks pretty similar to the <code>RCurl::postForm()</code> request, but it needs to be combined with the <code>curl::curl_fetch_memory()</code> command<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup>, which has a few quirks:</p>
 <ol>
 <li>It returns the actual data in the <code>content</code> attribute, and not the data frame directly - hence the need for the <code>$content</code></li>
 <li>It returns the data in raw format (and, no, setting the <code>rawOrLabel</code> to label does not solve this), so you need to pass it into <code>base::rawToChar()</code>.</li>
@@ -231,6 +231,14 @@ datadict <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">re
   <span style="color:#a6e22e">curl_fetch_memory</span>(<span style="color:#e6db74">&#34;https://redcap.sydney.edu.au/api/&#34;</span>, handle <span style="color:#f92672">=</span> h2)<span style="color:#f92672">$</span>content)
 )
 </code></pre></div><p>I hope this is helpful for others who use REDCap on Windows, or who need to write code that works across all of the major operating system platforms!</p>
+<section class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1" role="doc-endnote">
+<p>Yes, we could have used the <code>curl::curl_fetch_disk()</code> command to download the file to disk, which seems to work a lot better and actually save the file as a non-binary .csv file. However, for this particular project, I&rsquo;m doing a lot of data cleaning <em>before</em> I write the output to disk, and I&rsquo;d rather not store two copies of the same scrape. <a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</section>
 
       </div>
 
