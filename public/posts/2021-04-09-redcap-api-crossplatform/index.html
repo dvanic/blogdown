@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Language" content="en">
+
+    <meta name="author" content="Darya Vanichkina PhD">
+    <meta name="description" content="Like many other educational and research institutions, the University of Sydney (where I work) supports the use of REDCap as a survey platform. I also use it, in part because one of the most attractive features of the REDCap API over other survey tools like Qualtrics, Google Forms and SurveyMonkey is the fact that the API playground supports GUI-style selection of what you want, with REDCap providing template code in a wide variety of languages.">
+    <meta name="keywords" content="data scientist, bioinformatician, consultant, educator">
+
+    
+      <script src="https://twemoji.maxcdn.com/v/latest/twemoji.min.js" crossorigin="anonymous"></script>
+    
+
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Querying the REDCap API on Windows: avoiding 443 errors and RCurl woes"/>
+<meta name="twitter:description" content="Like many other educational and research institutions, the University of Sydney (where I work) supports the use of REDCap as a survey platform. I also use it, in part because one of the most attractive features of the REDCap API over other survey tools like Qualtrics, Google Forms and SurveyMonkey is the fact that the API playground supports GUI-style selection of what you want, with REDCap providing template code in a wide variety of languages."/>
+
+    <meta property="og:title" content="Querying the REDCap API on Windows: avoiding 443 errors and RCurl woes" />
+<meta property="og:description" content="Like many other educational and research institutions, the University of Sydney (where I work) supports the use of REDCap as a survey platform. I also use it, in part because one of the most attractive features of the REDCap API over other survey tools like Qualtrics, Google Forms and SurveyMonkey is the fact that the API playground supports GUI-style selection of what you want, with REDCap providing template code in a wide variety of languages." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://daryavanichkina.com/posts/2021-04-09-redcap-api-crossplatform/" />
+<meta property="article:published_time" content="2021-04-09T00:00:00+00:00" />
+<meta property="article:modified_time" content="2021-04-09T00:00:00+00:00" />
+
+
+    <title>
+  Querying the REDCap API on Windows: avoiding 443 errors and RCurl woes · Darya Vanichkina
+</title>
+
+    
+      <link rel="canonical" href="https://daryavanichkina.com/posts/2021-04-09-redcap-api-crossplatform/">
+    
+
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700%7CMerriweather:300,700%7CSource+Code+Pro:400,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css" integrity="sha384-Bfad6CLCknfcloXFOyFnlgtENryhrpZCe29RTifKEixXQZ38WheV+i/6YWSzkz3V" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha256-l85OmPOjvil/SOvVt3HnSSjzF1TUMyT9eV0c2BzEGzU=" crossorigin="anonymous" />
+
+    
+      
+      
+      <link rel="stylesheet" href="https://daryavanichkina.com/css/coder.min.9836c03fe5c87d102278a33e86d0591ef36c89b1e17e8e547ebf84c05cee010e.css" integrity="sha256-mDbAP&#43;XIfRAieKM&#43;htBZHvNsibHhfo5Ufr&#43;EwFzuAQ4=" crossorigin="anonymous" media="screen" />
+    
+
+    
+
+    
+      
+        
+        
+        <link rel="stylesheet" href="https://daryavanichkina.com/css/coder-dark.min.717236c74e0a5208ef73964a9f44c6b443b689a95b270d8b2a40d0c012460dac.css" integrity="sha256-cXI2x04KUgjvc5ZKn0TGtEO2ialbJw2LKkDQwBJGDaw=" crossorigin="anonymous" media="screen" />
+      
+    
+
+    
+      <link rel="stylesheet" href="https://daryavanichkina.com/static/css/custom.css" />
+    
+
+    
+
+    <link rel="icon" type="image/png" href="https://daryavanichkina.com/images/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="https://daryavanichkina.com/images/favicon-16x16.png" sizes="16x16">
+
+    <link rel="apple-touch-icon" href="https://daryavanichkina.com/images/apple-touch-icon.png">
+    <link rel="apple-touch-icon"  sizes="180x180" href="https://daryavanichkina.com/images/apple-touch-icon.png">
+
+    <meta name="generator" content="Hugo 0.80.0" />
+  </head>
+  
+  
+  
+    
+  
+  <body class="colorscheme-auto"
+        onload=" twemoji.parse(document.body); "
+  >
+    <main class="wrapper">
+      <nav class="navigation">
+  <section class="container">
+    <a class="navigation-title" href="https://daryavanichkina.com/">
+      Darya Vanichkina
+    </a>
+    
+      <span id="dark-mode-toggle" class="float-right">
+        <i class="fas fa-adjust fa-fw"></i>
+      </span>
+      <input type="checkbox" id="menu-toggle" />
+      <label class="menu-button float-right" for="menu-toggle">
+        <i class="fas fa-bars fa-fw"></i>
+      </label>
+      <ul class="navigation-list">
+        
+          
+            <li class="navigation-item">
+              <a class="navigation-link" href="https://daryavanichkina.com/about/">About</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link" href="https://daryavanichkina.com/posts/">Blog</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link" href="https://daryavanichkina.com/training/">Training</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link" href="https://daryavanichkina.com/contact/">Contact</a>
+            </li>
+          
+        
+        
+        <li class="navigation-item separator">
+          <span>|</span>
+        </li>
+      </ul>
+    
+  </section>
+</nav>
+
+
+      <div class="content">
+        
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">Querying the REDCap API on Windows: avoiding 443 errors and RCurl woes</h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fas fa-calendar"></i>
+              <time datetime='2021-04-09T00:00:00Z'>
+                April 9, 2021
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fas fa-clock"></i>
+              4-minute read
+            </span>
+          </div>
+          
+          <div class="tags">
+  <i class="fas fa-tag"></i>
+    <a href="https://daryavanichkina.com/tags/data-science/">Data science</a>
+      <span class="separator">•</span>
+    <a href="https://daryavanichkina.com/tags/r/">R</a>
+      <span class="separator">•</span>
+    <a href="https://daryavanichkina.com/tags/workjournal/">WorkJournal</a>
+      <span class="separator">•</span>
+    <a href="https://daryavanichkina.com/tags/redcap/">REDCap</a></div>
+
+        </div>
+      </header>
+
+      <div>
+        
+        <p>Like many other educational and research institutions, the University of Sydney (where I work) supports the use of REDCap as a survey platform. I also use it, in part because one of the most attractive features of the REDCap API over other survey tools like Qualtrics, Google Forms and SurveyMonkey is the fact that the API playground supports GUI-style selection of what you want, with REDCap providing template code in a wide variety of languages.</p>
+<p><img src="../../images/2104_what2exportREDCap.png" alt="What to export"></p>
+<p>Languages include PHP, Perl, Python, R, Ruby, Java &amp; UNIX&rsquo;s curl, and output format options include json, csv and XML.</p>
+<p>Further, when you request to export Records, it will nicely provide you with even more options that allow you to point and click to get the actual, real data you want, without needing to delve into the joys of XPATHs and XML.</p>
+<p><img src="../../images/2104_RecordsExport.png" alt="Records export"></p>
+<p>Under the hood, this is a POST form, and REDCap will explicitly show you what data you&rsquo;ve submitted in the &ldquo;Raw request parameters&rdquo; tab.</p>
+<p>It will also provide you with the code you&rsquo;d use to get the same data programmatically. There&rsquo;s also a &ldquo;Click the Execute Request button to execute a real API request, and it will display the API response in a text box below.&rdquo; so you can preview what you&rsquo;d get back as an object when loading this into your programming language of choice.</p>
+<p><img src="../../images/2104_PostForm.png" alt="Post form"></p>
+<p>As an example, when I try to retrieve the records from our feedback form (which I&rsquo;ve called <code>myformname</code> in the images/code above), it suggests the following R code for me (this returns the records themselves in a csv, and the errors in json):</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#75715e">#!/usr/bin/env Rscript</span>
+apisecret <span style="color:#f92672">&lt;-</span> <span style="color:#e6db74">&#39;myapikey&#39;</span> <span style="color:#75715e"># you get this when you enable REDCap API access for your project</span>
+<span style="color:#a6e22e">library</span>(RCurl)
+result <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">postForm</span>(
+    uri<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;https://redcap.sydney.edu.au/api/&#39;</span>,
+    token<span style="color:#f92672">=</span>apisecret,
+    content<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;record&#39;</span>,
+    format<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;csv&#39;</span>,
+    type<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;flat&#39;</span>,
+    csvDelimiter<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;&#39;</span>,
+    <span style="color:#e6db74">&#39;forms[0]&#39;</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#39;myformname&#39;</span>,
+    rawOrLabel<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;raw&#39;</span>,
+    rawOrLabelHeaders<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;raw&#39;</span>,
+    exportCheckboxLabel<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;false&#39;</span>,
+    exportSurveyFields<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;true&#39;</span>,
+    exportDataAccessGroups<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;false&#39;</span>,
+    returnFormat<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;json&#39;</span>
+)
+<span style="color:#a6e22e">print</span>(result)
+</code></pre></div><p>And all is well and good &hellip; if you&rsquo;re on a Mac! However, when I recently tried to run this (fully working!) code on a Windows machine (since this particular survey data goes into a PowerBI dashboard I&rsquo;ve built) - I encountered a 443 error instead! Apparently, this is a <a href="https://github.com/dewittpe/REDCapExporter/issues/16">known issue</a>, but while it&rsquo;s suggested to use the <code>httr</code> package instead (or one of the dedicated REDCap R packages), there was no template code available.</p>
+<p>After a bit of exploration, the below ended up working, and I&rsquo;m sharing this template code in the hopes of saving others (at Sydney Uni and elsewhere) the hassle of having to figure this out:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#75715e">#!/usr/bin/env Rscript</span>
+apisecret <span style="color:#f92672">&lt;-</span> <span style="color:#e6db74">&#39;myapikey&#39;</span> <span style="color:#75715e"># you get this when you enable REDCap API access for your project</span>
+<span style="color:#a6e22e">library</span>(curl)
+h1 <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">new_handle</span>()
+<span style="color:#a6e22e">handle_setform</span>(h1,
+               <span style="color:#e6db74">&#39;token&#39;</span> <span style="color:#f92672">=</span> apisecret,
+               <span style="color:#e6db74">&#39;content&#39;</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;record&#34;</span>, 
+               <span style="color:#e6db74">&#39;format&#39;</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;csv&#34;</span>,
+               <span style="color:#e6db74">&#39;type&#39;</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;flat&#39;</span>,
+               <span style="color:#e6db74">&#39;csvDelimiter&#39;</span><span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;,&#39;</span>,
+               <span style="color:#e6db74">&#39;forms[0]&#39;</span><span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;myformname&#39;</span>,
+               <span style="color:#e6db74">&#39;rawOrLabel&#39;</span><span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;raw&#39;</span>,
+               <span style="color:#e6db74">&#39;rawOrLabelHeaders&#39;</span><span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;raw&#39;</span>,
+               <span style="color:#e6db74">&#39;exportCheckboxLabel&#39;</span><span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;false&#39;</span>,
+               <span style="color:#e6db74">&#39;exportSurveyFields&#39;</span><span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;true&#39;</span>,
+               <span style="color:#e6db74">&#39;exportDataAccessGroups&#39;</span><span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;false&#39;</span>,
+               <span style="color:#e6db74">&#39;returnFormat&#39;</span><span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;json&#39;</span>)
+
+surveyresults <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">read.csv</span>(text <span style="color:#f92672">=</span> <span style="color:#a6e22e">rawToChar</span>(
+  <span style="color:#a6e22e">curl_fetch_memory</span>(<span style="color:#e6db74">&#34;https://redcap.sydney.edu.au/api/&#34;</span>, handle <span style="color:#f92672">=</span> h1)<span style="color:#f92672">$</span>content),
+  na.strings <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;&#34;</span>
+  )
+</code></pre></div><p>Now, the <code>curl::handle_setform()</code> command looks pretty similar to the <code>RCurl::postForm()</code> request, but it needs to be combined with the <code>curl::curl_fetch_memory()</code> command^[1 Yes, we could have used the <code>curl::curl_fetch_disk()</code> command to download the file to disk, which seems to work a lot better and actually save the file as a non-binary .csv file. However, for this particular project, I&rsquo;m doing a lot of data cleaning <em>before</em> I write the output to disk, and I&rsquo;d rather not store two copies of the same scrape.], which has a few quirks:</p>
+<ol>
+<li>It returns the actual data in the <code>content</code> attribute, and not the data frame directly - hence the need for the <code>$content</code></li>
+<li>It returns the data in raw format (and, no, setting the <code>rawOrLabel</code> to label does not solve this), so you need to pass it into <code>base::rawToChar()</code>.</li>
+<li><code>read.csv</code>&rsquo;s defaults are to accept a filepath, so we use an arguement called <code>text</code> to specify that we&rsquo;re straight feeding in the actual data in instead.</li>
+</ol>
+<p>The other useful thing to &ldquo;grab&rdquo; when working with data tends to be the data dictionary, for which the code looks quite similar:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#75715e">#!/usr/bin/env Rscript</span>
+apisecret <span style="color:#f92672">&lt;-</span> <span style="color:#e6db74">&#39;myapikey&#39;</span> <span style="color:#75715e"># you get this when you enable REDCap API access for your project</span>
+h2 <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">new_handle</span>()
+<span style="color:#a6e22e">handle_setform</span>(h2,
+               <span style="color:#e6db74">&#39;token&#39;</span> <span style="color:#f92672">=</span> apisecret,
+               <span style="color:#e6db74">&#39;content&#39;</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;metadata&#34;</span>, 
+               <span style="color:#e6db74">&#39;format&#39;</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;csv&#34;</span>,
+               <span style="color:#e6db74">&#39;forms[0]&#39;</span><span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;myformname&#39;</span>,
+               <span style="color:#e6db74">&#39;returnFormat&#39;</span><span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;csv&#39;</span>)
+
+
+datadict <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">read.csv</span>(text <span style="color:#f92672">=</span> <span style="color:#a6e22e">rawToChar</span>(
+  <span style="color:#a6e22e">curl_fetch_memory</span>(<span style="color:#e6db74">&#34;https://redcap.sydney.edu.au/api/&#34;</span>, handle <span style="color:#f92672">=</span> h2)<span style="color:#f92672">$</span>content)
+)
+</code></pre></div><p>I hope this is helpful for others who use REDCap on Windows, or who need to write code that works across all of the major operating system platforms!</p>
+
+      </div>
+
+
+      <footer>
+        
+
+
+        <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "dvanicw" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+        
+        
+      </footer>
+    </article>
+
+    
+  </section>
+
+      </div>
+
+      
+  <footer class="footer">
+    <section class="container">
+      
+      
+      
+      
+    </section>
+  </footer>
+
+    </main>
+
+    
+      
+      <script src="https://daryavanichkina.com/js/dark-mode.min.0213e1773e6d1c5a644f847c67a6f8abac49a3776e2976f6008038af8c5b76a1.js"></script>
+    
+
+    
+
+    
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-54373354-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+
+
+    
+
+    
+
+  </body>
+
+</html>

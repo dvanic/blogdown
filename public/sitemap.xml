@@ -4,7 +4,42 @@
   
   <url>
     <loc>https://daryavanichkina.com/</loc>
-    <lastmod>2020-10-02T00:00:00+00:00</lastmod>
+    <lastmod>2021-04-09T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://daryavanichkina.com/tags/data-science/</loc>
+    <lastmod>2021-04-09T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://daryavanichkina.com/posts/</loc>
+    <lastmod>2021-04-09T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://daryavanichkina.com/posts/2021-04-09-redcap-api-crossplatform/</loc>
+    <lastmod>2021-04-09T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://daryavanichkina.com/tags/r/</loc>
+    <lastmod>2021-04-09T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://daryavanichkina.com/tags/redcap/</loc>
+    <lastmod>2021-04-09T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://daryavanichkina.com/tags/</loc>
+    <lastmod>2021-04-09T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://daryavanichkina.com/tags/workjournal/</loc>
+    <lastmod>2021-04-09T00:00:00+00:00</lastmod>
   </url>
   
   <url>
@@ -18,21 +53,6 @@
   </url>
   
   <url>
-    <loc>https://daryavanichkina.com/tags/r/</loc>
-    <lastmod>2020-10-02T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://daryavanichkina.com/tags/</loc>
-    <lastmod>2020-10-02T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://daryavanichkina.com/tags/data-science/</loc>
-    <lastmod>2020-05-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://daryavanichkina.com/series/learning-in-an-online-live-coding-workshop/</loc>
     <lastmod>2020-05-01T00:00:00+00:00</lastmod>
   </url>
@@ -43,17 +63,7 @@
   </url>
   
   <url>
-    <loc>https://daryavanichkina.com/posts/</loc>
-    <lastmod>2020-05-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://daryavanichkina.com/series/</loc>
-    <lastmod>2020-05-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://daryavanichkina.com/tags/workjournal/</loc>
     <lastmod>2020-05-01T00:00:00+00:00</lastmod>
   </url>
   
@@ -155,6 +165,14 @@
   <url>
     <loc>https://daryavanichkina.com/2020aoc/</loc>
     <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://daryavanichkina.com/drafts/2021-01-12-maps/</loc>
+  </url>
+  
+  <url>
+    <loc>https://daryavanichkina.com/drafts/2021-xx-xx/</loc>
   </url>
   
   <url>

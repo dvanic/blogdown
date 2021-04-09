@@ -26,5 +26,34 @@
 </description>
     </item>
     
+    <item>
+      <title></title>
+      <link>https://daryavanichkina.com/drafts/2021-01-12-maps/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://daryavanichkina.com/drafts/2021-01-12-maps/</guid>
+      <description>&lt;p&gt;Idea:&lt;/p&gt;
+&lt;p&gt;Use some of the notes on making pretty maps to explore:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;What boundary roads are in Australia, and what they designate?&lt;/li&gt;
+&lt;li&gt;What are the most common road names in Australia?&lt;/li&gt;
+&lt;li&gt;What are the longest road names in Australia?&lt;/li&gt;
+&lt;li&gt;Can I adapt the code to Russian/Moscow?&lt;/li&gt;
+&lt;li&gt;Make a map of places I&amp;rsquo;ve lived/Nilesh has lived/gone to school&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://daryavanichkina.com/drafts/2021-xx-xx/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://daryavanichkina.com/drafts/2021-xx-xx/</guid>
+      <description>&lt;p&gt;Idea:&lt;/p&gt;
+&lt;p&gt;Use bslib (formerly known as bootstraplib) to customise a lesson template that will be made using RMarkdown.&lt;/p&gt;
+</description>
+    </item>
+    
   </channel>
 </rss>
