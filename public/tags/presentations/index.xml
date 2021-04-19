@@ -2,26 +2,26 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>presentations on Darya Vanichkina</title>
-    <link>https://daryavanichkina.com/tags/presentations/</link>
+    <link>/tags/presentations/</link>
     <description>Recent content in presentations on Darya Vanichkina</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Tue, 20 Feb 2018 00:00:00 +0000</lastBuildDate><atom:link href="https://daryavanichkina.com/tags/presentations/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 20 Feb 2018 00:00:00 +0000</lastBuildDate><atom:link href="/tags/presentations/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Training the trainer presentation</title>
-      <link>https://daryavanichkina.com/posts/2018-ands/</link>
+      <link>/posts/2018-ands/</link>
       <pubDate>Tue, 20 Feb 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://daryavanichkina.com/posts/2018-ands/</guid>
+      <guid>/posts/2018-ands/</guid>
       <description>&lt;iframe src=&#34;//www.slideshare.net/slideshow/embed_code/key/o4RIOWAd7j4rrE&#34; width=&#34;595&#34; height=&#34;485&#34; frameborder=&#34;0&#34; marginwidth=&#34;0&#34; marginheight=&#34;0&#34; scrolling=&#34;no&#34; style=&#34;border:1px solid #CCC; border-width:1px; margin-bottom:5px; max-width: 100%;&#34; allowfullscreen&gt; &lt;/iframe&gt; &lt;div style=&#34;margin-bottom:5px&#34;&gt; &lt;strong&gt; &lt;a href=&#34;//www.slideshare.net/DaryaVanichkina1/andstrainingthetrainer&#34; title=&#34;ANDS_TrainingTheTrainer&#34; target=&#34;_blank&#34;&gt;ANDS_TrainingTheTrainer&lt;/a&gt; &lt;/strong&gt; from &lt;strong&gt;&lt;a href=&#34;//www.slideshare.net/DaryaVanichkina1&#34; target=&#34;_blank&#34;&gt;Darya Vanichkina&lt;/a&gt;&lt;/strong&gt; &lt;/div&gt;</description>
     </item>
     
     <item>
       <title>2016-PyConAU 2016 Presentation</title>
-      <link>https://daryavanichkina.com/posts/pycon2016/</link>
+      <link>/posts/pycon2016/</link>
       <pubDate>Fri, 12 Aug 2016 00:00:00 +0000</pubDate>
       
-      <guid>https://daryavanichkina.com/posts/pycon2016/</guid>
+      <guid>/posts/pycon2016/</guid>
       <description>&lt;p&gt;I presented a talk on &lt;strong&gt;Big data biology for pythonistas: getting in on the genomics revolution&lt;/strong&gt; at PyCon Au 2016.&lt;/p&gt;
 &lt;h3 id=&#34;video&#34;&gt;Video&lt;/h3&gt;
 &lt;iframe width=&#34;560&#34; height=&#34;315&#34; src=&#34;https://www.youtube.com/embed/fQ_vNHDNDCA&#34; frameborder=&#34;0&#34; allow=&#34;accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture&#34; allowfullscreen&gt;&lt;/iframe&gt;
@@ -39,20 +39,20 @@ Genomics is rapidly entering the world of health care in both the public and pri
     
     <item>
       <title>Lorne Genome 2012 poster</title>
-      <link>https://daryavanichkina.com/posts/2014-lorne2012poster/</link>
+      <link>/posts/2014-lorne2012poster/</link>
       <pubDate>Mon, 24 Mar 2014 00:00:00 +0000</pubDate>
       
-      <guid>https://daryavanichkina.com/posts/2014-lorne2012poster/</guid>
+      <guid>/posts/2014-lorne2012poster/</guid>
       <description>&lt;p&gt;Better late than never: my now-published Lorne Genome 2012 poster:&lt;/p&gt;
 &lt;iframe src=&#34;https://widgets.figshare.com/articles/978468/embed?show_title=1&#34; width=&#34;568&#34; height=&#34;351&#34; allowfullscreen=&#34;true&#34; frameborder=&#34;0&#34;&gt;&lt;/iframe&gt;</description>
     </item>
     
     <item>
       <title>2013 ciRNA papers</title>
-      <link>https://daryavanichkina.com/posts/2013-cirnapapers/</link>
+      <link>/posts/2013-cirnapapers/</link>
       <pubDate>Sat, 13 Jul 2013 00:00:00 +0000</pubDate>
       
-      <guid>https://daryavanichkina.com/posts/2013-cirnapapers/</guid>
+      <guid>/posts/2013-cirnapapers/</guid>
       <description>&lt;p&gt;A presentation I made for a journal club on the &amp;ldquo;1st&amp;rdquo; 3 ciRNA papers&lt;/p&gt;
 &lt;iframe src=&#34;//www.slideshare.net/slideshow/embed_code/key/y31DG64uLGfanZ&#34; width=&#34;595&#34; height=&#34;485&#34; frameborder=&#34;0&#34; marginwidth=&#34;0&#34; marginheight=&#34;0&#34; scrolling=&#34;no&#34; style=&#34;border:1px solid #CCC; border-width:1px; margin-bottom:5px; max-width: 100%;&#34; allowfullscreen&gt; &lt;/iframe&gt; &lt;div style=&#34;margin-bottom:5px&#34;&gt; &lt;strong&gt; &lt;a href=&#34;//www.slideshare.net/DaryaVanichkina1/ci-26604922&#34; title=&#34;Comparing the early ciRNA papers &#34; target=&#34;_blank&#34;&gt;Comparing the early ciRNA papers &lt;/a&gt; &lt;/strong&gt; from &lt;strong&gt;&lt;a href=&#34;https://www.slideshare.net/DaryaVanichkina1&#34; target=&#34;_blank&#34;&gt;Darya Vanichkina&lt;/a&gt;&lt;/strong&gt; &lt;/div&gt;
 </description>

@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Learning in an online live coding workshop on Darya Vanichkina</title>
-    <link>https://daryavanichkina.com/series/learning-in-an-online-live-coding-workshop/</link>
+    <link>/series/learning-in-an-online-live-coding-workshop/</link>
     <description>Recent content in Learning in an online live coding workshop on Darya Vanichkina</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Fri, 01 May 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://daryavanichkina.com/series/learning-in-an-online-live-coding-workshop/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 01 May 2020 00:00:00 +0000</lastBuildDate><atom:link href="/series/learning-in-an-online-live-coding-workshop/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Living dangerously: a newbie guide to running multiple version of R on a Mac</title>
-      <link>https://daryavanichkina.com/posts/2020-rswitch-guide/</link>
+      <link>/posts/2020-rswitch-guide/</link>
       <pubDate>Fri, 01 May 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://daryavanichkina.com/posts/2020-rswitch-guide/</guid>
+      <guid>/posts/2020-rswitch-guide/</guid>
       <description>&lt;p&gt;&lt;img src=&#34;https://unsplash.com/photos/3uunq0n1WRY&#34; alt=&#34;TBH I want to be this chicken&amp;hellip;&#34;&gt;&lt;/p&gt;
 &lt;p&gt;You&amp;rsquo;d have to be living under a rock in the R community to not be aware of the fact that R 4.0 has been released, with some major changes, the biggest of which is probably the new default for &lt;code&gt;read.table()&lt;/code&gt;: &lt;code&gt;stringsAsFactors = FALSE&lt;/code&gt;, as well as the fact that &lt;code&gt;matrix()&lt;/code&gt; now converts character columns to factors and factors to integers.&lt;/p&gt;
 &lt;p&gt;In the past, I&amp;rsquo;ve always been too &amp;ldquo;chicken&amp;rdquo; to try running multiple versions of R on my work laptop, as I&amp;rsquo;ve usually got a few key analysis projects going that need to be delivered on time and within full feature scope - which means I don&amp;rsquo;t have time to fix basic version incompatibility bugs. But with this major new release I was sorely tempted, so have gone down the rabbit-hole of installing &lt;a href=&#34;https://rud.is/rswitch/guide/&#34;&gt;RSwitch&lt;/a&gt; and R4.0 on my Mac (Catalina 10.15.4). Below I document, in what is probably excruciating detail, the steps of how I got this to work. I&amp;rsquo;ve played with it for all of two days, and it seems to work - so I&amp;rsquo;ve written this post in the hopes of helping others. Also, I had some funky hiccups with getting the right filepath and not using sudo at the outset, so I&amp;rsquo;m hoping this helps someone avoid some extra &lt;code&gt;rm -r ...path...&lt;/code&gt;&lt;/p&gt;
@@ -66,10 +66,10 @@
     
     <item>
       <title>Jumping into digital: Lessons learned while moving live-coding workshops online</title>
-      <link>https://daryavanichkina.com/posts/2020-ardc-presentation-codingonline/</link>
+      <link>/posts/2020-ardc-presentation-codingonline/</link>
       <pubDate>Tue, 07 Apr 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://daryavanichkina.com/posts/2020-ardc-presentation-codingonline/</guid>
+      <guid>/posts/2020-ardc-presentation-codingonline/</guid>
       <description>&lt;p&gt;I presented a talk about &amp;ldquo;Jumping into digital: Lessons learned while moving live-coding workshops online&amp;rdquo; at the ARDC community webinar series in April 2020.&lt;/p&gt;
 &lt;p&gt;The abstract of my talk was:&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;At ResBaz 2019, I said (on camera) that it is impossible to run a hands-on, live-coding digital skills training workshop online. In March 2020, I led a team of trainers to do exactly this - move our 2-day, Carpentries-style, hands-on Machine Learning in R and Machine Learning in python workshops fully online - in a week! In this talk, I’ll share how we prepared, what we did, how it went, and what lessons we learned. I’ll discuss which platforms we considered, share some technical tidbits on how to set up your online session and, more critically, what to expect when teaching in this very different format. I’ll also highlight some of the challenges we encountered, and try to explain why - even though it was incredibly hard - I think we’ll try teaching online again.&lt;/em&gt;&lt;/p&gt;
@@ -83,10 +83,10 @@
     
     <item>
       <title>Mapping a live coding workshop for digital delivery (part 2)</title>
-      <link>https://daryavanichkina.com/posts/2020-map-digital-2/</link>
+      <link>/posts/2020-map-digital-2/</link>
       <pubDate>Fri, 03 Apr 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://daryavanichkina.com/posts/2020-map-digital-2/</guid>
+      <guid>/posts/2020-map-digital-2/</guid>
       <description>&lt;p&gt;With the advent of COVID-19 we’re all having to do the unthinkable, which for an instructor like me means moving hands-on, practical coding workshops online. I&amp;rsquo;ve already written a post with a student-facing map of the process (and some tips for students), but I wanted to focus on a few instructor-related aspects of the map in this post.&lt;/p&gt;
 &lt;h2 id=&#34;my-personal-teaching-setup&#34;&gt;My personal teaching setup&lt;/h2&gt;
 &lt;p&gt;&lt;img src=&#34;../../images/mysetup2.jpg&#34; alt=&#34;mysetup&#34;&gt;&lt;/p&gt;
@@ -233,10 +233,10 @@
     
     <item>
       <title>Mapping a live coding workshop for digital delivery</title>
-      <link>https://daryavanichkina.com/posts/2020-map-digital-1/</link>
+      <link>/posts/2020-map-digital-1/</link>
       <pubDate>Thu, 02 Apr 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://daryavanichkina.com/posts/2020-map-digital-1/</guid>
+      <guid>/posts/2020-map-digital-1/</guid>
       <description>&lt;p&gt;With the advent of COVID-19 we’re all having to do the unthinkable, which for an instructor like me means moving hands-on, practical coding workshops online. In this post, I&amp;rsquo;ll provide a map that helped me formalise how I broke down our workshops into components, and tried to map each of them to an online tool, platform or approach. I&amp;rsquo;ve used Zoom for most of the examples below, since that&amp;rsquo;s what I&amp;rsquo;ve used for teaching, but I&amp;rsquo;m sure that most of this functionality is well supported by other online meeting tools.&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://images.unsplash.com/photo-1581043144435-ebcd25885809?ixlib=rb-1.2.1&amp;amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;amp;auto=format&amp;amp;fit=crop&amp;amp;w=500&amp;amp;q=80&#34; alt=&#34;NameTag&#34;&gt;&lt;/p&gt;
 &lt;h2 id=&#34;preliminaries&#34;&gt;Preliminaries&lt;/h2&gt;
@@ -383,10 +383,10 @@
     
     <item>
       <title>Having a great online learning experience: a guide for students</title>
-      <link>https://daryavanichkina.com/posts/2020-great-online-learning-student/</link>
+      <link>/posts/2020-great-online-learning-student/</link>
       <pubDate>Wed, 01 Apr 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://daryavanichkina.com/posts/2020-great-online-learning-student/</guid>
+      <guid>/posts/2020-great-online-learning-student/</guid>
       <description>&lt;p&gt;With the advent of COVID-19 we’re all having to do the unthinkable, which for an instructor like me means moving hands-on, practical coding workshops online. In this post, I&amp;rsquo;ll outline a few key things you can do as a &lt;strong&gt;learner&lt;/strong&gt; to have what is hopefully the best possible experience attending synchronous online training.&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://images.unsplash.com/photo-1534481016308-0fca71578ae5?ixlib=rb-1.2.1&amp;amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;amp;auto=format&amp;amp;fit=crop&amp;amp;w=500&amp;amp;q=100&#34; alt=&#34;airplane&#34;&gt;&lt;/p&gt;
 &lt;h3 id=&#34;1-follow-your-instructors-instructions&#34;&gt;1. Follow your instructor&amp;rsquo;s instructions&lt;/h3&gt;

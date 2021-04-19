@@ -1,5 +1,5 @@
 ---
-title: "Querying the REDCap API on Windows: avoiding 443 errors and RCurl woes"
+title: "Avoiding 443 errors & RCurl woes with the REDCap API on Windows"
 author: Darya Vanichkina
 date: '2021-04-09'
 layout: post

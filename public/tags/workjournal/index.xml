@@ -2,17 +2,53 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>WorkJournal on Darya Vanichkina</title>
-    <link>https://daryavanichkina.com/tags/workjournal/</link>
+    <link>/tags/workjournal/</link>
     <description>Recent content in WorkJournal on Darya Vanichkina</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Fri, 09 Apr 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://daryavanichkina.com/tags/workjournal/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 12 Apr 2021 00:00:00 +0000</lastBuildDate><atom:link href="/tags/workjournal/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Querying the REDCap API on Windows: avoiding 443 errors and RCurl woes</title>
-      <link>https://daryavanichkina.com/posts/2021-04-09-redcap-api-crossplatform/</link>
+      <title>ggplot batch variable visualisation in Rmd without for loops</title>
+      <link>/posts/2021-04-12-mappingggplot2/</link>
+      <pubDate>Mon, 12 Apr 2021 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/2021-04-12-mappingggplot2/</guid>
+      <description>&lt;p&gt;When working with data, often you want to make a specific type of plot across a bunch of variables at once. The R/tidyverse way of doing this involves some (basic) non-standard evaluation, but - because I know I&amp;rsquo;ll forget how to do this in the future - I thought I&amp;rsquo;d write up this short blog post with code that works.&lt;/p&gt;
+&lt;p&gt;In the below snippet, we use ggplot on the built-in mtcars dataset to make a scatterplot of each of the variables against the &lt;code&gt;mpg&lt;/code&gt; variable, colouring it by the number of cylinders (on the fly converted to a factor).&lt;/p&gt;
+&lt;p&gt;To do this, I define the &lt;code&gt;makeplots()&lt;/code&gt; function, which takes a single argument called &lt;code&gt;myfeature&lt;/code&gt;. Within the function, I need to save the plot as a variable (&lt;code&gt;a&lt;/code&gt;), and then print it so that it is rendered in the Rmd. I grab the column names I&amp;rsquo;d like to iterate over and save them into a character vector (In real life, I tend do grab them all using &lt;code&gt;names(mtcars)&lt;/code&gt;, but I choose a few manually to keep this blog post manageable. Also, I could have used commands like &lt;code&gt;setdiff()&lt;/code&gt; to subset the &lt;code&gt;names(mtcars)&lt;/code&gt; character vector to remove, for example, mpg itself).&lt;/p&gt;
+&lt;p&gt;I also use the &lt;code&gt;as_label(quo(.))&lt;/code&gt; functions to extract the string of the variable name itself, so I can use it to set the title of the plot.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-r&#34; data-lang=&#34;r&#34;&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;library&lt;/span&gt;(purrr)
+&lt;span style=&#34;color:#a6e22e&#34;&gt;library&lt;/span&gt;(dplyr)
+&lt;span style=&#34;color:#a6e22e&#34;&gt;library&lt;/span&gt;(ggplot2)
+makeplots &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;-&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;function&lt;/span&gt;(myfeature){
+  a &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;-&lt;/span&gt; mtcars &lt;span style=&#34;color:#f92672&#34;&gt;%&amp;gt;%&lt;/span&gt;
+    &lt;span style=&#34;color:#a6e22e&#34;&gt;select&lt;/span&gt;(&lt;span style=&#34;color:#f92672&#34;&gt;!!&lt;/span&gt;myfeature, mpg, cyl) &lt;span style=&#34;color:#f92672&#34;&gt;%&amp;gt;%&lt;/span&gt;
+    &lt;span style=&#34;color:#a6e22e&#34;&gt;unique&lt;/span&gt;() &lt;span style=&#34;color:#f92672&#34;&gt;%&amp;gt;%&lt;/span&gt;
+    &lt;span style=&#34;color:#a6e22e&#34;&gt;ggplot&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;aes&lt;/span&gt;(x &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;!!&lt;/span&gt;myfeature, y &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; mpg, colour &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;as.factor&lt;/span&gt;(cyl))) &lt;span style=&#34;color:#f92672&#34;&gt;+&lt;/span&gt; 
+    &lt;span style=&#34;color:#a6e22e&#34;&gt;geom_point&lt;/span&gt;() &lt;span style=&#34;color:#f92672&#34;&gt;+&lt;/span&gt; 
+    &lt;span style=&#34;color:#a6e22e&#34;&gt;labs&lt;/span&gt;(title &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;paste0&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;as_label&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;quo&lt;/span&gt;(&lt;span style=&#34;color:#f92672&#34;&gt;!!&lt;/span&gt;myfeature)), &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34; vs mpg&amp;#34;&lt;/span&gt;)) &lt;span style=&#34;color:#f92672&#34;&gt;+&lt;/span&gt;
+    &lt;span style=&#34;color:#a6e22e&#34;&gt;theme_classic&lt;/span&gt;()
+  
+  &lt;span style=&#34;color:#a6e22e&#34;&gt;print&lt;/span&gt;(a)
+}
+
+&lt;span style=&#34;color:#75715e&#34;&gt;# to get all of the column names&lt;/span&gt;
+&lt;span style=&#34;color:#75715e&#34;&gt;# mycolnames &amp;lt;- names(mtcars)&lt;/span&gt;
+&lt;span style=&#34;color:#75715e&#34;&gt;# I&amp;#39;m using a shorter vector in the interests of not overwhelming this blog post with ALL the images&lt;/span&gt;
+mycolnames &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;-&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;c&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;disp&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;hp&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;drat&amp;#34;&lt;/span&gt;)
+&lt;span style=&#34;color:#a6e22e&#34;&gt;walk&lt;/span&gt;(mycolnames, &lt;span style=&#34;color:#f92672&#34;&gt;~&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;makeplots&lt;/span&gt;(myfeature &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;sym&lt;/span&gt;(.x))) 
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;../../images/2104_disp.png&#34; alt=&#34;Disp&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;../../images/2104_hp.png&#34; alt=&#34;HP&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;../../images/2104_drat.png&#34; alt=&#34;Drat&#34;&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Avoiding 443 errors &amp; RCurl woes with the REDCap API on Windows</title>
+      <link>/posts/2021-04-09-redcap-api-crossplatform/</link>
       <pubDate>Fri, 09 Apr 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://daryavanichkina.com/posts/2021-04-09-redcap-api-crossplatform/</guid>
+      <guid>/posts/2021-04-09-redcap-api-crossplatform/</guid>
       <description>&lt;p&gt;Like many other educational and research institutions, the University of Sydney (where I currently work) supports the use of REDCap as a survey platform. I also use it, in part because one of the most attractive features of the REDCap API over other survey tools like Qualtrics, Google Forms and SurveyMonkey is the fact that the API playground supports GUI-style selection of what you want, with REDCap providing template code in a wide variety of languages.&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;../../images/2104_what2exportREDCap.png&#34; alt=&#34;What to export&#34;&gt;&lt;/p&gt;
 &lt;p&gt;Languages include PHP, Perl, Python, R, Ruby, Java &amp;amp; UNIX&amp;rsquo;s curl, and output format options include json, csv and XML.&lt;/p&gt;
@@ -100,10 +136,10 @@ datadict &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;-&lt;/span&gt; &lt;sp
     
     <item>
       <title>Living dangerously: a newbie guide to running multiple version of R on a Mac</title>
-      <link>https://daryavanichkina.com/posts/2020-rswitch-guide/</link>
+      <link>/posts/2020-rswitch-guide/</link>
       <pubDate>Fri, 01 May 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://daryavanichkina.com/posts/2020-rswitch-guide/</guid>
+      <guid>/posts/2020-rswitch-guide/</guid>
       <description>&lt;p&gt;&lt;img src=&#34;https://unsplash.com/photos/3uunq0n1WRY&#34; alt=&#34;TBH I want to be this chicken&amp;hellip;&#34;&gt;&lt;/p&gt;
 &lt;p&gt;You&amp;rsquo;d have to be living under a rock in the R community to not be aware of the fact that R 4.0 has been released, with some major changes, the biggest of which is probably the new default for &lt;code&gt;read.table()&lt;/code&gt;: &lt;code&gt;stringsAsFactors = FALSE&lt;/code&gt;, as well as the fact that &lt;code&gt;matrix()&lt;/code&gt; now converts character columns to factors and factors to integers.&lt;/p&gt;
 &lt;p&gt;In the past, I&amp;rsquo;ve always been too &amp;ldquo;chicken&amp;rdquo; to try running multiple versions of R on my work laptop, as I&amp;rsquo;ve usually got a few key analysis projects going that need to be delivered on time and within full feature scope - which means I don&amp;rsquo;t have time to fix basic version incompatibility bugs. But with this major new release I was sorely tempted, so have gone down the rabbit-hole of installing &lt;a href=&#34;https://rud.is/rswitch/guide/&#34;&gt;RSwitch&lt;/a&gt; and R4.0 on my Mac (Catalina 10.15.4). Below I document, in what is probably excruciating detail, the steps of how I got this to work. I&amp;rsquo;ve played with it for all of two days, and it seems to work - so I&amp;rsquo;ve written this post in the hopes of helping others. Also, I had some funky hiccups with getting the right filepath and not using sudo at the outset, so I&amp;rsquo;m hoping this helps someone avoid some extra &lt;code&gt;rm -r ...path...&lt;/code&gt;&lt;/p&gt;

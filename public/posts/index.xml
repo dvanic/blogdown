@@ -2,17 +2,53 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Posts on Darya Vanichkina</title>
-    <link>https://daryavanichkina.com/posts/</link>
+    <link>/posts/</link>
     <description>Recent content in Posts on Darya Vanichkina</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Fri, 09 Apr 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://daryavanichkina.com/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 12 Apr 2021 00:00:00 +0000</lastBuildDate><atom:link href="/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Querying the REDCap API on Windows: avoiding 443 errors and RCurl woes</title>
-      <link>https://daryavanichkina.com/posts/2021-04-09-redcap-api-crossplatform/</link>
+      <title>ggplot batch variable visualisation in Rmd without for loops</title>
+      <link>/posts/2021-04-12-mappingggplot2/</link>
+      <pubDate>Mon, 12 Apr 2021 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/2021-04-12-mappingggplot2/</guid>
+      <description>&lt;p&gt;When working with data, often you want to make a specific type of plot across a bunch of variables at once. The R/tidyverse way of doing this involves some (basic) non-standard evaluation, but - because I know I&amp;rsquo;ll forget how to do this in the future - I thought I&amp;rsquo;d write up this short blog post with code that works.&lt;/p&gt;
+&lt;p&gt;In the below snippet, we use ggplot on the built-in mtcars dataset to make a scatterplot of each of the variables against the &lt;code&gt;mpg&lt;/code&gt; variable, colouring it by the number of cylinders (on the fly converted to a factor).&lt;/p&gt;
+&lt;p&gt;To do this, I define the &lt;code&gt;makeplots()&lt;/code&gt; function, which takes a single argument called &lt;code&gt;myfeature&lt;/code&gt;. Within the function, I need to save the plot as a variable (&lt;code&gt;a&lt;/code&gt;), and then print it so that it is rendered in the Rmd. I grab the column names I&amp;rsquo;d like to iterate over and save them into a character vector (In real life, I tend do grab them all using &lt;code&gt;names(mtcars)&lt;/code&gt;, but I choose a few manually to keep this blog post manageable. Also, I could have used commands like &lt;code&gt;setdiff()&lt;/code&gt; to subset the &lt;code&gt;names(mtcars)&lt;/code&gt; character vector to remove, for example, mpg itself).&lt;/p&gt;
+&lt;p&gt;I also use the &lt;code&gt;as_label(quo(.))&lt;/code&gt; functions to extract the string of the variable name itself, so I can use it to set the title of the plot.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-r&#34; data-lang=&#34;r&#34;&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;library&lt;/span&gt;(purrr)
+&lt;span style=&#34;color:#a6e22e&#34;&gt;library&lt;/span&gt;(dplyr)
+&lt;span style=&#34;color:#a6e22e&#34;&gt;library&lt;/span&gt;(ggplot2)
+makeplots &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;-&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;function&lt;/span&gt;(myfeature){
+  a &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;-&lt;/span&gt; mtcars &lt;span style=&#34;color:#f92672&#34;&gt;%&amp;gt;%&lt;/span&gt;
+    &lt;span style=&#34;color:#a6e22e&#34;&gt;select&lt;/span&gt;(&lt;span style=&#34;color:#f92672&#34;&gt;!!&lt;/span&gt;myfeature, mpg, cyl) &lt;span style=&#34;color:#f92672&#34;&gt;%&amp;gt;%&lt;/span&gt;
+    &lt;span style=&#34;color:#a6e22e&#34;&gt;unique&lt;/span&gt;() &lt;span style=&#34;color:#f92672&#34;&gt;%&amp;gt;%&lt;/span&gt;
+    &lt;span style=&#34;color:#a6e22e&#34;&gt;ggplot&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;aes&lt;/span&gt;(x &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;!!&lt;/span&gt;myfeature, y &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; mpg, colour &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;as.factor&lt;/span&gt;(cyl))) &lt;span style=&#34;color:#f92672&#34;&gt;+&lt;/span&gt; 
+    &lt;span style=&#34;color:#a6e22e&#34;&gt;geom_point&lt;/span&gt;() &lt;span style=&#34;color:#f92672&#34;&gt;+&lt;/span&gt; 
+    &lt;span style=&#34;color:#a6e22e&#34;&gt;labs&lt;/span&gt;(title &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;paste0&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;as_label&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;quo&lt;/span&gt;(&lt;span style=&#34;color:#f92672&#34;&gt;!!&lt;/span&gt;myfeature)), &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34; vs mpg&amp;#34;&lt;/span&gt;)) &lt;span style=&#34;color:#f92672&#34;&gt;+&lt;/span&gt;
+    &lt;span style=&#34;color:#a6e22e&#34;&gt;theme_classic&lt;/span&gt;()
+  
+  &lt;span style=&#34;color:#a6e22e&#34;&gt;print&lt;/span&gt;(a)
+}
+
+&lt;span style=&#34;color:#75715e&#34;&gt;# to get all of the column names&lt;/span&gt;
+&lt;span style=&#34;color:#75715e&#34;&gt;# mycolnames &amp;lt;- names(mtcars)&lt;/span&gt;
+&lt;span style=&#34;color:#75715e&#34;&gt;# I&amp;#39;m using a shorter vector in the interests of not overwhelming this blog post with ALL the images&lt;/span&gt;
+mycolnames &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;-&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;c&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;disp&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;hp&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;drat&amp;#34;&lt;/span&gt;)
+&lt;span style=&#34;color:#a6e22e&#34;&gt;walk&lt;/span&gt;(mycolnames, &lt;span style=&#34;color:#f92672&#34;&gt;~&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;makeplots&lt;/span&gt;(myfeature &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;sym&lt;/span&gt;(.x))) 
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;../../images/2104_disp.png&#34; alt=&#34;Disp&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;../../images/2104_hp.png&#34; alt=&#34;HP&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;../../images/2104_drat.png&#34; alt=&#34;Drat&#34;&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Avoiding 443 errors &amp; RCurl woes with the REDCap API on Windows</title>
+      <link>/posts/2021-04-09-redcap-api-crossplatform/</link>
       <pubDate>Fri, 09 Apr 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://daryavanichkina.com/posts/2021-04-09-redcap-api-crossplatform/</guid>
+      <guid>/posts/2021-04-09-redcap-api-crossplatform/</guid>
       <description>&lt;p&gt;Like many other educational and research institutions, the University of Sydney (where I currently work) supports the use of REDCap as a survey platform. I also use it, in part because one of the most attractive features of the REDCap API over other survey tools like Qualtrics, Google Forms and SurveyMonkey is the fact that the API playground supports GUI-style selection of what you want, with REDCap providing template code in a wide variety of languages.&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;../../images/2104_what2exportREDCap.png&#34; alt=&#34;What to export&#34;&gt;&lt;/p&gt;
 &lt;p&gt;Languages include PHP, Perl, Python, R, Ruby, Java &amp;amp; UNIX&amp;rsquo;s curl, and output format options include json, csv and XML.&lt;/p&gt;
@@ -100,10 +136,10 @@ datadict &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;-&lt;/span&gt; &lt;sp
     
     <item>
       <title>Living dangerously: a newbie guide to running multiple version of R on a Mac</title>
-      <link>https://daryavanichkina.com/posts/2020-rswitch-guide/</link>
+      <link>/posts/2020-rswitch-guide/</link>
       <pubDate>Fri, 01 May 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://daryavanichkina.com/posts/2020-rswitch-guide/</guid>
+      <guid>/posts/2020-rswitch-guide/</guid>
       <description>&lt;p&gt;&lt;img src=&#34;https://unsplash.com/photos/3uunq0n1WRY&#34; alt=&#34;TBH I want to be this chicken&amp;hellip;&#34;&gt;&lt;/p&gt;
 &lt;p&gt;You&amp;rsquo;d have to be living under a rock in the R community to not be aware of the fact that R 4.0 has been released, with some major changes, the biggest of which is probably the new default for &lt;code&gt;read.table()&lt;/code&gt;: &lt;code&gt;stringsAsFactors = FALSE&lt;/code&gt;, as well as the fact that &lt;code&gt;matrix()&lt;/code&gt; now converts character columns to factors and factors to integers.&lt;/p&gt;
 &lt;p&gt;In the past, I&amp;rsquo;ve always been too &amp;ldquo;chicken&amp;rdquo; to try running multiple versions of R on my work laptop, as I&amp;rsquo;ve usually got a few key analysis projects going that need to be delivered on time and within full feature scope - which means I don&amp;rsquo;t have time to fix basic version incompatibility bugs. But with this major new release I was sorely tempted, so have gone down the rabbit-hole of installing &lt;a href=&#34;https://rud.is/rswitch/guide/&#34;&gt;RSwitch&lt;/a&gt; and R4.0 on my Mac (Catalina 10.15.4). Below I document, in what is probably excruciating detail, the steps of how I got this to work. I&amp;rsquo;ve played with it for all of two days, and it seems to work - so I&amp;rsquo;ve written this post in the hopes of helping others. Also, I had some funky hiccups with getting the right filepath and not using sudo at the outset, so I&amp;rsquo;m hoping this helps someone avoid some extra &lt;code&gt;rm -r ...path...&lt;/code&gt;&lt;/p&gt;
@@ -157,10 +193,10 @@ datadict &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;-&lt;/span&gt; &lt;sp
     
     <item>
       <title>Jumping into digital: Lessons learned while moving live-coding workshops online</title>
-      <link>https://daryavanichkina.com/posts/2020-ardc-presentation-codingonline/</link>
+      <link>/posts/2020-ardc-presentation-codingonline/</link>
       <pubDate>Tue, 07 Apr 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://daryavanichkina.com/posts/2020-ardc-presentation-codingonline/</guid>
+      <guid>/posts/2020-ardc-presentation-codingonline/</guid>
       <description>&lt;p&gt;I presented a talk about &amp;ldquo;Jumping into digital: Lessons learned while moving live-coding workshops online&amp;rdquo; at the ARDC community webinar series in April 2020.&lt;/p&gt;
 &lt;p&gt;The abstract of my talk was:&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;At ResBaz 2019, I said (on camera) that it is impossible to run a hands-on, live-coding digital skills training workshop online. In March 2020, I led a team of trainers to do exactly this - move our 2-day, Carpentries-style, hands-on Machine Learning in R and Machine Learning in python workshops fully online - in a week! In this talk, I’ll share how we prepared, what we did, how it went, and what lessons we learned. I’ll discuss which platforms we considered, share some technical tidbits on how to set up your online session and, more critically, what to expect when teaching in this very different format. I’ll also highlight some of the challenges we encountered, and try to explain why - even though it was incredibly hard - I think we’ll try teaching online again.&lt;/em&gt;&lt;/p&gt;
@@ -174,10 +210,10 @@ datadict &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;-&lt;/span&gt; &lt;sp
     
     <item>
       <title>Mapping a live coding workshop for digital delivery (part 2)</title>
-      <link>https://daryavanichkina.com/posts/2020-map-digital-2/</link>
+      <link>/posts/2020-map-digital-2/</link>
       <pubDate>Fri, 03 Apr 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://daryavanichkina.com/posts/2020-map-digital-2/</guid>
+      <guid>/posts/2020-map-digital-2/</guid>
       <description>&lt;p&gt;With the advent of COVID-19 we’re all having to do the unthinkable, which for an instructor like me means moving hands-on, practical coding workshops online. I&amp;rsquo;ve already written a post with a student-facing map of the process (and some tips for students), but I wanted to focus on a few instructor-related aspects of the map in this post.&lt;/p&gt;
 &lt;h2 id=&#34;my-personal-teaching-setup&#34;&gt;My personal teaching setup&lt;/h2&gt;
 &lt;p&gt;&lt;img src=&#34;../../images/mysetup2.jpg&#34; alt=&#34;mysetup&#34;&gt;&lt;/p&gt;
@@ -324,10 +360,10 @@ datadict &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;-&lt;/span&gt; &lt;sp
     
     <item>
       <title>Mapping a live coding workshop for digital delivery</title>
-      <link>https://daryavanichkina.com/posts/2020-map-digital-1/</link>
+      <link>/posts/2020-map-digital-1/</link>
       <pubDate>Thu, 02 Apr 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://daryavanichkina.com/posts/2020-map-digital-1/</guid>
+      <guid>/posts/2020-map-digital-1/</guid>
       <description>&lt;p&gt;With the advent of COVID-19 we’re all having to do the unthinkable, which for an instructor like me means moving hands-on, practical coding workshops online. In this post, I&amp;rsquo;ll provide a map that helped me formalise how I broke down our workshops into components, and tried to map each of them to an online tool, platform or approach. I&amp;rsquo;ve used Zoom for most of the examples below, since that&amp;rsquo;s what I&amp;rsquo;ve used for teaching, but I&amp;rsquo;m sure that most of this functionality is well supported by other online meeting tools.&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://images.unsplash.com/photo-1581043144435-ebcd25885809?ixlib=rb-1.2.1&amp;amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;amp;auto=format&amp;amp;fit=crop&amp;amp;w=500&amp;amp;q=80&#34; alt=&#34;NameTag&#34;&gt;&lt;/p&gt;
 &lt;h2 id=&#34;preliminaries&#34;&gt;Preliminaries&lt;/h2&gt;
@@ -474,10 +510,10 @@ datadict &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;-&lt;/span&gt; &lt;sp
     
     <item>
       <title>Having a great online learning experience: a guide for students</title>
-      <link>https://daryavanichkina.com/posts/2020-great-online-learning-student/</link>
+      <link>/posts/2020-great-online-learning-student/</link>
       <pubDate>Wed, 01 Apr 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://daryavanichkina.com/posts/2020-great-online-learning-student/</guid>
+      <guid>/posts/2020-great-online-learning-student/</guid>
       <description>&lt;p&gt;With the advent of COVID-19 we’re all having to do the unthinkable, which for an instructor like me means moving hands-on, practical coding workshops online. In this post, I&amp;rsquo;ll outline a few key things you can do as a &lt;strong&gt;learner&lt;/strong&gt; to have what is hopefully the best possible experience attending synchronous online training.&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://images.unsplash.com/photo-1534481016308-0fca71578ae5?ixlib=rb-1.2.1&amp;amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;amp;auto=format&amp;amp;fit=crop&amp;amp;w=500&amp;amp;q=100&#34; alt=&#34;airplane&#34;&gt;&lt;/p&gt;
 &lt;h3 id=&#34;1-follow-your-instructors-instructions&#34;&gt;1. Follow your instructor&amp;rsquo;s instructions&lt;/h3&gt;
@@ -544,10 +580,10 @@ datadict &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;-&lt;/span&gt; &lt;sp
     
     <item>
       <title>R for Data Science Day 1</title>
-      <link>https://daryavanichkina.com/posts/2019-r-for-data-science-day-1/</link>
+      <link>/posts/2019-r-for-data-science-day-1/</link>
       <pubDate>Wed, 04 Dec 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://daryavanichkina.com/posts/2019-r-for-data-science-day-1/</guid>
+      <guid>/posts/2019-r-for-data-science-day-1/</guid>
       <description>&lt;p&gt;I am incredibly excited that RStudio has begun an &lt;a href=&#34;https://education.rstudio.com/trainers/&#34;&gt;instructor certification program&lt;/a&gt; based on the Carpentries, so of course I signed up as soon as my overcommited nature allowed! This also provides me with the excuse and motivation to finally formally work my way through &lt;a href=&#34;https://r4ds.had.co.nz/&#34;&gt;R for Data Science&lt;/a&gt;, a book I have read while waiting for GTT tests during my pregnancy and google-landed upon an umpteen number of times while debugging code, but never taken the time to sit down and do the exercises for - and of course the pedagogue in me knows quite well that THAT is how you actually learn and internalise the principles and concepts in any material, especially if it deals with programming and analysis. So over the next few weeks I plan to work my way through R4DS, and this post is the first in which I dive into the exercises.&lt;/p&gt;
 &lt;hr&gt;
 &lt;h2 id=&#34;personal-highly-non-exhaustive-notes-on-section-i-explore&#34;&gt;Personal, highly non-exhaustive notes on section I: Explore&lt;/h2&gt;
@@ -1040,10 +1076,10 @@ datadict &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;-&lt;/span&gt; &lt;sp
     
     <item>
       <title>Moving to Hugo</title>
-      <link>https://daryavanichkina.com/posts/2019-moving-to-hugo/</link>
+      <link>/posts/2019-moving-to-hugo/</link>
       <pubDate>Fri, 29 Mar 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://daryavanichkina.com/posts/2019-moving-to-hugo/</guid>
+      <guid>/posts/2019-moving-to-hugo/</guid>
       <description>&lt;p&gt;I&amp;rsquo;m finally making the leap, and (hopefully) moving this website to blogdown + hugo + gitlab + netlify.&lt;/p&gt;
 &lt;p&gt;So far, useful resources for wrapping my head around how to do this:&lt;/p&gt;
 &lt;ul&gt;
@@ -1061,19 +1097,19 @@ datadict &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;-&lt;/span&gt; &lt;sp
     
     <item>
       <title>Training the trainer presentation</title>
-      <link>https://daryavanichkina.com/posts/2018-ands/</link>
+      <link>/posts/2018-ands/</link>
       <pubDate>Tue, 20 Feb 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://daryavanichkina.com/posts/2018-ands/</guid>
+      <guid>/posts/2018-ands/</guid>
       <description>&lt;iframe src=&#34;//www.slideshare.net/slideshow/embed_code/key/o4RIOWAd7j4rrE&#34; width=&#34;595&#34; height=&#34;485&#34; frameborder=&#34;0&#34; marginwidth=&#34;0&#34; marginheight=&#34;0&#34; scrolling=&#34;no&#34; style=&#34;border:1px solid #CCC; border-width:1px; margin-bottom:5px; max-width: 100%;&#34; allowfullscreen&gt; &lt;/iframe&gt; &lt;div style=&#34;margin-bottom:5px&#34;&gt; &lt;strong&gt; &lt;a href=&#34;//www.slideshare.net/DaryaVanichkina1/andstrainingthetrainer&#34; title=&#34;ANDS_TrainingTheTrainer&#34; target=&#34;_blank&#34;&gt;ANDS_TrainingTheTrainer&lt;/a&gt; &lt;/strong&gt; from &lt;strong&gt;&lt;a href=&#34;//www.slideshare.net/DaryaVanichkina1&#34; target=&#34;_blank&#34;&gt;Darya Vanichkina&lt;/a&gt;&lt;/strong&gt; &lt;/div&gt;</description>
     </item>
     
     <item>
       <title>Amazon AWS workshop at the University of Sydney</title>
-      <link>https://daryavanichkina.com/posts/2016-awsworkshop/</link>
+      <link>/posts/2016-awsworkshop/</link>
       <pubDate>Tue, 01 Nov 2016 00:00:00 +0000</pubDate>
       
-      <guid>https://daryavanichkina.com/posts/2016-awsworkshop/</guid>
+      <guid>/posts/2016-awsworkshop/</guid>
       <description>&lt;p&gt;On October 24th I attented a talk by Adrian White about using Amazon AWS for research. Below are my notes, not extensively annotated, in the hope that they&amp;rsquo;ll be useful for someone. If something is not clear, please ask in the comments, and I&amp;rsquo;ll try to answer to the best of my knowledge&lt;/p&gt;
 &lt;h1 id=&#34;161024_aws-workshop&#34;&gt;161024_AWS workshop&lt;/h1&gt;
 &lt;ul&gt;
@@ -1400,10 +1436,10 @@ upload from outside of AWS&lt;/li&gt;
     
     <item>
       <title>2016-PyConAU 2016 Presentation</title>
-      <link>https://daryavanichkina.com/posts/pycon2016/</link>
+      <link>/posts/pycon2016/</link>
       <pubDate>Fri, 12 Aug 2016 00:00:00 +0000</pubDate>
       
-      <guid>https://daryavanichkina.com/posts/pycon2016/</guid>
+      <guid>/posts/pycon2016/</guid>
       <description>&lt;p&gt;I presented a talk on &lt;strong&gt;Big data biology for pythonistas: getting in on the genomics revolution&lt;/strong&gt; at PyCon Au 2016.&lt;/p&gt;
 &lt;h3 id=&#34;video&#34;&gt;Video&lt;/h3&gt;
 &lt;iframe width=&#34;560&#34; height=&#34;315&#34; src=&#34;https://www.youtube.com/embed/fQ_vNHDNDCA&#34; frameborder=&#34;0&#34; allow=&#34;accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture&#34; allowfullscreen&gt;&lt;/iframe&gt;
@@ -1421,20 +1457,20 @@ Genomics is rapidly entering the world of health care in both the public and pri
     
     <item>
       <title>Lorne Genome 2012 poster</title>
-      <link>https://daryavanichkina.com/posts/2014-lorne2012poster/</link>
+      <link>/posts/2014-lorne2012poster/</link>
       <pubDate>Mon, 24 Mar 2014 00:00:00 +0000</pubDate>
       
-      <guid>https://daryavanichkina.com/posts/2014-lorne2012poster/</guid>
+      <guid>/posts/2014-lorne2012poster/</guid>
       <description>&lt;p&gt;Better late than never: my now-published Lorne Genome 2012 poster:&lt;/p&gt;
 &lt;iframe src=&#34;https://widgets.figshare.com/articles/978468/embed?show_title=1&#34; width=&#34;568&#34; height=&#34;351&#34; allowfullscreen=&#34;true&#34; frameborder=&#34;0&#34;&gt;&lt;/iframe&gt;</description>
     </item>
     
     <item>
       <title>2013 ciRNA papers</title>
-      <link>https://daryavanichkina.com/posts/2013-cirnapapers/</link>
+      <link>/posts/2013-cirnapapers/</link>
       <pubDate>Sat, 13 Jul 2013 00:00:00 +0000</pubDate>
       
-      <guid>https://daryavanichkina.com/posts/2013-cirnapapers/</guid>
+      <guid>/posts/2013-cirnapapers/</guid>
       <description>&lt;p&gt;A presentation I made for a journal club on the &amp;ldquo;1st&amp;rdquo; 3 ciRNA papers&lt;/p&gt;
 &lt;iframe src=&#34;//www.slideshare.net/slideshow/embed_code/key/y31DG64uLGfanZ&#34; width=&#34;595&#34; height=&#34;485&#34; frameborder=&#34;0&#34; marginwidth=&#34;0&#34; marginheight=&#34;0&#34; scrolling=&#34;no&#34; style=&#34;border:1px solid #CCC; border-width:1px; margin-bottom:5px; max-width: 100%;&#34; allowfullscreen&gt; &lt;/iframe&gt; &lt;div style=&#34;margin-bottom:5px&#34;&gt; &lt;strong&gt; &lt;a href=&#34;//www.slideshare.net/DaryaVanichkina1/ci-26604922&#34; title=&#34;Comparing the early ciRNA papers &#34; target=&#34;_blank&#34;&gt;Comparing the early ciRNA papers &lt;/a&gt; &lt;/strong&gt; from &lt;strong&gt;&lt;a href=&#34;https://www.slideshare.net/DaryaVanichkina1&#34; target=&#34;_blank&#34;&gt;Darya Vanichkina&lt;/a&gt;&lt;/strong&gt; &lt;/div&gt;
 </description>
@@ -1442,10 +1478,10 @@ Genomics is rapidly entering the world of health care in both the public and pri
     
     <item>
       <title>Hello World!</title>
-      <link>https://daryavanichkina.com/posts/2013-helloworld/</link>
+      <link>/posts/2013-helloworld/</link>
       <pubDate>Sat, 13 Jul 2013 00:00:00 +0000</pubDate>
       
-      <guid>https://daryavanichkina.com/posts/2013-helloworld/</guid>
+      <guid>/posts/2013-helloworld/</guid>
       <description>&lt;p&gt;This is the 1st post for this new Jekyll-powered blog.&lt;/p&gt;
 &lt;p&gt;Welcome to my blog!&lt;/p&gt;
 </description>
