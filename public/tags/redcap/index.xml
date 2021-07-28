@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>REDCap on Darya Vanichkina</title>
-    <link>/tags/redcap/</link>
+    <link>https://daryavanichkina.com/tags/redcap/</link>
     <description>Recent content in REDCap on Darya Vanichkina</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Fri, 09 Apr 2021 00:00:00 +0000</lastBuildDate><atom:link href="/tags/redcap/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 09 Apr 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://daryavanichkina.com/tags/redcap/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Avoiding 443 errors &amp; RCurl woes with the REDCap API on Windows</title>
-      <link>/posts/2021-04-09-redcap-api-crossplatform/</link>
+      <link>https://daryavanichkina.com/posts/2021-04-09-redcap-api-crossplatform/</link>
       <pubDate>Fri, 09 Apr 2021 00:00:00 +0000</pubDate>
       
-      <guid>/posts/2021-04-09-redcap-api-crossplatform/</guid>
+      <guid>https://daryavanichkina.com/posts/2021-04-09-redcap-api-crossplatform/</guid>
       <description>&lt;p&gt;Like many other educational and research institutions, the University of Sydney (where I currently work) supports the use of REDCap as a survey platform. I also use it, in part because one of the most attractive features of the REDCap API over other survey tools like Qualtrics, Google Forms and SurveyMonkey is the fact that the API playground supports GUI-style selection of what you want, with REDCap providing template code in a wide variety of languages.&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;../../images/2104_what2exportREDCap.png&#34; alt=&#34;What to export&#34;&gt;&lt;/p&gt;
 &lt;p&gt;Languages include PHP, Perl, Python, R, Ruby, Java &amp;amp; UNIX&amp;rsquo;s curl, and output format options include json, csv and XML.&lt;/p&gt;

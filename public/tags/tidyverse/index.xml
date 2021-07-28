@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>tidyverse on Darya Vanichkina</title>
-    <link>/tags/tidyverse/</link>
+    <link>https://daryavanichkina.com/tags/tidyverse/</link>
     <description>Recent content in tidyverse on Darya Vanichkina</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 04 Dec 2019 00:00:00 +0000</lastBuildDate><atom:link href="/tags/tidyverse/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 04 Dec 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://daryavanichkina.com/tags/tidyverse/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>R for Data Science Day 1</title>
-      <link>/posts/2019-r-for-data-science-day-1/</link>
+      <link>https://daryavanichkina.com/posts/2019-r-for-data-science-day-1/</link>
       <pubDate>Wed, 04 Dec 2019 00:00:00 +0000</pubDate>
       
-      <guid>/posts/2019-r-for-data-science-day-1/</guid>
+      <guid>https://daryavanichkina.com/posts/2019-r-for-data-science-day-1/</guid>
       <description>&lt;p&gt;I am incredibly excited that RStudio has begun an &lt;a href=&#34;https://education.rstudio.com/trainers/&#34;&gt;instructor certification program&lt;/a&gt; based on the Carpentries, so of course I signed up as soon as my overcommited nature allowed! This also provides me with the excuse and motivation to finally formally work my way through &lt;a href=&#34;https://r4ds.had.co.nz/&#34;&gt;R for Data Science&lt;/a&gt;, a book I have read while waiting for GTT tests during my pregnancy and google-landed upon an umpteen number of times while debugging code, but never taken the time to sit down and do the exercises for - and of course the pedagogue in me knows quite well that THAT is how you actually learn and internalise the principles and concepts in any material, especially if it deals with programming and analysis. So over the next few weeks I plan to work my way through R4DS, and this post is the first in which I dive into the exercises.&lt;/p&gt;
 &lt;hr&gt;
 &lt;h2 id=&#34;personal-highly-non-exhaustive-notes-on-section-i-explore&#34;&gt;Personal, highly non-exhaustive notes on section I: Explore&lt;/h2&gt;

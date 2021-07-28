@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Rmd on Darya Vanichkina</title>
-    <link>/tags/rmd/</link>
+    <link>https://daryavanichkina.com/tags/rmd/</link>
     <description>Recent content in Rmd on Darya Vanichkina</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Mon, 12 Apr 2021 00:00:00 +0000</lastBuildDate><atom:link href="/tags/rmd/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 12 Apr 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://daryavanichkina.com/tags/rmd/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>ggplot batch variable visualisation in Rmd without for loops</title>
-      <link>/posts/2021-04-12-mappingggplot2/</link>
+      <link>https://daryavanichkina.com/posts/2021-04-12-mappingggplot2/</link>
       <pubDate>Mon, 12 Apr 2021 00:00:00 +0000</pubDate>
       
-      <guid>/posts/2021-04-12-mappingggplot2/</guid>
+      <guid>https://daryavanichkina.com/posts/2021-04-12-mappingggplot2/</guid>
       <description>&lt;p&gt;When working with data, often you want to make a specific type of plot across a bunch of variables at once. The R/tidyverse way of doing this involves some (basic) non-standard evaluation, but - because I know I&amp;rsquo;ll forget how to do this in the future - I thought I&amp;rsquo;d write up this short blog post with code that works.&lt;/p&gt;
 &lt;p&gt;In the below snippet, we use ggplot on the built-in mtcars dataset to make a scatterplot of each of the variables against the &lt;code&gt;mpg&lt;/code&gt; variable, colouring it by the number of cylinders (on the fly converted to a factor).&lt;/p&gt;
 &lt;p&gt;To do this, I define the &lt;code&gt;makeplots()&lt;/code&gt; function, which takes a single argument called &lt;code&gt;myfeature&lt;/code&gt;. Within the function, I need to save the plot as a variable (&lt;code&gt;a&lt;/code&gt;), and then print it so that it is rendered in the Rmd. I grab the column names I&amp;rsquo;d like to iterate over and save them into a character vector (In real life, I tend do grab them all using &lt;code&gt;names(mtcars)&lt;/code&gt;, but I choose a few manually to keep this blog post manageable. Also, I could have used commands like &lt;code&gt;setdiff()&lt;/code&gt; to subset the &lt;code&gt;names(mtcars)&lt;/code&gt; character vector to remove, for example, mpg itself).&lt;/p&gt;

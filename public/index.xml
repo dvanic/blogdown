@@ -2,17 +2,307 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Darya Vanichkina</title>
-    <link>/</link>
+    <link>https://daryavanichkina.com/</link>
     <description>Recent content on Darya Vanichkina</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Mon, 12 Apr 2021 00:00:00 +0000</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 28 Jul 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://daryavanichkina.com/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Installing packages on a PBS-Pro HPC cluster using renv</title>
+      <link>https://daryavanichkina.com/posts/2021-07-28-renvhpc/</link>
+      <pubDate>Wed, 28 Jul 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://daryavanichkina.com/posts/2021-07-28-renvhpc/</guid>
+      <description>&lt;h2 id=&#34;using-renv-on-a-pbs-pro-hpc-cluster&#34;&gt;Using renv on a PBS-Pro HPC cluster&lt;/h2&gt;
+&lt;p&gt;Today someone asked about my workflow for using R on an HPC cluster, and - more specifically - about how to install packages when executing a workflow that requires use of HPC. Google wasn&amp;rsquo;t helpful with providing a link to share - so the onus is on me to write &lt;em&gt;the&lt;/em&gt; blog post.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://source.unsplash.com/E2qx9Ed2qIQ/800x600&#34; alt=&#34;suitcase&#34;&gt;&lt;/p&gt;
+&lt;h3 id=&#34;the-why&#34;&gt;The &amp;ldquo;why&amp;rdquo;&lt;/h3&gt;
+&lt;p&gt;Just like working on our local machines, when working on an HPC cluster we really want to be able to have a consistent R environment for each of our projects that we snapshot at the time of working on said project. This means code that was written months or even years ago will still work as expected, even if the packages on CRAN have since been updated with breaking changes. The &lt;a href=&#34;https://rstudio.github.io/renv/index.html&#34;&gt;&lt;code&gt;renv&lt;/code&gt;&lt;/a&gt; package is brilliant at managing this - however, it is not intuitive to figure out how to use it when working on an HPC cluster - which is what I work through in the below post.&lt;/p&gt;
+&lt;h3 id=&#34;assumptions&#34;&gt;Assumptions&lt;/h3&gt;
+&lt;p&gt;This post makes a few assumptions:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;You are planning to use R for analysis, and know how to install packages on your local machine.&lt;/li&gt;
+&lt;li&gt;You are working with a PBS-Pro HPC cluster, and know all of the core commands (this is not an introduction to &lt;code&gt;ssh&lt;/code&gt;, &lt;code&gt;qsub&lt;/code&gt;, &lt;code&gt;module load&lt;/code&gt; etc - see &lt;a href=&#34;https://sydney-informatics-hub.github.io/training.artemis.introhpc/&#34;&gt;here&lt;/a&gt; for an intro). I &lt;em&gt;think&lt;/em&gt; some of the below should generalise to SLURM or other cluster schedulers, but don&amp;rsquo;t have access to them so can&amp;rsquo;t test.&lt;/li&gt;
+&lt;li&gt;You want to use the &lt;a href=&#34;https://rstudio.github.io/renv/articles/renv.html&#34;&gt;&lt;code&gt;renv&lt;/code&gt;&lt;/a&gt; library to manage the packages in your project (You do, you really do - I cannot recommend this highly enough, especially for sanity of future you). You know the basics of using &lt;code&gt;renv&lt;/code&gt; on your local machine, as per &lt;a href=&#34;https://rstudio.github.io/renv/articles/renv.html&#34;&gt;the &lt;code&gt;renv&lt;/code&gt; vignette&lt;/a&gt; - that&amp;rsquo;s probably the best intro to &lt;code&gt;renv&lt;/code&gt;.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Oof, now that that&amp;rsquo;s out of the way, let&amp;rsquo;s dive in 🐬 &amp;hellip;&lt;/p&gt;
+&lt;h3 id=&#34;step-1-ssh-into-your-cluster-and-fire-up-an-interactive-session&#34;&gt;Step 1: &lt;code&gt;ssh&lt;/code&gt; into your cluster and fire up an interactive session&lt;/h3&gt;
+&lt;p&gt;After you login to your HPC server, I recommend starting up an interactive session so you&amp;rsquo;re not working on and hence clogging up the login nodes. (You can do this on a login node too, but depending on how much compute prototyping your analysis requires this may crash 🔥 - or get you a cranky email from an admin 😡 ).&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;qsub -I -l walltime&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;4:0:0 -l &lt;span style=&#34;color:#66d9ef&#34;&gt;select&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;1:ncpus&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;1:mem&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;10gb
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;step-2-launch-r-and-install-renv&#34;&gt;Step 2: Launch R and install renv&lt;/h3&gt;
+&lt;p&gt;After you&amp;rsquo;re logged in to the worker node, run the following commands to:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;navigate to the project directory&lt;/li&gt;
+&lt;li&gt;get rid of everything that may have inadvertently been preloaded&lt;/li&gt;
+&lt;li&gt;launch R&lt;/li&gt;
+&lt;li&gt;install &lt;code&gt;renv&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;cd myprojectdirectory
+module purge
+module load R/4.0.4 &lt;span style=&#34;color:#75715e&#34;&gt;# &amp;lt;- or whatver version or R is available on your cluster&lt;/span&gt;
+R
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;This will open the R command line interface.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-R&#34; data-lang=&#34;R&#34;&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;install.packages&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;renv&amp;#34;&lt;/span&gt;)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;This will return the details that the installation of &lt;code&gt;renv()&lt;/code&gt; will occur into a default location:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;Installing package into ‘/home/myusername/R/x86_64-pc-linux-gnu-library/4.0’
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;And ask me to select a CRAN mirror for installation; after choosing the appropriate mirror and pressing return the package will be installed.&lt;/p&gt;
+&lt;h3 id=&#34;step-3-install-the-packages-you-need-ideally-prototype-your-analysis-and-snapshot-the-installs-using-renv&#34;&gt;Step 3: Install the packages you need, (ideally) prototype your analysis and snapshot the installs using &lt;code&gt;renv&lt;/code&gt;&lt;/h3&gt;
+&lt;p&gt;For this demo, I am going to assume that my project depends on the &lt;code&gt;tidyverse&lt;/code&gt; family of libraries, and that I want to install them in one go. (&lt;em&gt;In real life, I actually avoid taking this approach, and instead install each of the tidyverse libraries one by one as I use and need them.&lt;/em&gt;)&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-R&#34; data-lang=&#34;R&#34;&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;library&lt;/span&gt;(renv)
+&lt;span style=&#34;color:#75715e&#34;&gt;# initialise renv&lt;/span&gt;
+renv&lt;span style=&#34;color:#f92672&#34;&gt;::&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;init&lt;/span&gt;()
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;This will ask me to restart R, after doing which I can start installing packages.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-R&#34; data-lang=&#34;R&#34;&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;install.packages&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;tidyverse&amp;#34;&lt;/span&gt;)
+&lt;span style=&#34;color:#75715e&#34;&gt;# wait... and wait... for packages to successfully install&lt;/span&gt;
+&lt;span style=&#34;color:#a6e22e&#34;&gt;library&lt;/span&gt;(tidyverse)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;I would next prototype my analysis code, installing as many packages as I need using the normal &lt;code&gt;install.packages()&lt;/code&gt; syntax - and eventually wrap the analysis up into a script.&lt;/p&gt;
+&lt;p&gt;After you have installed all of the libraries you need, in the interactive R session, exectute the following command:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-R&#34; data-lang=&#34;R&#34;&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# this will tell you whether renv has captured versions &lt;/span&gt;
+&lt;span style=&#34;color:#75715e&#34;&gt;# of all of the packages you need to install&lt;/span&gt;
+renv&lt;span style=&#34;color:#f92672&#34;&gt;::&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;status&lt;/span&gt;()
+&lt;span style=&#34;color:#75715e&#34;&gt;# if the result of renv::status() was not &lt;/span&gt;
+&lt;span style=&#34;color:#75715e&#34;&gt;# &amp;#34;The project is already synchronized with the lockfile.&amp;#34;&lt;/span&gt;
+&lt;span style=&#34;color:#75715e&#34;&gt;# run the below command to snapshot all currently installed libraries&lt;/span&gt;
+renv&lt;span style=&#34;color:#f92672&#34;&gt;::&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;snapshot&lt;/span&gt;()
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;For this demo, I&amp;rsquo;m going to assume I want to run the following command that uses the built-in &lt;code&gt;gss_cat&lt;/code&gt; dataset from the &lt;code&gt;forcats&lt;/code&gt; package, the pipe and the &lt;code&gt;dplyr::filter()&lt;/code&gt; command - so nicely tests a few of the &lt;code&gt;tidyverse&lt;/code&gt; libraries in one line:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-R&#34; data-lang=&#34;R&#34;&gt;gss_cat &lt;span style=&#34;color:#f92672&#34;&gt;%&amp;gt;%&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;head&lt;/span&gt;() &lt;span style=&#34;color:#f92672&#34;&gt;%&amp;gt;%&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;filter&lt;/span&gt;(tvhours &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;10&lt;/span&gt;)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;The output should be:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-txt&#34; data-lang=&#34;txt&#34;&gt;# A tibble: 3 × 9
+   year marital      age race  rincome    partyid     relig     denom    tvhours
+  &amp;lt;int&amp;gt; &amp;lt;fct&amp;gt;      &amp;lt;int&amp;gt; &amp;lt;fct&amp;gt; &amp;lt;fct&amp;gt;      &amp;lt;fct&amp;gt;       &amp;lt;fct&amp;gt;     &amp;lt;fct&amp;gt;      &amp;lt;int&amp;gt;
+1  2000 Widowed       67 White Not appli… Independent Protesta… No deno…       2
+2  2000 Never mar…    39 White Not appli… Ind,near r… Orthodox… Not app…       4
+3  2000 Divorced      25 White Not appli… Not str de… None      Not app…       1
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;optional-step-3a-look-at-the-renvlock-file-to-see-all-of-the-packages-you-have-installed-into-the-project&#34;&gt;(Optional) Step 3a: Look at the &lt;code&gt;renv.lock&lt;/code&gt; file to see all of the packages you have installed into the project&lt;/h3&gt;
+&lt;p&gt;The &lt;code&gt;renv.lock&lt;/code&gt; file stores details about the R version and all of the packages that are installed in your environment in &lt;code&gt;.json&lt;/code&gt; format. So installing the &lt;code&gt;tidyverse&lt;/code&gt; packages in one fell swoop like I did above results in quite a long list of libraries (last 5 shown here):&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-json&#34; data-lang=&#34;json&#34;&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;vroom&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;:&lt;/span&gt; {
+      &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;Package&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;vroom&amp;#34;&lt;/span&gt;,
+      &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;Version&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;1.5.3&amp;#34;&lt;/span&gt;,
+      &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;Source&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Repository&amp;#34;&lt;/span&gt;,
+      &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;Repository&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;CRAN&amp;#34;&lt;/span&gt;,
+      &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;Hash&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;aac6012f34348b3ca6bf373fe7172b06&amp;#34;&lt;/span&gt;
+    }&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;,&lt;/span&gt;
+    &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;withr&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;:&lt;/span&gt; {
+      &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;Package&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;withr&amp;#34;&lt;/span&gt;,
+      &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;Version&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;2.4.2&amp;#34;&lt;/span&gt;,
+      &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;Source&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Repository&amp;#34;&lt;/span&gt;,
+      &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;Repository&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;CRAN&amp;#34;&lt;/span&gt;,
+      &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;Hash&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;ad03909b44677f930fa156d47d7a3aeb&amp;#34;&lt;/span&gt;
+    }&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;,&lt;/span&gt;
+    &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;xfun&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;:&lt;/span&gt; {
+      &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;Package&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;xfun&amp;#34;&lt;/span&gt;,
+      &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;Version&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;0.24&amp;#34;&lt;/span&gt;,
+      &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;Source&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Repository&amp;#34;&lt;/span&gt;,
+      &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;Repository&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;CRAN&amp;#34;&lt;/span&gt;,
+      &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;Hash&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;88cdb9779a657ad80ad942245fffba31&amp;#34;&lt;/span&gt;
+    }&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;,&lt;/span&gt;
+    &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;xml2&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;:&lt;/span&gt; {
+      &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;Package&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;xml2&amp;#34;&lt;/span&gt;,
+      &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;Version&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;1.3.2&amp;#34;&lt;/span&gt;,
+      &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;Source&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Repository&amp;#34;&lt;/span&gt;,
+      &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;Repository&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;CRAN&amp;#34;&lt;/span&gt;,
+      &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;Hash&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;d4d71a75dd3ea9eb5fa28cc21f9585e2&amp;#34;&lt;/span&gt;
+    }&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;,&lt;/span&gt;
+    &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;yaml&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;:&lt;/span&gt; {
+      &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;Package&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;yaml&amp;#34;&lt;/span&gt;,
+      &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;Version&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;2.2.1&amp;#34;&lt;/span&gt;,
+      &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;Source&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Repository&amp;#34;&lt;/span&gt;,
+      &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;Repository&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;CRAN&amp;#34;&lt;/span&gt;,
+      &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;Hash&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;2826c5d9efb0a88f657c7a679c7106db&amp;#34;&lt;/span&gt;
+    }
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;I sometimes find that &lt;code&gt;renv::status()&lt;/code&gt; and &lt;code&gt;renv::snapshot()&lt;/code&gt; in step 3 don&amp;rsquo;t immediately see all of the libraries I have installed in the environment, and - weirdly - I need to restart R and run &lt;code&gt;renv::status()&lt;/code&gt; again before it will detect that a bunch of libraries have been installed. So if you&amp;rsquo;re missing libraries in the &lt;code&gt;renv.lock&lt;/code&gt; file you know need to be there - restarting R and re-running &lt;code&gt;renv::status()&lt;/code&gt; and &lt;code&gt;renv::snapshot()&lt;/code&gt; may be the way to go.&lt;/p&gt;
+&lt;h3 id=&#34;step-4-save-your-script-and-submit-it-via-pbs&#34;&gt;Step 4: Save your script and submit it via PBS&lt;/h3&gt;
+&lt;p&gt;Wrap the above code into &lt;code&gt;myscript.R&lt;/code&gt; , with the following contents:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-R&#34; data-lang=&#34;R&#34;&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;library&lt;/span&gt;(tidyverse)
+gss_cat &lt;span style=&#34;color:#f92672&#34;&gt;%&amp;gt;%&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;head&lt;/span&gt;() &lt;span style=&#34;color:#f92672&#34;&gt;%&amp;gt;%&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;filter&lt;/span&gt;(tvhours &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;10&lt;/span&gt;)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Then create a shell script (&lt;code&gt;myshellscript.sh&lt;/code&gt;) that can be submitted to the PBS queue:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;color:#75715e&#34;&gt;#! /bin/bash
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;module purge
+module load R/4.0.4
+cd /to/my/projectpath
+Rscript myscript.R
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Finally, submit to the queue:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;qsub -l walltime&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;0:10:0 -l &lt;span style=&#34;color:#66d9ef&#34;&gt;select&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;1:ncpus&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;1:mem&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;1gb -N mytestscript myshellscript.sh
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Note that I&amp;rsquo;m only asking for 1 Gb of RAM and 10 minutes of walltime. This is probably a lot less than you&amp;rsquo;d need for any &amp;ldquo;real&amp;rdquo; analysis - but it&amp;rsquo;s perfectly fine for my script above.&lt;/p&gt;
+&lt;p&gt;After that executes, I get the following output in &lt;code&gt;mytestscript.o123456&lt;/code&gt;, where 123456 is the job number that my PBS scheduler automatically assigned to my script run:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-R&#34; data-lang=&#34;R&#34;&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# A tibble: 3 × 9&lt;/span&gt;
+   year marital      age race  rincome    partyid     relig     denom    tvhours
+  &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;&lt;/span&gt;int&lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;&lt;/span&gt;fct&lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;&lt;/span&gt;      &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;&lt;/span&gt;int&lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;&lt;/span&gt;fct&lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;&lt;/span&gt;fct&lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;&lt;/span&gt;      &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;&lt;/span&gt;fct&lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;&lt;/span&gt;       &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;&lt;/span&gt;fct&lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;&lt;/span&gt;     &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;&lt;/span&gt;fct&lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;&lt;/span&gt;      &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;&lt;/span&gt;int&lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;&lt;/span&gt;
+&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;  &lt;span style=&#34;color:#ae81ff&#34;&gt;2000&lt;/span&gt; Widowed       &lt;span style=&#34;color:#ae81ff&#34;&gt;67&lt;/span&gt; White Not appli… Independent Protesta… No deno…       &lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt;
+&lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt;  &lt;span style=&#34;color:#ae81ff&#34;&gt;2000&lt;/span&gt; Never mar…    &lt;span style=&#34;color:#ae81ff&#34;&gt;39&lt;/span&gt; White Not appli… Ind,near r… Orthodox… Not app…       &lt;span style=&#34;color:#ae81ff&#34;&gt;4&lt;/span&gt;
+&lt;span style=&#34;color:#ae81ff&#34;&gt;3&lt;/span&gt;  &lt;span style=&#34;color:#ae81ff&#34;&gt;2000&lt;/span&gt; Divorced      &lt;span style=&#34;color:#ae81ff&#34;&gt;25&lt;/span&gt; White Not appli… Not str de… None      Not app…       &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;And the package loading messages in &lt;code&gt;mytestscript.e123456&lt;/code&gt;:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-R&#34; data-lang=&#34;R&#34;&gt;Warning message&lt;span style=&#34;color:#f92672&#34;&gt;:&lt;/span&gt;
+renv took longer than &lt;span style=&#34;color:#a6e22e&#34;&gt;expected &lt;/span&gt;(&lt;span style=&#34;color:#ae81ff&#34;&gt;66&lt;/span&gt; seconds) to activate the sandbox.
+
+The sandbox can be disabled by setting&lt;span style=&#34;color:#f92672&#34;&gt;:&lt;/span&gt;
+
+    RENV_CONFIG_SANDBOX_ENABLED &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;FALSE&lt;/span&gt;
+
+within an appropriate start&lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;up .Renviron file. See `?renv::config` for more details.
+Warning&lt;span style=&#34;color:#f92672&#34;&gt;:&lt;/span&gt; program compiled against libxml &lt;span style=&#34;color:#ae81ff&#34;&gt;209&lt;/span&gt; using older &lt;span style=&#34;color:#ae81ff&#34;&gt;207&lt;/span&gt;
+── Attaching packages ─────────────────────────────────────── tidyverse &lt;span style=&#34;color:#ae81ff&#34;&gt;1.3.1&lt;/span&gt; ──
+✔ ggplot2 &lt;span style=&#34;color:#ae81ff&#34;&gt;3.3.5&lt;/span&gt;     ✔ purrr   &lt;span style=&#34;color:#ae81ff&#34;&gt;0.3.4&lt;/span&gt;
+✔ tibble  &lt;span style=&#34;color:#ae81ff&#34;&gt;3.1.3&lt;/span&gt;     ✔ dplyr   &lt;span style=&#34;color:#ae81ff&#34;&gt;1.0.7&lt;/span&gt;
+✔ tidyr   &lt;span style=&#34;color:#ae81ff&#34;&gt;1.1.3&lt;/span&gt;     ✔ stringr &lt;span style=&#34;color:#ae81ff&#34;&gt;1.4.0&lt;/span&gt;
+✔ readr   &lt;span style=&#34;color:#ae81ff&#34;&gt;2.0.0&lt;/span&gt;     ✔ forcats &lt;span style=&#34;color:#ae81ff&#34;&gt;0.5.1&lt;/span&gt;
+── Conflicts ────────────────────────────────────────── &lt;span style=&#34;color:#a6e22e&#34;&gt;tidyverse_conflicts&lt;/span&gt;() ──
+✖ dplyr&lt;span style=&#34;color:#f92672&#34;&gt;::&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;filter&lt;/span&gt;() masks stats&lt;span style=&#34;color:#f92672&#34;&gt;::&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;filter&lt;/span&gt;()
+✖ dplyr&lt;span style=&#34;color:#f92672&#34;&gt;::&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;lag&lt;/span&gt;()    masks stats&lt;span style=&#34;color:#f92672&#34;&gt;::&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;lag&lt;/span&gt;()
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;This includes a warning that the &lt;code&gt;renv&lt;/code&gt; sandbox took a while to load, but this doesn&amp;rsquo;t seem to affect functionality, so I haven&amp;rsquo;t disabled it.&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;That&amp;rsquo;s it! Hopefully the above helps you use &lt;code&gt;renv()&lt;/code&gt; with a PBS-Pro based HPC cluster 😊, and please do leave a comment if something isn&amp;rsquo;t clear or doesn&amp;rsquo;t work as expected.&lt;/p&gt;
+&lt;h3 id=&#34;even-more-notes&#34;&gt;(Even more) notes&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;This workflow means that your package install information (i.e. the binaries) are stored in the project folder, in the &lt;code&gt;renv&lt;/code&gt; folder. So they are &lt;em&gt;not&lt;/em&gt; stored on the worker nodes where your job is being executed, but instead in your home or project folder. This is a &lt;em&gt;good&lt;/em&gt; thing, as it means you&amp;rsquo;re not hitting up CRAN to install packages every time you run a job.&lt;/li&gt;
+&lt;li&gt;This workflow also means that while you can &lt;code&gt;rsync&lt;/code&gt; your project folder from your local machine to the remove server (or prototype on your local machine), you will need to run &lt;code&gt;renv::restrore()&lt;/code&gt; once on the &amp;ldquo;other&amp;rdquo; machine prior to being able to execute or deploy the script.&lt;/li&gt;
+&lt;/ol&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Setting up Jupyterhub on AWS as teaching backup</title>
+      <link>https://daryavanichkina.com/drafts/2021-04-26-tljhaws/</link>
+      <pubDate>Fri, 23 Apr 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://daryavanichkina.com/drafts/2021-04-26-tljhaws/</guid>
+      <description>&lt;h2 id=&#34;instructor-instructions---setting-up-jupyterhub-on-aws&#34;&gt;Instructor instructions - setting up Jupyterhub on AWS&lt;/h2&gt;
+&lt;p&gt;This is an opinionated step-by-step guide to setting up a very insecure instance of Jupyterhub on AWS.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;../TODO/2104tljh2.png&#34; alt=&#34;picture alt&#34;&gt;&lt;/p&gt;
+&lt;p&gt;The use case has been a long-standing dream of mine:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;If (when) learners&#39; installations fail in the middle of a training session that uses the Jupyter notebook and Python (especially if it&amp;rsquo;s a custom environment AND you&amp;rsquo;re teaching online) you can immediately direct them to an interface that looks very similar to what they have been working on locally and they can continue as if nothing happened.&lt;/li&gt;
+&lt;li&gt;Then, in the next break or after the session, you can work with them one-by-one to fix their local installations.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;The instructions below guide you in:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Setting up a (very insecure, but also very easy to set up/use) instance of &lt;a href=&#34;https://tljh.jupyter.org&#34;&gt;The Littlest Jupyter Hub&lt;/a&gt; on AWS&lt;/li&gt;
+&lt;li&gt;Uploading some data and jupyter notebooks that your students can see/use&lt;/li&gt;
+&lt;li&gt;Configuring the same environment from a conda &lt;code&gt;environment.yml&lt;/code&gt; file for all of your students.&lt;/li&gt;
+&lt;li&gt;(A hacky) way of monitoring memory usage, so you can get a sense of what kind of a machine you&amp;rsquo;ll need in class.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;They also describe a few gotchas.&lt;/p&gt;
+&lt;p&gt;The first steps are adapted from &lt;a href=&#34;https://tljh.jupyter.org/en/latest/install/amazon.html&#34;&gt;TLJH instuctions&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;get-an-ec2-instance&#34;&gt;Get an EC2 instance&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Select a &lt;strong&gt;Ubuntu Server 18.04 LTS (HVM), SSD Volume Type - ami-&lt;/strong&gt; instance (the one maintained by Canonical as per the TLJH screenshots in the documentation)&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Choose a &lt;strong&gt;t3.small&lt;/strong&gt; node type for testing - it&amp;rsquo;s the smallest that supports TLJH. Note that this does not have a free tier, but running it for a few hours costs approximately $0.10 in my experience.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;em&gt;In theory, you are meant to be able to use a custom command to install TLJH in one go, and paste it into the user script box. Unfortunately, none of the flags have worked for me, and the installation script itself sometimes works and sometimes doesn&amp;rsquo;t - so I recommend doing this over the ssh after the instance has been created.&lt;/em&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;color:#75715e&#34;&gt;#!/bin/bash
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# you can use this script if you want&lt;/span&gt;
+&lt;span style=&#34;color:#75715e&#34;&gt;# I describe a more reliable alternative below&lt;/span&gt;
+curl -L https://tljh.jupyter.org/bootstrap.py &lt;span style=&#34;color:#ae81ff&#34;&gt;\
+&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;&lt;/span&gt;  | sudo python3 - &lt;span style=&#34;color:#ae81ff&#34;&gt;\
+&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;&lt;/span&gt;    --admin myusername --show-progress-page --plugin tljh-repo2docker &lt;span style=&#34;color:#75715e&#34;&gt;# can also in theory use a requirements.txt file here&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;
+&lt;p&gt;When selecting storage, request General Purpose SSD (gp2) for most workloads; according to TLJH Provisioned IOPS SSD (io1) is the highest-performant when performance is critical. I have only used gp2 so far.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;[Only the first time you set up] After downloading the AWS &lt;code&gt;.pem&lt;/code&gt; file, make sure to &lt;code&gt;chmod 600&lt;/code&gt; it as otherwise you get a permissions error.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;chmod &lt;span style=&#34;color:#ae81ff&#34;&gt;600&lt;/span&gt; ~/Desktop/mypemkey.pem
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;installing-tljh&#34;&gt;Installing TLJH&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;code&gt;ssh&lt;/code&gt; into the server via the Public IPv4 DNS provided in the instance details. &lt;code&gt;ubuntu&lt;/code&gt; is the admin username for the root ubuntu user, and you&amp;rsquo;ll need root privileges for the below&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;ssh -i ~/Desktop/mypemkey.pem ubuntu@ec2-18-220-114-100.us-east-2.compute.amazonaws.com
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;../../images/image-20210423141931861.png&#34; alt=&#34;image-20210423141931861&#34;&gt;&lt;/p&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;Install TLJH using the following command:&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;curl -L https://tljh.jupyter.org/bootstrap.py &lt;span style=&#34;color:#ae81ff&#34;&gt;\
+&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;&lt;/span&gt;  | sudo python3 - &lt;span style=&#34;color:#ae81ff&#34;&gt;\
+&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;&lt;/span&gt;    --admin myusername &lt;span style=&#34;color:#75715e&#34;&gt;#--user-requirements-txt-url https://raw.githubusercontent.com/data-8/materials-sp18/master/requirements.txt&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;getting-the-data-and-notebooks---do-this-before-creating-users-or-logging-in-as-the-admin-user&#34;&gt;Getting the data and notebooks - do this BEFORE creating users or logging in as the admin user&lt;/h2&gt;
+&lt;p&gt;Create a folder:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;sudo mkdir -p /srv/
+&lt;span style=&#34;color:#75715e&#34;&gt;# you may need to chmod it but I can&amp;#39;t figure out the optimal permissions&lt;/span&gt;
+&lt;span style=&#34;color:#75715e&#34;&gt;# sudo chmod 777 data&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;option-1&#34;&gt;Option 1:&lt;/h3&gt;
+&lt;p&gt;Open a terminal on your &lt;strong&gt;local machine&lt;/strong&gt;, navigate to the directory where you have your data and any notebooks you want to share with your learners/students, and upload the data to the AWS machine with the following command:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;sudo scp -r -i ~/Desktop/mypemkey.pem * ubuntu@ec2-3-141-195-91.us-east-2.compute.amazonaws.com:/srv/data/
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;option-2&#34;&gt;Option 2:&lt;/h3&gt;
+&lt;p&gt;I recommend using a public folder hosted on something like Dropbox or Google Drive. I used Cloudstor when I did this recently.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;cd /srv/
+sudo wget https://cloudstor.aarnet.edu.au/plus/s/myurllink/download
+sudo apt-get install -y unzip
+sudo unzip download
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Then create a soft link to the data directory with the following command:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;sudo ln -s /srv/myproject/data /etc/skel/data
+sudo ln -s /srv/myproject/notebooks /etc/skel/notebooks
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;The notebooks and data should now be visible for any new user created.&lt;/p&gt;
+&lt;p&gt;This is adapted from &lt;a href=&#34;https://tljh.jupyter.org/en/latest/howto/content/share-data.html#howto-content-share-data&#34;&gt;these instructions&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;getting-the-right-python-packages-to-work&#34;&gt;Getting the right python packages to work&lt;/h2&gt;
+&lt;p&gt;We use the Anaconda package manager for our training, and share installation instructions using a conda &lt;code&gt;environment.yml&lt;/code&gt; file. If you instead have a pip requirements.txt file, you could have used the &lt;code&gt;--user-requirements-txt-url&lt;/code&gt; flag at the end of the TLJH install above to install all of the packages in one go.&lt;/p&gt;
+&lt;p&gt;To install from an Anaconda Environment file the easiest way is to modify the base conda environment for all users:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;export PATH&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;/opt/tljh/user/bin:&lt;span style=&#34;color:#e6db74&#34;&gt;${&lt;/span&gt;PATH&lt;span style=&#34;color:#e6db74&#34;&gt;}&lt;/span&gt;
+sudo -E conda env update -n base -f /srv/myproject/environment.yml
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;This is adapted from &lt;a href=&#34;https://tljh.jupyter.org/en/latest/install/amazon.html#step-3-install-conda-pip-packages-for-all-users&#34;&gt;these instructions&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;At this point, I&amp;rsquo;d execute all of the notebooks and assess their performance. While Amazon does offer the &lt;a href=&#34;https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Install-CloudWatch-Agent.html&#34;&gt;CloudWatch Agent&lt;/a&gt; to collect metrics, I wanted a simpler solution that wasn&amp;rsquo;t quite as overwhelming to configure (IAM roles + wizards + &amp;hellip;), and I knew that the key issues I expected my notebooks to have were memory limits. So I used the script below (running in the terminal in which I had ssh&amp;rsquo;ed to the instance) to gather memory usage information every 0.1 second of my notebooks executing, with the script running for up to an hour. I actually executed each of a series of notebooks, then renamed the quote file at the end of a notebook to &lt;code&gt;notebookX.txt&lt;/code&gt; and repeated the script before executing the next notebook.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; i in &lt;span style=&#34;color:#e6db74&#34;&gt;`&lt;/span&gt;seq &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt; 36000&lt;span style=&#34;color:#e6db74&#34;&gt;`&lt;/span&gt;; &lt;span style=&#34;color:#66d9ef&#34;&gt;do&lt;/span&gt;
+  echo &lt;span style=&#34;color:#e6db74&#34;&gt;`&lt;/span&gt;cat /proc/meminfo | grep Active: | sed &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;s/Active: //g&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;`&lt;/span&gt; &amp;gt;&amp;gt; usage.txt
+  sleep 0.1s
+&lt;span style=&#34;color:#66d9ef&#34;&gt;done&lt;/span&gt;
+
+&lt;span style=&#34;color:#75715e&#34;&gt;# kill the script after running a notebook&lt;/span&gt;
+mv usage.txt notebook1.txt
+&lt;span style=&#34;color:#75715e&#34;&gt;# run command again; run notebook2&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;A bit hacky, but it works!&lt;/p&gt;
+&lt;h2 id=&#34;adding-users&#34;&gt;Adding users&lt;/h2&gt;
+&lt;p&gt;The easiest way to add users is to log in via the Jupyterhub web interface as an admin user. To do this:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Launch the Jupyterhub by following the Public IPv4 address indicated for the EC2 instance, changing the &lt;code&gt;https:&lt;/code&gt; at the beginning of the url to &lt;code&gt;http:&lt;/code&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Ignoring the &amp;ldquo;unsecurity&amp;rdquo;&amp;quot; warnings, log in using the administrator login you configured when you ran the tljh installation command (&lt;code&gt;myusername&lt;/code&gt; in my example above) and a random password (make sure to write this down) to see the Jupyterhub.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Go to the &lt;code&gt;Control Panel -&amp;gt; Admin&lt;/code&gt; interface and click the &lt;code&gt;Add Users&lt;/code&gt; button.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Manually paste in a list of user names you&amp;rsquo;d like into the box.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;This is based on &lt;a href=&#34;https://tljh.jupyter.org/en/latest/install/amazon.html#step-2-adding-more-users&#34;&gt;these instructions&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;in-class-notessome-limitations&#34;&gt;In-class notes/some limitations&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Make sure to encourage your users to write down the passwords they set when they log into their Jupyterhub instance for the first time - they will need these to login again the next session of your course.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;The notebooks and data will be visible to all users when they log in, BUT they will not be able to save changes/make edits to them (as the directory is read-only). To get around this, your users should save a copy of the notebook in their &amp;ldquo;root&amp;rdquo; directory, using the &lt;code&gt;Save notebook&lt;/code&gt; button (NOT the &lt;code&gt;Make a copy&lt;/code&gt; option - this will fail as a result of not having the right permissions).&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;img src=&#34;../../images/2104_tljh1.png&#34; alt=&#34;picture alt&#34;&gt;&lt;/p&gt;
+&lt;p&gt;This in turn may mean that the relative paths you were using in your scripts (assuming &lt;code&gt;./notebooks/&lt;/code&gt; and &lt;code&gt;./data&lt;/code&gt; in the root of the folder) may no longer work, and you may need to help your students get around this.&lt;/p&gt;
+&lt;p&gt;If you&amp;rsquo;re writing any output/generating any figures to disk, your students will need to run the following in a cell to avoid errors (where USERNAME is the username they used to log in):&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; os
+os&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;chdir(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;/home/jupyter-USERNAME/&amp;#39;&lt;/span&gt;)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;extensions-and-improvements&#34;&gt;Extensions and improvements&lt;/h2&gt;
+&lt;p&gt;The above requires you to use one LARGE EC2 instance in class to host all of your learners on a single machine. There are risks with running out of resources!&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;If you would like each learner to use their own machine instead, you can use &lt;a href=&#34;https://z2jh.jupyter.org/en/stable/&#34;&gt;Zero to JupyterHub with Kubernetes&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;If you would like to use a docker environment to provision everything instead, you can use &lt;a href=&#34;https://github.com/jupyterhub/repo2docker&#34;&gt;repo2docker&lt;/a&gt; with the above setup (or see next bullet).&lt;/li&gt;
+&lt;li&gt;If you would like to use a docker enviroment and are comfortable using an Ansible Playbook to have a much more secure, customised and overall more complex environment - the &lt;a href=&#34;https://docs.plasmabio.org/en/latest/index.html&#34;&gt;Plasma&lt;/a&gt; project  is definitely the way to go.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;I hope this post has been useful for you - please ask questions in the comments, or let me know if you&amp;rsquo;ve used this in your own teaching!&lt;/strong&gt;&lt;/p&gt;
+</description>
+    </item>
+    
     <item>
       <title>ggplot batch variable visualisation in Rmd without for loops</title>
-      <link>/posts/2021-04-12-mappingggplot2/</link>
+      <link>https://daryavanichkina.com/posts/2021-04-12-mappingggplot2/</link>
       <pubDate>Mon, 12 Apr 2021 00:00:00 +0000</pubDate>
       
-      <guid>/posts/2021-04-12-mappingggplot2/</guid>
+      <guid>https://daryavanichkina.com/posts/2021-04-12-mappingggplot2/</guid>
       <description>&lt;p&gt;When working with data, often you want to make a specific type of plot across a bunch of variables at once. The R/tidyverse way of doing this involves some (basic) non-standard evaluation, but - because I know I&amp;rsquo;ll forget how to do this in the future - I thought I&amp;rsquo;d write up this short blog post with code that works.&lt;/p&gt;
 &lt;p&gt;In the below snippet, we use ggplot on the built-in mtcars dataset to make a scatterplot of each of the variables against the &lt;code&gt;mpg&lt;/code&gt; variable, colouring it by the number of cylinders (on the fly converted to a factor).&lt;/p&gt;
 &lt;p&gt;To do this, I define the &lt;code&gt;makeplots()&lt;/code&gt; function, which takes a single argument called &lt;code&gt;myfeature&lt;/code&gt;. Within the function, I need to save the plot as a variable (&lt;code&gt;a&lt;/code&gt;), and then print it so that it is rendered in the Rmd. I grab the column names I&amp;rsquo;d like to iterate over and save them into a character vector (In real life, I tend do grab them all using &lt;code&gt;names(mtcars)&lt;/code&gt;, but I choose a few manually to keep this blog post manageable. Also, I could have used commands like &lt;code&gt;setdiff()&lt;/code&gt; to subset the &lt;code&gt;names(mtcars)&lt;/code&gt; character vector to remove, for example, mpg itself).&lt;/p&gt;
@@ -45,10 +335,10 @@ mycolnames &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;-&lt;/span&gt; &lt;
     
     <item>
       <title>Avoiding 443 errors &amp; RCurl woes with the REDCap API on Windows</title>
-      <link>/posts/2021-04-09-redcap-api-crossplatform/</link>
+      <link>https://daryavanichkina.com/posts/2021-04-09-redcap-api-crossplatform/</link>
       <pubDate>Fri, 09 Apr 2021 00:00:00 +0000</pubDate>
       
-      <guid>/posts/2021-04-09-redcap-api-crossplatform/</guid>
+      <guid>https://daryavanichkina.com/posts/2021-04-09-redcap-api-crossplatform/</guid>
       <description>&lt;p&gt;Like many other educational and research institutions, the University of Sydney (where I currently work) supports the use of REDCap as a survey platform. I also use it, in part because one of the most attractive features of the REDCap API over other survey tools like Qualtrics, Google Forms and SurveyMonkey is the fact that the API playground supports GUI-style selection of what you want, with REDCap providing template code in a wide variety of languages.&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;../../images/2104_what2exportREDCap.png&#34; alt=&#34;What to export&#34;&gt;&lt;/p&gt;
 &lt;p&gt;Languages include PHP, Perl, Python, R, Ruby, Java &amp;amp; UNIX&amp;rsquo;s curl, and output format options include json, csv and XML.&lt;/p&gt;
@@ -136,10 +426,10 @@ datadict &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;-&lt;/span&gt; &lt;sp
     
     <item>
       <title>Making colorblind-friendly plots in R</title>
-      <link>/drafts/2020-colorblind/</link>
+      <link>https://daryavanichkina.com/drafts/2020-colorblind/</link>
       <pubDate>Fri, 02 Oct 2020 00:00:00 +0000</pubDate>
       
-      <guid>/drafts/2020-colorblind/</guid>
+      <guid>https://daryavanichkina.com/drafts/2020-colorblind/</guid>
       <description>&lt;p&gt;I&amp;rsquo;m currently working on a project where all figures need to be colourblind-friendly - and we&amp;rsquo;ve got lots of them, with over a dozen discrete variables plotted on some. In the past, I&amp;rsquo;ve used the excellent &lt;a href=&#34;&#34;&gt;colorbrewer&lt;/a&gt; web page and &lt;a href=&#34;&#34;&gt;RColorBrewer&lt;/a&gt; packages to generate colour schemes, but these don&amp;rsquo;t quite have built-in support for 12+ colours - so I&amp;rsquo;ve gone down into the depths of the stackoverflows to find out what to use. But before I dive into what I found - a digression into tools for checking a palette myself.&lt;/p&gt;
 &lt;h2 id=&#34;how-to-assess-and-preview-any-palette-for-colourblind-friendliness&#34;&gt;How to assess and preview any palette for colourblind-friendliness?&lt;/h2&gt;
 &lt;p&gt;The first tool that&amp;rsquo;s now permanently in my arsenal is the &lt;a href=&#34;&#34;&gt;colorblindcheck&lt;/a&gt; R package, which allows one to preview any palette (supplied as a list of hex codes) in how it would be visible to someone with common types of colour blindness.&lt;/p&gt;
@@ -155,10 +445,10 @@ datadict &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;-&lt;/span&gt; &lt;sp
     
     <item>
       <title>Living dangerously: a newbie guide to running multiple version of R on a Mac</title>
-      <link>/posts/2020-rswitch-guide/</link>
+      <link>https://daryavanichkina.com/posts/2020-rswitch-guide/</link>
       <pubDate>Fri, 01 May 2020 00:00:00 +0000</pubDate>
       
-      <guid>/posts/2020-rswitch-guide/</guid>
+      <guid>https://daryavanichkina.com/posts/2020-rswitch-guide/</guid>
       <description>&lt;p&gt;&lt;img src=&#34;https://unsplash.com/photos/3uunq0n1WRY&#34; alt=&#34;TBH I want to be this chicken&amp;hellip;&#34;&gt;&lt;/p&gt;
 &lt;p&gt;You&amp;rsquo;d have to be living under a rock in the R community to not be aware of the fact that R 4.0 has been released, with some major changes, the biggest of which is probably the new default for &lt;code&gt;read.table()&lt;/code&gt;: &lt;code&gt;stringsAsFactors = FALSE&lt;/code&gt;, as well as the fact that &lt;code&gt;matrix()&lt;/code&gt; now converts character columns to factors and factors to integers.&lt;/p&gt;
 &lt;p&gt;In the past, I&amp;rsquo;ve always been too &amp;ldquo;chicken&amp;rdquo; to try running multiple versions of R on my work laptop, as I&amp;rsquo;ve usually got a few key analysis projects going that need to be delivered on time and within full feature scope - which means I don&amp;rsquo;t have time to fix basic version incompatibility bugs. But with this major new release I was sorely tempted, so have gone down the rabbit-hole of installing &lt;a href=&#34;https://rud.is/rswitch/guide/&#34;&gt;RSwitch&lt;/a&gt; and R4.0 on my Mac (Catalina 10.15.4). Below I document, in what is probably excruciating detail, the steps of how I got this to work. I&amp;rsquo;ve played with it for all of two days, and it seems to work - so I&amp;rsquo;ve written this post in the hopes of helping others. Also, I had some funky hiccups with getting the right filepath and not using sudo at the outset, so I&amp;rsquo;m hoping this helps someone avoid some extra &lt;code&gt;rm -r ...path...&lt;/code&gt;&lt;/p&gt;
@@ -212,10 +502,10 @@ datadict &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;-&lt;/span&gt; &lt;sp
     
     <item>
       <title>Jumping into digital: Lessons learned while moving live-coding workshops online</title>
-      <link>/posts/2020-ardc-presentation-codingonline/</link>
+      <link>https://daryavanichkina.com/posts/2020-ardc-presentation-codingonline/</link>
       <pubDate>Tue, 07 Apr 2020 00:00:00 +0000</pubDate>
       
-      <guid>/posts/2020-ardc-presentation-codingonline/</guid>
+      <guid>https://daryavanichkina.com/posts/2020-ardc-presentation-codingonline/</guid>
       <description>&lt;p&gt;I presented a talk about &amp;ldquo;Jumping into digital: Lessons learned while moving live-coding workshops online&amp;rdquo; at the ARDC community webinar series in April 2020.&lt;/p&gt;
 &lt;p&gt;The abstract of my talk was:&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;At ResBaz 2019, I said (on camera) that it is impossible to run a hands-on, live-coding digital skills training workshop online. In March 2020, I led a team of trainers to do exactly this - move our 2-day, Carpentries-style, hands-on Machine Learning in R and Machine Learning in python workshops fully online - in a week! In this talk, I’ll share how we prepared, what we did, how it went, and what lessons we learned. I’ll discuss which platforms we considered, share some technical tidbits on how to set up your online session and, more critically, what to expect when teaching in this very different format. I’ll also highlight some of the challenges we encountered, and try to explain why - even though it was incredibly hard - I think we’ll try teaching online again.&lt;/em&gt;&lt;/p&gt;
@@ -229,10 +519,10 @@ datadict &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;-&lt;/span&gt; &lt;sp
     
     <item>
       <title>Mapping a live coding workshop for digital delivery (part 2)</title>
-      <link>/posts/2020-map-digital-2/</link>
+      <link>https://daryavanichkina.com/posts/2020-map-digital-2/</link>
       <pubDate>Fri, 03 Apr 2020 00:00:00 +0000</pubDate>
       
-      <guid>/posts/2020-map-digital-2/</guid>
+      <guid>https://daryavanichkina.com/posts/2020-map-digital-2/</guid>
       <description>&lt;p&gt;With the advent of COVID-19 we’re all having to do the unthinkable, which for an instructor like me means moving hands-on, practical coding workshops online. I&amp;rsquo;ve already written a post with a student-facing map of the process (and some tips for students), but I wanted to focus on a few instructor-related aspects of the map in this post.&lt;/p&gt;
 &lt;h2 id=&#34;my-personal-teaching-setup&#34;&gt;My personal teaching setup&lt;/h2&gt;
 &lt;p&gt;&lt;img src=&#34;../../images/mysetup2.jpg&#34; alt=&#34;mysetup&#34;&gt;&lt;/p&gt;
@@ -379,10 +669,10 @@ datadict &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;-&lt;/span&gt; &lt;sp
     
     <item>
       <title>Mapping a live coding workshop for digital delivery</title>
-      <link>/posts/2020-map-digital-1/</link>
+      <link>https://daryavanichkina.com/posts/2020-map-digital-1/</link>
       <pubDate>Thu, 02 Apr 2020 00:00:00 +0000</pubDate>
       
-      <guid>/posts/2020-map-digital-1/</guid>
+      <guid>https://daryavanichkina.com/posts/2020-map-digital-1/</guid>
       <description>&lt;p&gt;With the advent of COVID-19 we’re all having to do the unthinkable, which for an instructor like me means moving hands-on, practical coding workshops online. In this post, I&amp;rsquo;ll provide a map that helped me formalise how I broke down our workshops into components, and tried to map each of them to an online tool, platform or approach. I&amp;rsquo;ve used Zoom for most of the examples below, since that&amp;rsquo;s what I&amp;rsquo;ve used for teaching, but I&amp;rsquo;m sure that most of this functionality is well supported by other online meeting tools.&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://images.unsplash.com/photo-1581043144435-ebcd25885809?ixlib=rb-1.2.1&amp;amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;amp;auto=format&amp;amp;fit=crop&amp;amp;w=500&amp;amp;q=80&#34; alt=&#34;NameTag&#34;&gt;&lt;/p&gt;
 &lt;h2 id=&#34;preliminaries&#34;&gt;Preliminaries&lt;/h2&gt;
@@ -529,10 +819,10 @@ datadict &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;-&lt;/span&gt; &lt;sp
     
     <item>
       <title>Having a great online learning experience: a guide for students</title>
-      <link>/posts/2020-great-online-learning-student/</link>
+      <link>https://daryavanichkina.com/posts/2020-great-online-learning-student/</link>
       <pubDate>Wed, 01 Apr 2020 00:00:00 +0000</pubDate>
       
-      <guid>/posts/2020-great-online-learning-student/</guid>
+      <guid>https://daryavanichkina.com/posts/2020-great-online-learning-student/</guid>
       <description>&lt;p&gt;With the advent of COVID-19 we’re all having to do the unthinkable, which for an instructor like me means moving hands-on, practical coding workshops online. In this post, I&amp;rsquo;ll outline a few key things you can do as a &lt;strong&gt;learner&lt;/strong&gt; to have what is hopefully the best possible experience attending synchronous online training.&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://images.unsplash.com/photo-1534481016308-0fca71578ae5?ixlib=rb-1.2.1&amp;amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;amp;auto=format&amp;amp;fit=crop&amp;amp;w=500&amp;amp;q=100&#34; alt=&#34;airplane&#34;&gt;&lt;/p&gt;
 &lt;h3 id=&#34;1-follow-your-instructors-instructions&#34;&gt;1. Follow your instructor&amp;rsquo;s instructions&lt;/h3&gt;
@@ -599,10 +889,10 @@ datadict &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;-&lt;/span&gt; &lt;sp
     
     <item>
       <title>R for Data Science Day 1</title>
-      <link>/posts/2019-r-for-data-science-day-1/</link>
+      <link>https://daryavanichkina.com/posts/2019-r-for-data-science-day-1/</link>
       <pubDate>Wed, 04 Dec 2019 00:00:00 +0000</pubDate>
       
-      <guid>/posts/2019-r-for-data-science-day-1/</guid>
+      <guid>https://daryavanichkina.com/posts/2019-r-for-data-science-day-1/</guid>
       <description>&lt;p&gt;I am incredibly excited that RStudio has begun an &lt;a href=&#34;https://education.rstudio.com/trainers/&#34;&gt;instructor certification program&lt;/a&gt; based on the Carpentries, so of course I signed up as soon as my overcommited nature allowed! This also provides me with the excuse and motivation to finally formally work my way through &lt;a href=&#34;https://r4ds.had.co.nz/&#34;&gt;R for Data Science&lt;/a&gt;, a book I have read while waiting for GTT tests during my pregnancy and google-landed upon an umpteen number of times while debugging code, but never taken the time to sit down and do the exercises for - and of course the pedagogue in me knows quite well that THAT is how you actually learn and internalise the principles and concepts in any material, especially if it deals with programming and analysis. So over the next few weeks I plan to work my way through R4DS, and this post is the first in which I dive into the exercises.&lt;/p&gt;
 &lt;hr&gt;
 &lt;h2 id=&#34;personal-highly-non-exhaustive-notes-on-section-i-explore&#34;&gt;Personal, highly non-exhaustive notes on section I: Explore&lt;/h2&gt;
@@ -1095,10 +1385,10 @@ datadict &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;-&lt;/span&gt; &lt;sp
     
     <item>
       <title>Moving to Hugo</title>
-      <link>/posts/2019-moving-to-hugo/</link>
+      <link>https://daryavanichkina.com/posts/2019-moving-to-hugo/</link>
       <pubDate>Fri, 29 Mar 2019 00:00:00 +0000</pubDate>
       
-      <guid>/posts/2019-moving-to-hugo/</guid>
+      <guid>https://daryavanichkina.com/posts/2019-moving-to-hugo/</guid>
       <description>&lt;p&gt;I&amp;rsquo;m finally making the leap, and (hopefully) moving this website to blogdown + hugo + gitlab + netlify.&lt;/p&gt;
 &lt;p&gt;So far, useful resources for wrapping my head around how to do this:&lt;/p&gt;
 &lt;ul&gt;
@@ -1116,19 +1406,19 @@ datadict &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;-&lt;/span&gt; &lt;sp
     
     <item>
       <title>Training the trainer presentation</title>
-      <link>/posts/2018-ands/</link>
+      <link>https://daryavanichkina.com/posts/2018-ands/</link>
       <pubDate>Tue, 20 Feb 2018 00:00:00 +0000</pubDate>
       
-      <guid>/posts/2018-ands/</guid>
+      <guid>https://daryavanichkina.com/posts/2018-ands/</guid>
       <description>&lt;iframe src=&#34;//www.slideshare.net/slideshow/embed_code/key/o4RIOWAd7j4rrE&#34; width=&#34;595&#34; height=&#34;485&#34; frameborder=&#34;0&#34; marginwidth=&#34;0&#34; marginheight=&#34;0&#34; scrolling=&#34;no&#34; style=&#34;border:1px solid #CCC; border-width:1px; margin-bottom:5px; max-width: 100%;&#34; allowfullscreen&gt; &lt;/iframe&gt; &lt;div style=&#34;margin-bottom:5px&#34;&gt; &lt;strong&gt; &lt;a href=&#34;//www.slideshare.net/DaryaVanichkina1/andstrainingthetrainer&#34; title=&#34;ANDS_TrainingTheTrainer&#34; target=&#34;_blank&#34;&gt;ANDS_TrainingTheTrainer&lt;/a&gt; &lt;/strong&gt; from &lt;strong&gt;&lt;a href=&#34;//www.slideshare.net/DaryaVanichkina1&#34; target=&#34;_blank&#34;&gt;Darya Vanichkina&lt;/a&gt;&lt;/strong&gt; &lt;/div&gt;</description>
     </item>
     
     <item>
       <title>Amazon AWS workshop at the University of Sydney</title>
-      <link>/posts/2016-awsworkshop/</link>
+      <link>https://daryavanichkina.com/posts/2016-awsworkshop/</link>
       <pubDate>Tue, 01 Nov 2016 00:00:00 +0000</pubDate>
       
-      <guid>/posts/2016-awsworkshop/</guid>
+      <guid>https://daryavanichkina.com/posts/2016-awsworkshop/</guid>
       <description>&lt;p&gt;On October 24th I attented a talk by Adrian White about using Amazon AWS for research. Below are my notes, not extensively annotated, in the hope that they&amp;rsquo;ll be useful for someone. If something is not clear, please ask in the comments, and I&amp;rsquo;ll try to answer to the best of my knowledge&lt;/p&gt;
 &lt;h1 id=&#34;161024_aws-workshop&#34;&gt;161024_AWS workshop&lt;/h1&gt;
 &lt;ul&gt;
@@ -1455,10 +1745,10 @@ upload from outside of AWS&lt;/li&gt;
     
     <item>
       <title>2016-PyConAU 2016 Presentation</title>
-      <link>/posts/pycon2016/</link>
+      <link>https://daryavanichkina.com/posts/pycon2016/</link>
       <pubDate>Fri, 12 Aug 2016 00:00:00 +0000</pubDate>
       
-      <guid>/posts/pycon2016/</guid>
+      <guid>https://daryavanichkina.com/posts/pycon2016/</guid>
       <description>&lt;p&gt;I presented a talk on &lt;strong&gt;Big data biology for pythonistas: getting in on the genomics revolution&lt;/strong&gt; at PyCon Au 2016.&lt;/p&gt;
 &lt;h3 id=&#34;video&#34;&gt;Video&lt;/h3&gt;
 &lt;iframe width=&#34;560&#34; height=&#34;315&#34; src=&#34;https://www.youtube.com/embed/fQ_vNHDNDCA&#34; frameborder=&#34;0&#34; allow=&#34;accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture&#34; allowfullscreen&gt;&lt;/iframe&gt;
@@ -1476,20 +1766,20 @@ Genomics is rapidly entering the world of health care in both the public and pri
     
     <item>
       <title>Lorne Genome 2012 poster</title>
-      <link>/posts/2014-lorne2012poster/</link>
+      <link>https://daryavanichkina.com/posts/2014-lorne2012poster/</link>
       <pubDate>Mon, 24 Mar 2014 00:00:00 +0000</pubDate>
       
-      <guid>/posts/2014-lorne2012poster/</guid>
+      <guid>https://daryavanichkina.com/posts/2014-lorne2012poster/</guid>
       <description>&lt;p&gt;Better late than never: my now-published Lorne Genome 2012 poster:&lt;/p&gt;
 &lt;iframe src=&#34;https://widgets.figshare.com/articles/978468/embed?show_title=1&#34; width=&#34;568&#34; height=&#34;351&#34; allowfullscreen=&#34;true&#34; frameborder=&#34;0&#34;&gt;&lt;/iframe&gt;</description>
     </item>
     
     <item>
       <title>2013 ciRNA papers</title>
-      <link>/posts/2013-cirnapapers/</link>
+      <link>https://daryavanichkina.com/posts/2013-cirnapapers/</link>
       <pubDate>Sat, 13 Jul 2013 00:00:00 +0000</pubDate>
       
-      <guid>/posts/2013-cirnapapers/</guid>
+      <guid>https://daryavanichkina.com/posts/2013-cirnapapers/</guid>
       <description>&lt;p&gt;A presentation I made for a journal club on the &amp;ldquo;1st&amp;rdquo; 3 ciRNA papers&lt;/p&gt;
 &lt;iframe src=&#34;//www.slideshare.net/slideshow/embed_code/key/y31DG64uLGfanZ&#34; width=&#34;595&#34; height=&#34;485&#34; frameborder=&#34;0&#34; marginwidth=&#34;0&#34; marginheight=&#34;0&#34; scrolling=&#34;no&#34; style=&#34;border:1px solid #CCC; border-width:1px; margin-bottom:5px; max-width: 100%;&#34; allowfullscreen&gt; &lt;/iframe&gt; &lt;div style=&#34;margin-bottom:5px&#34;&gt; &lt;strong&gt; &lt;a href=&#34;//www.slideshare.net/DaryaVanichkina1/ci-26604922&#34; title=&#34;Comparing the early ciRNA papers &#34; target=&#34;_blank&#34;&gt;Comparing the early ciRNA papers &lt;/a&gt; &lt;/strong&gt; from &lt;strong&gt;&lt;a href=&#34;https://www.slideshare.net/DaryaVanichkina1&#34; target=&#34;_blank&#34;&gt;Darya Vanichkina&lt;/a&gt;&lt;/strong&gt; &lt;/div&gt;
 </description>
@@ -1497,10 +1787,10 @@ Genomics is rapidly entering the world of health care in both the public and pri
     
     <item>
       <title>Hello World!</title>
-      <link>/posts/2013-helloworld/</link>
+      <link>https://daryavanichkina.com/posts/2013-helloworld/</link>
       <pubDate>Sat, 13 Jul 2013 00:00:00 +0000</pubDate>
       
-      <guid>/posts/2013-helloworld/</guid>
+      <guid>https://daryavanichkina.com/posts/2013-helloworld/</guid>
       <description>&lt;p&gt;This is the 1st post for this new Jekyll-powered blog.&lt;/p&gt;
 &lt;p&gt;Welcome to my blog!&lt;/p&gt;
 </description>
@@ -1508,10 +1798,10 @@ Genomics is rapidly entering the world of health care in both the public and pri
     
     <item>
       <title></title>
-      <link>/2020aoc/</link>
+      <link>https://daryavanichkina.com/2020aoc/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/2020aoc/</guid>
+      <guid>https://daryavanichkina.com/2020aoc/</guid>
       <description>&lt;p&gt;This year, I&amp;rsquo;m participating in the &lt;a href=&#34;https://adventofcode.com/2020&#34;&gt;Advent of Code&lt;/a&gt; for the first time. Below are my solutions, in R and - hopefully - python. I&amp;rsquo;m taking the &amp;ldquo;problem summaries&amp;rdquo; from &lt;a href=&#34;https://colinfay.me/categories/&#34;&gt;Colin Fay&lt;/a&gt;, after finding my own solutions.&lt;/p&gt;
 &lt;h2 id=&#34;day-1&#34;&gt;Day 1&lt;/h2&gt;
 &lt;ul&gt;
@@ -1620,10 +1910,10 @@ mydf &lt;span style=&#34;color:#f92672&#34;&gt;%&amp;gt;%&lt;/span&gt;
     
     <item>
       <title></title>
-      <link>/drafts/2021-01-12-maps/</link>
+      <link>https://daryavanichkina.com/drafts/2021-01-12-maps/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/drafts/2021-01-12-maps/</guid>
+      <guid>https://daryavanichkina.com/drafts/2021-01-12-maps/</guid>
       <description>&lt;p&gt;Idea:&lt;/p&gt;
 &lt;p&gt;Use some of the notes on making pretty maps to explore:&lt;/p&gt;
 &lt;ul&gt;
@@ -1638,10 +1928,10 @@ mydf &lt;span style=&#34;color:#f92672&#34;&gt;%&amp;gt;%&lt;/span&gt;
     
     <item>
       <title></title>
-      <link>/drafts/2021-xx-xx/</link>
+      <link>https://daryavanichkina.com/drafts/2021-xx-xx/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/drafts/2021-xx-xx/</guid>
+      <guid>https://daryavanichkina.com/drafts/2021-xx-xx/</guid>
       <description>&lt;p&gt;Idea:&lt;/p&gt;
 &lt;p&gt;Use bslib (formerly known as bootstraplib) to customise a lesson template that will be made using RMarkdown.&lt;/p&gt;
 </description>
@@ -1649,10 +1939,10 @@ mydf &lt;span style=&#34;color:#f92672&#34;&gt;%&amp;gt;%&lt;/span&gt;
     
     <item>
       <title>About me</title>
-      <link>/about/</link>
+      <link>https://daryavanichkina.com/about/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/about/</guid>
+      <guid>https://daryavanichkina.com/about/</guid>
       <description>&lt;p&gt;Hi! I&amp;rsquo;m Darya, a Data Scientist &amp;amp; Professional Educator. I work at the University of Sydney&amp;rsquo;s &lt;a href=&#34;https://informatics.sydney.edu.au&#34;&gt;Informatics Hub&lt;/a&gt; as a data science consultant, supporting researchers from across the university by solving their big (and not-so-big) data problems. I also coordinate SIH&amp;rsquo;s data science training program, where I mentor staff in best teaching practices, develop and deliver advanced analytics training for researchers.&lt;/p&gt;
 &lt;p&gt;I&amp;rsquo;m passionate about using data to understand the world, and love solving real problems using data science, machine learning, statistics and high-performance/cloud computing. I&amp;rsquo;ve had a lot of amazing opportunities in my life, and my way of giving back to the universe for them is to train and teach.&lt;/p&gt;
 &lt;p&gt;I’m proud to be a &lt;a href=&#34;carpentries.org/&#34;&gt;Carpentries&lt;/a&gt; Instructor and Trainer and have been a maintainer and mentor in the past. I&amp;rsquo;m also an &lt;a href=&#34;https://education.rstudio.com/trainers/&#34;&gt;RStudio certified trainer&lt;/a&gt;; reach out to me &lt;a href=&#34;https://daryavanichkina.com/contact/&#34;&gt;here&lt;/a&gt; if you&amp;rsquo;re interested in custom corporate training.&lt;/p&gt;
@@ -1662,10 +1952,10 @@ mydf &lt;span style=&#34;color:#f92672&#34;&gt;%&amp;gt;%&lt;/span&gt;
     
     <item>
       <title>Contact</title>
-      <link>/contact/</link>
+      <link>https://daryavanichkina.com/contact/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/contact/</guid>
+      <guid>https://daryavanichkina.com/contact/</guid>
       <description>&lt;h4 id=&#34;electronic-address&#34;&gt;Electronic address&lt;/h4&gt;
 &lt;p&gt;d.[lastname] at gmail [dot] com&lt;/p&gt;
 &lt;h4 id=&#34;physical-address&#34;&gt;Physical address&lt;/h4&gt;
@@ -1689,69 +1979,20 @@ Darlington NSW 2008
     
     <item>
       <title>Curriculum vitae</title>
-      <link>/cv/</link>
+      <link>https://daryavanichkina.com/cv/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/cv/</guid>
+      <guid>https://daryavanichkina.com/cv/</guid>
       <description>&lt;p&gt;Please download &lt;a href=&#34;&#34;&gt;my full curriculum vitae&lt;/a&gt; or an &lt;a href=&#34;&#34;&gt;infographic version&lt;/a&gt;.&lt;/p&gt;
 </description>
     </item>
     
     <item>
-      <title>Moving Machine Learning from R to python</title>
-      <link>/drafts/2020-ml-r2py/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>/drafts/2020-ml-r2py/</guid>
-      <description>&lt;p&gt;As part of a project for work, I needed to port some R machine learning code to python. We weren&amp;rsquo;t trying to achieve 100% identity of results, instead opting to try to implement things &amp;ldquo;natively&amp;rdquo; to the language, and&amp;hellip;&lt;/p&gt;
-&lt;p&gt;The rsample package has the&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;initial_split(data, prop = 3/4, strata = NULL, ...)&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;function has the strata argument, which allows us to select which variable to stratify with. If this variable is categorical, porting the code to python is easy, as we would use&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;sklearn.model_selection.train_test_split(*arrays, **options)&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;If the variable is numerical, it&amp;rsquo;s harder to figure out what rsample is doing by default. There is, however, a&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;make_strata(x, nunique = 5, pool = 0.15, depth = 20)&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;function, which most likely is operating with the same principles.&lt;/p&gt;
-&lt;p&gt;The help for this states that:&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;
-&lt;p&gt;For numeric data, if the number of unique levels is less than nunique, the data are treated as categorical data.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;For categorical inputs, the function will find levels of x than occur in the data with percentage less than pool. The values from these groups will be randomly assigned to the remaining strata (as will data points that have missing values in x). (i.e. by default, categories that represent less than 15% of the dataset will be pooled before sampling happens)&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;For numeric data with more unique values than nunique, the data will be converted to being categorical based on percentiles of the data. The percentile groups will have no more than 20 percent of the data in each group. Again, missing values in x are randomly assigned to groups.&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;I am assuming this 20% is being specified by the depth parameter.&lt;/p&gt;
-&lt;p&gt;The easiest way to replicate this in python for numeric data seems to be to create a &amp;ldquo;dummy&amp;rdquo; variable, which will contain the quartiles as factors, and then to stratify using that:&lt;/p&gt;
-&lt;p&gt;pd.qcut(ameshousingClean[&amp;lsquo;Sale_Price&amp;rsquo;], 10, labels=range(10))&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Moving Machine Learning from R to python</title>
-      <link>/drafts/2020-vaccines-1/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>/drafts/2020-vaccines-1/</guid>
-      <description>&lt;p&gt;Vaccine efficacy&lt;/p&gt;
-&lt;p&gt;How is it measured?&lt;/p&gt;
-&lt;p&gt;How is the conf int calculated?&lt;/p&gt;
-&lt;p&gt;IRR stands for incidence rate ratio&lt;/p&gt;
-&lt;p&gt;The sample vaccine efficacy can be defined as 1 - IRR = 1 - (cv/nv)/(cp/np)
-nv/np - subjects in each group
-cp/cv - subjects that got the disease&lt;/p&gt;
-&lt;p&gt;The press release stated that so far 38955 subjects got the two doses of the vaccine or placebo of which 94 subjects fell ill with Covid-19. Furthermore, the study plan stated that the same number of subjects was assigned to the treatment and control group and let’s assume that also in the 38955 subjects analysed so far the ratio is almost equal. An efficacy of at least 90% then implies that from the 94 subjects with Covid-19 at most 8 could have been vaccinated.&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
       <title>Training</title>
-      <link>/training/</link>
+      <link>https://daryavanichkina.com/training/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/training/</guid>
+      <guid>https://daryavanichkina.com/training/</guid>
       <description>&lt;p&gt;&lt;strong&gt;I am a Fellow of the UK Higher Education Academy (FHEA) &amp;amp; a Carpentries Instructor trainer. I am passionate about using evidence-based teaching practices for supporting adult learners in developing digital skills.&lt;/strong&gt;&lt;/p&gt;
 &lt;h2 id=&#34;rstudio-certified-training&#34;&gt;RStudio Certified training&lt;/h2&gt;
 &lt;p&gt;I am an &lt;a href=&#34;https://education.rstudio.com/trainers/&#34;&gt;RStudio Certified Instructor&lt;/a&gt; with over 6 years experience in developing and delivering training commercially and at Go8 Universities in Australia. If you are interested in commercial data science training using R or python, please reach out via email at d.vanichkina at gmail dot com. My ABN is 14 264 195 525.&lt;/p&gt;

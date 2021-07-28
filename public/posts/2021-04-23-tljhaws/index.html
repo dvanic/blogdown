@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Language" content="en">
+
+    <meta name="author" content="Darya Vanichkina PhD">
+    <meta name="description" content="Instructor instructions - setting up Jupyterhub on AWS This is an opinionated step-by-step guide to setting up a very insecure instance of Jupyterhub on AWS.
+The use case has been a long-standing dream of mine:
+ If (when) learners&#39; installations fail in the middle of a training session that uses the Jupyter notebook and Python (especially if it&rsquo;s a custom environment AND if you&rsquo;re teaching online) you can immediately direct them to an interface that looks very similar to what they have been working on locally and they can continue working as if nothing happened.">
+    <meta name="keywords" content="data scientist, bioinformatician, consultant, educator">
+
+    
+      <script src="https://twemoji.maxcdn.com/v/latest/twemoji.min.js" crossorigin="anonymous"></script>
+    
+
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Setting up Jupyterhub on AWS as teaching backup"/>
+<meta name="twitter:description" content="Instructor instructions - setting up Jupyterhub on AWS This is an opinionated step-by-step guide to setting up a very insecure instance of Jupyterhub on AWS.
+The use case has been a long-standing dream of mine:
+ If (when) learners&#39; installations fail in the middle of a training session that uses the Jupyter notebook and Python (especially if it&rsquo;s a custom environment AND if you&rsquo;re teaching online) you can immediately direct them to an interface that looks very similar to what they have been working on locally and they can continue working as if nothing happened."/>
+
+    <meta property="og:title" content="Setting up Jupyterhub on AWS as teaching backup" />
+<meta property="og:description" content="Instructor instructions - setting up Jupyterhub on AWS This is an opinionated step-by-step guide to setting up a very insecure instance of Jupyterhub on AWS.
+The use case has been a long-standing dream of mine:
+ If (when) learners&#39; installations fail in the middle of a training session that uses the Jupyter notebook and Python (especially if it&rsquo;s a custom environment AND if you&rsquo;re teaching online) you can immediately direct them to an interface that looks very similar to what they have been working on locally and they can continue working as if nothing happened." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/posts/2021-04-23-tljhaws/" />
+<meta property="article:published_time" content="2021-04-23T00:00:00+00:00" />
+<meta property="article:modified_time" content="2021-04-23T00:00:00+00:00" />
+
+
+    <title>
+  Setting up Jupyterhub on AWS as teaching backup · Darya Vanichkina
+</title>
+
+    
+      <link rel="canonical" href="/posts/2021-04-23-tljhaws/">
+    
+
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700%7CMerriweather:300,700%7CSource+Code+Pro:400,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css" integrity="sha384-Bfad6CLCknfcloXFOyFnlgtENryhrpZCe29RTifKEixXQZ38WheV+i/6YWSzkz3V" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha256-l85OmPOjvil/SOvVt3HnSSjzF1TUMyT9eV0c2BzEGzU=" crossorigin="anonymous" />
+
+    
+      
+      
+      <link rel="stylesheet" href="/css/coder.min.9836c03fe5c87d102278a33e86d0591ef36c89b1e17e8e547ebf84c05cee010e.css" integrity="sha256-mDbAP&#43;XIfRAieKM&#43;htBZHvNsibHhfo5Ufr&#43;EwFzuAQ4=" crossorigin="anonymous" media="screen" />
+    
+
+    
+
+    
+      
+        
+        
+        <link rel="stylesheet" href="/css/coder-dark.min.717236c74e0a5208ef73964a9f44c6b443b689a95b270d8b2a40d0c012460dac.css" integrity="sha256-cXI2x04KUgjvc5ZKn0TGtEO2ialbJw2LKkDQwBJGDaw=" crossorigin="anonymous" media="screen" />
+      
+    
+
+    
+      <link rel="stylesheet" href="/static/css/custom.css" />
+    
+
+    
+
+    <link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="/images/favicon-16x16.png" sizes="16x16">
+
+    <link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+    <link rel="apple-touch-icon"  sizes="180x180" href="/images/apple-touch-icon.png">
+
+    <meta name="generator" content="Hugo 0.80.0" />
+  </head>
+  
+  
+  
+    
+  
+  <body class="colorscheme-auto"
+        onload=" twemoji.parse(document.body); "
+  >
+    <main class="wrapper">
+      <nav class="navigation">
+  <section class="container">
+    <a class="navigation-title" href="/">
+      Darya Vanichkina
+    </a>
+    
+      <span id="dark-mode-toggle" class="float-right">
+        <i class="fas fa-adjust fa-fw"></i>
+      </span>
+      <input type="checkbox" id="menu-toggle" />
+      <label class="menu-button float-right" for="menu-toggle">
+        <i class="fas fa-bars fa-fw"></i>
+      </label>
+      <ul class="navigation-list">
+        
+          
+            <li class="navigation-item">
+              <a class="navigation-link" href="/about/">About</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link" href="/posts/">Blog</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link" href="/training/">Training</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link" href="/contact/">Contact</a>
+            </li>
+          
+        
+        
+        <li class="navigation-item separator">
+          <span>|</span>
+        </li>
+      </ul>
+    
+  </section>
+</nav>
+
+
+      <div class="content">
+        
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">Setting up Jupyterhub on AWS as teaching backup</h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fas fa-calendar"></i>
+              <time datetime='2021-04-23T00:00:00Z'>
+                April 23, 2021
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fas fa-clock"></i>
+              6-minute read
+            </span>
+          </div>
+          
+          <div class="tags">
+  <i class="fas fa-tag"></i>
+    <a href="/tags/workjournal/">WorkJournal</a>
+      <span class="separator">•</span>
+    <a href="/tags/python/">Python</a>
+      <span class="separator">•</span>
+    <a href="/tags/jupyter/">Jupyter</a>
+      <span class="separator">•</span>
+    <a href="/tags/aws/">AWS</a>
+      <span class="separator">•</span>
+    <a href="/tags/cloud/">Cloud</a></div>
+
+        </div>
+      </header>
+
+      <div>
+        
+        <h2 id="instructor-instructions---setting-up-jupyterhub-on-aws">Instructor instructions - setting up Jupyterhub on AWS</h2>
+<p>This is an opinionated step-by-step guide to setting up a very insecure instance of Jupyterhub on AWS.</p>
+<p><img src="../TODO/2104tljh2.png" alt="picture alt"></p>
+<p>The use case has been a long-standing dream of mine:</p>
+<ul>
+<li>If (when) learners' installations fail in the middle of a training session that uses the Jupyter notebook and Python (especially if it&rsquo;s a custom environment AND if you&rsquo;re teaching online) you can immediately direct them to an interface that looks very similar to what they have been working on locally and they can continue working as if nothing happened.</li>
+<li>Then, in the next break or after the session, you can work with them one-by-one to fix their local installations.</li>
+</ul>
+<p>The instructions below guide you in setting up a (very insecure, but also very easy to set up/use) instance of The Littlest Jupyter Hub on AWS, upload some data and jupyter notebooks that your students can see/use and configure an environment from a conda environment.yml file. They also describe a few gotchas and provide a hack for understanding memory use (Amazon reports CPU use in its default metrics).</p>
+<p>The first steps are adapted from <a href="https://tljh.jupyter.org/en/latest/install/amazon.html">TLJH instuctions</a></p>
+<h2 id="get-an-ec2-instance">Get an EC2 instance</h2>
+<ol>
+<li>
+<p>Select a <strong>Ubuntu Server 18.04 LTS (HVM), SSD Volume Type - ami-</strong> instance (the one maintained by Canonical as per the TLJH screenshots in the documentation)</p>
+</li>
+<li>
+<p>Choose a <strong>t3.small</strong> node type for testing - it&rsquo;s the smallest that supports TLJH. Note that this does not have a free tier, but running it for a few hours costs approximately $0.10 in my experience.</p>
+</li>
+</ol>
+<p><em>In theory, you are meant to be able to use a custom command to install TLJH in one go, and paste it into the user script box. Unfortunately, none of the flags have worked for me, and the installation script itself sometimes works and sometimes doesn&rsquo;t - so I recommend doing this over the ssh after the instance has been created.</em></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#75715e">#!/bin/bash
+</span><span style="color:#75715e"></span><span style="color:#75715e"># you can use this script if you want</span>
+<span style="color:#75715e"># I describe a more reliable alternative below</span>
+curl -L https://tljh.jupyter.org/bootstrap.py <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>  | sudo python3 - <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>    --admin myusername --show-progress-page --plugin tljh-repo2docker <span style="color:#75715e"># can also in theory use a requirements.txt file here</span>
+</code></pre></div><ol start="3">
+<li>
+<p>When selecting storage, request General Purpose SSD (gp2) for most workloads; according to TLJH Provisioned IOPS SSD (io1) is the highest-performant when performance is critical. I have only used gp2 so far.</p>
+</li>
+<li>
+<p>[Only the first time you set up] After downloading the AWS <code>.pem</code> file, make sure to <code>chmod 600</code> it as otherwise you get a permissions error.</p>
+</li>
+</ol>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">chmod <span style="color:#ae81ff">600</span> ~/Desktop/mypemkey.pem
+</code></pre></div><h2 id="installing-tljh">Installing TLJH</h2>
+<ol>
+<li><code>ssh</code> into the server via the Public IPv4 DNS provided in the instance details. <code>ubuntu</code> is the admin username for the root ubuntu user, and you&rsquo;ll need root privileges for the below</li>
+</ol>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">ssh -i ~/Desktop/mypemkey.pem ubuntu@ec2-18-220-114-100.us-east-2.compute.amazonaws.com
+</code></pre></div><p><img src="../../images/image-20210423141931861.png" alt="image-20210423141931861"></p>
+<ol start="2">
+<li>Install TLJH using the following command:</li>
+</ol>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">curl -L https://tljh.jupyter.org/bootstrap.py <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>  | sudo python3 - <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>    --admin myusername <span style="color:#75715e">#--user-requirements-txt-url https://raw.githubusercontent.com/data-8/materials-sp18/master/requirements.txt</span>
+</code></pre></div><h2 id="getting-the-data-and-notebooks---do-this-before-creating-users-or-logging-in-as-the-admin-user">Getting the data and notebooks - do this BEFORE creating users or logging in as the admin user</h2>
+<p>Create a folder:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">sudo mkdir -p /srv/
+<span style="color:#75715e"># you may need to chmod it but I can&#39;t figure out the optimal permissions</span>
+<span style="color:#75715e"># sudo chmod 777 data</span>
+</code></pre></div><h3 id="option-1">Option 1:</h3>
+<p>Open a terminal on your <strong>local machine</strong>, navigate to the directory where you have your data and any notebooks you want to share with your learners/students, and upload the data to the AWS machine with the following command:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">sudo scp -r -i ~/Desktop/mypemkey.pem * ubuntu@ec2-3-141-195-91.us-east-2.compute.amazonaws.com:/srv/data/
+</code></pre></div><h3 id="option-2">Option 2:</h3>
+<p>I recommend using a public folder hosted on something like Dropbox or Google Drive. I used Cloudstor when I did this recently.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">cd /srv/
+sudo wget https://cloudstor.aarnet.edu.au/plus/s/myurllink/download
+sudo apt-get install -y unzip
+sudo unzip download
+</code></pre></div><p>Then create a soft link to the data directory with the following command:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">sudo ln -s /srv/myproject/data /etc/skel/data
+sudo ln -s /srv/myproject/notebooks /etc/skel/notebooks
+</code></pre></div><p>The notebooks and data should now be visible for any new user created.</p>
+<p>This is adapted from <a href="https://tljh.jupyter.org/en/latest/howto/content/share-data.html#howto-content-share-data">these instructions</a></p>
+<h2 id="getting-the-right-python-packages-to-work">Getting the right python packages to work</h2>
+<p>We use the Anaconda package manager for our training, and share installation instructions using a conda <code>environment.yml</code> file. If you instead have a pip requirements.txt file, you could have used the <code>--user-requirements-txt-url</code> flag at the end of the TLJH install above to install all of the packages in one go.</p>
+<p>To install from an Anaconda Environment file the easiest way is to modify the base conda environment for all users:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">export PATH<span style="color:#f92672">=</span>/opt/tljh/user/bin:<span style="color:#e6db74">${</span>PATH<span style="color:#e6db74">}</span>
+sudo -E conda env update -n base -f /srv/myproject/environment.yml
+</code></pre></div><p>This is adapted from <a href="https://tljh.jupyter.org/en/latest/install/amazon.html#step-3-install-conda-pip-packages-for-all-users">these instructions</a></p>
+<p>At this point, I&rsquo;d execute all of the notebooks and assess their performance. While Amazon does offer the <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Install-CloudWatch-Agent.html">CloudWatch Agent</a> to collect metrics, I wanted a simpler solution that wasn&rsquo;t quite as overwhelming to configure (IAM roles + wizards + &hellip;), and I knew that the key issues I expected my notebooks to have were memory limits. So I used the script below (running in the terminal in which I had ssh&rsquo;ed to the instance) to gather memory usage information every 0.1 second of my notebooks executing, with the script running for up to an hour. I actually executed each of a series of notebooks, then renamed the quote file at the end of a notebook to <code>notebookX.txt</code> and repeated the script before executing the next notebook.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#66d9ef">for</span> i in <span style="color:#e6db74">`</span>seq <span style="color:#ae81ff">0</span> 36000<span style="color:#e6db74">`</span>; <span style="color:#66d9ef">do</span>
+  echo <span style="color:#e6db74">`</span>cat /proc/meminfo | grep Active: | sed <span style="color:#e6db74">&#39;s/Active: //g&#39;</span><span style="color:#e6db74">`</span> &gt;&gt; usage.txt
+  sleep 0.1s
+<span style="color:#66d9ef">done</span>
+</code></pre></div><p>A bit hacky, but it works!</p>
+<h2 id="adding-users">Adding users</h2>
+<p>The easiest way to add users is to log in via the Jupyterhub web interface as an admin user. To do this:</p>
+<ol>
+<li>
+<p>Launch the Jupyterhub by following the Public IPv4 address indicated for the EC2 instance, changing the <code>https:</code> at the beginning of the url to <code>http:</code>.</p>
+</li>
+<li>
+<p>Ignoring the unsecurity warnings, log in using the administrator login you configured when you ran the tljh installation command (<code>myusername</code> in my example above) and a random password (make sure to write this down) to see the Jupyterhub.</p>
+</li>
+<li>
+<p>Go to the <code>Control Panel -&gt; Admin</code> interface and click the <code>Add Users</code> button.</p>
+</li>
+<li>
+<p>Manually paste in a list of user names you&rsquo;d like into the box.</p>
+</li>
+</ol>
+<p>This is based on <a href="https://tljh.jupyter.org/en/latest/install/amazon.html#step-2-adding-more-users">these instructions</a></p>
+<h2 id="in-class-notessome-limitations">In-class notes/some limitations</h2>
+<ol>
+<li>
+<p>Make sure to encourage your users to write down the passwords they set when they log into their Jupyterhub instance for the first time - they will need these to login again the next session of your course.</p>
+</li>
+<li>
+<p>The notebooks and data will be visible to all users when they log in, BUT they will not be able to save changes/make edits to them (as the directory is read-only). To get around this, your users should save a copy of the notebook in their &ldquo;root&rdquo; directory, using the <code>Save notebook</code> button (NOT the <code>Make a copy</code> option - this will fail as a result of not having the right permissions).</p>
+</li>
+</ol>
+<p><img src="../../images/2104_tljh1.png" alt="picture alt"></p>
+<p>This in turn may mean that the relative paths you were using in your scripts (assuming <code>./notebooks/</code> and <code>./data</code> in the root of the folder) may no longer work, and you may need to help your students get around this.</p>
+<p>If you&rsquo;re writing any output/generating any figures to disk, your students will need to run the following in a cell to avoid errors (where USERNAME is the username they used to log in):</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> os
+os<span style="color:#f92672">.</span>chdir(<span style="color:#e6db74">&#39;/home/jupyter-USERNAME/&#39;</span>)
+</code></pre></div>
+      </div>
+
+
+      <footer>
+        
+
+
+        <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "dvanicw" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+        
+        
+      </footer>
+    </article>
+
+    
+  </section>
+
+      </div>
+
+      
+  <footer class="footer">
+    <section class="container">
+      
+      
+      
+      
+    </section>
+  </footer>
+
+    </main>
+
+    
+      
+      <script src="/js/dark-mode.min.0213e1773e6d1c5a644f847c67a6f8abac49a3776e2976f6008038af8c5b76a1.js"></script>
+    
+
+    
+
+    
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-54373354-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+
+
+    
+
+    
+
+  </body>
+
+</html>
