@@ -1,0 +1,19 @@
+---
+output:
+  html_document:
+    theme:
+      version: 4
+---
+
+# Projects
+
+```{r, echo=F}
+bs4cards::cards(
+    bs4cards::galleries,
+    title = long_name,
+    link = gallery_url,
+    image = image_url,
+    layout = "label-below"
+  )
+```
+
