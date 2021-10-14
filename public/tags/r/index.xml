@@ -288,25 +288,6 @@ datadict &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;-&lt;/span&gt; &lt;sp
     </item>
     
     <item>
-      <title>Making colorblind-friendly plots in R</title>
-      <link>https://daryavanichkina.com/drafts/2020-colorblind/</link>
-      <pubDate>Fri, 02 Oct 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://daryavanichkina.com/drafts/2020-colorblind/</guid>
-      <description>&lt;p&gt;I&amp;rsquo;m currently working on a project where all figures need to be colourblind-friendly - and we&amp;rsquo;ve got lots of them, with over a dozen discrete variables plotted on some. In the past, I&amp;rsquo;ve used the excellent &lt;a href=&#34;&#34;&gt;colorbrewer&lt;/a&gt; web page and &lt;a href=&#34;&#34;&gt;RColorBrewer&lt;/a&gt; packages to generate colour schemes, but these don&amp;rsquo;t quite have built-in support for 12+ colours - so I&amp;rsquo;ve gone down into the depths of the stackoverflows to find out what to use. But before I dive into what I found - a digression into tools for checking a palette myself.&lt;/p&gt;
-&lt;h2 id=&#34;how-to-assess-and-preview-any-palette-for-colourblind-friendliness&#34;&gt;How to assess and preview any palette for colourblind-friendliness?&lt;/h2&gt;
-&lt;p&gt;The first tool that&amp;rsquo;s now permanently in my arsenal is the &lt;a href=&#34;&#34;&gt;colorblindcheck&lt;/a&gt; R package, which allows one to preview any palette (supplied as a list of hex codes) in how it would be visible to someone with common types of colour blindness.&lt;/p&gt;
-&lt;h2 id=&#34;my-crazy-find---the-largest-number-of-colours-in-a-pallette&#34;&gt;My &amp;lsquo;crazy&amp;rsquo; find - the largest number of colours in a pallette&lt;/h2&gt;
-&lt;p&gt;In trawling through stack overflow, I came across the following post: &lt;a href=&#34;https://stackoverflow.com/questions/65013406/how-to-generate-30-distinct-colors-that-are-color-blind-friendly&#34;&gt;&amp;ldquo;How to generate 30 distinct colors that are color-blind friendly?&amp;quot;&lt;/a&gt;. That post, in turn, has a link to this &lt;a href=&#34;https://jacksonlab.agronomy.wisc.edu/2016/05/23/15-level-colorblind-friendly-palette/&#34;&gt;blog post&lt;/a&gt;, which in turn&lt;/p&gt;
-&lt;h2 id=&#34;other-useful-links&#34;&gt;Other useful links&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://stackoverflow.com/questions/37482977/what-is-a-good-palette-for-divergent-colors-in-r-or-can-viridis-and-magma-b/52812120&#34;&gt;What is a “good” palette for divergent colors in R? (or: can viridis and magma be combined together?)&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://stackoverflow.com/questions/9563711/r-color-palettes-for-many-data-classes/56066712&#34;&gt;R color palettes for many data classes&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-    </item>
-    
-    <item>
       <title>Living dangerously: a newbie guide to running multiple version of R on a Mac</title>
       <link>https://daryavanichkina.com/posts/2020-rswitch-guide/</link>
       <pubDate>Fri, 01 May 2020 00:00:00 +0000</pubDate>
