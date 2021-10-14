@@ -2,8 +2,7 @@
 title: "Projects"
 output:
   html_document:
-    theme:
-      version: 4
+    css: "strapless.css"
 ---
 
 <div>
