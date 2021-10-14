@@ -39,17 +39,17 @@
     },
     "blogdown": {
       "Package": "blogdown",
-      "Version": "0.20",
+      "Version": "1.5",
       "Source": "Repository",
       "Repository": "CRAN",
-      "Hash": "3f5342aa58bd21ab1b5bed287a2bc5d3"
+      "Hash": "573a81bab1652544c2673e48486cc51f"
     },
     "bookdown": {
       "Package": "bookdown",
-      "Version": "0.20",
+      "Version": "0.24",
       "Source": "Repository",
       "Repository": "CRAN",
-      "Hash": "31ed5641f4a91cf113de490e0bb006b8"
+      "Hash": "3837766a1e1b527af25fa3e2d12a2800"
     },
     "digest": {
       "Package": "digest",
@@ -64,6 +64,13 @@
       "Source": "Repository",
       "Repository": "CRAN",
       "Hash": "ec8ca05cffcc70569eaaad8469d2a3a7"
+    },
+    "fastmap": {
+      "Package": "fastmap",
+      "Version": "1.1.0",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "77bd60a6157420d4ffa93b27cf6a58b8"
     },
     "glue": {
       "Package": "glue",
@@ -81,10 +88,10 @@
     },
     "htmltools": {
       "Package": "htmltools",
-      "Version": "0.5.0",
+      "Version": "0.5.2",
       "Source": "Repository",
       "Repository": "CRAN",
-      "Hash": "7d651b7131794fe007b1ad6f21aaa401"
+      "Hash": "526c484233f42522278ab06fb185cb26"
     },
     "httpuv": {
       "Package": "httpuv",
@@ -92,6 +99,13 @@
       "Source": "Repository",
       "Repository": "CRAN",
       "Hash": "4e6dabb220b006ccdc3b3b5ff993b205"
+    },
+    "jquerylib": {
+      "Package": "jquerylib",
+      "Version": "0.1.4",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "5aab57a3bd297eee1c1d862735972182"
     },
     "jsonlite": {
       "Package": "jsonlite",
@@ -102,10 +116,10 @@
     },
     "knitr": {
       "Package": "knitr",
-      "Version": "1.30",
+      "Version": "1.36",
       "Source": "Repository",
       "Repository": "CRAN",
-      "Hash": "eed7ee0d02eee88d53881cdc92457c62"
+      "Hash": "46344b93f8854714cdf476433a59ed10"
     },
     "later": {
       "Package": "later",
@@ -120,13 +134,6 @@
       "Source": "Repository",
       "Repository": "CRAN",
       "Hash": "1bb58822a20301cee84a41678e25d9b7"
-    },
-    "markdown": {
-      "Package": "markdown",
-      "Version": "1.1",
-      "Source": "Repository",
-      "Repository": "CRAN",
-      "Hash": "61e4a10781dd00d7d81dd06ca9b94e95"
     },
     "mime": {
       "Package": "mime",
@@ -158,17 +165,17 @@
     },
     "rmarkdown": {
       "Package": "rmarkdown",
-      "Version": "2.7",
+      "Version": "2.11",
       "Source": "Repository",
       "Repository": "CRAN",
-      "Hash": "edbf4cb1aefae783fd8d3a008ae51943"
+      "Hash": "320017b52d05a943981272b295750388"
     },
     "servr": {
       "Package": "servr",
-      "Version": "0.19",
+      "Version": "0.23",
       "Source": "Repository",
       "Repository": "CRAN",
-      "Hash": "df5ec29080407d731194855c1538e0be"
+      "Hash": "75a40cd4f8503fe175be6b213009767f"
     },
     "stringi": {
       "Package": "stringi",
@@ -186,17 +193,17 @@
     },
     "tinytex": {
       "Package": "tinytex",
-      "Version": "0.26",
+      "Version": "0.34",
       "Source": "Repository",
       "Repository": "CRAN",
-      "Hash": "db6477efcfbffcd9b3758c3c2882cf58"
+      "Hash": "043daa786f4d254f0031534150e28d42"
     },
     "xfun": {
       "Package": "xfun",
-      "Version": "0.18",
+      "Version": "0.26",
       "Source": "Repository",
       "Repository": "CRAN",
-      "Hash": "d1c0b777b432e4b4c039c8aaecc54e0f"
+      "Hash": "a270216f7ffda25e53298293046d1d05"
     },
     "yaml": {
       "Package": "yaml",
