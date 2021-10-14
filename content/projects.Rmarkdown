@@ -2,7 +2,7 @@
 title: "Projects"
 output:
   html_document:
-    css: "strapless.css"
+    css: "css/strapless.css"
 ---
 
 

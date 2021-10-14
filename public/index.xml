@@ -1641,13 +1641,62 @@ Genomics is rapidly entering the world of health care in both the public and pri
     </item>
     
     <item>
-      <title></title>
+      <title>About me</title>
+      <link>https://daryavanichkina.com/about/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://daryavanichkina.com/about/</guid>
+      <description>&lt;p&gt;Hi! I&amp;rsquo;m Darya, a Data Scientist &amp;amp; Professional Educator. I work at the University of Sydney&amp;rsquo;s &lt;a href=&#34;https://informatics.sydney.edu.au&#34;&gt;Informatics Hub&lt;/a&gt; as a data science consultant, supporting researchers from across the university by solving their big (and not-so-big) data problems. I also coordinate SIH&amp;rsquo;s data science training program, where I mentor staff in best teaching practices, develop and deliver advanced analytics training for researchers.&lt;/p&gt;
+&lt;p&gt;I&amp;rsquo;m passionate about using data to understand the world, and love solving real problems using data science, machine learning, statistics and high-performance/cloud computing. I&amp;rsquo;ve had a lot of amazing opportunities in my life, and my way of giving back to the universe for them is to train and teach.&lt;/p&gt;
+&lt;p&gt;I’m proud to be a &lt;a href=&#34;carpentries.org/&#34;&gt;Carpentries&lt;/a&gt; Instructor and Trainer and have been a maintainer and mentor in the past. I&amp;rsquo;m also an &lt;a href=&#34;https://education.rstudio.com/trainers/&#34;&gt;RStudio certified trainer&lt;/a&gt;; reach out to me &lt;a href=&#34;https://daryavanichkina.com/contact/&#34;&gt;here&lt;/a&gt; if you&amp;rsquo;re interested in custom corporate training.&lt;/p&gt;
+&lt;p&gt;I spent over a decade as a biomedical scientist before joining the &amp;ldquo;dark side&amp;rdquo;. I hold a PhD in Genomics and Bioinformatics from the University of Queensland, where I investigated novel ncRNA transcription in human and mouse stem cell and nervous system development. I&amp;rsquo;ve also done a PostDoc at the Centenary Institute, investigating alternative splicing dynamics and regulation. You can have a look at my papers &lt;a href=&#34;https://www.ncbi.nlm.nih.gov/pubmed/?term=Vanichkina+D%5BAuthor%5D&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Contact</title>
+      <link>https://daryavanichkina.com/contact/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://daryavanichkina.com/contact/</guid>
+      <description>&lt;h4 id=&#34;electronic-address&#34;&gt;Electronic address&lt;/h4&gt;
+&lt;p&gt;d.[lastname] at gmail [dot] com&lt;/p&gt;
+&lt;h4 id=&#34;physical-address&#34;&gt;Physical address&lt;/h4&gt;
+&lt;pre&gt;&lt;code&gt;Sydney Informatics Hub
+Merewether Building (H04)
+University of Sydney
+Darlington NSW 2008
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h4 id=&#34;links-to-other-websites&#34;&gt;Links to other websites&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/dvanic&#34;&gt;GitHub&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://uq.academia.edu/DaryaVanichkina&#34;&gt;Academia.edu&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://figshare.com/authors/Darya_Vanichkina/278260&#34;&gt;Figshare&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://orcid.org/0000-0002-0406-164X&#34;&gt; ORCID &lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.researchgate.net/profile/Darya_Vanichkina/&#34;&gt;ResearchGate&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.slideshare.net/DaryaVanichkina1&#34;&gt; Slideshare &lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://scholar.google.com/citations?user=rTMDV6UAAAAJ&#34;&gt; Google Scholar&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Curriculum vitae</title>
+      <link>https://daryavanichkina.com/cv/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://daryavanichkina.com/cv/</guid>
+      <description>&lt;p&gt;Please download &lt;a href=&#34;&#34;&gt;my full curriculum vitae&lt;/a&gt; or an &lt;a href=&#34;&#34;&gt;infographic version&lt;/a&gt;.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Projects</title>
       <link>https://daryavanichkina.com/projects/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://daryavanichkina.com/projects/</guid>
-      <description>&lt;h1 id=&#34;projects&#34;&gt;Projects&lt;/h1&gt;
-&lt;div&gt;
+      <description>&lt;div&gt;
 &lt;div class=&#34;row p-0 row-cols-1 row-cols-md-2 row-cols-lg-3&#34; style=&#34;margin-left: -.2rem; margin-right: -.2rem; margin-top: 1rem; margin-bottom: 1rem; &#34;&gt;
 &lt;div class=&#34;card bg-transparent m-0 border-0 collapse.show bs4cards-blahblahblah bs4cards-NA&#34; style=&#34;padding: .2rem ; border-width: 0; border-radius: .6rem .6rem .6rem .6rem ;&#34;&gt;
 &lt;a href=&#34;https://art.djnavarro.net/gallery/ash&#34;&gt;
@@ -1721,56 +1770,6 @@ Genomics is rapidly entering the world of health care in both the public and pri
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>About me</title>
-      <link>https://daryavanichkina.com/about/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://daryavanichkina.com/about/</guid>
-      <description>&lt;p&gt;Hi! I&amp;rsquo;m Darya, a Data Scientist &amp;amp; Professional Educator. I work at the University of Sydney&amp;rsquo;s &lt;a href=&#34;https://informatics.sydney.edu.au&#34;&gt;Informatics Hub&lt;/a&gt; as a data science consultant, supporting researchers from across the university by solving their big (and not-so-big) data problems. I also coordinate SIH&amp;rsquo;s data science training program, where I mentor staff in best teaching practices, develop and deliver advanced analytics training for researchers.&lt;/p&gt;
-&lt;p&gt;I&amp;rsquo;m passionate about using data to understand the world, and love solving real problems using data science, machine learning, statistics and high-performance/cloud computing. I&amp;rsquo;ve had a lot of amazing opportunities in my life, and my way of giving back to the universe for them is to train and teach.&lt;/p&gt;
-&lt;p&gt;I’m proud to be a &lt;a href=&#34;carpentries.org/&#34;&gt;Carpentries&lt;/a&gt; Instructor and Trainer and have been a maintainer and mentor in the past. I&amp;rsquo;m also an &lt;a href=&#34;https://education.rstudio.com/trainers/&#34;&gt;RStudio certified trainer&lt;/a&gt;; reach out to me &lt;a href=&#34;https://daryavanichkina.com/contact/&#34;&gt;here&lt;/a&gt; if you&amp;rsquo;re interested in custom corporate training.&lt;/p&gt;
-&lt;p&gt;I spent over a decade as a biomedical scientist before joining the &amp;ldquo;dark side&amp;rdquo;. I hold a PhD in Genomics and Bioinformatics from the University of Queensland, where I investigated novel ncRNA transcription in human and mouse stem cell and nervous system development. I&amp;rsquo;ve also done a PostDoc at the Centenary Institute, investigating alternative splicing dynamics and regulation. You can have a look at my papers &lt;a href=&#34;https://www.ncbi.nlm.nih.gov/pubmed/?term=Vanichkina+D%5BAuthor%5D&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Contact</title>
-      <link>https://daryavanichkina.com/contact/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://daryavanichkina.com/contact/</guid>
-      <description>&lt;h4 id=&#34;electronic-address&#34;&gt;Electronic address&lt;/h4&gt;
-&lt;p&gt;d.[lastname] at gmail [dot] com&lt;/p&gt;
-&lt;h4 id=&#34;physical-address&#34;&gt;Physical address&lt;/h4&gt;
-&lt;pre&gt;&lt;code&gt;Sydney Informatics Hub
-Merewether Building (H04)
-University of Sydney
-Darlington NSW 2008
-&lt;/code&gt;&lt;/pre&gt;
-&lt;h4 id=&#34;links-to-other-websites&#34;&gt;Links to other websites&lt;/h4&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://github.com/dvanic&#34;&gt;GitHub&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://uq.academia.edu/DaryaVanichkina&#34;&gt;Academia.edu&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://figshare.com/authors/Darya_Vanichkina/278260&#34;&gt;Figshare&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://orcid.org/0000-0002-0406-164X&#34;&gt; ORCID &lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://www.researchgate.net/profile/Darya_Vanichkina/&#34;&gt;ResearchGate&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://www.slideshare.net/DaryaVanichkina1&#34;&gt; Slideshare &lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://scholar.google.com/citations?user=rTMDV6UAAAAJ&#34;&gt; Google Scholar&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Curriculum vitae</title>
-      <link>https://daryavanichkina.com/cv/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://daryavanichkina.com/cv/</guid>
-      <description>&lt;p&gt;Please download &lt;a href=&#34;&#34;&gt;my full curriculum vitae&lt;/a&gt; or an &lt;a href=&#34;&#34;&gt;infographic version&lt;/a&gt;.&lt;/p&gt;
 </description>
     </item>
     

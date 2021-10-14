@@ -1,10 +1,9 @@
 ---
+title: "Projects"
 output:
   html_document:
-    css: "strapless.css"
+    css: "css/strapless.css"
 ---
-
-# Projects
 
 <div>
 <div class="row p-0 row-cols-1 row-cols-md-2 row-cols-lg-3" style="margin-left: -.2rem; margin-right: -.2rem; margin-top: 1rem; margin-bottom: 1rem; ">
