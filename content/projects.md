@@ -6,9 +6,6 @@ output:
       version: 4
 ---
 
-<script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
-
-
 <div>
 <div class="row p-0 row-cols-1 row-cols-lg-2" style="margin-left: -.2rem; margin-right: -.2rem; margin-top: 1rem; margin-bottom: 1rem; ">
 <div class="card bg-transparent m-0 border-0 collapse.show bs4cards-blahblahblah bs4cards-NA" style="padding: .2rem ; border-width: 0; border-radius: .6rem .6rem .6rem .6rem ;">
