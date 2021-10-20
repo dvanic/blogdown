@@ -1,9 +1,20 @@
-// css 
-{{ range .Site.Params.custom_css -}}
+{{ range .Site.Params.customCSS -}}
     <link rel="stylesheet" href="{{ . | absURL }}">
 {{- end }}
 
-// javascript
-{{ range .Site.Params.custom_js -}}
+{{ range .Site.Params.customjs -}}
     <script type="text/javascript" src="{{ . | absURL }}"></script>
 {{- end }}
+
+{{ .Site.Title }} {{ if or .Site.Menus.main .Site.IsMultiLingual }}
+
+    {{ with .Site.Menus.main}} {{ range sort . }}
+    {{ .Name }}
+    {{ end }} {{ end }} {{ if .Site.IsMultiLingual }} {{ $node := . }} {{ .Scratch.Set "separator" true }} {{ range (default .Site.Home.AllTranslations .Translations) }} {{ if ne $.Site.Language .Language }} {{ if $node.Scratch.Get "separator" }}
+    |
+    {{ $node.Scratch.Set "separator" false }} {{ end }}
+    {{ .Language.LanguageName }}
+    {{ end }} {{ end }} {{ end }}
+    |
+
+{{ end }} 
