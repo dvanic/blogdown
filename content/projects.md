@@ -1,10 +1,11 @@
 ---
 title: "Projects"
-output:
-  html_document:
-    css: "css/strapless.css"
+css: "/css/strapless.css"
+slug: projects
 ---
 
+
+<div class="highlight">
 <div>
 <div class="row p-0 row-cols-1 row-cols-md-2 row-cols-lg-3" style="margin-left: -.2rem; margin-right: -.2rem; margin-top: 1rem; margin-bottom: 1rem; ">
 <div class="card bg-transparent m-0 border-0 collapse.show bs4cards-blahblahblah bs4cards-NA" style="padding: .2rem ; border-width: 0; border-radius: .6rem .6rem .6rem .6rem ;">
@@ -75,6 +76,7 @@ output:
 <a href="https://art.djnavarro.net/gallery/viewports">
 <h5 class="card-title my-auto px-3 pt-3 pb-3">Viewports</h5>
 </a>
+</div>
 </div>
 </div>
 </div>
