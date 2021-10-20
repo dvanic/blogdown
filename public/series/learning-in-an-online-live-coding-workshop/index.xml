@@ -1,0 +1,455 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Learning in an online live coding workshop on Darya Vanichkina</title>
+    <link>https://daryavanichkina.com/series/learning-in-an-online-live-coding-workshop/</link>
+    <description>Recent content in Learning in an online live coding workshop on Darya Vanichkina</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Fri, 01 May 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://daryavanichkina.com/series/learning-in-an-online-live-coding-workshop/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Living dangerously: a newbie guide to running multiple version of R on a Mac</title>
+      <link>https://daryavanichkina.com/posts/2020-rswitch-guide/</link>
+      <pubDate>Fri, 01 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://daryavanichkina.com/posts/2020-rswitch-guide/</guid>
+      <description>&lt;p&gt;&lt;img src=&#34;https://unsplash.com/photos/3uunq0n1WRY&#34; alt=&#34;TBH I want to be this chicken&amp;hellip;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;You&amp;rsquo;d have to be living under a rock in the R community to not be aware of the fact that R 4.0 has been released, with some major changes, the biggest of which is probably the new default for &lt;code&gt;read.table()&lt;/code&gt;: &lt;code&gt;stringsAsFactors = FALSE&lt;/code&gt;, as well as the fact that &lt;code&gt;matrix()&lt;/code&gt; now converts character columns to factors and factors to integers.&lt;/p&gt;
+&lt;p&gt;In the past, I&amp;rsquo;ve always been too &amp;ldquo;chicken&amp;rdquo; to try running multiple versions of R on my work laptop, as I&amp;rsquo;ve usually got a few key analysis projects going that need to be delivered on time and within full feature scope - which means I don&amp;rsquo;t have time to fix basic version incompatibility bugs. But with this major new release I was sorely tempted, so have gone down the rabbit-hole of installing &lt;a href=&#34;https://rud.is/rswitch/guide/&#34;&gt;RSwitch&lt;/a&gt; and R4.0 on my Mac (Catalina 10.15.4). Below I document, in what is probably excruciating detail, the steps of how I got this to work. I&amp;rsquo;ve played with it for all of two days, and it seems to work - so I&amp;rsquo;ve written this post in the hopes of helping others. Also, I had some funky hiccups with getting the right filepath and not using sudo at the outset, so I&amp;rsquo;m hoping this helps someone avoid some extra &lt;code&gt;rm -r ...path...&lt;/code&gt;&lt;/p&gt;
+&lt;h2 id=&#34;step-0-critical-close-r--rstudio&#34;&gt;Step 0 (CRITICAL): Close R &amp;amp; RStudio&lt;/h2&gt;
+&lt;p&gt;Make sure you have closed R and RStudio prior to embarking on the below. Updating R versions mid-analysis can have &amp;hellip; unintended consequences.&lt;/p&gt;
+&lt;h2 id=&#34;step-1-download-rswitch-and-install-it&#34;&gt;Step 1: Download RSwitch and install it&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;a href=&#34;https://rud.is/rswitch/&#34;&gt;Download RSwitch&lt;/a&gt; and install it. Go through all of the hoops of getting it approved by MacOS and able to be run by accepting the risks of running software from an unidentified developer. (Eventually) End up with a nice switch icon in your menubar.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;step-2-get-new-r&#34;&gt;Step 2: Get new R&lt;/h2&gt;
+&lt;p&gt;[As usual] There is more than one way to get a new version of R onto your machine.&lt;/p&gt;
+&lt;h4 id=&#34;option-1-gui-imho-riskier&#34;&gt;Option 1: GUI (IMHO riskier)&lt;/h4&gt;
+&lt;p&gt;Download the graphical installer &lt;code&gt;R-4.0.0.pkg&lt;/code&gt;, which is the top link when on &lt;a href=&#34;https://cran.r-project.org/&#34;&gt;CRAN&lt;/a&gt; you click on &amp;ldquo;Download R for (Mac) OS X&amp;rdquo;. This is NOT the approach I took, because if done wrong this approach can remove your existing R installation, but I will describe how in theory I think it&amp;rsquo;s meant to be used below.&lt;/p&gt;
+&lt;h4 id=&#34;option-2-pre-built-copy-the-approach-i-took&#34;&gt;Option 2: Pre-built copy (the approach I took)&lt;/h4&gt;
+&lt;p&gt;Download a pre-built &lt;code&gt;.tar.gz&lt;/code&gt; copy of the R framework from the &lt;a href=&#34;https://mac.r-project.org/&#34;&gt;developer page&lt;/a&gt;. In my case, I downloaded the latest stable branch &lt;code&gt;R-4.0-branch.tar.gz (72 Mb)&lt;/code&gt;:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;../../images/200501_RBuilds.png&#34; alt=&#34;Which R?&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;step-3-apply-funky-magic&#34;&gt;Step 3: Apply funky magic&lt;/h2&gt;
+&lt;h4 id=&#34;option-1-gui&#34;&gt;Option 1: GUI&lt;/h4&gt;
+&lt;p&gt;So the reason I think the GUI is &amp;ldquo;riskier&amp;rdquo; is because usually when you run the GUI for a new version of R, it cleanly removes the old version of R from your machine. The workaround to prevent this from happening is to make your system, and hence the R installer, &amp;ldquo;forget&amp;rdquo; it has R installed. To do this you need to open a Terminal and type the following command:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;sudo pkgutil --forget org.r-project.R.el-capitan.fw.pkg \
+             --forget org.r-project.x86_64.tcltk.x11 \
+             --forget org.r-project.x86_64.texinfo \
+             --forget org.r-project.R.el-capitan.GUI.pkg
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;For details about &lt;strong&gt;why&lt;/strong&gt; this works see &lt;a href=&#34;https://cran.rstudio.org/doc/manuals/R-admin.html#Multiple-versions&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;After that completes successfully (note:  you&amp;rsquo;ll need to enter your password to use sudo) you can run the GUI installer.&lt;/p&gt;
+&lt;h4 id=&#34;option-2-command-line&#34;&gt;Option 2: Command line&lt;/h4&gt;
+&lt;p&gt;I&amp;rsquo;m fairly comfortable with the command line, so was happy to use that option, but did make a few silly mistakes with the paths, so am documenting what worked below, in the hope that it helps others:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Use the Terminal (&lt;code&gt;cd ...&lt;/code&gt;) to navigate to where you&amp;rsquo;ve got the &lt;code&gt;R.***.tar.gz&lt;/code&gt; and record its location, or -if you already know it - just copy the path to it to the clipboard.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Navigate to your root directory: &lt;code&gt;cd /&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Run &lt;code&gt;sudo tar -xvzf path_to_R_tar.gz_file&lt;/code&gt;, where &lt;code&gt;path_to_R_tar.gz_file&lt;/code&gt; is the path you saved to the clipboard. After you enter your password, R should be installed and you should have the latest version of R active on your machine.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;step-4-painfully-battle-the-security-stuff&#34;&gt;Step 4: Painfully battle the security stuff&lt;/h2&gt;
+&lt;p&gt;Try to open Rstudio. This is probably something that happens only with Option 2 above, but I got a bunch of security warnings from MacOS and had to &amp;ldquo;Allow Anyway&amp;rdquo; a ton (twice) before RStudio was able to load R 4.0.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;../../images/200501_Harm2.png&#34; alt=&#34;Harm2&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Accept all the things:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;../../images/200501_Harm1.png&#34; alt=&#34;Harm1&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;step-5-switch&#34;&gt;Step 5: Switch&lt;/h2&gt;
+&lt;p&gt;To go back to having your existing, &amp;ldquo;production&amp;rdquo; version of R active on your machine use RSwitch to select that older version:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;../../images/200501_Rswitch.png&#34; alt=&#34;pRSwitch&#34;&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;I hope this post has been helpful, and let me know in a comment if something isn&amp;rsquo;t working as described or something&amp;rsquo;s not clear. (Probably) next post: updating libraries&amp;hellip;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Jumping into digital: Lessons learned while moving live-coding workshops online</title>
+      <link>https://daryavanichkina.com/posts/2020-ardc-presentation-codingonline/</link>
+      <pubDate>Tue, 07 Apr 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://daryavanichkina.com/posts/2020-ardc-presentation-codingonline/</guid>
+      <description>&lt;p&gt;I presented a talk about &amp;ldquo;Jumping into digital: Lessons learned while moving live-coding workshops online&amp;rdquo; at the ARDC community webinar series in April 2020.&lt;/p&gt;
+&lt;p&gt;The abstract of my talk was:&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;At ResBaz 2019, I said (on camera) that it is impossible to run a hands-on, live-coding digital skills training workshop online. In March 2020, I led a team of trainers to do exactly this - move our 2-day, Carpentries-style, hands-on Machine Learning in R and Machine Learning in python workshops fully online - in a week! In this talk, I’ll share how we prepared, what we did, how it went, and what lessons we learned. I’ll discuss which platforms we considered, share some technical tidbits on how to set up your online session and, more critically, what to expect when teaching in this very different format. I’ll also highlight some of the challenges we encountered, and try to explain why - even though it was incredibly hard - I think we’ll try teaching online again.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;My slides can be found below:&lt;/p&gt;
+&lt;iframe src=&#34;//www.slideshare.net/slideshow/embed_code/key/hhJbHFBL457YhI&#34; width=&#34;595&#34; height=&#34;485&#34; frameborder=&#34;0&#34; marginwidth=&#34;0&#34; marginheight=&#34;0&#34; scrolling=&#34;no&#34; style=&#34;border:1px solid #CCC; border-width:1px; margin-bottom:5px; max-width: 100%;&#34; allowfullscreen&gt; &lt;/iframe&gt; &lt;div style=&#34;margin-bottom:5px&#34;&gt; &lt;strong&gt; &lt;a href=&#34;//www.slideshare.net/DaryaVanichkina1/jumping-into-digital-lessons-learned-while-moving-live-coding-machine-learning-workshops-online&#34; title=&#34;Jumping into digital: Lessons learned while moving live coding machine learning workshops online&#34; target=&#34;_blank&#34;&gt;Jumping into digital: Lessons learned while moving live coding machine learning workshops online&lt;/a&gt; &lt;/strong&gt; from &lt;strong&gt;&lt;a href=&#34;https://www.slideshare.net/DaryaVanichkina1&#34; target=&#34;_blank&#34;&gt;Darya Vanichkina&lt;/a&gt;&lt;/strong&gt; &lt;/div&gt;
+&lt;p&gt;And, finally, the video is embedded below:&lt;/p&gt;
+&lt;iframe width=&#34;595&#34; height=&#34;335&#34; src=&#34;https://www.youtube.com/embed/w0DHye2M1IM&#34; frameborder=&#34;0&#34; allow=&#34;accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture&#34; allowfullscreen&gt;&lt;/iframe&gt;
+&lt;p&gt;Please enjoy, and I&amp;rsquo;d love comments and discussion below!&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Mapping a live coding workshop for digital delivery (part 2)</title>
+      <link>https://daryavanichkina.com/posts/2020-map-digital-2/</link>
+      <pubDate>Fri, 03 Apr 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://daryavanichkina.com/posts/2020-map-digital-2/</guid>
+      <description>&lt;p&gt;With the advent of COVID-19 we’re all having to do the unthinkable, which for an instructor like me means moving hands-on, practical coding workshops online. I&amp;rsquo;ve already written a post with a student-facing map of the process (and some tips for students), but I wanted to focus on a few instructor-related aspects of the map in this post.&lt;/p&gt;
+&lt;h2 id=&#34;my-personal-teaching-setup&#34;&gt;My personal teaching setup&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&#34;../../images/mysetup2.jpg&#34; alt=&#34;mysetup&#34;&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;I&amp;rsquo;m incredibly lucky to have access to several machines, which I use to work through materials  on all of the platforms and also while teaching.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;During live teaching, we use two machines: (1) a shared &amp;ldquo;training&amp;rdquo; laptop on which we live code or show slides, connected to the projector all day, and (2) our own individual machines, which we use for looking at the notes.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;For teaching online, I use:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;A primary machine, with a good camera, as my teaching machine. This has a vanilla setup of RStudio and/or Jupyter, notifications are turned off and all I can see are the things I need to teach. This laptop has only the one, built-in screen.&lt;/li&gt;
+&lt;li&gt;A secondary machine, a.k.a. my command centre. This machine has my back-channel open, Zoom gallery view (I log in twice to the training) so I can see my learners, Zoom chats and Participants all visible. My notes are &lt;em&gt;printed out&lt;/em&gt; on paper, as I have enough screens and windows to try to juggle.&lt;/li&gt;
+&lt;li&gt;A third machine, which has one (small-ish) screen, and shows me what a learner with only one laptop/desktop screen is seeing. This is not essential, but helps me adjust font sizes and window widths to make sure people can actually live code along with me, without needing to rely on my co-instructors (I still ask students if it&amp;rsquo;s OK, of course, but this helps me self-adjust faster).&lt;/li&gt;
+&lt;li&gt;I use an iPad if I need access to whiteboard (see below).&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;back-channel-communication-whispering-in-someones-ear&#34;&gt;Back-channel communication: whispering in someone&amp;rsquo;s ear&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&#34;https://images.unsplash.com/photo-1482356432770-3a99f07aba35?ixlib=rb-1.2.1&amp;amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;amp;auto=format&amp;amp;fit=crop&amp;amp;w=500&amp;amp;q=80&#34; alt=&#34;whisper&#34;&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;You need a quick and easy way to communicate between you and your co-instructors. I recommend a different, secondary chat application for this, for example Microsoft Teams or Slack (or Telegram/Whatsapp - whatever), if you&amp;rsquo;re using Zoom as your primary teaching tool.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Ideally, you set up two channels in this: one for urgent messages to the instructor who&amp;rsquo;s teaching (&amp;ldquo;YOUR SCREEN IS TINY!&amp;quot;), and another for non-teaching instructors to communicate with each other. This allows your helpers to communicate about challenging software installs (&amp;ldquo;Do you have any experience updating R libraries on Ubuntu?&amp;quot;), delegate responsibilities (&amp;ldquo;Can you take over host please? I really need a break for 3 minutes!&amp;quot;) and otherwise manage the class - but all of this is not relevant for the instructor who&amp;rsquo;s teaching and can actually distract them if they keep getting pinged about it.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;common-problems-learner-with-setup-challenges&#34;&gt;Common problems: learner with setup challenges&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&#34;https://images.unsplash.com/photo-1495821697794-a40e5fca2830?ixlib=rb-1.2.1&amp;amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;amp;auto=format&amp;amp;fit=crop&amp;amp;w=500&amp;amp;q=60&#34; alt=&#34;challenges&#34;&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;First and foremost, send out detailed setup and installation instructions, complete with screenshots, to your learners several days before the course. Remind them to email you with screenshots of any error messages, or - if you&amp;rsquo;re teaching a large class - get them to post the screenshots into a shared document, and encourage peers to help.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Second, provide the opportunity for learners who have had issues to join the meeting an hour early and try to get help (yes, this means I&amp;rsquo;m online at 8 am for a 9 am class).&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;My preferred way of helping debug issues is to have learners post a screenshot of the error message into a specific place in the shared document we&amp;rsquo;re using, and for me to guide them in trying to fix it (via the Zoom chat if at all possible - but note it doesn&amp;rsquo;t work well with line breaks, so you may need to use the shared doc for pasting code as well).&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Tools like Zoom do provide the functionality to share screens and take over someone&amp;rsquo;s desktop, BUT I&amp;rsquo;ve found taking screenshots is faster, doesn&amp;rsquo;t require you to jump out into a breakout room (so the learner doesn&amp;rsquo;t miss out on core content), and doesn&amp;rsquo;t cause bandwidth problems (I&amp;rsquo;ve tried taking over learners&#39; desktops with suboptimal bandwidth, and it kicked both of us out of the session).&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Finally, it can be helpful to have a backup cloud platform for teaching as well, as the digital equivalent of spare laptops. We&amp;rsquo;ve been successful using &lt;a href=&#34;https://mybinder.org/&#34;&gt;mybinder.org&lt;/a&gt; for python, and have tried but not productionised &lt;a href=&#34;https://rstudio.cloud&#34;&gt;rstudio.cloud&lt;/a&gt; for R. I&amp;rsquo;d love a suggestion for an online terminal for teaching basic Unix!&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;common-problems-poor-internet-connectivity&#34;&gt;Common problems: poor internet connectivity&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&#34;https://images.unsplash.com/photo-1518016491499-75f85ea4c86d?ixlib=rb-1.2.1&amp;amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;amp;auto=format&amp;amp;fit=crop&amp;amp;w=500&amp;amp;q=60&#34; alt=&#34;connectivity&#34;&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;If you are having issues with your connection, consider (1) switching to slides/screenshare-only mode, (2) ensuring your device has priority on your home WiFi network, (3) trying to teach via a personal hotspot or (4) swapping to another instructor teaching&lt;sup id=&#34;fnref:1&#34;&gt;&lt;a href=&#34;#fn:1&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;1&lt;/a&gt;&lt;/sup&gt;. This is something you can communicate about with your team via the back-channel - and a key reason the back-channel needs to use very little bandwidth!&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;For learners, you can try asking them to turn off their video, and possibly also closing other tabs/devices connected to the internet.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;common-problems-tool-stack-meltdown&#34;&gt;Common problems: Tool stack meltdown&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&#34;https://images.unsplash.com/photo-1516537219851-920e2670c6e3?ixlib=rb-1.2.1&amp;amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;amp;auto=format&amp;amp;fit=crop&amp;amp;w=500&amp;amp;q=80&#34; alt=&#34;volcano&#34;&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;EXPECT&lt;/strong&gt; your primary tool stack to melt down. If you are using Zoom/Teams/GoToMeeting, expect your platform to go down at least once during the training (it&amp;rsquo;s great if it doesn&amp;rsquo;t, but you&amp;rsquo;re prepared if it does!). Have a plan, with your co-instructors, what you&amp;rsquo;re going to do: switch to another tool? take an off-schedule break? Something else?&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Explicitly tell your students how you&amp;rsquo;ll communicate with them to let them know where to go in the event of a breakdown. For us, I prefer using the shared doc, but an email would also work (albeit might be slower, as they&amp;rsquo;re hopefully not checking email while we&amp;rsquo;re teaching).&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;shared-documents&#34;&gt;Shared documents&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&#34;https://images.unsplash.com/photo-1545377079-08d414f11a5f?ixlib=rb-1.2.1&amp;amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;amp;auto=format&amp;amp;fit=crop&amp;amp;w=500&amp;amp;q=60&#34; alt=&#34;shareddoc&#34;&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;A shared, student-editable document is essential for successful delivery of training.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;My primary criteria for a shared document include:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;It is editable by all students (ideally without logging in),&lt;/li&gt;
+&lt;li&gt;It doesn&amp;rsquo;t take up too much screen real estate,&lt;/li&gt;
+&lt;li&gt;It allows you to post images by copy-pasting them in,&lt;/li&gt;
+&lt;li&gt;It doesn&amp;rsquo;t require any cognitive overhead for learners to figure out how to use it.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;The official solution recommended by the University of Sydney is a Microsoft Office Online Word document.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;I have had success using Google Docs. I provide a link to a public doc, so learners don&amp;rsquo;t have to log in with their Google Account, and ensure that no student data is collected in the doc (i.e. learners can use first names or pseudonyms only on the doc). Most people have used Docs, so there is no overhead in figuring out how to use the tool - we can just dive in and move on.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;There are tools like the &lt;a href=&#34;https://etherpad.org/&#34;&gt;Etherpad&lt;/a&gt;, &lt;a href=&#34;https://hackmd.io&#34;&gt;hack.md&lt;/a&gt; and an open-source, self-hosted version called &lt;a href=&#34;https://demo.codimd.org/&#34;&gt;CodiMD&lt;/a&gt;. The latter two support document creation in markdown, which is great because it&amp;rsquo;s plain text, but also not so great, because it uses more screen real estate than Google docs (especially with the preview pane open side by side with the markdown itself).&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;What goes in the Doc? My (non-exhaustive) check-list includes:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;The title of the course&lt;/li&gt;
+&lt;li&gt;The names of all of the instructors who are part of the teaching team&lt;/li&gt;
+&lt;li&gt;Links to the course materials&lt;/li&gt;
+&lt;li&gt;Links to any data downloads&lt;/li&gt;
+&lt;li&gt;Links to the registration page for the course&lt;/li&gt;
+&lt;li&gt;Links to pre and post workshop surveys&lt;/li&gt;
+&lt;li&gt;Details about the zoom meeting, and every possible way learners can log onto it&lt;/li&gt;
+&lt;li&gt;Links to the setup instructions and tests that setup completed successfully&lt;/li&gt;
+&lt;li&gt;[Links to the mybinder or Rstudio cloud instance, if using as a backup]&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;code-transfer&#34;&gt;Code transfer&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&#34;https://images.unsplash.com/photo-1542903660-eedba2cda473?ixlib=rb-1.2.1&amp;amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;amp;auto=format&amp;amp;fit=crop&amp;amp;w=500&amp;amp;q=60&#34; alt=&#34;codetransfer&#34;&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Sometimes you need to share a chunk of code with your learners. While you can paste it into the shared document or Zoom chat, often these tools will do strange things with spaces and quotes.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Instead, I recommend pasting them into a public &lt;a href=&#34;https://gist.github.com/&#34;&gt;GitHub gist&lt;/a&gt;, sharing the link with your learners via the chat, and screen sharing how you would access the gist and move it into your R/python session.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;whiteboard&#34;&gt;Whiteboard&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&#34;https://images.unsplash.com/photo-1532619675605-1ede6c2ed2b0?ixlib=rb-1.2.1&amp;amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;amp;auto=format&amp;amp;fit=crop&amp;amp;w=500&amp;amp;q=80&#34; alt=&#34;whiteboard&#34;&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;In an in-person live coding class, I often use the whiteboard when answering student questions or working through problems.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Digitally, I&amp;rsquo;m a lot more hesitant to use one, if only because it takes away screen real estate from the other things I&amp;rsquo;m doing, which are often more important for the learners to see at the time.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;However, I have had success using my iPad and both GoodNotes and Notability when I needed a digital whiteboard, following the instructions &lt;a href=&#34;https://www.youtube.com/watch?v=8TI43FzHd6Q&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;p&gt;I hope these two posts are helpful for you as you prepare to jump into teaching online! Please leave a comment below if you found something useful, unclear or would like to add something else I missed!&lt;/p&gt;
+&lt;section class=&#34;footnotes&#34; role=&#34;doc-endnotes&#34;&gt;
+&lt;hr&gt;
+&lt;ol&gt;
+&lt;li id=&#34;fn:1&#34; role=&#34;doc-endnote&#34;&gt;
+&lt;p&gt;This is why we say all instructors have to be able to teach all content! If you think it&amp;rsquo;s different in-person, ask me about the time I had a massive, I-can&amp;rsquo;t-stop-even-if-I-try-really-hard coughing fit in the middle of teaching. I literally walked out of the classroom to try not to die in public, waving vaguely to my co-instructor to go on without me (which she very successfully did). That&amp;rsquo;s also when I discovered, after 20 minutes of searching, that there is no student-accessible hot water tap in the Sydney Uni Quadrangle (!), and was able to soothe my throat only after some kind caterers who were wrapping up for the day shared a pot of hot honey lemon tea. &lt;a href=&#34;#fnref:1&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/section&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Mapping a live coding workshop for digital delivery</title>
+      <link>https://daryavanichkina.com/posts/2020-map-digital-1/</link>
+      <pubDate>Thu, 02 Apr 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://daryavanichkina.com/posts/2020-map-digital-1/</guid>
+      <description>&lt;p&gt;With the advent of COVID-19 we’re all having to do the unthinkable, which for an instructor like me means moving hands-on, practical coding workshops online. In this post, I&amp;rsquo;ll provide a map that helped me formalise how I broke down our workshops into components, and tried to map each of them to an online tool, platform or approach. I&amp;rsquo;ve used Zoom for most of the examples below, since that&amp;rsquo;s what I&amp;rsquo;ve used for teaching, but I&amp;rsquo;m sure that most of this functionality is well supported by other online meeting tools.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://images.unsplash.com/photo-1581043144435-ebcd25885809?ixlib=rb-1.2.1&amp;amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;amp;auto=format&amp;amp;fit=crop&amp;amp;w=500&amp;amp;q=80&#34; alt=&#34;NameTag&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;preliminaries&#34;&gt;Preliminaries&lt;/h2&gt;
+&lt;p&gt;A learners arrives in my training room. They:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;Sign in on a sign-in sheet&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;The &amp;ldquo;Host&amp;rdquo; can take a screenshot of all of the participants, in gallery view, and/or a list of the names of Participants, approximately 30 minutes after the session begins&lt;sup id=&#34;fnref:1&#34;&gt;&lt;a href=&#34;#fn:1&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;1&lt;/a&gt;&lt;/sup&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Make a name tag for themselves&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;Rename themselves in Zoom to their preferred name, faculty or school (depending on teaching cohort) and preferred pronoun, so I&amp;rsquo;d become, for example &amp;ldquo;Darya (SIH, she/her)&amp;rdquo;.&lt;/li&gt;
+&lt;li&gt;This can sometimes make it tricky to match names to emails, which is what we use as our unique key for registration. That&amp;rsquo;s why I try to check people in during the day, and clarify with a private chat message asking what someone&amp;rsquo;s email is if I&amp;rsquo;m unable to unambiguously match them to their email.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Find a seat&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;There are several ways to allocate learners to a breakout room. First, you can use the faculty details in the naming convention above to group people by discipline, school or faculty.
+&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;This can present challenges downstream if a particular aspect of your course is better aligned with one domain&amp;rsquo;s background knowledge than another&amp;rsquo;s. For example, I use a problem with cancer patients and controls, which for me (and most people with a biomedical background) obviously indicates that the latter group are healthy, possibly/ideally age/gender matched people without cancer. When I grouped people by Faculty, the life and health sciences team powered through the challenge, whereas the engineers ended up spending a lot of time wrapping their heads around what a control was in this context.&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;So in the future I think I&amp;rsquo;ll stick to what happens in real life, and mix people by first letter of name or order of popping into the course, similar to how learners tend to randomly sit together in a 3D classroom.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;workshop-start&#34;&gt;Workshop start&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Chat to their neighbours&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;In a 3D workshop this is part of the preliminaries, but you as the instructor have to actively normalise this online.&lt;/li&gt;
+&lt;li&gt;It&amp;rsquo;s one of the hardest things to replicate: the productive interactions and relationship-building/networking among learners that happens when you work together on a bunch of tasks for 2 days straight.&lt;/li&gt;
+&lt;li&gt;A somewhat useful replacement that gets learners talking is an icebreaker task (&lt;a href=&#34;https://carpentries.github.io/instructor-training/icebreakers/&#34;&gt;ideas here&lt;/a&gt;), which can either be posted into the shared document OR carried out orally in small groups in breakout rooms. I find it helpful, in addition to asking about something relatable (&amp;ldquo;What was the most interesting thing you learned working from home last week?&amp;quot;) to ask about learners&#39; setups and screens (&amp;ldquo;What does your learning setup look like today?&amp;quot;). That way, I can suggest tweaks, such as logging in from a mobile device as a modification of a two screen setup. Another option is to ask the latter &lt;a href=&#34;https://support.zoom.us/hc/en-us/articles/213756303-Polling-for-Meetings&#34;&gt;as a poll&lt;/a&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Code of Conduct&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;All workshops need a &lt;a href=&#34;https://sydney-informatics-hub.github.io/codeofconduct/&#34;&gt;Code of Conduct&lt;/a&gt;, which establishes the norms of behaviour you expect to support everyone&amp;rsquo;s learning. Online, I add information about expectations for private messaging and screen sharing, as well as recording (nope!).&lt;/li&gt;
+&lt;li&gt;I also ask people to let me know (via a private chat message, at any point in the workshop) if they&amp;rsquo;re uncomfortable with me explicitly calling on them, as one of the biggest challenges of teaching online (and off) is extroverts dominating the conversation. To prevent this, I keep a tally of who I&amp;rsquo;ve called on, but I also want to make sure I don&amp;rsquo;t make someone who&amp;rsquo;s wrangling a child or responding to 50 emails about a grant deadline to feel uncomfortable or pressured.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Schedule&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Just like a &amp;ldquo;normal&amp;rdquo; class, I use a slide to walk learners through the schedule, explain how the course content is linked and when breaks will happen.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Sticky notes&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;In a Carpentries workshop, we have a very special way of using &lt;a href=&#34;https://dynamicecology.wordpress.com/2015/01/13/sticky-notes-as-a-teaching-and-lab-meeting-tool/&#34;&gt;sticky notes&lt;/a&gt; to gauge learner state and assess who needs help - without them having to hold their hand up for hours. Zoom is great because it&amp;rsquo;s a digital platform that allows us to replicate the same - BUT it&amp;rsquo;s important to recognise that using this feature in Zoom costs screen real estate (and cognitive load!), so may need to be relied on sparingly during some portions of the class, especially the live coding ones!&lt;/li&gt;
+&lt;li&gt;To replicate stickies in Zoom you can use the &lt;strong&gt;&lt;a href=&#34;https://support.zoom.us/hc/en-us/articles/115001286183-Non-verbal-Feedback-During-Meetings&#34;&gt;Non-verbal Feedback&lt;/a&gt; functionality&lt;/strong&gt;:&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;img src=&#34;https://assets.zoom.us/images/en-us/desktop/generic/in-meeting/participants-list-status-icons.png&#34; alt=&#34;NonverbalFeedback&#34;&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;While there are a LOT of options, we tended to use only the &amp;ldquo;Hand up&amp;rdquo;, &amp;ldquo;Yes&amp;rdquo; and &amp;ldquo;No&amp;rdquo; options, as (1) you can only use one of these statuses at a time, and (2) we wanted to know whether students were good (&amp;ldquo;Yes&amp;rdquo;), needed a helper to reach out (&amp;ldquo;No&amp;rdquo;), or wanted to ask a question (&amp;ldquo;Hand&amp;rdquo;). The Hand functionality is also quite helpful for the instructor, as it automatically places the person with the hand up at the top left in Gallery view mode.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;I&amp;rsquo;ll also mention &lt;a href=&#34;https://support.zoom.us/hc/en-us/articles/360038311212-Meeting-reactions&#34;&gt;&lt;strong&gt;Reactions&lt;/strong&gt;&lt;/a&gt; here, which unlike Non-verbal feedback are a non-persistent way learners can tell you that all is good: they&amp;rsquo;re displayed on screen for 5 seconds, and are overlaid &lt;em&gt;over&lt;/em&gt; a learners picture in Gallery view. You can only show &amp;ldquo;thumbs up&amp;rdquo;  or &amp;ldquo;clap&amp;rdquo;, so they&amp;rsquo;re not very helpful for getting negative feedback.  Our learners used them intuitively, without us providing explicit instructions, to  let us know that they didn&amp;rsquo;t have any questions during the frequent pauses we made to ask &amp;ldquo;Does anyone have any questions?/Are there any questions?/What&amp;rsquo;s unclear about what we just did?&amp;rdquo;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&#34;https://zoom-support-cdn.s3.amazonaws.com/images/en-us/desktop/generic/shared-screen-with-reactions.png&#34; alt=&#34;galleryviewwithreactions&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;slide-centric-sessions&#34;&gt;Slide-centric sessions&lt;/h2&gt;
+&lt;p&gt;In some of our intermediate sessions, we then dive into slides, with a small slide deck (20 minutes max) that provides some theory and a few conceptual challenge tasks. With these sessions, I&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Start by showing learners how best to set up their screens for learning, including if they want to take notes or ask questions via the chat.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Make sure I explicitly provide a link to where they can download the slides, so they can annotate a copy as we go, on their own machine.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Set up the norms of asking questions: use the chat (or the shared doc, but ideally not both), and have my hosting co-instructor interrupt me during short pauses if I miss a question that a learner asked that would be best answered during that particular slide/mini-session vs at the end of the presentation.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;live-coding-sessions&#34;&gt;Live coding sessions&lt;/h2&gt;
+&lt;p&gt;These form the core of our workshops, with sessions of coding along interspersed with short, formative assessment tasks, including multiple choice questions, faded examples and more complex, unscaffolded challenge tasks. Live coding is the most challenging aspect to &amp;ldquo;port&amp;rdquo; to digital. The key things that help make these work (somewhat):&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Make sure you use/share/project only 1/2 of your screen, and use an appropriate coding &amp;ldquo;tool&amp;rdquo; that encompasses everything in that 1/2 screen. This means jupyter notebooks and the terminal are in, but RStudio/a .R script, in it&amp;rsquo;s native implementation, is out - they just take up too much screen real estate! The best work-around I&amp;rsquo;ve found so far is to use an Rmarkdown document, with inline output for figures. This is what you get the settings to look like:&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;img src=&#34;../../images/200401_RstudioInline.png&#34; alt=&#34;inlinesetup&#34;&gt;&lt;/p&gt;
+&lt;p&gt;And this is what the learners&#39; screens looked like:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;../../images/2004_howtoscreen.png&#34; alt=&#34;howtoo&#34;&gt;&lt;/p&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;
+&lt;p&gt;During the training, start by showing learners how best to set up their screens for learning.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;If you do decide (or your learners just go) to move to more of a watch me narrate and code, I highly recommend having the challenge tasks commented out in a single code file you distribute throughout the day - so a .py or a .R or (possibly) even a .sh script, although I&amp;rsquo;m not sure about the latter, as most intro Unix courses don&amp;rsquo;t necessarily work a lot with shell scripts. Learners can then uncomment the challenges as they go, and work through them at the appropriate times.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;breakout-rooms-and-challenge-tasks&#34;&gt;Breakout rooms and challenge tasks&lt;/h2&gt;
+&lt;p&gt;Peer learning has been shown in numerous studies to be one of the most effective ways of getting students to learn. In our in-person training sessions, we encourage learners to sit in a group and, for every challenge task, to start working on it themselves, then share their solution or any encountered problems with their neighbour, then their table and - finally - when the group has solves it - with the class. To replicate this in an online environment we used Zoom &lt;a href=&#34;https://support.zoom.us/hc/en-us/articles/206476093-Getting-Started-with-Breakout-Rooms&#34;&gt;breakout rooms&lt;/a&gt;, with a few caveats:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;The host - who is NOT the person teaching - needs to set up the maximum number of breakout rooms at the beginning of the training session. Note that ONLY the host, and NOT the co-hosts, can set up breakout rooms and allocate people to them!&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;We send groups of 3-5 learners, plus one co-instructor, into each breakout room. Unlike an in-person event, in a digital skills training we found that it took learners a few minutes to adjust to the breakout context and figure out what they were meant to do and where - so the instructor in each room helped guide this process.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Right before a challenge task we&amp;rsquo;d paste the text of the task into the chat AND add it into our shared document. This meant that all learners had easy access to the activity. Note that the chat in a breakout room can only happen between people IN that room, so if learners are all in a room and want to message the host, who is NOT in their room, they can&amp;rsquo;t do this! So if you&amp;rsquo;ve got more rooms than co-instructors it can be helpful to have them post requests for help into the shared document, after which you can jump into the room; they can also ask for help via the app:&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;img src=&#34;https://assets.zoom.us/images/en-us/desktop/generic/ask-for-help-button.png&#34; alt=&#34;help&#34;&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;The red/green &amp;ldquo;No&amp;rdquo;/&amp;ldquo;Yes&amp;rdquo; participant statuses are not visible to the host from outside a breakout room, so using them to replace stickies doesn&amp;rsquo;t work in this context.&lt;/li&gt;
+&lt;li&gt;Note that users joined via the web client, Chromebooks/Chrome OS or Zoom Rooms are unable to join Breakout Rooms! Zoom suggests the main room as an alternative session for these users, but we&amp;rsquo;d recommend explicitly requesting learners to use an installed version of the app/an individual machine instead of the web client or room.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;To mimic the green sticky system of in-person teaching, the instructors can use the back-channel to communicate about where their group is in the task OR - if you&amp;rsquo;ve got rooms without instructors - I&amp;rsquo;d recommend learners use the shared document to update you  when they&amp;rsquo;ve completed each of the components of the challenge task.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;When everyone&amp;rsquo;s back together ask for a volunteer early on, then, later in the day, call on people to prevent extroverts from dominating the reporting.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;casual-chats-with-instructors-and-other-learners&#34;&gt;Casual chats with instructors and other learners&lt;/h2&gt;
+&lt;p&gt;This is impossible to fully replicate online, BUT as a workaround: plan for at least one of your instructors to be in the meeting during the morning and afternoon &amp;ldquo;tea&amp;rdquo; breaks (Labelled &amp;ldquo;HERE&amp;rdquo; below). My &amp;ldquo;standard&amp;rdquo; workshop schedule looks like this:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;09:00 am - 10:30 am - Training&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;10:30 am - 11:00 am - &amp;ldquo;Morning tea&amp;rdquo;&lt;/strong&gt; &amp;lt;- HERE&lt;/li&gt;
+&lt;li&gt;11:00 am - 12:30 pm - Training&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;12:30 pm -  1:30 pm - Lunch&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;1:30 pm - 3:00 pm - Training&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;3:00 pm - 3:30 pm - &amp;ldquo;Afternoon tea&amp;rdquo;&lt;/strong&gt; &amp;lt;- HERE&lt;/li&gt;
+&lt;li&gt;3:30 pm - 5:00 pm - Training&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;What does that instructor do? Small talk at the least, and - usually - after getting to know the learners a bit, they WILL ask you questions about their research, your work or other &amp;ldquo;stuff&amp;rdquo; related to the course. It also allows you to reassure them you believe they can learn the content AND that even if their setup is &amp;ldquo;weird&amp;rdquo; (according to them) they can still succeed in the course and  use the tools and techniques later on.&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;Whew! That ended up being a long post! In the &lt;a href=&#34;https://daryavanichkina.com/posts/2020-map-digital-2/&#34;&gt;next post&lt;/a&gt; of this series, I&amp;rsquo;ll explore some common problems and how to deal with them, as well as discuss how to replicate instructor-instructor communication. If you&amp;rsquo;re a learner, &lt;a href=&#34;https://daryavanichkina.com/posts/2020-great-online-learning-student/&#34;&gt;this post&lt;/a&gt; is for you!&lt;/p&gt;
+&lt;section class=&#34;footnotes&#34; role=&#34;doc-endnotes&#34;&gt;
+&lt;hr&gt;
+&lt;ol&gt;
+&lt;li id=&#34;fn:1&#34; role=&#34;doc-endnote&#34;&gt;
+&lt;p&gt;I find 30 - 45 minutes into the first session to be that sweet spot by which time everyone has joined, but people who identify that the training is not for them/they have conflicting scheduling responsibilities have not dropped out yet.] &lt;a href=&#34;#fnref:1&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/section&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Having a great online learning experience: a guide for students</title>
+      <link>https://daryavanichkina.com/posts/2020-great-online-learning-student/</link>
+      <pubDate>Wed, 01 Apr 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://daryavanichkina.com/posts/2020-great-online-learning-student/</guid>
+      <description>&lt;p&gt;With the advent of COVID-19 we’re all having to do the unthinkable, which for an instructor like me means moving hands-on, practical coding workshops online. In this post, I&amp;rsquo;ll outline a few key things you can do as a &lt;strong&gt;learner&lt;/strong&gt; to have what is hopefully the best possible experience attending synchronous online training.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://images.unsplash.com/photo-1534481016308-0fca71578ae5?ixlib=rb-1.2.1&amp;amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;amp;auto=format&amp;amp;fit=crop&amp;amp;w=500&amp;amp;q=100&#34; alt=&#34;airplane&#34;&gt;&lt;/p&gt;
+&lt;h3 id=&#34;1-follow-your-instructors-instructions&#34;&gt;1. Follow your instructor&amp;rsquo;s instructions&lt;/h3&gt;
+&lt;h4 id=&#34;install-all-the-things---and-test-them&#34;&gt;Install all the things - and test them&lt;/h4&gt;
+&lt;p&gt;First and foremost, triple-check that you have installed &lt;em&gt;everything&lt;/em&gt; your instructor has suggested, and tested - as much as you know how to - that it works. There are a plethora of online learning tools and platforms out there, and chances are that your instructor would have told you to install a whole bunch of stuff. For example, we use Zoom, Google Docs, and Microsoft Teams in addition to the &amp;ldquo;normal&amp;rdquo; R + packages/python + libraries in our classes! - that&amp;rsquo;s a lot of stuff to install and set up!&lt;/p&gt;
+&lt;h4 id=&#34;versions-matter&#34;&gt;Versions matter!&lt;/h4&gt;
+&lt;p&gt;Make sure you check which versions of particular tools or software packages your instructors need you to have. Note: it&amp;rsquo;s almost always prudent to update to the &lt;em&gt;latest&lt;/em&gt; ones, since this is often what your instructors will test with (unless they have &lt;em&gt;explicitly&lt;/em&gt; specified not to!).&lt;/p&gt;
+&lt;h4 id=&#34;dont-panic---let-your-instructor-know-asap&#34;&gt;Don&amp;rsquo;t panic - let your instructor know ASAP&lt;/h4&gt;
+&lt;p&gt;If you have an older machine, can&amp;rsquo;t update some packages OR are getting errors:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Don&amp;rsquo;t panic!&lt;/li&gt;
+&lt;li&gt;Google the error: solve it if you can, or copy the links to the top hits if the proposed solutions make no sense to you.&lt;/li&gt;
+&lt;li&gt;Let your instructors/TAs know as soon as possible, for example via email. Attach a screenshot of the error, and a link to any Google stuff you found - this will help them solve the problem faster.&lt;/li&gt;
+&lt;li&gt;If you&amp;rsquo;re working on an older machine and can&amp;rsquo;t get the things you need working: if you email them your instructors will know in advance. This means they may be able to provide you with access to Google Colab or RStudio Cloud or another platform, where you are likely to be able to do most if not all of the things - but these require advanced setup, so it&amp;rsquo;s very helpful to give your instructor a heads up!&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;img src=&#34;https://images.unsplash.com/photo-1428223501723-d821c5d00ca3?ixlib=rb-1.2.1&amp;amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;amp;auto=format&amp;amp;fit=crop&amp;amp;w=500&amp;amp;q=100&#34; alt=&#34;setup&#34;&gt;&lt;/p&gt;
+&lt;h3 id=&#34;2-setup-your-setup&#34;&gt;2. Setup your setup&lt;/h3&gt;
+&lt;h4 id=&#34;use-headphones-with-a-mic-if-you-can&#34;&gt;Use headphones with a mic (if you can)&lt;/h4&gt;
+&lt;p&gt;If at all possible, try to use a pair of USB or Bluetooth headphones, ideally with a built-in mic (less essential), over trying to talk and especially listen over computer audio. Working from home for the past week, I&amp;rsquo;ve had countless occasions of chatty operators of deafening leaf blowers, friendly neighbours who speak to each other over three fences, and crying toddlers (my contribution to the fray) - all during important meetings where I needed to hear and occasionally speak. My in-ear Apple Airpods were a lifesaver - and my older wired headphones would have worked just as well! Wearing noise cancelling headphones OVER Airpods was my personal lifehack against that leaf-blower - although remember that this affects the mic if you need to speak!&lt;/p&gt;
+&lt;h4 id=&#34;use-two-screens-if-you-can&#34;&gt;Use two screens (if you can)&lt;/h4&gt;
+&lt;p&gt;In a workshop that involves live coding you&amp;rsquo;ll want to have you instructor&amp;rsquo;s video open as well as some place on your local machine that you&amp;rsquo;re following along and reproducing their code. In the case of R and python this can be especially challenging, as you&amp;rsquo;d normally want to use and IDE like RStudio or the Jupyter notebook or VSCode, all of which take &lt;em&gt;a lot&lt;/em&gt; of screen real estate. Your instructor may also be using one of these IDEs for teaching, which means if you shrink their video too much you won&amp;rsquo;t be able to see what you&amp;rsquo;re typing! So if at all possible - use two screens: one for video, and one for coding.&lt;/p&gt;
+&lt;p&gt;If you don&amp;rsquo;t have a secondary monitor, there are a few things you can still do. First, you can use a tablet, such as an iPad, or even a mobile phone (if it has a big screen) to show your instructor&amp;rsquo;s video, as you code along on your primary machine. This will be especially helpful if you&amp;rsquo;ve got a small-screen laptop. Second, you can tweak some settings in your video conferencing tool of choice, outlined below, to help you make the most of the screen real estate you do have!&lt;/p&gt;
+&lt;h4 id=&#34;tweak-your-zoom&#34;&gt;Tweak your Zoom&lt;/h4&gt;
+&lt;p&gt;&lt;em&gt;Note: These instructions are for Zoom, but from what I&amp;rsquo;ve seen of Cisco Webex, Microsoft Teams and other tools, most of this applies too:&lt;/em&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;Don&amp;rsquo;t&lt;/strong&gt; enter full-screen by default when joining a meeting. You can configure this in the Zoom Settings tab. This will allow you to have your instructor&amp;rsquo;s video on 1/2 of your screen, and your own code on the other half.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;img src=&#34;../../images/2003_zoomsettingsGeneral.png&#34; alt=&#34;General Zoom Settings&#34;&gt;&lt;/p&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;Make sure you are always muted by default when you join a meeting, and can selectively unmute!&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;This prevents you from accidentally interrupting your instructor - or having your co-learners listen in on a personal conversation!&lt;/p&gt;
+&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;Use a &lt;a href=&#34;https://support.zoom.us/hc/en-us/articles/210707503-Virtual-Background&#34;&gt;virtual background&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;If you&amp;rsquo;d like (and can - this feature requires some processing power), zoom can hide the room behind you with a virtual background. This can conceal partners, kids, pets and piles of laundry - although it&amp;rsquo;s not magic, so you will have to fold it eventually.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://images.unsplash.com/photo-1516534775068-ba3e7458af70?ixlib=rb-1.2.1&amp;amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;amp;auto=format&amp;amp;fit=crop&amp;amp;w=500&amp;amp;q=80&#34; alt=&#34;testing&#34;&gt;&lt;/p&gt;
+&lt;h3 id=&#34;3-test-your-setup&#34;&gt;3. Test your setup!&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Most online meeting tools will allow you to have a meeting with yourself, or to join a test meeting. It&amp;rsquo;s great to try this the night before the workshop, at the latest, as you set up your workspace. &lt;a href=&#34;https://support.zoom.us/hc/en-us/articles/201362283-Testing-computer-or-device-audio&#34;&gt;Here&lt;/a&gt; is a link for how to do this in zoom.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;For the programming tools, try opening them and seeing what start-up messages are printed. If there&amp;rsquo;s a warning or something doesn&amp;rsquo;t look right or hangs it might be helpful to reach out to your instructor.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;img src=&#34;https://images.unsplash.com/photo-1517842645767-c639042777db?ixlib=rb-1.2.1&amp;amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;amp;auto=format&amp;amp;fit=crop&amp;amp;w=500&amp;amp;q=80&#34; alt=&#34;notes&#34;&gt;&lt;/p&gt;
+&lt;h3 id=&#34;4-set-up-for-notes&#34;&gt;4. Set up for notes&lt;/h3&gt;
+&lt;p&gt;Think about how you plan to take notes. In a face to face class, it&amp;rsquo;s usually easy to have a note-taking app open on your computer, but with the extra windows that you&amp;rsquo;ll have open with digital teaching, it might be a bit much to try to switch windows all the time. Consider whether you&amp;rsquo;d prefer to take paper notes, or use a tablet or other secondary device for note-taking instead.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://images.unsplash.com/photo-1508726096737-5ac7ca26345f?ixlib=rb-1.2.1&amp;amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;amp;auto=format&amp;amp;fit=crop&amp;amp;w=500&amp;amp;q=80&#34; alt=&#34;norms&#34;&gt;&lt;/p&gt;
+&lt;h3 id=&#34;5-make-sure-to-note-the-norms&#34;&gt;5. Make sure to note the norms&lt;/h3&gt;
+&lt;p&gt;At the beginning of class your instructor will most likely introduce the norms of behaviour:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;How do you ask questions?&lt;/li&gt;
+&lt;li&gt;Raise your hand to volunteer to answer?&lt;/li&gt;
+&lt;li&gt;Ask for and get help?&lt;/li&gt;
+&lt;li&gt;Communicate with other learners?&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Make sure to pay attention to this bit, since - just like an airplane - different instructors will use the same tools differently sometimes, and you don&amp;rsquo;t want to use the &amp;ldquo;Hand up&amp;rdquo; feature for 2 hours waiting for someone to help you if you were supposed to paste into the chat instead.&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;I hope the above check-list is helpful for you as you prepare to jump into learning online! Please leave a comment below if I&amp;rsquo;ve missed something or something is not clear.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,18 @@
+---
+title: "Projects"
+output:
+  html_document:
+    css: "css/strapless.css"
+---
+
+
+```{r, echo=F}
+bs4cards::cards(
+    bs4cards::galleries,
+    title = long_name,
+    link = gallery_url,
+    image = image_url,
+    layout = "label-below"
+  )
+```
+

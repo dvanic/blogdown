@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>other on Darya Vanichkina</title>
+    <link>https://daryavanichkina.com/tags/other/</link>
+    <description>Recent content in other on Darya Vanichkina</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Fri, 29 Mar 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://daryavanichkina.com/tags/other/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Moving to Hugo</title>
+      <link>https://daryavanichkina.com/posts/2019-moving-to-hugo/</link>
+      <pubDate>Fri, 29 Mar 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://daryavanichkina.com/posts/2019-moving-to-hugo/</guid>
+      <description>&lt;p&gt;I&amp;rsquo;m finally making the leap, and (hopefully) moving this website to blogdown + hugo + gitlab + netlify.&lt;/p&gt;
+&lt;p&gt;So far, useful resources for wrapping my head around how to do this:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://alison.rbind.io/post/up-and-running-with-blogdown/&#34;&gt;Alison Presmanes Hill&amp;rsquo;s documentation&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://maraaverick.rbind.io/2017/10/updating-blogdown-hugo-version-netlify/&#34;&gt;Very useful gotcha for configuring Netlify&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.sarasoueidan.com/blog/jekyll-ghpages-to-hugo-netlify/&#34;&gt;Non-blogdown specific very detailed outlined (for future reference, when I want to add new page types)&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Things that don&amp;rsquo;t seem to work:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Math! 😭 (but, hey, emoji do! 😄)&lt;/li&gt;
+&lt;li&gt;FontAwesome &amp;ldquo;social&amp;rdquo; icons apart from the default (but I think this is something I need to figure out)&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

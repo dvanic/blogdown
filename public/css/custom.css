@@ -1,0 +1,10 @@
+/*************************************************
+ *  Fonts (note: update link @ themes/hugo-academic/layouts/partials)
+ **************************************************/
+
+html {
+  font-family: 'Atkinson_Hyperlegible', sans-serif;
+  font-weight: 100;
+  font-size: 11px;
+  line-height: 1.2;
+}
