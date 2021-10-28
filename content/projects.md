@@ -23,7 +23,7 @@ slug: projects
       </a>
       <div class="card-body justify-content-end m-0 p-0" style="visibility: visible; background-color: #FFFFFFAA; border-style:solid; border-color:#808080FF; border-width:1px; border-radius: 0 0 .6rem .6rem ;">
         <a href="https://daryavanichkina.com/gambling2.html">
-          <h5 class="card-title my-auto px-3 pt-3 pb-3">Sports betting patterns</h5>
+          <h5 class="card-title my-auto px-3 pt-3 pb-3">Sports betting patterns </h5>
         </a>
       </div>
     </div>
