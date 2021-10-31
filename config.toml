@@ -116,7 +116,7 @@ canonifyurls = true
   repo = "dvanic/blog-comments"
   issueTerm = "pathname" 
   label = "comment" 
-  theme = "gruvbox-dark"
+  theme = "github-light"
   crossorigin="anonymous"
 
 [languages]
