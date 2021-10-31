@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Projects on Darya Vanichkina</title>
-    <link>https://daryavanichkina.com/project/</link>
-    <description>Recent content in Projects on Darya Vanichkina</description>
+    <title>management on Darya Vanichkina</title>
+    <link>https://daryavanichkina.com/tags/management/</link>
+    <description>Recent content in management on Darya Vanichkina</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 20 Oct 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://daryavanichkina.com/project/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 20 Oct 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://daryavanichkina.com/tags/management/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Protehome software</title>
       <link>https://daryavanichkina.com/project/protehome/</link>
@@ -40,28 +40,6 @@
 &lt;li&gt;&lt;a href=&#34;protehome.sydney.edu.au/&#34;&gt;Online Instance&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;https://github.sydney.edu.au/informatics/pipe312-protehome-system&#34;&gt;GitHub&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>English tests</title>
-      <link>https://daryavanichkina.com/project/englishtest/</link>
-      <pubDate>Mon, 20 May 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://daryavanichkina.com/project/englishtest/</guid>
-      <description>&lt;h2 id=&#34;project-aims&#34;&gt;Project aims&lt;/h2&gt;
-&lt;p&gt;Comparing two tests of English proficiency to identify whether they are interchangeable&lt;/p&gt;
-&lt;h2 id=&#34;details&#34;&gt;Details&lt;/h2&gt;
-&lt;p&gt;I used a range of approaches from quantitative educational metrics analysis to identify whether the outcomes on two measures of English proficiency could be mapped to each other to obtain a concordance.&lt;/p&gt;
-&lt;p&gt;They key outcome was a report, profiling whether the tests appeared to be:&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;Measuring the same construct&lt;/li&gt;
-&lt;li&gt;Able to conform to the principle of equity, i.e. once two test forms were equated, it should not matter to the test-taker which form of the test is administered.&lt;/li&gt;
-&lt;li&gt;Symmetrical, i.e. equating of X to Y must be the inverse of equating Y to X.&lt;/li&gt;
-&lt;li&gt;Invariant by subpopulation, i.e. there would be no differences when equating by subpopulations of takers&lt;/li&gt;
-&lt;li&gt;Providing the same inferences, i.e. designed for use to reach the same kinds of conclusions&lt;/li&gt;
-&lt;li&gt;Applied to the same target population&lt;/li&gt;
-&lt;/ol&gt;
 </description>
     </item>
     

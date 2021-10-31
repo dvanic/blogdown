@@ -6,7 +6,111 @@
     <description>Recent content in Posts on Darya Vanichkina</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 28 Jul 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://daryavanichkina.com/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 31 Oct 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://daryavanichkina.com/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Printing 4 iPhone photos on 4x6 photo paper</title>
+      <link>https://daryavanichkina.com/posts/2021-10-31-imagemagick3by6/</link>
+      <pubDate>Sun, 31 Oct 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://daryavanichkina.com/posts/2021-10-31-imagemagick3by6/</guid>
+      <description>&lt;p&gt;While this blog tends to focus on things I do at work or as part of data-sciency related extracurricular interests, I can&amp;rsquo;t help but post the solution to an amusing problem being the parent of a preschooler threw my way. My daughter&amp;rsquo;s daycare has a roaming koala (yes, a koala, because we&amp;rsquo;re in Australia, y&amp;rsquo;all), who gets to spend a week with each family in turn, after which we&amp;rsquo;re meant to contribute photos and some text to the &amp;ldquo;Koala&amp;rsquo;s adventures&amp;rdquo; scrapbook.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;../../images/211031_koalafamily.jpeg&#34; alt=&#34;Koala family&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;In the above image, the &amp;ldquo;Koala in a t-shirt&amp;rdquo; is the daycare one, visiting one of my daughter&amp;rsquo;s friends houses, who happen to have many Koala friends&amp;hellip;&lt;/em&gt;&lt;/p&gt;
+&lt;h2 id=&#34;problem-definition&#34;&gt;Problem definition&lt;/h2&gt;
+&lt;p&gt;The A4 scrapbook we were meant to use was too small to have full-sized 4x6 prints glued in, so I needed to print several images on one 4x6 card and then cut them apart. 4 images per page seemed to be the &amp;ldquo;sweet spot&amp;rdquo; in our case.&lt;/p&gt;
+&lt;p&gt;Initially, I tried some freely available collage tools for Mac, but found them annoying, cumbersome and very out-of-date - and not really supporting bulk processing 52 images at once - so I ended up  with a command-line based solution.&lt;/p&gt;
+&lt;h2 id=&#34;setup&#34;&gt;Setup&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;My photo setup is pretty basic: my iPhone and its default camera app &lt;sup id=&#34;fnref:1&#34;&gt;&lt;a href=&#34;#fn:1&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;1&lt;/a&gt;&lt;/sup&gt;. I &lt;em&gt;think&lt;/em&gt; the native dimensions of images on the iPhone are &lt;a href=&#34;https://apple.stackexchange.com/questions/298606/what-are-the-dimensions-in-pixels-of-a-picture-taken-with-iphone-8-and-x/298608&#34;&gt;4032 px x 3024 px&lt;/a&gt;&amp;hellip;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;I have an Epson EcoTank 2750 printer, which I absolutely love because it&amp;rsquo;s an easily refillable colour inkjet. This makes printing all of the squizillion worksheets and handouts in my life inexpensive and reasonably fast. I recently discovered that this printer can print photos in decent quality (at least as well as you used to be able to get at the corner drugstore back when I was a child + we shot on film&amp;hellip;), provided you buy good quality photo paper.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;process&#34;&gt;Process&lt;/h2&gt;
+&lt;p&gt;To solve the &amp;ldquo;Koala&amp;rsquo;s adventures&amp;rdquo; dilemma we took the following steps:&lt;/p&gt;
+&lt;h3 id=&#34;step-1&#34;&gt;Step 1&lt;/h3&gt;
+&lt;p&gt;Take hundreds of photos, on some percentage of which my child, the koala and the accompanying background/other subjects would come out well.&lt;/p&gt;
+&lt;h3 id=&#34;step-2&#34;&gt;Step 2&lt;/h3&gt;
+&lt;p&gt;Use the default Photos app on the computer to delete the photos we didn&amp;rsquo;t want, and to pick a handful of &amp;ldquo;Favourites&amp;rdquo; that we would print out and include in the scrapbook.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;As a &amp;ldquo;Pro&amp;rdquo; tip, which I&amp;rsquo;ve now learned because my daughter wants to make an ongoing scrapbook of her adventures even without the koala (great for language development apparently) - you can also create a custom folder where you put all of the photos for scrapbooking, and save the ones you haven&amp;rsquo;t printed only to favourites.&lt;/em&gt;&lt;/p&gt;
+&lt;h3 id=&#34;step-3&#34;&gt;Step 3&lt;/h3&gt;
+&lt;p&gt;Using the Photos app, rotate all of the images to be either landscape or portrait. I will use landscape for this post.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Yes, you could rotate them later using Preview or ImageMagick, but I prefer doing this in Photos as it allows me to bulk-select images and rotate in one keyboard stroke.&lt;/em&gt;&lt;/p&gt;
+&lt;h3 id=&#34;step-4&#34;&gt;Step 4&lt;/h3&gt;
+&lt;p&gt;Export the photos out to a folder of your choice in jpeg format, with maximum quality.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;../../images/211031_koalaexport1.jpg&#34; alt=&#34;Koala export&#34;&gt;&lt;/p&gt;
+&lt;h3 id=&#34;step-5&#34;&gt;Step 5&lt;/h3&gt;
+&lt;p&gt;Rename the files in this folder to NOT have spaces in the filenames:&lt;/p&gt;
+&lt;p&gt;I&amp;rsquo;m not sure if there is an easy way to get Photos export to NOT export with spaces in filenames. This is what my Mac did:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;-rw-r--r--@ 1 darya  macmini  8382495 31 Oct 14:48 koalaexport - 1.jpeg
+-rw-r--r--@ 1 darya  macmini  9401795 31 Oct 14:48 koalaexport - 2.jpeg
+-rw-r--r--@ 1 darya  macmini  8078024 31 Oct 14:48 koalaexport - 3.jpeg
+-rw-r--r--@ 1 darya  macmini  8789539 31 Oct 14:48 koalaexport - 4.jpeg
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;In order to get rid of those spaces, open a &lt;code&gt;Terminal&lt;/code&gt; session in the same folder you&amp;rsquo;ve just saved your photos in and run the following command.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; file in *; &lt;span style=&#34;color:#66d9ef&#34;&gt;do&lt;/span&gt; mv &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;$file&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;`&lt;/span&gt;echo $file | tr &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39; &amp;#39;&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;_&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;`&lt;/span&gt; ; &lt;span style=&#34;color:#66d9ef&#34;&gt;done&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;This will result in the following:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;-rw-r--r--@ 1 darya  macmini  8382495 31 Oct 14:48 koalaexport_-_1.jpeg
+-rw-r--r--@ 1 darya  macmini  9401795 31 Oct 14:48 koalaexport_-_2.jpeg
+-rw-r--r--@ 1 darya  macmini  8078024 31 Oct 14:48 koalaexport_-_3.jpeg
+-rw-r--r--@ 1 darya  macmini  8789539 31 Oct 14:48 koalaexport_-_4.jpeg
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&#34;step-6&#34;&gt;Step 6&lt;/h3&gt;
+&lt;p&gt;Next, you&amp;rsquo;ll need to arrange the photos on a 2x2 card grid. You can do this using &lt;a href=&#34;https://imagemagick.org/index.php&#34;&gt;ImageMagick&lt;/a&gt;&amp;rsquo;s &lt;a href=&#34;https://imagemagick.org/script/montage.php&#34;&gt;montage&lt;/a&gt; command &lt;sup id=&#34;fnref:2&#34;&gt;&lt;a href=&#34;#fn:2&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;2&lt;/a&gt;&lt;/sup&gt;.&lt;/p&gt;
+&lt;p&gt;I originally wrote this command to work on 52 images, and it looked like this:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;((&lt;/span&gt;i&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;0;i&amp;lt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;12;i++&lt;span style=&#34;color:#f92672&#34;&gt;))&lt;/span&gt;; &lt;span style=&#34;color:#66d9ef&#34;&gt;do&lt;/span&gt; montage -geometry 1800x1200+0+0 -tile 2x2 koalaexport_-_&lt;span style=&#34;color:#66d9ef&#34;&gt;$((&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;4&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt;i &lt;span style=&#34;color:#f92672&#34;&gt;+&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;))&lt;/span&gt;.jpeg koalaexport_-_&lt;span style=&#34;color:#66d9ef&#34;&gt;$((&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;4&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt;i &lt;span style=&#34;color:#f92672&#34;&gt;+&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;))&lt;/span&gt;.jpeg koalaexport_-_&lt;span style=&#34;color:#66d9ef&#34;&gt;$((&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;4&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt;i &lt;span style=&#34;color:#f92672&#34;&gt;+&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;3&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;))&lt;/span&gt;.jpeg koalaexport_-_&lt;span style=&#34;color:#66d9ef&#34;&gt;$((&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;4&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt;i &lt;span style=&#34;color:#f92672&#34;&gt;+&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;4&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;))&lt;/span&gt;.jpeg &lt;span style=&#34;color:#e6db74&#34;&gt;${&lt;/span&gt;i&lt;span style=&#34;color:#e6db74&#34;&gt;}&lt;/span&gt;.tiff;&lt;span style=&#34;color:#66d9ef&#34;&gt;done&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;To break down what&amp;rsquo;s going on, let&amp;rsquo;s start with that &lt;code&gt;for&lt;/code&gt; loop:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;for ((i=0;i&amp;lt;=13;i++)); do echo $i;done
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;This prints the numbers 0 to 13 to the console.&lt;/p&gt;
+&lt;p&gt;What I&amp;rsquo;m then doing, is using the shell to do math; in every loop iteration, I&amp;rsquo;m retrieving the following numbers, and using them to access the corresponding filenames&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;$((4*i + 1))&lt;/code&gt;, i.e. &lt;code&gt;1&lt;/code&gt;,&lt;code&gt;5&lt;/code&gt;,&lt;code&gt;9&lt;/code&gt;&amp;hellip;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;$((4*i + 2))&lt;/code&gt;, i.e. &lt;code&gt;2&lt;/code&gt;,&lt;code&gt;6&lt;/code&gt;,&lt;code&gt;10&lt;/code&gt;&amp;hellip;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;$((4*i + 3))&lt;/code&gt;, i.e. &lt;code&gt;3&lt;/code&gt;,&lt;code&gt;7&lt;/code&gt;,&lt;code&gt;11&lt;/code&gt;&amp;hellip;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;$((4*i + 4))&lt;/code&gt;, i.e. &lt;code&gt;4&lt;/code&gt;,&lt;code&gt;8&lt;/code&gt;,&lt;code&gt;12&lt;/code&gt;&amp;hellip;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;This allows me to access the input files in batches of 4, and the output files in iterations of 1.&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;The basic command we have &amp;ldquo;within&amp;rdquo; that loop is &lt;code&gt;montage -geometry 1800x1200+0+0 -tile 2x2 image1.jpg image2.jpg image3.jpg image4.jpg 1.tiff&lt;/code&gt;, where:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;-tile 2x2&lt;/code&gt; is saying that we want to tile the images, with 2 wide and 2 across&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;image1.jpg image2.jpg image3.jpg image4.jpg&lt;/code&gt; -&amp;gt; are the four input files&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;1.tiff&lt;/code&gt; is the output tiff file we&amp;rsquo;ll use for printing&lt;/li&gt;
+&lt;li&gt;The &lt;code&gt;-geometry&lt;/code&gt; flag is saying how we want our final canvas to be:
+&lt;ul&gt;
+&lt;li&gt;1800 pixels wide (6 inches at 300 dpi == 1800 pixels minimum) &lt;sup id=&#34;fnref:3&#34;&gt;&lt;a href=&#34;#fn:3&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;3&lt;/a&gt;&lt;/sup&gt;&lt;/li&gt;
+&lt;li&gt;1200 pixels high (4 inches at 300 dpi == 1200 pixels minimum)&lt;/li&gt;
+&lt;li&gt;the &lt;code&gt;+0+0&lt;/code&gt; is saying that we don&amp;rsquo;t want any kind of a border around each of the images, i.e. we want the jpegs printed all next to each other.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&#34;../../images/211031_koalaexport4.jpg&#34; alt=&#34;Koala export&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Another tip, in case you start getting issues where your images end up having too much white space and look something like this:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;../../images/211031_koalaexport4b.jpg&#34; alt=&#34;Koala export&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Is to either:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Use the &lt;code&gt;-rotate 90&lt;/code&gt; flag OR&lt;/li&gt;
+&lt;li&gt;Change the order of the first two numbers in the geometry command, i.e. if it was &lt;code&gt;-geometry 1800x1200+0+0&lt;/code&gt; change it to &lt;code&gt;-geometry 1200x1800+0+0&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Hopefully this posts helps in getting started with using ImageMagick to batch-collage files, for all of your scrapbooking needs. If you have any questions or something ends up unexpected, please leave a comment below.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;brew install imagemagick
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;section class=&#34;footnotes&#34; role=&#34;doc-endnotes&#34;&gt;
+&lt;hr&gt;
+&lt;ol&gt;
+&lt;li id=&#34;fn:1&#34; role=&#34;doc-endnote&#34;&gt;
+&lt;p&gt;Yes, I will occasionally use &lt;a href=&#34;https://camera.plus/&#34;&gt;Camera+ 2&lt;/a&gt; when I&amp;rsquo;m feeling fancy or want to do some macro photography, but this usually occurs when my daughter is not in tow. &lt;a href=&#34;#fnref:1&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&#34;fn:2&#34; role=&#34;doc-endnote&#34;&gt;
+&lt;p&gt;If you don&amp;rsquo;t have ImageMagick installed on your Mac, I &lt;em&gt;highly&lt;/em&gt; recommend using &lt;a href=&#34;https://brew.sh/&#34;&gt;homebrew&lt;/a&gt; to install it: &lt;a href=&#34;#fnref:2&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&#34;fn:3&#34; role=&#34;doc-endnote&#34;&gt;
+&lt;p&gt;I have read online that you are meant to have 300 dpi (dots per inch) to get good quality for printing, which is why I&amp;rsquo;ve set the resolution to be this, BUT there are also articles such as &lt;a href=&#34;http://www.rideau-info.com/photos/whatisdpi.html&#34;&gt;this&lt;/a&gt; one which suggest that my mental model is probably simplistic. However, this resolution worked to get good quality images for me for printing. &lt;a href=&#34;#fnref:3&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/section&gt;
+</description>
+    </item>
+    
     <item>
       <title>Installing packages on a PBS-Pro HPC cluster using renv</title>
       <link>https://daryavanichkina.com/posts/2021-07-28-renvhpc/</link>

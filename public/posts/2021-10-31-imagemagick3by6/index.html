@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Language" content="en">
+
+    <meta name="author" content="Darya Vanichkina PhD">
+    <meta name="description" content="While this blog tends to focus on things I do at work or as part of data-sciency related extracurricular interests, I can&rsquo;t help but post the solution to an amusing problem being the parent of a preschooler threw my way. My daughter&rsquo;s daycare has a roaming koala (yes, a koala, because we&rsquo;re in Australia, y&rsquo;all), who gets to spend a week with each family in turn, after which we&rsquo;re meant to contribute photos and some text to the &ldquo;Koala&rsquo;s adventures&rdquo; scrapbook.">
+    <meta name="keywords" content="data scientist, consultant, bioinformatician, educator">
+
+    
+      <script src="https://twemoji.maxcdn.com/v/latest/twemoji.min.js" crossorigin="anonymous"></script>
+    
+
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Printing 4 iPhone photos on 4x6 photo paper"/>
+<meta name="twitter:description" content="While this blog tends to focus on things I do at work or as part of data-sciency related extracurricular interests, I can&rsquo;t help but post the solution to an amusing problem being the parent of a preschooler threw my way. My daughter&rsquo;s daycare has a roaming koala (yes, a koala, because we&rsquo;re in Australia, y&rsquo;all), who gets to spend a week with each family in turn, after which we&rsquo;re meant to contribute photos and some text to the &ldquo;Koala&rsquo;s adventures&rdquo; scrapbook."/>
+
+    <meta property="og:title" content="Printing 4 iPhone photos on 4x6 photo paper" />
+<meta property="og:description" content="While this blog tends to focus on things I do at work or as part of data-sciency related extracurricular interests, I can&rsquo;t help but post the solution to an amusing problem being the parent of a preschooler threw my way. My daughter&rsquo;s daycare has a roaming koala (yes, a koala, because we&rsquo;re in Australia, y&rsquo;all), who gets to spend a week with each family in turn, after which we&rsquo;re meant to contribute photos and some text to the &ldquo;Koala&rsquo;s adventures&rdquo; scrapbook." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://daryavanichkina.com/posts/2021-10-31-imagemagick3by6/" />
+<meta property="article:published_time" content="2021-10-31T00:00:00+00:00" />
+<meta property="article:modified_time" content="2021-10-31T00:00:00+00:00" />
+
+
+    <title>
+  Printing 4 iPhone photos on 4x6 photo paper · Darya Vanichkina
+</title>
+
+    
+      <link rel="canonical" href="https://daryavanichkina.com/posts/2021-10-31-imagemagick3by6/">
+    
+
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700%7CMerriweather:300,700%7CSource+Code+Pro:400,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css" integrity="sha384-Bfad6CLCknfcloXFOyFnlgtENryhrpZCe29RTifKEixXQZ38WheV+i/6YWSzkz3V" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha256-l85OmPOjvil/SOvVt3HnSSjzF1TUMyT9eV0c2BzEGzU=" crossorigin="anonymous" />
+
+    
+      
+      
+      <link rel="stylesheet" href="https://daryavanichkina.com/css/coder.min.9836c03fe5c87d102278a33e86d0591ef36c89b1e17e8e547ebf84c05cee010e.css" integrity="sha256-mDbAP&#43;XIfRAieKM&#43;htBZHvNsibHhfo5Ufr&#43;EwFzuAQ4=" crossorigin="anonymous" media="screen" />
+    
+
+    
+
+    
+      
+        
+        
+        <link rel="stylesheet" href="https://daryavanichkina.com/css/coder-dark.min.717236c74e0a5208ef73964a9f44c6b443b689a95b270d8b2a40d0c012460dac.css" integrity="sha256-cXI2x04KUgjvc5ZKn0TGtEO2ialbJw2LKkDQwBJGDaw=" crossorigin="anonymous" media="screen" />
+      
+    
+
+    
+
+    
+
+    <link rel="icon" type="image/png" href="https://daryavanichkina.com/images/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="https://daryavanichkina.com/images/favicon-16x16.png" sizes="16x16">
+
+    <link rel="apple-touch-icon" href="https://daryavanichkina.com/images/apple-touch-icon.png">
+    <link rel="apple-touch-icon"  sizes="180x180" href="https://daryavanichkina.com/images/apple-touch-icon.png">
+
+    <meta name="generator" content="Hugo 0.80.0" />
+  </head>
+  
+  
+  
+    
+  
+  <body class="colorscheme-auto"
+        onload=" twemoji.parse(document.body); "
+  >
+    <main class="wrapper">
+      <link rel="stylesheet" href="https://daryavanichkina.com/css/custom.css"><link rel="stylesheet" href="https://daryavanichkina.com/css/strapless.css">
+
+
+
+<nav class="navigation">
+    <section class="container">
+      <a class="navigation-title" href="https://daryavanichkina.com/">
+        Darya Vanichkina
+      </a>
+      
+        <span id="dark-mode-toggle" class="float-right">
+          <i class="fas fa-adjust fa-fw"></i>
+        </span>
+        <input type="checkbox" id="menu-toggle" />
+        <label class="menu-button float-right" for="menu-toggle">
+          <i class="fas fa-bars fa-fw"></i>
+        </label>
+        <ul class="navigation-list">
+          
+            
+              <li class="navigation-item">
+                <a class="navigation-link" href="https://daryavanichkina.com/about/">About</a>
+              </li>
+            
+              <li class="navigation-item">
+                <a class="navigation-link" href="https://daryavanichkina.com/posts/">Blog</a>
+              </li>
+            
+              <li class="navigation-item">
+                <a class="navigation-link" href="https://daryavanichkina.com/projects/">Projects</a>
+              </li>
+            
+              <li class="navigation-item">
+                <a class="navigation-link" href="https://daryavanichkina.com/training/">Training</a>
+              </li>
+            
+              <li class="navigation-item">
+                <a class="navigation-link" href="https://daryavanichkina.com/contact/">Contact</a>
+              </li>
+            
+          
+          
+          <li class="navigation-item separator">
+            <span>|</span>
+          </li>
+        </ul>
+      
+    </section>
+  </nav>
+  
+
+      <div class="content">
+        
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">Printing 4 iPhone photos on 4x6 photo paper</h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fas fa-calendar"></i>
+              <time datetime='2021-10-31T00:00:00Z'>
+                October 31, 2021
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fas fa-clock"></i>
+              6-minute read
+            </span>
+          </div>
+          
+          <div class="tags">
+  <i class="fas fa-tag"></i>
+    <a href="https://daryavanichkina.com/tags/data-science/">Data science</a>
+      <span class="separator">•</span>
+    <a href="https://daryavanichkina.com/tags/family/">Family</a>
+      <span class="separator">•</span>
+    <a href="https://daryavanichkina.com/tags/imagemagick/">ImageMagick</a>
+      <span class="separator">•</span>
+    <a href="https://daryavanichkina.com/tags/shell/">Shell</a></div>
+
+        </div>
+      </header>
+
+      <div>
+        
+        <p>While this blog tends to focus on things I do at work or as part of data-sciency related extracurricular interests, I can&rsquo;t help but post the solution to an amusing problem being the parent of a preschooler threw my way. My daughter&rsquo;s daycare has a roaming koala (yes, a koala, because we&rsquo;re in Australia, y&rsquo;all), who gets to spend a week with each family in turn, after which we&rsquo;re meant to contribute photos and some text to the &ldquo;Koala&rsquo;s adventures&rdquo; scrapbook.</p>
+<p><img src="../../images/211031_koalafamily.jpeg" alt="Koala family"></p>
+<p><em>In the above image, the &ldquo;Koala in a t-shirt&rdquo; is the daycare one, visiting one of my daughter&rsquo;s friends houses, who happen to have many Koala friends&hellip;</em></p>
+<h2 id="problem-definition">Problem definition</h2>
+<p>The A4 scrapbook we were meant to use was too small to have full-sized 4x6 prints glued in, so I needed to print several images on one 4x6 card and then cut them apart. 4 images per page seemed to be the &ldquo;sweet spot&rdquo; in our case.</p>
+<p>Initially, I tried some freely available collage tools for Mac, but found them annoying, cumbersome and very out-of-date - and not really supporting bulk processing 52 images at once - so I ended up  with a command-line based solution.</p>
+<h2 id="setup">Setup</h2>
+<ul>
+<li>
+<p>My photo setup is pretty basic: my iPhone and its default camera app <sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup>. I <em>think</em> the native dimensions of images on the iPhone are <a href="https://apple.stackexchange.com/questions/298606/what-are-the-dimensions-in-pixels-of-a-picture-taken-with-iphone-8-and-x/298608">4032 px x 3024 px</a>&hellip;</p>
+</li>
+<li>
+<p>I have an Epson EcoTank 2750 printer, which I absolutely love because it&rsquo;s an easily refillable colour inkjet. This makes printing all of the squizillion worksheets and handouts in my life inexpensive and reasonably fast. I recently discovered that this printer can print photos in decent quality (at least as well as you used to be able to get at the corner drugstore back when I was a child + we shot on film&hellip;), provided you buy good quality photo paper.</p>
+</li>
+</ul>
+<h2 id="process">Process</h2>
+<p>To solve the &ldquo;Koala&rsquo;s adventures&rdquo; dilemma we took the following steps:</p>
+<h3 id="step-1">Step 1</h3>
+<p>Take hundreds of photos, on some percentage of which my child, the koala and the accompanying background/other subjects would come out well.</p>
+<h3 id="step-2">Step 2</h3>
+<p>Use the default Photos app on the computer to delete the photos we didn&rsquo;t want, and to pick a handful of &ldquo;Favourites&rdquo; that we would print out and include in the scrapbook.</p>
+<p><em>As a &ldquo;Pro&rdquo; tip, which I&rsquo;ve now learned because my daughter wants to make an ongoing scrapbook of her adventures even without the koala (great for language development apparently) - you can also create a custom folder where you put all of the photos for scrapbooking, and save the ones you haven&rsquo;t printed only to favourites.</em></p>
+<h3 id="step-3">Step 3</h3>
+<p>Using the Photos app, rotate all of the images to be either landscape or portrait. I will use landscape for this post.</p>
+<p><em>Yes, you could rotate them later using Preview or ImageMagick, but I prefer doing this in Photos as it allows me to bulk-select images and rotate in one keyboard stroke.</em></p>
+<h3 id="step-4">Step 4</h3>
+<p>Export the photos out to a folder of your choice in jpeg format, with maximum quality.</p>
+<p><img src="../../images/211031_koalaexport1.jpg" alt="Koala export"></p>
+<h3 id="step-5">Step 5</h3>
+<p>Rename the files in this folder to NOT have spaces in the filenames:</p>
+<p>I&rsquo;m not sure if there is an easy way to get Photos export to NOT export with spaces in filenames. This is what my Mac did:</p>
+<pre><code>-rw-r--r--@ 1 darya  macmini  8382495 31 Oct 14:48 koalaexport - 1.jpeg
+-rw-r--r--@ 1 darya  macmini  9401795 31 Oct 14:48 koalaexport - 2.jpeg
+-rw-r--r--@ 1 darya  macmini  8078024 31 Oct 14:48 koalaexport - 3.jpeg
+-rw-r--r--@ 1 darya  macmini  8789539 31 Oct 14:48 koalaexport - 4.jpeg
+</code></pre><p>In order to get rid of those spaces, open a <code>Terminal</code> session in the same folder you&rsquo;ve just saved your photos in and run the following command.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#66d9ef">for</span> file in *; <span style="color:#66d9ef">do</span> mv <span style="color:#e6db74">&#34;</span>$file<span style="color:#e6db74">&#34;</span> <span style="color:#e6db74">`</span>echo $file | tr <span style="color:#e6db74">&#39; &#39;</span> <span style="color:#e6db74">&#39;_&#39;</span><span style="color:#e6db74">`</span> ; <span style="color:#66d9ef">done</span>
+</code></pre></div><p>This will result in the following:</p>
+<pre><code>-rw-r--r--@ 1 darya  macmini  8382495 31 Oct 14:48 koalaexport_-_1.jpeg
+-rw-r--r--@ 1 darya  macmini  9401795 31 Oct 14:48 koalaexport_-_2.jpeg
+-rw-r--r--@ 1 darya  macmini  8078024 31 Oct 14:48 koalaexport_-_3.jpeg
+-rw-r--r--@ 1 darya  macmini  8789539 31 Oct 14:48 koalaexport_-_4.jpeg
+</code></pre><h3 id="step-6">Step 6</h3>
+<p>Next, you&rsquo;ll need to arrange the photos on a 2x2 card grid. You can do this using <a href="https://imagemagick.org/index.php">ImageMagick</a>&rsquo;s <a href="https://imagemagick.org/script/montage.php">montage</a> command <sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup>.</p>
+<p>I originally wrote this command to work on 52 images, and it looked like this:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#66d9ef">for</span> <span style="color:#f92672">((</span>i<span style="color:#f92672">=</span>0;i&lt;<span style="color:#f92672">=</span>12;i++<span style="color:#f92672">))</span>; <span style="color:#66d9ef">do</span> montage -geometry 1800x1200+0+0 -tile 2x2 koalaexport_-_<span style="color:#66d9ef">$((</span> <span style="color:#ae81ff">4</span><span style="color:#f92672">*</span>i <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span> <span style="color:#66d9ef">))</span>.jpeg koalaexport_-_<span style="color:#66d9ef">$((</span> <span style="color:#ae81ff">4</span><span style="color:#f92672">*</span>i <span style="color:#f92672">+</span> <span style="color:#ae81ff">2</span> <span style="color:#66d9ef">))</span>.jpeg koalaexport_-_<span style="color:#66d9ef">$((</span> <span style="color:#ae81ff">4</span><span style="color:#f92672">*</span>i <span style="color:#f92672">+</span> <span style="color:#ae81ff">3</span> <span style="color:#66d9ef">))</span>.jpeg koalaexport_-_<span style="color:#66d9ef">$((</span> <span style="color:#ae81ff">4</span><span style="color:#f92672">*</span>i <span style="color:#f92672">+</span> <span style="color:#ae81ff">4</span> <span style="color:#66d9ef">))</span>.jpeg <span style="color:#e6db74">${</span>i<span style="color:#e6db74">}</span>.tiff;<span style="color:#66d9ef">done</span>
+</code></pre></div><p>To break down what&rsquo;s going on, let&rsquo;s start with that <code>for</code> loop:</p>
+<pre><code>for ((i=0;i&lt;=13;i++)); do echo $i;done
+</code></pre><p>This prints the numbers 0 to 13 to the console.</p>
+<p>What I&rsquo;m then doing, is using the shell to do math; in every loop iteration, I&rsquo;m retrieving the following numbers, and using them to access the corresponding filenames</p>
+<ul>
+<li><code>$((4*i + 1))</code>, i.e. <code>1</code>,<code>5</code>,<code>9</code>&hellip;</li>
+<li><code>$((4*i + 2))</code>, i.e. <code>2</code>,<code>6</code>,<code>10</code>&hellip;</li>
+<li><code>$((4*i + 3))</code>, i.e. <code>3</code>,<code>7</code>,<code>11</code>&hellip;</li>
+<li><code>$((4*i + 4))</code>, i.e. <code>4</code>,<code>8</code>,<code>12</code>&hellip;</li>
+</ul>
+<p>This allows me to access the input files in batches of 4, and the output files in iterations of 1.</p>
+<hr>
+<p>The basic command we have &ldquo;within&rdquo; that loop is <code>montage -geometry 1800x1200+0+0 -tile 2x2 image1.jpg image2.jpg image3.jpg image4.jpg 1.tiff</code>, where:</p>
+<ul>
+<li><code>-tile 2x2</code> is saying that we want to tile the images, with 2 wide and 2 across</li>
+<li><code>image1.jpg image2.jpg image3.jpg image4.jpg</code> -&gt; are the four input files</li>
+<li><code>1.tiff</code> is the output tiff file we&rsquo;ll use for printing</li>
+<li>The <code>-geometry</code> flag is saying how we want our final canvas to be:
+<ul>
+<li>1800 pixels wide (6 inches at 300 dpi == 1800 pixels minimum) <sup id="fnref:3"><a href="#fn:3" class="footnote-ref" role="doc-noteref">3</a></sup></li>
+<li>1200 pixels high (4 inches at 300 dpi == 1200 pixels minimum)</li>
+<li>the <code>+0+0</code> is saying that we don&rsquo;t want any kind of a border around each of the images, i.e. we want the jpegs printed all next to each other.</li>
+</ul>
+</li>
+</ul>
+<p><img src="../../images/211031_koalaexport4.jpg" alt="Koala export"></p>
+<p>Another tip, in case you start getting issues where your images end up having too much white space and look something like this:</p>
+<p><img src="../../images/211031_koalaexport4b.jpg" alt="Koala export"></p>
+<p>Is to either:</p>
+<ul>
+<li>Use the <code>-rotate 90</code> flag OR</li>
+<li>Change the order of the first two numbers in the geometry command, i.e. if it was <code>-geometry 1800x1200+0+0</code> change it to <code>-geometry 1200x1800+0+0</code></li>
+</ul>
+<p>Hopefully this posts helps in getting started with using ImageMagick to batch-collage files, for all of your scrapbooking needs. If you have any questions or something ends up unexpected, please leave a comment below.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">brew install imagemagick
+</code></pre></div><section class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1" role="doc-endnote">
+<p>Yes, I will occasionally use <a href="https://camera.plus/">Camera+ 2</a> when I&rsquo;m feeling fancy or want to do some macro photography, but this usually occurs when my daughter is not in tow. <a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:2" role="doc-endnote">
+<p>If you don&rsquo;t have ImageMagick installed on your Mac, I <em>highly</em> recommend using <a href="https://brew.sh/">homebrew</a> to install it: <a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:3" role="doc-endnote">
+<p>I have read online that you are meant to have 300 dpi (dots per inch) to get good quality for printing, which is why I&rsquo;ve set the resolution to be this, BUT there are also articles such as <a href="http://www.rideau-info.com/photos/whatisdpi.html">this</a> one which suggest that my mental model is probably simplistic. However, this resolution worked to get good quality images for me for printing. <a href="#fnref:3" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</section>
+
+      </div>
+
+
+      <footer>
+        
+
+
+        <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "dvanicw" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+        
+        
+      </footer>
+    </article>
+
+    
+  </section>
+
+      </div>
+
+      
+  <footer class="footer">
+    <section class="container">
+      
+      
+      
+      
+    </section>
+  </footer>
+
+    </main>
+
+    
+      
+      <script src="https://daryavanichkina.com/js/dark-mode.min.0213e1773e6d1c5a644f847c67a6f8abac49a3776e2976f6008038af8c5b76a1.js"></script>
+    
+
+    
+
+    
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-54373354-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+
+
+    
+
+    
+
+  </body>
+
+</html>
