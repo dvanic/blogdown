@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="Content-Language" content="en">
 
-    <meta name="author" content="Darya Vanichkina PhD">
+    <meta name="author" content="Darya Vanichkina PhD SFHEA">
     <meta name="description" content="You&rsquo;d have to be living under a rock in the R community to not be aware of the fact that R 4.0 has been released, with some major changes, the biggest of which is probably the new default for read.table(): stringsAsFactors = FALSE, as well as the fact that matrix() now converts character columns to factors and factors to integers.
 In the past, I&rsquo;ve always been too &ldquo;chicken&rdquo; to try running multiple versions of R on my work laptop, as I&rsquo;ve usually got a few key analysis projects going that need to be delivered on time and within full feature scope - which means I don&rsquo;t have time to fix basic version incompatibility bugs.">
     <meta name="keywords" content="data scientist, consultant, bioinformatician, educator">
@@ -263,28 +263,16 @@ In the past, I&rsquo;ve always been too &ldquo;chicken&rdquo; to try running mul
 </section>
 
 
-        <div id="disqus_thread"></div>
-<script type="application/javascript">
-    var disqus_config = function () {
-    
-    
-    
-    };
-    (function() {
-        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
-            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
-            return;
-        }
-        var d = document, s = d.createElement('script'); s.async = true;
-        s.src = '//' + "dvanicw" + '.disqus.com/embed.js';
-        s.setAttribute('data-timestamp', +new Date());
-        (d.head || d.body).appendChild(s);
-    })();
-</script>
-<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
         
         
+        <script src="https://utteranc.es/client.js"
+    repo= "dvanic/blog-comments"
+    issue-term="pathname"
+    label="comment"
+    theme="gruvbox-dark"
+    crossorigin="anonymous"
+    async>
+  </script>
       </footer>
     </article>
 

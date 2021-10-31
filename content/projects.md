@@ -18,7 +18,7 @@ slug: projects
     </div>
     <div class="card bg-transparent m-0 border-0 collapse.show bs4cards-blahblahblah bs4cards-NA" style="padding: .2rem ; border-width: 0; border-radius: .6rem .6rem .6rem .6rem ;">
       <a href="https://daryavanichkina.com/project/protehome">
-        <img src="https://unsplash.com/photos/eeEiys6TU3c" class="card-img-top" style="border-style:solid; border-color:#808080FF; border-width:1px 1px 0 1px; border-radius: .6rem .6rem 0 0 ;"/>
+        <img src="https://source.unsplash.com/eeEiys6TU3c" class="card-img-top" style="border-style:solid; border-color:#808080FF; border-width:1px 1px 0 1px; border-radius: .6rem .6rem 0 0 ;"/>
       </a>
       <div class="card-body justify-content-end m-0 p-0" style="visibility: visible; background-color: #FFFFFFAA; border-style:solid; border-color:#808080FF; border-width:1px; border-radius: 0 0 .6rem .6rem ;">
         <a href="https://daryavanichkina.com/project/protehome">
@@ -58,7 +58,7 @@ slug: projects
     </div>
     <div class="card bg-transparent m-0 border-0 collapse.show bs4cards-blahblahblah bs4cards-NA" style="padding: .2rem ; border-width: 0; border-radius: .6rem .6rem .6rem .6rem ;">
       <a href="https://daryavanichkina.com/project/predictflu">
-        <img src="https://unsplash.com/photos/RXVfrhCswCQ" class="card-img-top" style="border-style:solid; border-color:#808080FF; border-width:1px 1px 0 1px; border-radius: .6rem .6rem 0 0 ;"/>
+        <img src="https://source.unsplash.com/RXVfrhCswCQ" class="card-img-top" style="border-style:solid; border-color:#808080FF; border-width:1px 1px 0 1px; border-radius: .6rem .6rem 0 0 ;"/>
       </a>
       <div class="card-body justify-content-end m-0 p-0" style="visibility: visible; background-color: #FFFFFFAA; border-style:solid; border-color:#808080FF; border-width:1px; border-radius: 0 0 .6rem .6rem ;">
         <a href="https://daryavanichkina.com/project/predictflu">
@@ -78,7 +78,7 @@ slug: projects
     </div>
     <div class="card bg-transparent m-0 border-0 collapse.show bs4cards-blahblahblah bs4cards-NA" style="padding: .2rem ; border-width: 0; border-radius: .6rem .6rem .6rem .6rem ;">
       <a href="https://daryavanichkina.com/project/englishtest">
-        <img src="https://unsplash.com/photos/ucUB9wxkPgY" class="card-img-top" style="border-style:solid; border-color:#808080FF; border-width:1px 1px 0 1px; border-radius: .6rem .6rem 0 0 ;"/>
+        <img src="https://source.unsplash.com/ucUB9wxkPgY" class="card-img-top" style="border-style:solid; border-color:#808080FF; border-width:1px 1px 0 1px; border-radius: .6rem .6rem 0 0 ;"/>
       </a>
       <div class="card-body justify-content-end m-0 p-0" style="visibility: visible; background-color: #FFFFFFAA; border-style:solid; border-color:#808080FF; border-width:1px; border-radius: 0 0 .6rem .6rem ;">
         <a href="https://daryavanichkina.com/project/englishtest">

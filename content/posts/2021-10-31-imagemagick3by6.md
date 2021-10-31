@@ -133,10 +133,6 @@ Hopefully this posts helps in getting started with using ImageMagick to batch-co
 
 [^1]: Yes, I will occasionally use [Camera+ 2](https://camera.plus/) when I'm feeling fancy or want to do some macro photography, but this usually occurs when my daughter is not in tow.
 
-[^2]: If you don't have ImageMagick installed on your Mac, I *highly* recommend using [homebrew](https://brew.sh/) to install it:
-
-```sh
-brew install imagemagick
-```
+[^2]: If you don't have ImageMagick installed on your Mac, I *highly* recommend using [homebrew](https://brew.sh/) to install it: `brew install imagemagick`
 
 [^3]: I have read online that you are meant to have 300 dpi (dots per inch) to get good quality for printing, which is why I've set the resolution to be this, BUT there are also articles such as [this](http://www.rideau-info.com/photos/whatisdpi.html) one which suggest that my mental model is probably simplistic. However, this resolution worked to get good quality images for me for printing.

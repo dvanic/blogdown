@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="Content-Language" content="en">
 
-    <meta name="author" content="Darya Vanichkina PhD">
+    <meta name="author" content="Darya Vanichkina PhD SFHEA">
     <meta name="description" content="While this blog tends to focus on things I do at work or as part of data-sciency related extracurricular interests, I can&rsquo;t help but post the solution to an amusing problem being the parent of a preschooler threw my way. My daughter&rsquo;s daycare has a roaming koala (yes, a koala, because we&rsquo;re in Australia, y&rsquo;all), who gets to spend a week with each family in turn, after which we&rsquo;re meant to contribute photos and some text to the &ldquo;Koala&rsquo;s adventures&rdquo; scrapbook.">
     <meta name="keywords" content="data scientist, consultant, bioinformatician, educator">
 
@@ -243,15 +243,14 @@
 <li>Change the order of the first two numbers in the geometry command, i.e. if it was <code>-geometry 1800x1200+0+0</code> change it to <code>-geometry 1200x1800+0+0</code></li>
 </ul>
 <p>Hopefully this posts helps in getting started with using ImageMagick to batch-collage files, for all of your scrapbooking needs. If you have any questions or something ends up unexpected, please leave a comment below.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">brew install imagemagick
-</code></pre></div><section class="footnotes" role="doc-endnotes">
+<section class="footnotes" role="doc-endnotes">
 <hr>
 <ol>
 <li id="fn:1" role="doc-endnote">
 <p>Yes, I will occasionally use <a href="https://camera.plus/">Camera+ 2</a> when I&rsquo;m feeling fancy or want to do some macro photography, but this usually occurs when my daughter is not in tow. <a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
 </li>
 <li id="fn:2" role="doc-endnote">
-<p>If you don&rsquo;t have ImageMagick installed on your Mac, I <em>highly</em> recommend using <a href="https://brew.sh/">homebrew</a> to install it: <a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+<p>If you don&rsquo;t have ImageMagick installed on your Mac, I <em>highly</em> recommend using <a href="https://brew.sh/">homebrew</a> to install it: <code>brew install imagemagick</code> <a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
 </li>
 <li id="fn:3" role="doc-endnote">
 <p>I have read online that you are meant to have 300 dpi (dots per inch) to get good quality for printing, which is why I&rsquo;ve set the resolution to be this, BUT there are also articles such as <a href="http://www.rideau-info.com/photos/whatisdpi.html">this</a> one which suggest that my mental model is probably simplistic. However, this resolution worked to get good quality images for me for printing. <a href="#fnref:3" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
@@ -266,28 +265,16 @@
         
 
 
-        <div id="disqus_thread"></div>
-<script type="application/javascript">
-    var disqus_config = function () {
-    
-    
-    
-    };
-    (function() {
-        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
-            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
-            return;
-        }
-        var d = document, s = d.createElement('script'); s.async = true;
-        s.src = '//' + "dvanicw" + '.disqus.com/embed.js';
-        s.setAttribute('data-timestamp', +new Date());
-        (d.head || d.body).appendChild(s);
-    })();
-</script>
-<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
         
         
+        <script src="https://utteranc.es/client.js"
+    repo= "dvanic/blog-comments"
+    issue-term="pathname"
+    label="comment"
+    theme="gruvbox-dark"
+    crossorigin="anonymous"
+    async>
+  </script>
       </footer>
     </article>
 

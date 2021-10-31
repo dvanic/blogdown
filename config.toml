@@ -10,10 +10,8 @@ googleAnalytics = "UA-54373354-1"
 paginate = 20
 canonifyurls = true
 
-disqusShortname = "dvanicw"
-
 [params]
-    author = "Darya Vanichkina PhD"
+    author = "Darya Vanichkina PhD SFHEA"
     description = "Darya Vanichkina's personal website"
     keywords = "data scientist, consultant, bioinformatician, educator"
     info = "Data Scientist & Professional Educator"
@@ -113,6 +111,13 @@ disqusShortname = "dvanicw"
     "*.youtube.com"
     ]
 
+[params.utterances]
+  enable = true
+  repo = "dvanic/blog-comments"
+  issueTerm = "pathname" 
+  label = "comment" 
+  theme = "gruvbox-dark"
+  crossorigin="anonymous"
 
 [languages]
     [languages.en]
