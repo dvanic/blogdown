@@ -21,3 +21,9 @@ They key outcome was a report, profiling whether the tests appeared to be:
 4. Invariant by subpopulation, i.e. there would be no differences when equating by subpopulations of takers
 5. Providing the same inferences, i.e. designed for use to reach the same kinds of conclusions
 6. Applied to the same target population
+
+- *Key tools: R: Rmarkdown, tidyverse; Git + GitHub*.
+
+## Outcome
+
+I provided advice to the client as to why "traditional" statistical tests, as suggested in a previous consultation by someone else, were not appropriate for this task, and practical action steps forward.

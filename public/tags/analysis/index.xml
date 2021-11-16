@@ -6,7 +6,114 @@
     <description>Recent content in analysis on Darya Vanichkina</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Mon, 20 May 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://daryavanichkina.com/tags/analysis/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 20 Oct 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://daryavanichkina.com/tags/analysis/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Protehome software</title>
+      <link>https://daryavanichkina.com/project/vegmachine/</link>
+      <pubDate>Wed, 20 Oct 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://daryavanichkina.com/project/vegmachine/</guid>
+      <description>&lt;h2 id=&#34;project-overview&#34;&gt;Project overview&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Scraped 30 years of vegetation data for an Ecology client, comparing discrepancies between scrapes &amp;amp; identifying correct data by overlapping with BOM records.&lt;/li&gt;
+&lt;li&gt;Used a high-performance computing cluster to download, crop and process 30 years worth of satellite imagery as input for machine learning.&lt;/li&gt;
+&lt;li&gt;Client has subsequently engaged with SIH for a comissioned project.&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;Key tools: R: Rmarkdown, tidyverse, sf, raster, tmap, jsonlite, data.table; Git + GitHub&lt;/em&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;!--
+## Project aims
+## Key challenges
+## My role
+## Links 
+- [GitHub](https://github.sydney.edu.au/informatics/pipe312-protehome-system)
+--&gt;&lt;blockquote&gt;
+&lt;/blockquote&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Training dashboard</title>
+      <link>https://daryavanichkina.com/project/trainingdashboard/</link>
+      <pubDate>Wed, 20 Oct 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://daryavanichkina.com/project/trainingdashboard/</guid>
+      <description>&lt;h2 id=&#34;project-outcomes&#34;&gt;Project outcomes&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Developed a PowerBI dashboard of training performance for University executive &amp;amp; stakeholders.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Raw data was scraped from Eventbrite and REDCap, extensively cleaned  and validated prior to being ingested into PowerBI.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Training partners were supplied with validation scripts so they could test their data on their end and ensure its consitency.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;em&gt;Key tools: R: tidyverse, lubridate; REDCap, Eventbrite; PowerBI; git &amp;amp; GitHub&lt;/em&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;!--
+## Project aims ToDo add some to pictures here
+## Key challenges
+## My role
+## Links 
+--&gt;&lt;blockquote&gt;
+&lt;/blockquote&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Use of consumer protection tools by Australian sports wagerers</title>
+      <link>https://daryavanichkina.com/project/gambling1/</link>
+      <pubDate>Wed, 20 Oct 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://daryavanichkina.com/project/gambling1/</guid>
+      <description>&lt;h2 id=&#34;project-overview&#34;&gt;Project overview&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Integrated 12+ million online wagering transactions from 50 000 clients of 6 major online wagering operators, co-writing the first academic publication &amp;amp; a report for Responsible Wagering Australia on customer protection tool use among Australian online wagerers. Engineered over 200 features for analysis.&lt;/li&gt;
+&lt;li&gt;This revealed that mandatory vs opt-in deposit limits are likely to reduce the risk of harms, so was covered by media worldwide.&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;Key tools: R: data.table, tidyverse, Rmarkdown, lubridate, gtsummary, tidyquant, lmertest, broom; Git + GitHub&lt;/em&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;links&#34;&gt;Links&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Academic manuscript: &lt;a href=&#34;https://psycnet.apa.org/record/2021-59935-001&#34;&gt;Heirene, R. M., Vanichkina, D. P., &amp;amp; Gainsbury, S. M. (2021). Patterns and correlates of consumer protection tool use by Australian online gambling customers. Psychology of Addictive Behaviors. Advance online publication. https://doi.org/10.1037/adb0000761&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://agbrief.com/news/australia/08/06/2021/using-behavioural-science-to-combat-illegal-gambling-operators/&#34;&gt;Feature in Asia Gaming Brief&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.greo.ca/Modules/EvidenceCentre/Details/australian-online-gambling-customers-patterns-of-use-of-consumer-protection-tool&#34;&gt;Feature in GREO Evidence Centre (Canada)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.sydney.edu.au/news-opinion/news/2021/07/07/voluntary-betting-controls-are-a-bad-gamble.html&#34;&gt;University of Sydney Publicity brief&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://pages.github.sydney.edu.au/dvanichkina/PIPE-870-Gambling&#34;&gt;Code repository/website with results (Sydney Uni access only)&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;!--
+## Project aims
+## Key challenges
+## My role
+## Links 
+- [GitHub](https://github.sydney.edu.au/informatics/pipe312-protehome-system)
+--&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Use of consumer protection tools by Australian sports wagerers - phase 2</title>
+      <link>https://daryavanichkina.com/project/gambling2/</link>
+      <pubDate>Wed, 20 Oct 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://daryavanichkina.com/project/gambling2/</guid>
+      <description>&lt;h2 id=&#34;project-overview&#34;&gt;Project overview&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Building on the outcomes of phase 1 worked towards understanding tool use patterns among users of multiple tools&lt;/li&gt;
+&lt;li&gt;Created a visualisation for the tool use trajectory for ~3000 clients to enable data understanding and hypothesis generation&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;Key tools: R: data.table, tidyverse, Rmarkdown, lubridate, gtsummary, tidyquant; Git + GitHub&lt;/em&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;!--
+## Project aims
+## Key challenges
+## My role
+## Links 
+- [GitHub](https://github.sydney.edu.au/informatics/pipe312-protehome-system)
+--&gt;
+</description>
+    </item>
+    
     <item>
       <title>English tests</title>
       <link>https://daryavanichkina.com/project/englishtest/</link>
@@ -26,6 +133,11 @@
 &lt;li&gt;Providing the same inferences, i.e. designed for use to reach the same kinds of conclusions&lt;/li&gt;
 &lt;li&gt;Applied to the same target population&lt;/li&gt;
 &lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;Key tools: R: Rmarkdown, tidyverse; Git + GitHub&lt;/em&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;outcome&#34;&gt;Outcome&lt;/h2&gt;
+&lt;p&gt;I provided advice to the client as to why &amp;ldquo;traditional&amp;rdquo; statistical tests, as suggested in a previous consultation by someone else, were not appropriate for this task, and practical action steps forward.&lt;/p&gt;
 </description>
     </item>
     

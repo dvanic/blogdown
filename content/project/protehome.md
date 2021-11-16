@@ -32,6 +32,7 @@ As project manager, I ensured client needs were met within a reasonable time fra
 
 As domain matter expert, I served as a "translator" between the clients (biologists) and the two software engineers, as the ways/langauge of describing functionality and user needs was very different between the two. For example, a "UI" demonstration was confusing for the client, as much core functionality was still not operational, so it was unclear what they were being asked to provide feedback for.
 
+- *Key tools: git & GitHub; GitHub projects; Jira; Trello.*
 
 ## Links 
 

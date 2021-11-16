@@ -8,6 +8,27 @@
     <language>en</language>
     <lastBuildDate>Wed, 20 Oct 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://daryavanichkina.com/tags/management/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>Flu prediction</title>
+      <link>https://daryavanichkina.com/project/predictflu/</link>
+      <pubDate>Wed, 20 Oct 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://daryavanichkina.com/project/predictflu/</guid>
+      <description>&lt;h2 id=&#34;project-outcomes&#34;&gt;Project outcomes&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Using logistic regression and random forest models to predict whether genetic markers and demographics could predict the need for oxygen therapy among flu patients.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;They couldn&amp;rsquo;t - and my role was to communicate and resolve this negative result with the client.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;em&gt;Key tools: git &amp;amp; GitHub; GitHub projects; Jira; Trello; Powerpoint&lt;/em&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
       <title>Protehome software</title>
       <link>https://daryavanichkina.com/project/protehome/</link>
       <pubDate>Wed, 20 Oct 2021 00:00:00 +0000</pubDate>
@@ -35,10 +56,34 @@
 &lt;/ul&gt;
 &lt;p&gt;As project manager, I ensured client needs were met within a reasonable time frame and the software was able to do what they wanted.&lt;/p&gt;
 &lt;p&gt;As domain matter expert, I served as a &amp;ldquo;translator&amp;rdquo; between the clients (biologists) and the two software engineers, as the ways/langauge of describing functionality and user needs was very different between the two. For example, a &amp;ldquo;UI&amp;rdquo; demonstration was confusing for the client, as much core functionality was still not operational, so it was unclear what they were being asked to provide feedback for.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;Key tools: git &amp;amp; GitHub; GitHub projects; Jira; Trello.&lt;/em&gt;&lt;/li&gt;
+&lt;/ul&gt;
 &lt;h2 id=&#34;links&#34;&gt;Links&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;protehome.sydney.edu.au/&#34;&gt;Online Instance&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;https://github.sydney.edu.au/informatics/pipe312-protehome-system&#34;&gt;GitHub&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Social network analysis</title>
+      <link>https://daryavanichkina.com/project/socialnetworks/</link>
+      <pubDate>Wed, 20 Oct 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://daryavanichkina.com/project/socialnetworks/</guid>
+      <description>&lt;h2 id=&#34;project-outcomes&#34;&gt;Project outcomes&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Developing a social network analysis of 20 000 students to model the relationship between student belonging/social network expansion and their academic performance.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Pilot results showed we could use the data provided to generate social network, and the client has engaged SIH to continue this work&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;em&gt;Key tools: git &amp;amp; GitHub; GitHub projects; Jira; Trello.&lt;/em&gt;&lt;/p&gt;
+&lt;/li&gt;
 &lt;/ul&gt;
 </description>
     </item>
