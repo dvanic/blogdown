@@ -3,7 +3,8 @@ slug: training
 title: Training
 ---
 
-**I am a Senior Fellow of the UK Higher Education Academy (FHEA) & a Carpentries Instructor trainer.<!-- I am passionate about using evidence-based teaching practices for supporting adult learners in developing digital skills.>** 
+**I am a Senior Fellow of the UK Higher Education Academy (FHEA) & a Carpentries Instructor trainer. 
+<!-- I am passionate about using evidence-based teaching practices for supporting adult learners in developing digital skills.-->** 
 
 ## RStudio Certified training 
 
