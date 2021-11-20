@@ -3,24 +3,44 @@ slug: training
 title: Training
 ---
 
-**I am a Senior Fellow of the UK Higher Education Academy (FHEA) & a Carpentries Instructor trainer. **
-
-<!-- I am passionate about using evidence-based teaching practices for supporting adult learners in developing digital skills.-->
+I am a [Senior Fellow of the UK Higher Education Academy (SFHEA)](https://www.advance-he.ac.uk/fellowship/senior-fellowship) & a [Carpentries Instructor trainer](carpentries.org/trainers/).
 
 ## RStudio Certified training 
 
 I am an [RStudio Certified Instructor](https://education.rstudio.com/trainers/) with 6+ experience in developing and delivering training commercially and at Go8 Universities in Australia. If you are interested in commercial data science training using R or Python, please reach out via email at d.vanichkina at gmail dot com. My ABN is 14 264 195 525. 
 
-## Professional experience at the Sydney Informatics Hub
+## Professional experience
 
-As part of my role at the Sydney Informatics Hub, I develop and deliver training for researchers at the University of Sydney. Please see [here](https://www.sydney.edu.au/research/facilities/sydney-informatics-hub/workshops-and-training/training-calendar.html) for upcoming courses. Recently, I:
+I have developed and delivered a wide range of training:
 
-- Developed and delivered a 2 day [Machine learning using R course (Sydney Uni access only)](https://pages.github.sydney.edu.au/informatics/lessons-mlr/).
-- Developed and delivered a 2 day [Machine learning using python course (Sydney Uni access only)](https://pages.github.sydney.edu.au/informatics/lessons-mlpy/).
-- Developed and delivered a  4.5 hour [RNA-seq data analysis course using R + HPC](https://sydney-informatics-hub.github.io/training-RNAseq/). [Slides](https://sydney-informatics-hub.github.io/training-RNAseq-slides/01_IntroductionToRNASeq/01_IntroductionToRNASeq.html#1).
-- Organised and co-developed python and machine learning content for and co-delivered a 5 day Business School Data Science Summer School (Sydney Uni access only) [2019](https://pages.github.sydney.edu.au/informatics/2019_BSDSSS/) & [2020](https://pages.github.sydney.edu.au/informatics/2020_BSDSSS/), including running a data hackathon for the attendees.
-- Adapted and delivered the [Data Carpentry R for Geospatial Data Analysis](https://sydney-informatics-hub.github.io/2018_12_10_GISworkshop/) at the University of Sydney and as part of [Sydney ResBaz 2019](https://resbaz.github.io/resbaz2019/sydney/). 
-- Co-developed and delivered an [Introductory R for Biomedical researchers](https://sydney-informatics-hub.github.io/lessonbmc/) course at the University of Sydney's Brain and Mind Centre.
+|Date |Organisation                               |Details                                                                                                                                                                                                                                                   |
+|:----|:------------------------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|2021 |Petroleum Exploration Society of Australia |Python for Geosciences (online, attendees from Santos, BHP, Origin, Beach Energy etc)                                                                                                                                                                     |
+|2021 |eHealth@Sydney                             |Python for analysing disease spread \& electronic health records (online)                                                                                                                                                                                 |
+|2020 |Sydney Informatics Hub                     |Machine learning in R (online and in-person); Machine learning in python (online); Publication-quality tables in R (online); Profiling R code (online); Teaching at the Informatics Hub                                                                   |
+|2020 |University of Sydney Business School       |Business School Data Science Summer School                                                                                                                                                                                                                |
+|2020 |Carpentries                                |Carpentries Instructor Training (online)                                                                                                                                                                                                                  |
+|2019 |Monash University                          |Carpentries Instructor Training                                                                                                                                                                                                                           |
+|2019 |University of Sydney Business School       |Business School Data Science Summer School                                                                                                                                                                                                                |
+|2019 |Sydney Informatics Hub                     |Machine learning in R (in-person x 4); Machine learning in python (in-person x 4)                                                                                                                                                                         |
+|2019 |UNSW                                       |Geospatial data analysis                                                                                                                                                                                                                                  |
+|2019 |SIH                                        |RNA-seq data analysis course using R + HPC                                                                                                                                                                                                                |
+|2018 |Women Who Code Sydney                      |R for Data Analysis (https://github.com/dvanic/wwc2018)                                                                                                                                                                                                   |
+|2018 |University of Sydney Brain and Mind Centre |R for Biomedical Researchers                                                                                                                                                                                                                              |
+|2018 |Sydney Informatics Hub                     |Geospatial data analysis                                                                                                                                                                                                                                  |
+|2018 |CSIRO                                      |Introduction to SQL for the CSIRO Data School                                                                                                                                                                                                             |
+|2018 |Macquarie University                       |Introduction to R for reproducible scientific analysis                                                                                                                                                                                                    |
+|2017 |University of Technology, Sydney           |Introduction to R, Unix and version control                                                                                                                                                                                                               |
+|2016 |University of Sydney                       |Introduction to python, Unix and version control                                                                                                                                                                                                          |
+|2016 |pyconAU                                    |Introduction to data management, python for data analysis and version control                                                                                                                                                                             |
+|2015 |University of Queensland                   |Lead tutor for courses in microbiology, cell biology and bioinformatics                                                                                                                                                                                   |
+|2014 |University of Queensland                   |Awarded competitive grant to develop flipped learning materials for bioinformatics course. Subsequent feedback indicated that "these materials were a lifesaver for the course when the COVID pandemic and associated pivot to online learning occurred". |
+|2014 |University of Queensland                   |Lead tutor for courses in bioinformatics and cell biology                                                                                                                                                                                                 |
+|2013 |University of Queensland                   |Lead tutor for courses in bioinformatics, cell biology and microbiology                                                                                                                                                                                   |
+|2012 |University of Queensland                   |Tutor/lead tutor for courses in microbiology and cell biology                                                                                                                                                                                             |
+|2011 |University of Queensland                   |Tutor/lead tutor for courses in microbiology and genetics                                                                                                                                                                                                 |                                                                                            |
+
+
 
 <!-- 
 
@@ -29,3 +49,4 @@ As part of my role at the Sydney Informatics Hub, I develop and deliver training
 I am passionate about teaching and training, especially programming, analytics and reproducible research foundations to researchers. I am a proponent of active learning, and (when appropriate!) project-based and activity-based learning. I believe that the combination of innovative strategies in teaching, including peer learning and flipped classrooms, with the best that the digital revolution has to offer (video recordings of lectures, podcasts, screencasts, interactive web-based learning environments and MOOCs from the world’s best thinkers) makes today an especially fortunate time to be a learner. Students need no longer be limited by where they are geographically to learn, and instead of working on mundane fill-in-the-blanks secret class assignments can set up web resources, blogs and apps to showcase skills they’ve acquired to future employers as part of a truly modern education.
 >
 
+<!-- I am passionate about using evidence-based teaching practices for supporting adult learners in developing digital skills.-->
