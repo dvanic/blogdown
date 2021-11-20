@@ -6,28 +6,28 @@ slug: projects
 <div>
   <div class="row p-0 row-cols-1 row-cols-md-2 row-cols-lg-3" style="margin-left: -.2rem; margin-right: -.2rem; margin-top: 1rem; margin-bottom: 1rem; ">
     <div class="card bg-transparent m-0 border-0 collapse.show bs4cards-blahblahblah bs4cards-NA" style="padding: .2rem ; border-width: 0; border-radius: .6rem .6rem .6rem .6rem ;">
-      <a href="https://daryavanichkina.com/project/obesity">
-        <img src="https://daryavanichkina.com/images/211028_obesity.jpeg" class="card-img-top" style="border-style:solid; border-color:#808080FF; border-width:1px 1px 0 1px; border-radius: .6rem .6rem 0 0 ;"/>
+      <a href="https://daryavanichkina.com/project/corpus">
+        <img src="https://daryavanichkina.com/images/2111_corpus.jpg" class="card-img-top" style="border-style:solid; border-color:#808080FF; border-width:1px 1px 0 1px; border-radius: .6rem .6rem 0 0 ;"/>
       </a>
       <div class="card-body justify-content-end m-0 p-0" style="visibility: visible; background-color: #FFFFFFAA; border-style:solid; border-color:#808080FF; border-width:1px; border-radius: 0 0 .6rem .6rem ;">
-        <a href="https://daryavanichkina.com/project/obesity">
-          <h5 class="card-title my-auto px-3 pt-3 pb-3">Australian obesity corpus</h5>
+        <a href="https://daryavanichkina.com/project/corpus">
+          <h5 class="card-title my-auto px-3 pt-3 pb-3">Australian corpus</h5>
         </a>
       </div>
     </div>
     <div class="card bg-transparent m-0 border-0 collapse.show bs4cards-blahblahblah bs4cards-NA" style="padding: .2rem ; border-width: 0; border-radius: .6rem .6rem .6rem .6rem ;">
       <a href="https://daryavanichkina.com/project/trainingdashboard">
-        <img src="https://source.unsplash.com/ucUB9wxkPgY" class="card-img-top" style="border-style:solid; border-color:#808080FF; border-width:1px 1px 0 1px; border-radius: .6rem .6rem 0 0 ;"/>
+        <img src="https://daryavanichkina.com/images/2111_sihtraining.jpg" class="card-img-top" style="border-style:solid; border-color:#808080FF; border-width:1px 1px 0 1px; border-radius: .6rem .6rem 0 0 ;"/>
       </a>
       <div class="card-body justify-content-end m-0 p-0" style="visibility: visible; background-color: #FFFFFFAA; border-style:solid; border-color:#808080FF; border-width:1px; border-radius: 0 0 .6rem .6rem ;">
         <a href="https://daryavanichkina.com/project/trainingdashboard">
-          <h5 class="card-title my-auto px-3 pt-3 pb-3">PowerBI Dashboard for Training</h5>
+          <h5 class="card-title my-auto px-3 pt-3 pb-3">PowerBI dashboard for training</h5>
         </a>
       </div>
     </div>
     <div class="card bg-transparent m-0 border-0 collapse.show bs4cards-blahblahblah bs4cards-NA" style="padding: .2rem ; border-width: 0; border-radius: .6rem .6rem .6rem .6rem ;">
       <a href="https://daryavanichkina.com/project/socialnetworks">
-        <img src="https://source.unsplash.com/ucUB9wxkPgY" class="card-img-top" style="border-style:solid; border-color:#808080FF; border-width:1px 1px 0 1px; border-radius: .6rem .6rem 0 0 ;"/>
+        <img src="https://daryavanichkina.com/images/2111_socialnetwork.jpg" class="card-img-top" style="border-style:solid; border-color:#808080FF; border-width:1px 1px 0 1px; border-radius: .6rem .6rem 0 0 ;"/>
       </a>
       <div class="card-body justify-content-end m-0 p-0" style="visibility: visible; background-color: #FFFFFFAA; border-style:solid; border-color:#808080FF; border-width:1px; border-radius: 0 0 .6rem .6rem ;">
         <a href="https://daryavanichkina.com/project/socialnetworks">
@@ -37,7 +37,7 @@ slug: projects
     </div>
     <div class="card bg-transparent m-0 border-0 collapse.show bs4cards-blahblahblah bs4cards-NA" style="padding: .2rem ; border-width: 0; border-radius: .6rem .6rem .6rem .6rem ;">
       <a href="https://daryavanichkina.com/project/protehome">
-        <img src="https://source.unsplash.com/eeEiys6TU3c" class="card-img-top" style="border-style:solid; border-color:#808080FF; border-width:1px 1px 0 1px; border-radius: .6rem .6rem 0 0 ;"/>
+        <img src="https://daryavanichkina.com/images/2111_protehome.jpg" class="card-img-top" style="border-style:solid; border-color:#808080FF; border-width:1px 1px 0 1px; border-radius: .6rem .6rem 0 0 ;"/>
       </a>
       <div class="card-body justify-content-end m-0 p-0" style="visibility: visible; background-color: #FFFFFFAA; border-style:solid; border-color:#808080FF; border-width:1px; border-radius: 0 0 .6rem .6rem ;">
         <a href="https://daryavanichkina.com/project/protehome">
@@ -47,7 +47,7 @@ slug: projects
     </div>
     <div class="card bg-transparent m-0 border-0 collapse.show bs4cards-blahblahblah bs4cards-NA" style="padding: .2rem ; border-width: 0; border-radius: .6rem .6rem .6rem .6rem ;">
       <a href="https://daryavanichkina.com/project/omia">
-        <img src="https://daryavanichkina.com/images/211028_omia.jpeg" class="card-img-top" style="border-style:solid; border-color:#808080FF; border-width:1px 1px 0 1px; border-radius: .6rem .6rem 0 0 ;"/>
+        <img src="https://daryavanichkina.com/images/2111_omia.jpg" class="card-img-top" style="border-style:solid; border-color:#808080FF; border-width:1px 1px 0 1px; border-radius: .6rem .6rem 0 0 ;"/>
       </a>
       <div class="card-body justify-content-end m-0 p-0" style="visibility: visible; background-color: #FFFFFFAA; border-style:solid; border-color:#808080FF; border-width:1px; border-radius: 0 0 .6rem .6rem ;">
         <a href="https://daryavanichkina.com/project/omia">
@@ -56,28 +56,18 @@ slug: projects
       </div>
     </div>
     <div class="card bg-transparent m-0 border-0 collapse.show bs4cards-blahblahblah bs4cards-NA" style="padding: .2rem ; border-width: 0; border-radius: .6rem .6rem .6rem .6rem ;">
-      <a href="https://daryavanichkina.com/project/gambling1">
-        <img src="https://daryavanichkina.com/images/211028_gambling1.jpeg" class="card-img-top" style="border-style:solid; border-color:#808080FF; border-width:1px 1px 0 1px; border-radius: .6rem .6rem 0 0 ;"/>
+      <a href="https://daryavanichkina.com/project/gambling">
+        <img src="https://daryavanichkina.com/images/2111_gambling.jpg" class="card-img-top" style="border-style:solid; border-color:#808080FF; border-width:1px 1px 0 1px; border-radius: .6rem .6rem 0 0 ;"/>
       </a>
       <div class="card-body justify-content-end m-0 p-0" style="visibility: visible; background-color: #FFFFFFAA; border-style:solid; border-color:#808080FF; border-width:1px; border-radius: 0 0 .6rem .6rem ;">
-        <a href="https://daryavanichkina.com/project/gambling1">
+        <a href="https://daryavanichkina.com/project/gambling">
           <h5 class="card-title my-auto px-3 pt-3 pb-3">Online wagering cohort analysis</h5>
         </a>
       </div>
     </div>
     <div class="card bg-transparent m-0 border-0 collapse.show bs4cards-blahblahblah bs4cards-NA" style="padding: .2rem ; border-width: 0; border-radius: .6rem .6rem .6rem .6rem ;">
-      <a href="https://daryavanichkina.com/project/gambling2">
-        <img src="https://daryavanichkina.com/images/211028_gambling2.jpeg" class="card-img-top" style="border-style:solid; border-color:#808080FF; border-width:1px 1px 0 1px; border-radius: .6rem .6rem 0 0 ;"/>
-      </a>
-      <div class="card-body justify-content-end m-0 p-0" style="visibility: visible; background-color: #FFFFFFAA; border-style:solid; border-color:#808080FF; border-width:1px; border-radius: 0 0 .6rem .6rem ;">
-        <a href="https://daryavanichkina.com/project/gambling2">
-          <h5 class="card-title my-auto px-3 pt-3 pb-3">Sports betting patterns</h5>
-        </a>
-      </div>
-    </div>
-    <div class="card bg-transparent m-0 border-0 collapse.show bs4cards-blahblahblah bs4cards-NA" style="padding: .2rem ; border-width: 0; border-radius: .6rem .6rem .6rem .6rem ;">
       <a href="https://daryavanichkina.com/project/predictflu">
-        <img src="https://source.unsplash.com/RXVfrhCswCQ" class="card-img-top" style="border-style:solid; border-color:#808080FF; border-width:1px 1px 0 1px; border-radius: .6rem .6rem 0 0 ;"/>
+        <img src="https://daryavanichkina.com/images/2111_flu.jpg" class="card-img-top" style="border-style:solid; border-color:#808080FF; border-width:1px 1px 0 1px; border-radius: .6rem .6rem 0 0 ;"/>
       </a>
       <div class="card-body justify-content-end m-0 p-0" style="visibility: visible; background-color: #FFFFFFAA; border-style:solid; border-color:#808080FF; border-width:1px; border-radius: 0 0 .6rem .6rem ;">
         <a href="https://daryavanichkina.com/project/predictflu">
@@ -87,7 +77,7 @@ slug: projects
     </div>
     <div class="card bg-transparent m-0 border-0 collapse.show bs4cards-blahblahblah bs4cards-NA" style="padding: .2rem ; border-width: 0; border-radius: .6rem .6rem .6rem .6rem ;">
       <a href="https://daryavanichkina.com/project/vegmachine">
-        <img src="https://daryavanichkina.com/images/211028_vegmachine.jpeg" class="card-img-top" style="border-style:solid; border-color:#808080FF; border-width:1px 1px 0 1px; border-radius: .6rem .6rem 0 0 ;"/>
+        <img src="https://daryavanichkina.com/images/2111_vegmachine.jpg" class="card-img-top" style="border-style:solid; border-color:#808080FF; border-width:1px 1px 0 1px; border-radius: .6rem .6rem 0 0 ;"/>
       </a>
       <div class="card-body justify-content-end m-0 p-0" style="visibility: visible; background-color: #FFFFFFAA; border-style:solid; border-color:#808080FF; border-width:1px; border-radius: 0 0 .6rem .6rem ;">
         <a href="https://daryavanichkina.com/project/vegmachine">
@@ -96,12 +86,12 @@ slug: projects
       </div>
     </div>
     <div class="card bg-transparent m-0 border-0 collapse.show bs4cards-blahblahblah bs4cards-NA" style="padding: .2rem ; border-width: 0; border-radius: .6rem .6rem .6rem .6rem ;">
-      <a href="https://daryavanichkina.com/project/englishtest">
-        <img src="https://source.unsplash.com/ucUB9wxkPgY" class="card-img-top" style="border-style:solid; border-color:#808080FF; border-width:1px 1px 0 1px; border-radius: .6rem .6rem 0 0 ;"/>
+      <a href="https://daryavanichkina.com/project/testanalysis">
+        <img src="https://daryavanichkina.com/images/2111_testanalysis.jpg" class="card-img-top" style="border-style:solid; border-color:#808080FF; border-width:1px 1px 0 1px; border-radius: .6rem .6rem 0 0 ;"/>
       </a>
       <div class="card-body justify-content-end m-0 p-0" style="visibility: visible; background-color: #FFFFFFAA; border-style:solid; border-color:#808080FF; border-width:1px; border-radius: 0 0 .6rem .6rem ;">
-        <a href="https://daryavanichkina.com/project/englishtest">
-          <h5 class="card-title my-auto px-3 pt-3 pb-3">English tests</h5>
+        <a href="https://daryavanichkina.com/project/testanalysis">
+          <h5 class="card-title my-auto px-3 pt-3 pb-3">Test analysis</h5>
         </a>
       </div>
     </div>

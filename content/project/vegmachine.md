@@ -1,21 +1,31 @@
 ---
-title: Protehome software
-date: '2021-10-20'
+title: Vegmachine API
+date: '2019-10-20'
 tags:
 - analysis
 ---
 
-## Project overview
+<p align="center">
+<img src="https://daryavanichkina.com/images/2111_vegmachine.jpg" width="500" />
+</p>
 
-- Scraped 30 years of vegetation data for an Ecology client, comparing discrepancies between scrapes & identifying correct data by overlapping with BOM records.
+## Client
+
+- Ecology researcher at the University of Sydney
+
+## Purpose
+
+- To provide researcher with 30+ years worth of clean data for modeling.
+
+## Approach
+
+- Scraped 30 years of vegetation data , comparing discrepancies between scrapes & identifying correct data by overlapping with BOM records.
 - Used a high-performance computing cluster to download, crop and process 30 years worth of satellite imagery as input for machine learning.
-- Client has subsequently engaged with SIH for a comissioned project.
-- *Key tools: R: Rmarkdown, tidyverse, sf, raster, tmap, jsonlite, data.table; Git + GitHub*.
+- Provided client with documentation, instructions for rerunning the scrapes if needed & data.
+## Outcome
 
-<!--
-## Project aims
-## Key challenges
-## My role
-## Links 
-- [GitHub](https://github.sydney.edu.au/informatics/pipe312-protehome-system)
--->
+- Client has subsequently engaged SIH for a comissioned project.
+
+## Key tools
+
+- *R: Rmarkdown, tidyverse, sf, raster, tmap, jsonlite, data.table; Git + GitHub*

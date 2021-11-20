@@ -8,71 +8,79 @@
     <language>en</language>
     <lastBuildDate>Wed, 20 Oct 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://daryavanichkina.com/tags/analysis/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Protehome software</title>
-      <link>https://daryavanichkina.com/project/vegmachine/</link>
-      <pubDate>Wed, 20 Oct 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://daryavanichkina.com/project/vegmachine/</guid>
-      <description>&lt;h2 id=&#34;project-overview&#34;&gt;Project overview&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;Scraped 30 years of vegetation data for an Ecology client, comparing discrepancies between scrapes &amp;amp; identifying correct data by overlapping with BOM records.&lt;/li&gt;
-&lt;li&gt;Used a high-performance computing cluster to download, crop and process 30 years worth of satellite imagery as input for machine learning.&lt;/li&gt;
-&lt;li&gt;Client has subsequently engaged with SIH for a comissioned project.&lt;/li&gt;
-&lt;li&gt;&lt;em&gt;Key tools: R: Rmarkdown, tidyverse, sf, raster, tmap, jsonlite, data.table; Git + GitHub&lt;/em&gt;.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;!--
-## Project aims
-## Key challenges
-## My role
-## Links 
-- [GitHub](https://github.sydney.edu.au/informatics/pipe312-protehome-system)
---&gt;&lt;blockquote&gt;
-&lt;/blockquote&gt;
-</description>
-    </item>
-    
-    <item>
       <title>Training dashboard</title>
       <link>https://daryavanichkina.com/project/trainingdashboard/</link>
       <pubDate>Wed, 20 Oct 2021 00:00:00 +0000</pubDate>
       
       <guid>https://daryavanichkina.com/project/trainingdashboard/</guid>
-      <description>&lt;h2 id=&#34;project-outcomes&#34;&gt;Project outcomes&lt;/h2&gt;
+      <description>&lt;p align=&#34;center&#34;&gt;
+&lt;img src=&#34;https://daryavanichkina.com/images/2111_sihtraining.jpg&#34; width=&#34;500&#34; /&gt;
+&lt;/p&gt;
+Photo by &lt;a href=&#34;https://unsplash.com/@jasongoodman_youxventures?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText&#34;&gt;Jason Goodman&lt;/a&gt; on &lt;a href=&#34;https://unsplash.com/s/photos/training?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText&#34;&gt;Unsplash&lt;/a&gt;
+&lt;h2 id=&#34;clients&#34;&gt;Clients&lt;/h2&gt;
 &lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;Developed a PowerBI dashboard of training performance for University executive &amp;amp; stakeholders.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Raw data was scraped from Eventbrite and REDCap, extensively cleaned  and validated prior to being ingested into PowerBI.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Training partners were supplied with validation scripts so they could test their data on their end and ensure its consitency.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;em&gt;Key tools: R: tidyverse, lubridate; REDCap, Eventbrite; PowerBI; git &amp;amp; GitHub&lt;/em&gt;&lt;/p&gt;
-&lt;/li&gt;
+&lt;li&gt;University of Sydney/Sydney Informatics Hub management&lt;/li&gt;
+&lt;li&gt;Other Sydney Informatics Hub trainers&lt;/li&gt;
+&lt;li&gt;Sydney Informatics Hub Team Leads&lt;/li&gt;
 &lt;/ul&gt;
-&lt;!--
-## Project aims ToDo add some to pictures here
-## Key challenges
-## My role
-## Links 
---&gt;&lt;blockquote&gt;
-&lt;/blockquote&gt;
+&lt;h2 id=&#34;purpose&#34;&gt;Purpose&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;To showcase Sydney Informatics Hub training numbers &amp;amp; highlight the team&amp;rsquo;s achievements.&lt;/li&gt;
+&lt;li&gt;To allow trainers to conveniently access &amp;amp; reflect on learner feedback.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;approach&#34;&gt;Approach&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Developed a PowerBI dashboard.&lt;/li&gt;
+&lt;li&gt;Raw data was scraped from Eventbrite and REDCap, extensively cleaned  and validated prior to being ingested into PowerBI.&lt;/li&gt;
+&lt;li&gt;Training partners were supplied with validation scripts so they could test their data on their end and ensure its consitency.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;outcome&#34;&gt;Outcome&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Dashboard is used to make key training decisions.&lt;/li&gt;
+&lt;li&gt;Dashboard is used by management when engaging with specific faculties to show level of SIH services provided.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;key-tools&#34;&gt;Key tools&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;R: tidyverse, lubridate; REDCap, Eventbrite; PowerBI; git &amp;amp; GitHub&lt;/em&gt;&lt;/li&gt;
+&lt;/ul&gt;
 </description>
     </item>
     
     <item>
       <title>Use of consumer protection tools by Australian sports wagerers</title>
-      <link>https://daryavanichkina.com/project/gambling1/</link>
+      <link>https://daryavanichkina.com/project/gambling/</link>
       <pubDate>Wed, 20 Oct 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://daryavanichkina.com/project/gambling1/</guid>
-      <description>&lt;h2 id=&#34;project-overview&#34;&gt;Project overview&lt;/h2&gt;
+      <guid>https://daryavanichkina.com/project/gambling/</guid>
+      <description>&lt;p align=&#34;center&#34;&gt;
+&lt;img src=&#34;https://daryavanichkina.com/images/2111_gambling2.jpg&#34; width=&#34;700&#34; /&gt;
+&lt;/p&gt;
+&lt;h2 id=&#34;clients&#34;&gt;Clients&lt;/h2&gt;
 &lt;ul&gt;
-&lt;li&gt;Integrated 12+ million online wagering transactions from 50 000 clients of 6 major online wagering operators, co-writing the first academic publication &amp;amp; a report for Responsible Wagering Australia on customer protection tool use among Australian online wagerers. Engineered over 200 features for analysis.&lt;/li&gt;
-&lt;li&gt;This revealed that mandatory vs opt-in deposit limits are likely to reduce the risk of harms, so was covered by media worldwide.&lt;/li&gt;
-&lt;li&gt;&lt;em&gt;Key tools: R: data.table, tidyverse, Rmarkdown, lubridate, gtsummary, tidyquant, lmertest, broom; Git + GitHub&lt;/em&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.sydney.edu.au/science/about/our-people/academic-staff/sally-gainsbury.html&#34;&gt;A/Prof Sally Gainsbury&lt;/a&gt;, &lt;a href=&#34;https://www.sydney.edu.au/brain-mind/&#34;&gt;Brain &amp;amp; Mind Centre&lt;/a&gt;, University of Sydney&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.sydney.edu.au/science/about/our-people/academic-staff/robert-heirene.html&#34;&gt;Dr Robert Heirene&lt;/a&gt;,  &lt;a href=&#34;https://www.sydney.edu.au/brain-mind/&#34;&gt;Brain &amp;amp; Mind Centre&lt;/a&gt;, University of Sydney&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;purpose&#34;&gt;Purpose&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;The clients have a partnership with Responsible Wagering Australia to provide experimental data for research.&lt;/li&gt;
+&lt;li&gt;For this project, the questions were:
+&lt;ol&gt;
+&lt;li&gt;What proportion of online sports wagerers use consumer protection tools (deposit limits, timeouts &amp;amp; self-exclusions)?&lt;/li&gt;
+&lt;li&gt;What are the differences between wagerers who use each of the tool types?&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;approach&#34;&gt;Approach&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Integrated 12+ million online wagering transactions from 50 000 clients of 6 major online wagering operators. Engineered over 200 features for analysis.&lt;/li&gt;
+&lt;li&gt;This revealed that mandatory vs opt-in deposit limits are likely to reduce the risk of harms.&lt;/li&gt;
+&lt;li&gt;Created a visualisation for the tool use trajectory for ~3000 clients to enable data understanding and hypothesis generation, for the next work around understanding tool use patterns among users of multiple tools.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;outcome&#34;&gt;Outcome&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Co-authored the first academic publication regarding consumer protection tool use among sports wagerers in Australia.&lt;/li&gt;
+&lt;li&gt;Contributed to a report for Responsible Wagering Australia.&lt;/li&gt;
+&lt;li&gt;Study results were covered by multiple media outlets (see below links).&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id=&#34;links&#34;&gt;Links&lt;/h2&gt;
 &lt;ul&gt;
@@ -82,48 +90,62 @@
 &lt;li&gt;&lt;a href=&#34;https://www.sydney.edu.au/news-opinion/news/2021/07/07/voluntary-betting-controls-are-a-bad-gamble.html&#34;&gt;University of Sydney Publicity brief&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;https://pages.github.sydney.edu.au/dvanichkina/PIPE-870-Gambling&#34;&gt;Code repository/website with results (Sydney Uni access only)&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;!--
-## Project aims
-## Key challenges
-## My role
-## Links 
-- [GitHub](https://github.sydney.edu.au/informatics/pipe312-protehome-system)
---&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Use of consumer protection tools by Australian sports wagerers - phase 2</title>
-      <link>https://daryavanichkina.com/project/gambling2/</link>
-      <pubDate>Wed, 20 Oct 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://daryavanichkina.com/project/gambling2/</guid>
-      <description>&lt;h2 id=&#34;project-overview&#34;&gt;Project overview&lt;/h2&gt;
+&lt;h2 id=&#34;key-tools&#34;&gt;Key tools&lt;/h2&gt;
 &lt;ul&gt;
-&lt;li&gt;Building on the outcomes of phase 1 worked towards understanding tool use patterns among users of multiple tools&lt;/li&gt;
-&lt;li&gt;Created a visualisation for the tool use trajectory for ~3000 clients to enable data understanding and hypothesis generation&lt;/li&gt;
-&lt;li&gt;&lt;em&gt;Key tools: R: data.table, tidyverse, Rmarkdown, lubridate, gtsummary, tidyquant; Git + GitHub&lt;/em&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;R: data.table, tidyverse, Rmarkdown, lubridate, gtsummary, tidyquant, lmertest, broom; Git + GitHub&lt;/em&gt;.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;!--
-## Project aims
-## Key challenges
-## My role
-## Links 
-- [GitHub](https://github.sydney.edu.au/informatics/pipe312-protehome-system)
---&gt;
+&lt;p&gt;Note: cover photo credit  &lt;a href=&#34;https://unsplash.com/@cadop?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText&#34;&gt;Mathew Schwartz&lt;/a&gt; on &lt;a href=&#34;https://unsplash.com/s/photos/horse-racing?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText&#34;&gt;Unsplash&lt;/a&gt;&lt;/p&gt;
 </description>
     </item>
     
     <item>
-      <title>English tests</title>
-      <link>https://daryavanichkina.com/project/englishtest/</link>
+      <title>Vegmachine API</title>
+      <link>https://daryavanichkina.com/project/vegmachine/</link>
+      <pubDate>Sun, 20 Oct 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://daryavanichkina.com/project/vegmachine/</guid>
+      <description>&lt;p align=&#34;center&#34;&gt;
+&lt;img src=&#34;https://daryavanichkina.com/images/2111_vegmachine.jpg&#34; width=&#34;500&#34; /&gt;
+&lt;/p&gt;
+&lt;h2 id=&#34;client&#34;&gt;Client&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Ecology researcher at the University of Sydney&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;purpose&#34;&gt;Purpose&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;To provide researcher with 30+ years worth of clean data for modeling.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;approach&#34;&gt;Approach&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Scraped 30 years of vegetation data , comparing discrepancies between scrapes &amp;amp; identifying correct data by overlapping with BOM records.&lt;/li&gt;
+&lt;li&gt;Used a high-performance computing cluster to download, crop and process 30 years worth of satellite imagery as input for machine learning.&lt;/li&gt;
+&lt;li&gt;Provided client with documentation, instructions for rerunning the scrapes if needed &amp;amp; data.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;outcome&#34;&gt;Outcome&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Client has subsequently engaged SIH for a comissioned project.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;key-tools&#34;&gt;Key tools&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;R: Rmarkdown, tidyverse, sf, raster, tmap, jsonlite, data.table; Git + GitHub&lt;/em&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Test comparisons</title>
+      <link>https://daryavanichkina.com/project/testanalysis/</link>
       <pubDate>Mon, 20 May 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://daryavanichkina.com/project/englishtest/</guid>
-      <description>&lt;h2 id=&#34;project-aims&#34;&gt;Project aims&lt;/h2&gt;
-&lt;p&gt;Comparing two tests of English proficiency to identify whether they are interchangeable&lt;/p&gt;
-&lt;h2 id=&#34;details&#34;&gt;Details&lt;/h2&gt;
-&lt;p&gt;I used a range of approaches from quantitative educational metrics analysis to identify whether the outcomes on two measures of English proficiency could be mapped to each other to obtain a concordance.&lt;/p&gt;
+      <guid>https://daryavanichkina.com/project/testanalysis/</guid>
+      <description>&lt;p align=&#34;center&#34;&gt;
+&lt;img src=&#34;https://daryavanichkina.com/images/2111_testanalysis.jpg&#34; width=&#34;500&#34; /&gt;
+&lt;/p&gt;
+&lt;p&gt;Photo by &lt;a href=&#34;https://unsplash.com/@chrisliverani?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText&#34;&gt;Chris Liverani&lt;/a&gt; on &lt;a href=&#34;https://unsplash.com/s/photos/test?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText&#34;&gt;Unsplash&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;purpose&#34;&gt;Purpose&lt;/h2&gt;
+&lt;p&gt;Comparing two tests of proficiency to identify whether they are interchangeable.&lt;/p&gt;
+&lt;h2 id=&#34;approach&#34;&gt;Approach&lt;/h2&gt;
+&lt;p&gt;I used a range of methods from quantitative educational metrics analysis to identify whether the outcomes on two measures of English proficiency could be mapped to each other to obtain a concordance.&lt;/p&gt;
 &lt;p&gt;They key outcome was a report, profiling whether the tests appeared to be:&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;Measuring the same construct&lt;/li&gt;
@@ -133,11 +155,14 @@
 &lt;li&gt;Providing the same inferences, i.e. designed for use to reach the same kinds of conclusions&lt;/li&gt;
 &lt;li&gt;Applied to the same target population&lt;/li&gt;
 &lt;/ol&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;em&gt;Key tools: R: Rmarkdown, tidyverse; Git + GitHub&lt;/em&gt;.&lt;/li&gt;
-&lt;/ul&gt;
 &lt;h2 id=&#34;outcome&#34;&gt;Outcome&lt;/h2&gt;
-&lt;p&gt;I provided advice to the client as to why &amp;ldquo;traditional&amp;rdquo; statistical tests, as suggested in a previous consultation by someone else, were not appropriate for this task, and practical action steps forward.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;I provided advice to the client as to why &amp;ldquo;traditional&amp;rdquo; statistical tests, as suggested in a previous consultation by someone else, were not appropriate for this task, and practical actionable steps forward based on the analysis.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;key-tools&#34;&gt;Key tools&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;R: Rmarkdown, tidyverse; Git + GitHub&lt;/em&gt;.&lt;/li&gt;
+&lt;/ul&gt;
 </description>
     </item>
     

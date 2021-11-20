@@ -13,17 +13,27 @@
       <pubDate>Wed, 20 Oct 2021 00:00:00 +0000</pubDate>
       
       <guid>https://daryavanichkina.com/project/predictflu/</guid>
-      <description>&lt;h2 id=&#34;project-outcomes&#34;&gt;Project outcomes&lt;/h2&gt;
+      <description>&lt;p align=&#34;center&#34;&gt;
+&lt;img src=&#34;https://daryavanichkina.com/images/2111_flu.jpg&#34; width=&#34;500&#34; /&gt;
+&lt;/p&gt;
+&lt;p&gt;Photo by &lt;a href=&#34;https://unsplash.com/@chrisliverani?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText&#34;&gt;Chris Liverani&lt;/a&gt; on &lt;a href=&#34;https://unsplash.com/s/photos/flu?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText&#34;&gt;Unsplash&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;purpose&#34;&gt;Purpose&lt;/h2&gt;
 &lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;Using logistic regression and random forest models to predict whether genetic markers and demographics could predict the need for oxygen therapy among flu patients.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;They couldn&amp;rsquo;t - and my role was to communicate and resolve this negative result with the client.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;em&gt;Key tools: git &amp;amp; GitHub; GitHub projects; Jira; Trello; Powerpoint&lt;/em&gt;&lt;/p&gt;
-&lt;/li&gt;
+&lt;li&gt;To use genetic markers and demographics to predict the need for oxygen among flu patients.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;approach&#34;&gt;Approach&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;My role was project management.&lt;/li&gt;
+&lt;li&gt;The analyst used PCA &amp;amp; logistic regression + random forest models to explore the data and provide a prediction.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;outcome&#34;&gt;Outcome&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Genetic markers &amp;amp; demographics could not predict the need for oxygen therapy among flu patients.&lt;/li&gt;
+&lt;li&gt;My role was to communicate and resolve this negative result with the client.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;key-tools&#34;&gt;Key tools&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;git &amp;amp; GitHub; GitHub projects; Jira; Trello; Powerpoint&lt;/em&gt;.&lt;/li&gt;
 &lt;/ul&gt;
 </description>
     </item>
@@ -34,35 +44,52 @@
       <pubDate>Wed, 20 Oct 2021 00:00:00 +0000</pubDate>
       
       <guid>https://daryavanichkina.com/project/protehome/</guid>
-      <description>&lt;h2 id=&#34;project-aims&#34;&gt;Project aims&lt;/h2&gt;
-&lt;p&gt;To develop a software tool for a large 50+ person unit to store their &lt;a href=&#34;https://en.wikipedia.org/wiki/Mass_spectrometry&#34;&gt;mass spectrometry&lt;/a&gt; data.&lt;/p&gt;
-&lt;p&gt;This tool consisted of:&lt;/p&gt;
+      <description>&lt;h2 id=&#34;clients&#34;&gt;Clients&lt;/h2&gt;
 &lt;ul&gt;
-&lt;li&gt;An interface to upload data and validate its integrity&lt;/li&gt;
-&lt;li&gt;Internal functionality to update the database records when UniProt (a publically available annotation database) was updated&lt;/li&gt;
-&lt;li&gt;A search interface&lt;/li&gt;
+&lt;li&gt;A large 50+ person laboratory from the University of Sydney&amp;rsquo;s Faculty of Medicine &amp;amp; Health.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h2 id=&#34;key-challenges&#34;&gt;Key challenges&lt;/h2&gt;
+&lt;h2 id=&#34;purpose&#34;&gt;Purpose&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;To develop a software tool to store their &lt;a href=&#34;https://en.wikipedia.org/wiki/Mass_spectrometry&#34;&gt;mass spectrometry&lt;/a&gt; data.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;challenges&#34;&gt;Challenges&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;Data exists in spreadsheets on users laptops, with columns organised in various ad-hoc, manual ways&lt;/li&gt;
 &lt;li&gt;Data can come from several distinct experiment types, with different &amp;ldquo;columns&amp;rdquo; being appropriate for each&lt;/li&gt;
 &lt;li&gt;Data has been processed with different versions of the same software, and this needs to be recorded/captured&lt;/li&gt;
 &lt;li&gt;Data has been processed to different versions of reference annotations, so old data needs to be automatically updated to reflect the changes that have happened in the annotation&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h2 id=&#34;my-role&#34;&gt;My role&lt;/h2&gt;
+&lt;h2 id=&#34;approach&#34;&gt;Approach&lt;/h2&gt;
 &lt;ul&gt;
-&lt;li&gt;Project manager&lt;/li&gt;
-&lt;li&gt;Domain matter expert&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;My role was project management &amp;amp; user requirements elucidation.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;The tool ended up consisting of:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;An interface to upload data and validate its integrity&lt;/li&gt;
+&lt;li&gt;Internal functionality to update the database records when &lt;a href=&#34;https://www.uniprot.org/&#34;&gt;UniProt&lt;/a&gt; (a publically available annotation database) was updated&lt;/li&gt;
+&lt;li&gt;A search interface&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;As project manager, I ensured client needs were met within a reasonable time frame and the software was able to do what they wanted.&lt;/p&gt;
-&lt;p&gt;As domain matter expert, I served as a &amp;ldquo;translator&amp;rdquo; between the clients (biologists) and the two software engineers, as the ways/langauge of describing functionality and user needs was very different between the two. For example, a &amp;ldquo;UI&amp;rdquo; demonstration was confusing for the client, as much core functionality was still not operational, so it was unclear what they were being asked to provide feedback for.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;outcome&#34;&gt;Outcome&lt;/h2&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;em&gt;Key tools: git &amp;amp; GitHub; GitHub projects; Jira; Trello.&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;As project manager, I ensured client needs were met within a reasonable time frame and the software was able to do what they wanted.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;As domain matter expert, I served as a &amp;ldquo;translator&amp;rdquo; between the clients (biologists) and the two software engineers, as the ways/langauge of describing functionality and user needs was very different between the two. For example, a &amp;ldquo;UI&amp;rdquo; demonstration was confusing for the client, as much core functionality was still not operational, so it was unclear what they were being asked to provide feedback for.&lt;/p&gt;
+&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id=&#34;links&#34;&gt;Links&lt;/h2&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;protehome.sydney.edu.au/&#34;&gt;Online Instance&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://github.sydney.edu.au/informatics/pipe312-protehome-system&#34;&gt;GitHub&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;protehome.sydney.edu.au/&#34;&gt;Online Instance&lt;/a&gt; &lt;em&gt;(Sydney Uni only)&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.sydney.edu.au/informatics/pipe312-protehome-system&#34;&gt;GitHub&lt;/a&gt; &lt;em&gt;(Sydney Uni only)&lt;/em&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;key-tools&#34;&gt;Key tools&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;git &amp;amp; GitHub; GitHub projects; Jira; Trello.&lt;/em&gt;&lt;/li&gt;
 &lt;/ul&gt;
 </description>
     </item>
@@ -73,17 +100,30 @@
       <pubDate>Wed, 20 Oct 2021 00:00:00 +0000</pubDate>
       
       <guid>https://daryavanichkina.com/project/socialnetworks/</guid>
-      <description>&lt;h2 id=&#34;project-outcomes&#34;&gt;Project outcomes&lt;/h2&gt;
+      <description>&lt;p align=&#34;center&#34;&gt;
+&lt;img src=&#34;https://daryavanichkina.com/images/2111_socialnetwork.jpg&#34; width=&#34;500&#34; /&gt;
+&lt;/p&gt;
+&lt;p&gt;Photo by &lt;a href=&#34;https://unsplash.com/@jjying?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText&#34;&gt;JJ Ying&lt;/a&gt; on &lt;a href=&#34;https://unsplash.com/s/photos/network?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText&#34;&gt;Unsplash&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;clients&#34;&gt;Clients&lt;/h2&gt;
 &lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;Developing a social network analysis of 20 000 students to model the relationship between student belonging/social network expansion and their academic performance.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Pilot results showed we could use the data provided to generate social network, and the client has engaged SIH to continue this work&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;em&gt;Key tools: git &amp;amp; GitHub; GitHub projects; Jira; Trello.&lt;/em&gt;&lt;/p&gt;
-&lt;/li&gt;
+&lt;li&gt;A team of ~8 university researchers (University of Sydney and others).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;purpose&#34;&gt;Purpose&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;To understand the relationship between student belonging and academic performance.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;approach&#34;&gt;Approach&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;My role was project management.&lt;/li&gt;
+&lt;li&gt;Challenges included liaising with multiple data owners, clients &amp;amp; defining the scope/outcomes of the project, as well as data size &amp;amp; techinical problems.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;outcome&#34;&gt;Outcome&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Pilot results showed we could use the data to query the questions of interest.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;key-tools&#34;&gt;Key tools&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;git &amp;amp; GitHub; GitHub projects; Jira; Trello; email/Zoom; Google Docs&lt;/em&gt;.&lt;/li&gt;
 &lt;/ul&gt;
 </description>
     </item>
