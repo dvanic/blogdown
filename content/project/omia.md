@@ -1,5 +1,5 @@
 ---
-title: OMIA/EVA integration
+title: "OMIA/EVA integration"
 date: '2021-12-31'
 tags:
 - management
@@ -11,7 +11,6 @@ tags:
 
 Photo by <a href="https://unsplash.com/@tofi?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Tobias Fischer</a> on <a href="https://unsplash.com/s/photos/database?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
   
-
 ## Clients
 
 - [Prof Frank Nicholas](https://www.sydney.edu.au/science/about/our-people/academic-staff/frank-nicholas.html), Faculty of Science, University of Sydney
@@ -42,10 +41,3 @@ Photo by <a href="https://unsplash.com/@tofi?utm_source=unsplash&utm_medium=refe
 
 - *git & GitHub; GitHub projects; Jira; Trello; email/Zoom.*.
 
-<!--
-## Project aims
-## Key challenges
-## My role
-## Links 
-- [GitHub](https://github.sydney.edu.au/informatics/pipe312-protehome-system)
--->

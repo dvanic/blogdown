@@ -1,8 +1,7 @@
 ---
-title: Australian corpus preparation
-date: '2021-11-30'
-tags:
-- analysis
+title: "Australian corpus preparation"
+date: 2021-11-30
+tags: "analysis"
 ---
 
 <p align="center">
