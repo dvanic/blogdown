@@ -6,42 +6,39 @@
     <description>Recent content in analysis on Darya Vanichkina</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 20 Oct 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://daryavanichkina.com/tags/analysis/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 21 Nov 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://daryavanichkina.com/tags/analysis/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Training dashboard</title>
-      <link>https://daryavanichkina.com/project/trainingdashboard/</link>
-      <pubDate>Wed, 20 Oct 2021 00:00:00 +0000</pubDate>
+      <title>Australian corpus preparation</title>
+      <link>https://daryavanichkina.com/project/corpus/</link>
+      <pubDate>Sun, 21 Nov 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://daryavanichkina.com/project/trainingdashboard/</guid>
+      <guid>https://daryavanichkina.com/project/corpus/</guid>
       <description>&lt;p align=&#34;center&#34;&gt;
-&lt;img src=&#34;https://daryavanichkina.com/images/2111_sihtraining.jpg&#34; width=&#34;500&#34; /&gt;
+&lt;img src=&#34;https://daryavanichkina.com/images/2111_corpus.jpg&#34; width=&#34;500&#34; /&gt;
 &lt;/p&gt;
-Photo by &lt;a href=&#34;https://unsplash.com/@jasongoodman_youxventures?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText&#34;&gt;Jason Goodman&lt;/a&gt; on &lt;a href=&#34;https://unsplash.com/s/photos/training?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText&#34;&gt;Unsplash&lt;/a&gt;
+&lt;p&gt;Photo by &lt;a href=&#34;https://unsplash.com/@ugur?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText&#34;&gt;Ugur Akdemir&lt;/a&gt; on &lt;a href=&#34;https://unsplash.com/s/photos/corpus?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText&#34;&gt;Unsplash&lt;/a&gt;&lt;/p&gt;
 &lt;h2 id=&#34;clients&#34;&gt;Clients&lt;/h2&gt;
 &lt;ul&gt;
-&lt;li&gt;University of Sydney/Sydney Informatics Hub management&lt;/li&gt;
-&lt;li&gt;Other Sydney Informatics Hub trainers&lt;/li&gt;
-&lt;li&gt;Sydney Informatics Hub Team Leads&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.sydney.edu.au/arts/about/our-people/academic-staff/monika-bednarek.html&#34;&gt;Prof Monika Bednarek&lt;/a&gt;, Faculty of Arts &amp;amp; Social Sciences, University of Sydney&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id=&#34;purpose&#34;&gt;Purpose&lt;/h2&gt;
 &lt;ul&gt;
-&lt;li&gt;To showcase Sydney Informatics Hub training numbers &amp;amp; highlight the team&amp;rsquo;s achievements.&lt;/li&gt;
-&lt;li&gt;To allow trainers to conveniently access &amp;amp; reflect on learner feedback.&lt;/li&gt;
+&lt;li&gt;The clients prepared a corpus of media articles around a specific topic (&lt;em&gt;confidential&lt;/em&gt;).&lt;/li&gt;
+&lt;li&gt;The corpus was manually downloaded from LexisNexis on Windows.&lt;/li&gt;
+&lt;li&gt;Multiple character encoding issues were encountered as a result of this, which made it incompatible with tools the clients wanted to use.&lt;/li&gt;
+&lt;li&gt;The aim was to generate a &amp;ldquo;clean&amp;rdquo; corpus that could be used for data analysis.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id=&#34;approach&#34;&gt;Approach&lt;/h2&gt;
 &lt;ul&gt;
-&lt;li&gt;Developed a PowerBI dashboard.&lt;/li&gt;
-&lt;li&gt;Raw data was scraped from Eventbrite and REDCap, extensively cleaned  and validated prior to being ingested into PowerBI.&lt;/li&gt;
-&lt;li&gt;Training partners were supplied with validation scripts so they could test their data on their end and ensure its consitency.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&#34;outcome&#34;&gt;Outcome&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;Dashboard is used to make key training decisions.&lt;/li&gt;
-&lt;li&gt;Dashboard is used by management when engaging with specific faculties to show level of SIH services provided.&lt;/li&gt;
+&lt;li&gt;Resolved encoding issues in the 27 000+ articles from 12 Australian newspapers.&lt;/li&gt;
+&lt;li&gt;Implemented near-duplicate detection, visualisation and removal using minhash and locality-sensitive hashing (&amp;ldquo;reimplemented Turnitin in Python&amp;rdquo;) to ensure subsequent statistical analyses were not invalid due to duplicates.&lt;/li&gt;
+&lt;li&gt;Used topic modelling to create sub-corpora for further analysis.&lt;/li&gt;
+&lt;li&gt;Translated analytics spreadsheets used by researchers to a standalone Python script, automating and scaling one-vs-all and one-vs-one sub-corpus analysis.&lt;/li&gt;
+&lt;li&gt;Provided comprehensive client-interpretable documentation.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id=&#34;key-tools&#34;&gt;Key tools&lt;/h2&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;em&gt;R: tidyverse, lubridate; REDCap, Eventbrite; PowerBI; git &amp;amp; GitHub&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;Key tools: Python: pandas, chardet, spacy, seaborn, gensim, datasketch; Git + GitHub; Jira; fdupes&lt;/em&gt;.&lt;/li&gt;
 &lt;/ul&gt;
 </description>
     </item>
@@ -99,9 +96,48 @@ Photo by &lt;a href=&#34;https://unsplash.com/@jasongoodman_youxventures?utm_sou
     </item>
     
     <item>
+      <title>Training dashboard</title>
+      <link>https://daryavanichkina.com/project/trainingdashboard/</link>
+      <pubDate>Fri, 20 Aug 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://daryavanichkina.com/project/trainingdashboard/</guid>
+      <description>&lt;p align=&#34;center&#34;&gt;
+&lt;img src=&#34;https://daryavanichkina.com/images/2111_sihtraining.jpg&#34; width=&#34;500&#34; /&gt;
+&lt;/p&gt;
+Photo by &lt;a href=&#34;https://unsplash.com/@jasongoodman_youxventures?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText&#34;&gt;Jason Goodman&lt;/a&gt; on &lt;a href=&#34;https://unsplash.com/s/photos/training?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText&#34;&gt;Unsplash&lt;/a&gt;
+&lt;h2 id=&#34;clients&#34;&gt;Clients&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;University of Sydney/Sydney Informatics Hub management&lt;/li&gt;
+&lt;li&gt;Other Sydney Informatics Hub trainers&lt;/li&gt;
+&lt;li&gt;Sydney Informatics Hub Team Leads&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;purpose&#34;&gt;Purpose&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;To showcase Sydney Informatics Hub training numbers &amp;amp; highlight the team&amp;rsquo;s achievements.&lt;/li&gt;
+&lt;li&gt;To allow trainers to conveniently access &amp;amp; reflect on learner feedback.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;approach&#34;&gt;Approach&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Developed a PowerBI dashboard.&lt;/li&gt;
+&lt;li&gt;Raw data was scraped from Eventbrite and REDCap, extensively cleaned  and validated prior to being ingested into PowerBI.&lt;/li&gt;
+&lt;li&gt;Training partners were supplied with validation scripts so they could test their data on their end and ensure its consitency.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;outcome&#34;&gt;Outcome&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Dashboard is used to make key training decisions.&lt;/li&gt;
+&lt;li&gt;Dashboard is used by management when engaging with specific faculties to show level of SIH services provided.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;key-tools&#34;&gt;Key tools&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;R: tidyverse, lubridate; REDCap, Eventbrite; PowerBI; git &amp;amp; GitHub&lt;/em&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
       <title>Vegmachine API</title>
       <link>https://daryavanichkina.com/project/vegmachine/</link>
-      <pubDate>Sun, 20 Oct 2019 00:00:00 +0000</pubDate>
+      <pubDate>Wed, 20 Nov 2019 00:00:00 +0000</pubDate>
       
       <guid>https://daryavanichkina.com/project/vegmachine/</guid>
       <description>&lt;p align=&#34;center&#34;&gt;

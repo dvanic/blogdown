@@ -1,6 +1,6 @@
 ---
 title: Training dashboard
-date: '2021-10-20'
+date: 2021-08-20
 tags:
 - analysis
 ---

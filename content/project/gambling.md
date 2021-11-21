@@ -1,6 +1,6 @@
 ---
 title: Use of consumer protection tools by Australian sports wagerers
-date: '2021-10-20'
+date: 2021-10-20
 tags:
 - analysis
 ---

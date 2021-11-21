@@ -6,11 +6,86 @@
     <description>Recent content in management on Darya Vanichkina</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 20 Oct 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://daryavanichkina.com/tags/management/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 19 Nov 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://daryavanichkina.com/tags/management/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>OMIA/EVA integration</title>
+      <link>https://daryavanichkina.com/project/omia/</link>
+      <pubDate>Fri, 19 Nov 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://daryavanichkina.com/project/omia/</guid>
+      <description>&lt;p align=&#34;center&#34;&gt;
+&lt;img src=&#34;https://daryavanichkina.com/images/2111_omia.jpg&#34; width=&#34;500&#34; /&gt;
+&lt;/p&gt;
+&lt;p&gt;Photo by &lt;a href=&#34;https://unsplash.com/@tofi?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText&#34;&gt;Tobias Fischer&lt;/a&gt; on &lt;a href=&#34;https://unsplash.com/s/photos/database?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText&#34;&gt;Unsplash&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;clients&#34;&gt;Clients&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.sydney.edu.au/science/about/our-people/academic-staff/frank-nicholas.html&#34;&gt;Prof Frank Nicholas&lt;/a&gt;, Faculty of Science, University of Sydney&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.sydney.edu.au/science/about/our-people/academic-staff/imke-tammen.html&#34;&gt;A/Prof Imke Tammen&lt;/a&gt;, Faculty of Science, University of Sydney&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;purpose&#34;&gt;Purpose&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;To integrate 30+ years of records from the manually curated OMIA database into the international European Variation Archive (EVA), including resolving issues resulting from manual data entry.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;approach&#34;&gt;Approach&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;My role was project management.&lt;/li&gt;
+&lt;li&gt;I was the only person with both software and biology experience on the team, so I had to provide substantial communication &amp;ldquo;translation&amp;rdquo;.&lt;/li&gt;
+&lt;li&gt;Regular check-ins via email and Zoom, with both local and international partners, facilitated the progress of this project.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;outcome&#34;&gt;Outcome&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Records have been standardised (last bugfixes happening now) and will be part of the next EVA release.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;links&#34;&gt;Links&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://omia.org/&#34;&gt;OMIA&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.ebi.ac.uk/eva/&#34;&gt;EVA&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;key-tools&#34;&gt;Key tools&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;git &amp;amp; GitHub; GitHub projects; Jira; Trello; email/Zoom.&lt;/em&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Social network analysis</title>
+      <link>https://daryavanichkina.com/project/socialnetworks/</link>
+      <pubDate>Mon, 10 May 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://daryavanichkina.com/project/socialnetworks/</guid>
+      <description>&lt;p align=&#34;center&#34;&gt;
+&lt;img src=&#34;https://daryavanichkina.com/images/2111_socialnetwork.jpg&#34; width=&#34;500&#34; /&gt;
+&lt;/p&gt;
+&lt;p&gt;Photo by &lt;a href=&#34;https://unsplash.com/@jjying?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText&#34;&gt;JJ Ying&lt;/a&gt; on &lt;a href=&#34;https://unsplash.com/s/photos/network?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText&#34;&gt;Unsplash&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;clients&#34;&gt;Clients&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;A team of ~8 university researchers (University of Sydney and others).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;purpose&#34;&gt;Purpose&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;To understand the relationship between student belonging and academic performance.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;approach&#34;&gt;Approach&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;My role was project management.&lt;/li&gt;
+&lt;li&gt;Challenges included liaising with multiple data owners, clients &amp;amp; defining the scope/outcomes of the project, as well as data size &amp;amp; techinical problems.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;outcome&#34;&gt;Outcome&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Pilot results showed we could use the data to query the questions of interest.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;key-tools&#34;&gt;Key tools&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;git &amp;amp; GitHub; GitHub projects; Jira; Trello; email/Zoom; Google Docs&lt;/em&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
     <item>
       <title>Flu prediction</title>
       <link>https://daryavanichkina.com/project/predictflu/</link>
-      <pubDate>Wed, 20 Oct 2021 00:00:00 +0000</pubDate>
+      <pubDate>Wed, 20 May 2020 00:00:00 +0000</pubDate>
       
       <guid>https://daryavanichkina.com/project/predictflu/</guid>
       <description>&lt;p align=&#34;center&#34;&gt;
@@ -41,7 +116,7 @@
     <item>
       <title>Protehome software</title>
       <link>https://daryavanichkina.com/project/protehome/</link>
-      <pubDate>Wed, 20 Oct 2021 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 20 Jan 2020 00:00:00 +0000</pubDate>
       
       <guid>https://daryavanichkina.com/project/protehome/</guid>
       <description>&lt;h2 id=&#34;clients&#34;&gt;Clients&lt;/h2&gt;
@@ -90,40 +165,6 @@
 &lt;h2 id=&#34;key-tools&#34;&gt;Key tools&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;em&gt;git &amp;amp; GitHub; GitHub projects; Jira; Trello.&lt;/em&gt;&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Social network analysis</title>
-      <link>https://daryavanichkina.com/project/socialnetworks/</link>
-      <pubDate>Wed, 20 Oct 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://daryavanichkina.com/project/socialnetworks/</guid>
-      <description>&lt;p align=&#34;center&#34;&gt;
-&lt;img src=&#34;https://daryavanichkina.com/images/2111_socialnetwork.jpg&#34; width=&#34;500&#34; /&gt;
-&lt;/p&gt;
-&lt;p&gt;Photo by &lt;a href=&#34;https://unsplash.com/@jjying?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText&#34;&gt;JJ Ying&lt;/a&gt; on &lt;a href=&#34;https://unsplash.com/s/photos/network?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText&#34;&gt;Unsplash&lt;/a&gt;&lt;/p&gt;
-&lt;h2 id=&#34;clients&#34;&gt;Clients&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;A team of ~8 university researchers (University of Sydney and others).&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&#34;purpose&#34;&gt;Purpose&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;To understand the relationship between student belonging and academic performance.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&#34;approach&#34;&gt;Approach&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;My role was project management.&lt;/li&gt;
-&lt;li&gt;Challenges included liaising with multiple data owners, clients &amp;amp; defining the scope/outcomes of the project, as well as data size &amp;amp; techinical problems.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&#34;outcome&#34;&gt;Outcome&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;Pilot results showed we could use the data to query the questions of interest.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&#34;key-tools&#34;&gt;Key tools&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;em&gt;git &amp;amp; GitHub; GitHub projects; Jira; Trello; email/Zoom; Google Docs&lt;/em&gt;.&lt;/li&gt;
 &lt;/ul&gt;
 </description>
     </item>

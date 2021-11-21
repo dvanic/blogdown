@@ -1,6 +1,6 @@
 ---
 title: Vegmachine API
-date: '2019-10-20'
+date: '2019-11-20'
 tags:
 - analysis
 ---

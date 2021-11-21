@@ -1,6 +1,6 @@
 ---
 title: Social network analysis
-date: '2021-10-20'
+date: '2021-05-10'
 tags:
 - management
 ---

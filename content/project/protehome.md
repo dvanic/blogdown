@@ -1,6 +1,6 @@
 ---
 title: Protehome software
-date: '2021-10-20'
+date: '2020-01-20'
 tags:
 - management
 ---

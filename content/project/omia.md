@@ -1,6 +1,6 @@
 ---
 title: "OMIA/EVA integration"
-date: '2021-12-31'
+date: '2021-11-19'
 tags:
 - management
 ---

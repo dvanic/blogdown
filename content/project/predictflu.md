@@ -1,6 +1,6 @@
 ---
 title: Flu prediction
-date: '2021-10-20'
+date: '2020-05-20'
 tags:
 - management
 ---
