@@ -144,13 +144,18 @@ canonifyurls = true
         url = "/training/"
 
         [[languages.en.menu.main]]
-        name = "CV"
+        name = "Talks"
         weight = 5
+        url = "/talks/"
+
+        [[languages.en.menu.main]]
+        name = "CV"
+        weight = 6
         url = "/cv/"
 
         [[languages.en.menu.main]]
         name = "Contact"
-        weight = 6
+        weight = 7
         url = "/contact/"
 
 [markup.goldmark.renderer]
