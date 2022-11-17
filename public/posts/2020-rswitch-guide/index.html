@@ -24,9 +24,10 @@ In the past, I&rsquo;ve always been too &ldquo;chicken&rdquo; to try running mul
 <meta property="og:description" content="You&rsquo;d have to be living under a rock in the R community to not be aware of the fact that R 4.0 has been released, with some major changes, the biggest of which is probably the new default for read.table(): stringsAsFactors = FALSE, as well as the fact that matrix() now converts character columns to factors and factors to integers.
 In the past, I&rsquo;ve always been too &ldquo;chicken&rdquo; to try running multiple versions of R on my work laptop, as I&rsquo;ve usually got a few key analysis projects going that need to be delivered on time and within full feature scope - which means I don&rsquo;t have time to fix basic version incompatibility bugs." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://daryavanichkina.com/posts/2020-rswitch-guide/" />
+<meta property="og:url" content="https://daryavanichkina.com/posts/2020-rswitch-guide/" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2020-05-01T00:00:00+00:00" />
-<meta property="article:modified_time" content="2020-05-01T00:00:00+00:00" /><meta property="og:see_also" content="https://daryavanichkina.com/posts/2020-ardc-presentation-codingonline/" /><meta property="og:see_also" content="https://daryavanichkina.com/posts/2020-map-digital-2/" /><meta property="og:see_also" content="https://daryavanichkina.com/posts/2020-map-digital-1/" /><meta property="og:see_also" content="https://daryavanichkina.com/posts/2020-great-online-learning-student/" />
+<meta property="article:modified_time" content="2020-05-01T00:00:00+00:00" />
+<meta property="og:see_also" content="https://daryavanichkina.com/posts/2020-ardc-presentation-codingonline/" /><meta property="og:see_also" content="https://daryavanichkina.com/posts/2020-map-digital-2/" /><meta property="og:see_also" content="https://daryavanichkina.com/posts/2020-map-digital-1/" /><meta property="og:see_also" content="https://daryavanichkina.com/posts/2020-great-online-learning-student/" />
 
 
 
@@ -68,7 +69,7 @@ In the past, I&rsquo;ve always been too &ldquo;chicken&rdquo; to try running mul
     <link rel="apple-touch-icon" href="https://daryavanichkina.com/images/apple-touch-icon.png">
     <link rel="apple-touch-icon"  sizes="180x180" href="https://daryavanichkina.com/images/apple-touch-icon.png">
 
-    <meta name="generator" content="Hugo 0.80.0" />
+    <meta name="generator" content="Hugo 0.105.0">
   </head>
   
   
@@ -173,7 +174,7 @@ In the past, I&rsquo;ve always been too &ldquo;chicken&rdquo; to try running mul
 
       <div>
         
-        <p><img src="https://unsplash.com/photos/3uunq0n1WRY" alt="TBH I want to be this chicken&hellip;"></p>
+        <p><img src="https://unsplash.com/photos/3uunq0n1WRY" alt="TBH I want to be this chicken&amp;hellip;"></p>
 <p>You&rsquo;d have to be living under a rock in the R community to not be aware of the fact that R 4.0 has been released, with some major changes, the biggest of which is probably the new default for <code>read.table()</code>: <code>stringsAsFactors = FALSE</code>, as well as the fact that <code>matrix()</code> now converts character columns to factors and factors to integers.</p>
 <p>In the past, I&rsquo;ve always been too &ldquo;chicken&rdquo; to try running multiple versions of R on my work laptop, as I&rsquo;ve usually got a few key analysis projects going that need to be delivered on time and within full feature scope - which means I don&rsquo;t have time to fix basic version incompatibility bugs. But with this major new release I was sorely tempted, so have gone down the rabbit-hole of installing <a href="https://rud.is/rswitch/guide/">RSwitch</a> and R4.0 on my Mac (Catalina 10.15.4). Below I document, in what is probably excruciating detail, the steps of how I got this to work. I&rsquo;ve played with it for all of two days, and it seems to work - so I&rsquo;ve written this post in the hopes of helping others. Also, I had some funky hiccups with getting the right filepath and not using sudo at the outset, so I&rsquo;m hoping this helps someone avoid some extra <code>rm -r ...path...</code></p>
 <h2 id="step-0-critical-close-r--rstudio">Step 0 (CRITICAL): Close R &amp; RStudio</h2>
@@ -192,7 +193,7 @@ In the past, I&rsquo;ve always been too &ldquo;chicken&rdquo; to try running mul
 <h2 id="step-3-apply-funky-magic">Step 3: Apply funky magic</h2>
 <h4 id="option-1-gui">Option 1: GUI</h4>
 <p>So the reason I think the GUI is &ldquo;riskier&rdquo; is because usually when you run the GUI for a new version of R, it cleanly removes the old version of R from your machine. The workaround to prevent this from happening is to make your system, and hence the R installer, &ldquo;forget&rdquo; it has R installed. To do this you need to open a Terminal and type the following command:</p>
-<pre><code>sudo pkgutil --forget org.r-project.R.el-capitan.fw.pkg \
+<pre tabindex="0"><code>sudo pkgutil --forget org.r-project.R.el-capitan.fw.pkg \
              --forget org.r-project.x86_64.tcltk.x11 \
              --forget org.r-project.x86_64.texinfo \
              --forget org.r-project.R.el-capitan.GUI.pkg
@@ -303,7 +304,7 @@ In the past, I&rsquo;ve always been too &ldquo;chicken&rdquo; to try running mul
 
     
       
-      <script src="https://daryavanichkina.com/js/dark-mode.min.0213e1773e6d1c5a644f847c67a6f8abac49a3776e2976f6008038af8c5b76a1.js"></script>
+      <script src="https://daryavanichkina.com/js/dark-mode.min.c2d8a1f8f2660e4a46d776277c72695a1e0ca65939d79f754441d47551604af5.js"></script>
     
 
     
@@ -321,7 +322,6 @@ if (!doNotTrack) {
 	ga('send', 'pageview');
 }
 </script>
-
 
     
 

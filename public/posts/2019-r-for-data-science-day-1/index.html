@@ -21,9 +21,10 @@
     <meta property="og:title" content="R for Data Science Day 1" />
 <meta property="og:description" content="Working through the R for Data Science Exercises" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://daryavanichkina.com/posts/2019-r-for-data-science-day-1/" />
+<meta property="og:url" content="https://daryavanichkina.com/posts/2019-r-for-data-science-day-1/" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2019-12-04T00:00:00+00:00" />
 <meta property="article:modified_time" content="2019-12-04T00:00:00+00:00" />
+
 
 
 
@@ -65,7 +66,7 @@
     <link rel="apple-touch-icon" href="https://daryavanichkina.com/images/apple-touch-icon.png">
     <link rel="apple-touch-icon"  sizes="180x180" href="https://daryavanichkina.com/images/apple-touch-icon.png">
 
-    <meta name="generator" content="Hugo 0.80.0" />
+    <meta name="generator" content="Hugo 0.105.0">
   </head>
   
   
@@ -171,9 +172,9 @@
         <p>I am incredibly excited that RStudio has begun an <a href="https://education.rstudio.com/trainers/">instructor certification program</a> based on the Carpentries, so of course I signed up as soon as my overcommited nature allowed! This also provides me with the excuse and motivation to finally formally work my way through <a href="https://r4ds.had.co.nz/">R for Data Science</a>, a book I have read while waiting for GTT tests during my pregnancy and google-landed upon an umpteen number of times while debugging code, but never taken the time to sit down and do the exercises for - and of course the pedagogue in me knows quite well that THAT is how you actually learn and internalise the principles and concepts in any material, especially if it deals with programming and analysis. So over the next few weeks I plan to work my way through R4DS, and this post is the first in which I dive into the exercises.</p>
 <hr>
 <h2 id="personal-highly-non-exhaustive-notes-on-section-i-explore">Personal, highly non-exhaustive notes on section I: Explore</h2>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">library</span>(tidyverse)
-<span style="color:#a6e22e">theme_set</span>(<span style="color:#a6e22e">theme_minimal</span>())
-</code></pre></div><h3 id="steps-of-the-data-pipeline">Steps of the data pipeline:</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span><span style="color:#a6e22e">library</span>(tidyverse)
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">theme_set</span>(<span style="color:#a6e22e">theme_minimal</span>())
+</span></span></code></pre></div><h3 id="steps-of-the-data-pipeline">Steps of the data pipeline:</h3>
 <p><img src="https://d33wubrfki0l68.cloudfront.net/795c039ba2520455d833b4034befc8cf360a70ba/558a5/diagrams/data-science-explore.png" alt="https://r4ds.had.co.nz/explore-intro.html" title="Tidy Data Pipeline"></p>
 <ul>
 <li><strong>Import</strong>: take data stored in a file, database, or web API, and load it into a data frame in R.</li>
@@ -233,17 +234,17 @@
 <p>You can generally use geoms and stats interchangeably! For example, you can use stat_count() instead of geom_bar() to make the same plot!</p>
 </li>
 </ul>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">ggplot</span>(data <span style="color:#f92672">=</span> diamonds) <span style="color:#f92672">+</span> 
-  <span style="color:#a6e22e">geom_bar</span>(<span style="color:#a6e22e">aes</span>(x <span style="color:#f92672">=</span> cut, y <span style="color:#f92672">=</span> ..count.. <span style="color:#f92672">/</span> <span style="color:#a6e22e">sum</span>(..count..), fill <span style="color:#f92672">=</span> color))
-</code></pre></div><p><img src="../../images/1912_ggplotproportion.png" alt="Ggplot proportion chart"></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#75715e"># not really new, but I&#39;m sure I&#39;ll forget position = &#34;fill&#34;</span>
-<span style="color:#a6e22e">ggplot</span>(data <span style="color:#f92672">=</span> diamonds) <span style="color:#f92672">+</span> 
-  <span style="color:#a6e22e">geom_bar</span>(mapping <span style="color:#f92672">=</span> <span style="color:#a6e22e">aes</span>(x <span style="color:#f92672">=</span> cut, fill <span style="color:#f92672">=</span> clarity), position <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;fill&#34;</span>)
-</code></pre></div><p><img src="../../images/1912_proportionchart.png" alt="proportion"></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#75715e"># pie chart from bar</span>
-<span style="color:#a6e22e">ggplot</span>(data <span style="color:#f92672">=</span> diamonds) <span style="color:#f92672">+</span> 
-  <span style="color:#a6e22e">geom_bar</span>(mapping <span style="color:#f92672">=</span> <span style="color:#a6e22e">aes</span>(x <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>, fill <span style="color:#f92672">=</span> clarity)) <span style="color:#f92672">+</span> <span style="color:#a6e22e">coord_polar</span>(theta <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;y&#34;</span>)
-</code></pre></div><p><img src="../../images/1912_piechart.png" alt="pie chart"></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span><span style="color:#a6e22e">ggplot</span>(data <span style="color:#f92672">=</span> diamonds) <span style="color:#f92672">+</span> 
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">geom_bar</span>(<span style="color:#a6e22e">aes</span>(x <span style="color:#f92672">=</span> cut, y <span style="color:#f92672">=</span> ..count.. <span style="color:#f92672">/</span> <span style="color:#a6e22e">sum</span>(..count..), fill <span style="color:#f92672">=</span> color))
+</span></span></code></pre></div><p><img src="../../images/1912_ggplotproportion.png" alt="Ggplot proportion chart"></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span><span style="color:#75715e"># not really new, but I&#39;m sure I&#39;ll forget position = &#34;fill&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">ggplot</span>(data <span style="color:#f92672">=</span> diamonds) <span style="color:#f92672">+</span> 
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">geom_bar</span>(mapping <span style="color:#f92672">=</span> <span style="color:#a6e22e">aes</span>(x <span style="color:#f92672">=</span> cut, fill <span style="color:#f92672">=</span> clarity), position <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;fill&#34;</span>)
+</span></span></code></pre></div><p><img src="../../images/1912_proportionchart.png" alt="proportion"></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span><span style="color:#75715e"># pie chart from bar</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">ggplot</span>(data <span style="color:#f92672">=</span> diamonds) <span style="color:#f92672">+</span> 
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">geom_bar</span>(mapping <span style="color:#f92672">=</span> <span style="color:#a6e22e">aes</span>(x <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>, fill <span style="color:#f92672">=</span> clarity)) <span style="color:#f92672">+</span> <span style="color:#a6e22e">coord_polar</span>(theta <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;y&#34;</span>)
+</span></span></code></pre></div><p><img src="../../images/1912_piechart.png" alt="pie chart"></p>
 <ul>
 <li>
 <p><code>+ coord_cartesian(xlim = c(1,2), ylim)</code> - retain outlier</p>
@@ -264,8 +265,8 @@
 <p>Use <code>select()</code> in conjunction with the <code>everything()</code> helper, when you want to , for example, move a handful of variables to the start of the data frame.</p>
 </li>
 </ul>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#a6e22e">select</span>(flights, time_hour, air_time, <span style="color:#a6e22e">everything</span>())
-</code></pre></div><pre><code># A tibble: 336,776 x 19
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-R" data-lang="R"><span style="display:flex;"><span><span style="color:#a6e22e">select</span>(flights, time_hour, air_time, <span style="color:#a6e22e">everything</span>())
+</span></span></code></pre></div><pre tabindex="0"><code># A tibble: 336,776 x 19
    time_hour           air_time  year month   day dep_time sched_dep_time dep_delay arr_time sched_arr_time arr_delay carrier
    &lt;dttm&gt;                 &lt;dbl&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt;    &lt;int&gt;          &lt;int&gt;     &lt;dbl&gt;    &lt;int&gt;          &lt;int&gt;     &lt;dbl&gt; &lt;chr&gt;  
  1 2013-01-01 05:00:00      227  2013     1     1      517            515         2      830            819        11 UA     
@@ -703,7 +704,7 @@
 
     
       
-      <script src="https://daryavanichkina.com/js/dark-mode.min.0213e1773e6d1c5a644f847c67a6f8abac49a3776e2976f6008038af8c5b76a1.js"></script>
+      <script src="https://daryavanichkina.com/js/dark-mode.min.c2d8a1f8f2660e4a46d776277c72695a1e0ca65939d79f754441d47551604af5.js"></script>
     
 
     
@@ -721,7 +722,6 @@ if (!doNotTrack) {
 	ga('send', 'pageview');
 }
 </script>
-
 
     
 

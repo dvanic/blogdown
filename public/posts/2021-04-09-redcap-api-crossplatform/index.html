@@ -21,9 +21,10 @@
     <meta property="og:title" content="Avoiding 443 errors &amp; RCurl woes with the REDCap API on Windows" />
 <meta property="og:description" content="Like many other educational and research institutions, the University of Sydney (where I currently work) supports the use of REDCap as a survey platform. I also use it, in part because one of the most attractive features of the REDCap API over other survey tools like Qualtrics, Google Forms and SurveyMonkey is the fact that the API playground supports GUI-style selection of what you want, with REDCap providing template code in a wide variety of languages." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://daryavanichkina.com/posts/2021-04-09-redcap-api-crossplatform/" />
+<meta property="og:url" content="https://daryavanichkina.com/posts/2021-04-09-redcap-api-crossplatform/" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2021-04-09T00:00:00+00:00" />
 <meta property="article:modified_time" content="2021-04-09T00:00:00+00:00" />
+
 
 
     <title>
@@ -64,7 +65,7 @@
     <link rel="apple-touch-icon" href="https://daryavanichkina.com/images/apple-touch-icon.png">
     <link rel="apple-touch-icon"  sizes="180x180" href="https://daryavanichkina.com/images/apple-touch-icon.png">
 
-    <meta name="generator" content="Hugo 0.80.0" />
+    <meta name="generator" content="Hugo 0.105.0">
   </head>
   
   
@@ -180,79 +181,79 @@
 <p>It will also provide you with the code you&rsquo;d use to get the same data programmatically. There&rsquo;s also a &ldquo;Click the Execute Request button to execute a real API request, and it will display the API response in a text box below.&rdquo; so you can preview what you&rsquo;d get back as an object when loading this into your programming language of choice.</p>
 <p><img src="../../images/2104_PostForm.png" alt="Post form"></p>
 <p>As an example, when I try to retrieve the records from our feedback form (which I&rsquo;ve called <code>myformname</code> in the images/code above), it suggests the following R code for me (this returns the records themselves in a csv, and the errors in json):</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#75715e">#!/usr/bin/env Rscript</span>
-apisecret <span style="color:#f92672">&lt;-</span> <span style="color:#e6db74">&#39;myapikey&#39;</span> <span style="color:#75715e"># you get this when you enable REDCap API access for your project</span>
-<span style="color:#a6e22e">library</span>(RCurl)
-result <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">postForm</span>(
-    uri<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;https://redcap.sydney.edu.au/api/&#39;</span>,
-    token<span style="color:#f92672">=</span>apisecret,
-    content<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;record&#39;</span>,
-    format<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;csv&#39;</span>,
-    type<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;flat&#39;</span>,
-    csvDelimiter<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;&#39;</span>,
-    <span style="color:#e6db74">&#39;forms[0]&#39;</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#39;myformname&#39;</span>,
-    rawOrLabel<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;raw&#39;</span>,
-    rawOrLabelHeaders<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;raw&#39;</span>,
-    exportCheckboxLabel<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;false&#39;</span>,
-    exportSurveyFields<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;true&#39;</span>,
-    exportDataAccessGroups<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;false&#39;</span>,
-    returnFormat<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;json&#39;</span>
-)
-<span style="color:#a6e22e">print</span>(result)
-</code></pre></div><p>And all is well and good &hellip; if you&rsquo;re on a Mac! However, when I recently tried to run this (fully working!) code on a Windows machine (since this particular survey data goes into a PowerBI dashboard I&rsquo;ve built) - I encountered a 443 error instead! Apparently, this is a <a href="https://github.com/dewittpe/REDCapExporter/issues/16">known issue</a>, but while it&rsquo;s suggested to use the <code>httr</code> package instead (or one of the dedicated REDCap R packages), there was no template code available.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span><span style="color:#75715e">#!/usr/bin/env Rscript</span>
+</span></span><span style="display:flex;"><span>apisecret <span style="color:#f92672">&lt;-</span> <span style="color:#e6db74">&#39;myapikey&#39;</span> <span style="color:#75715e"># you get this when you enable REDCap API access for your project</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">library</span>(RCurl)
+</span></span><span style="display:flex;"><span>result <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">postForm</span>(
+</span></span><span style="display:flex;"><span>    uri<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;https://redcap.sydney.edu.au/api/&#39;</span>,
+</span></span><span style="display:flex;"><span>    token<span style="color:#f92672">=</span>apisecret,
+</span></span><span style="display:flex;"><span>    content<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;record&#39;</span>,
+</span></span><span style="display:flex;"><span>    format<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;csv&#39;</span>,
+</span></span><span style="display:flex;"><span>    type<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;flat&#39;</span>,
+</span></span><span style="display:flex;"><span>    csvDelimiter<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;&#39;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#39;forms[0]&#39;</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#39;myformname&#39;</span>,
+</span></span><span style="display:flex;"><span>    rawOrLabel<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;raw&#39;</span>,
+</span></span><span style="display:flex;"><span>    rawOrLabelHeaders<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;raw&#39;</span>,
+</span></span><span style="display:flex;"><span>    exportCheckboxLabel<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;false&#39;</span>,
+</span></span><span style="display:flex;"><span>    exportSurveyFields<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;true&#39;</span>,
+</span></span><span style="display:flex;"><span>    exportDataAccessGroups<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;false&#39;</span>,
+</span></span><span style="display:flex;"><span>    returnFormat<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;json&#39;</span>
+</span></span><span style="display:flex;"><span>)
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">print</span>(result)
+</span></span></code></pre></div><p>And all is well and good &hellip; if you&rsquo;re on a Mac! However, when I recently tried to run this (fully working!) code on a Windows machine (since this particular survey data goes into a PowerBI dashboard I&rsquo;ve built) - I encountered a 443 error instead! Apparently, this is a <a href="https://github.com/dewittpe/REDCapExporter/issues/16">known issue</a>, but while it&rsquo;s suggested to use the <code>httr</code> package instead (or one of the dedicated REDCap R packages), there was no template code available.</p>
 <p>After a bit of exploration, the below ended up working, and I&rsquo;m sharing this template code in the hopes of saving others (at Sydney Uni and elsewhere) the hassle of having to figure this out:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#75715e">#!/usr/bin/env Rscript</span>
-apisecret <span style="color:#f92672">&lt;-</span> <span style="color:#e6db74">&#39;myapikey&#39;</span> <span style="color:#75715e"># you get this when you enable REDCap API access for your project</span>
-<span style="color:#a6e22e">library</span>(curl)
-h1 <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">new_handle</span>()
-<span style="color:#a6e22e">handle_setform</span>(h1,
-               <span style="color:#e6db74">&#39;token&#39;</span> <span style="color:#f92672">=</span> apisecret,
-               <span style="color:#e6db74">&#39;content&#39;</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;record&#34;</span>, 
-               <span style="color:#e6db74">&#39;format&#39;</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;csv&#34;</span>,
-               <span style="color:#e6db74">&#39;type&#39;</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;flat&#39;</span>,
-               <span style="color:#e6db74">&#39;csvDelimiter&#39;</span><span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;,&#39;</span>,
-               <span style="color:#e6db74">&#39;forms[0]&#39;</span><span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;myformname&#39;</span>,
-               <span style="color:#e6db74">&#39;rawOrLabel&#39;</span><span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;raw&#39;</span>,
-               <span style="color:#e6db74">&#39;rawOrLabelHeaders&#39;</span><span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;raw&#39;</span>,
-               <span style="color:#e6db74">&#39;exportCheckboxLabel&#39;</span><span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;false&#39;</span>,
-               <span style="color:#e6db74">&#39;exportSurveyFields&#39;</span><span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;true&#39;</span>,
-               <span style="color:#e6db74">&#39;exportDataAccessGroups&#39;</span><span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;false&#39;</span>,
-               <span style="color:#e6db74">&#39;returnFormat&#39;</span><span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;json&#39;</span>)
-
-surveyresults <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">read.csv</span>(text <span style="color:#f92672">=</span> <span style="color:#a6e22e">rawToChar</span>(
-  <span style="color:#a6e22e">curl_fetch_memory</span>(<span style="color:#e6db74">&#34;https://redcap.sydney.edu.au/api/&#34;</span>, handle <span style="color:#f92672">=</span> h1)<span style="color:#f92672">$</span>content),
-  na.strings <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;&#34;</span>
-  )
-</code></pre></div><p>Now, the <code>curl::handle_setform()</code> command looks pretty similar to the <code>RCurl::postForm()</code> request, but it needs to be combined with the <code>curl::curl_fetch_memory()</code> command<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup>, which has a few quirks:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span><span style="color:#75715e">#!/usr/bin/env Rscript</span>
+</span></span><span style="display:flex;"><span>apisecret <span style="color:#f92672">&lt;-</span> <span style="color:#e6db74">&#39;myapikey&#39;</span> <span style="color:#75715e"># you get this when you enable REDCap API access for your project</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">library</span>(curl)
+</span></span><span style="display:flex;"><span>h1 <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">new_handle</span>()
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">handle_setform</span>(h1,
+</span></span><span style="display:flex;"><span>               <span style="color:#e6db74">&#39;token&#39;</span> <span style="color:#f92672">=</span> apisecret,
+</span></span><span style="display:flex;"><span>               <span style="color:#e6db74">&#39;content&#39;</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;record&#34;</span>, 
+</span></span><span style="display:flex;"><span>               <span style="color:#e6db74">&#39;format&#39;</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;csv&#34;</span>,
+</span></span><span style="display:flex;"><span>               <span style="color:#e6db74">&#39;type&#39;</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;flat&#39;</span>,
+</span></span><span style="display:flex;"><span>               <span style="color:#e6db74">&#39;csvDelimiter&#39;</span><span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;,&#39;</span>,
+</span></span><span style="display:flex;"><span>               <span style="color:#e6db74">&#39;forms[0]&#39;</span><span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;myformname&#39;</span>,
+</span></span><span style="display:flex;"><span>               <span style="color:#e6db74">&#39;rawOrLabel&#39;</span><span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;raw&#39;</span>,
+</span></span><span style="display:flex;"><span>               <span style="color:#e6db74">&#39;rawOrLabelHeaders&#39;</span><span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;raw&#39;</span>,
+</span></span><span style="display:flex;"><span>               <span style="color:#e6db74">&#39;exportCheckboxLabel&#39;</span><span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;false&#39;</span>,
+</span></span><span style="display:flex;"><span>               <span style="color:#e6db74">&#39;exportSurveyFields&#39;</span><span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;true&#39;</span>,
+</span></span><span style="display:flex;"><span>               <span style="color:#e6db74">&#39;exportDataAccessGroups&#39;</span><span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;false&#39;</span>,
+</span></span><span style="display:flex;"><span>               <span style="color:#e6db74">&#39;returnFormat&#39;</span><span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;json&#39;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>surveyresults <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">read.csv</span>(text <span style="color:#f92672">=</span> <span style="color:#a6e22e">rawToChar</span>(
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">curl_fetch_memory</span>(<span style="color:#e6db74">&#34;https://redcap.sydney.edu.au/api/&#34;</span>, handle <span style="color:#f92672">=</span> h1)<span style="color:#f92672">$</span>content),
+</span></span><span style="display:flex;"><span>  na.strings <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>  )
+</span></span></code></pre></div><p>Now, the <code>curl::handle_setform()</code> command looks pretty similar to the <code>RCurl::postForm()</code> request, but it needs to be combined with the <code>curl::curl_fetch_memory()</code> command<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup>, which has a few quirks:</p>
 <ol>
 <li>It returns the actual data in the <code>content</code> attribute, and not the data frame directly - hence the need for the <code>$content</code></li>
 <li>It returns the data in raw format (and, no, setting the <code>rawOrLabel</code> to label does not solve this), so you need to pass it into <code>base::rawToChar()</code>.</li>
 <li><code>read.csv</code>&rsquo;s defaults are to accept a filepath, so we use an arguement called <code>text</code> to specify that we&rsquo;re straight feeding in the actual data in instead.</li>
 </ol>
 <p>The other useful thing to &ldquo;grab&rdquo; when working with data tends to be the data dictionary, for which the code looks quite similar:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#75715e">#!/usr/bin/env Rscript</span>
-apisecret <span style="color:#f92672">&lt;-</span> <span style="color:#e6db74">&#39;myapikey&#39;</span> <span style="color:#75715e"># you get this when you enable REDCap API access for your project</span>
-h2 <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">new_handle</span>()
-<span style="color:#a6e22e">handle_setform</span>(h2,
-               <span style="color:#e6db74">&#39;token&#39;</span> <span style="color:#f92672">=</span> apisecret,
-               <span style="color:#e6db74">&#39;content&#39;</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;metadata&#34;</span>, 
-               <span style="color:#e6db74">&#39;format&#39;</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;csv&#34;</span>,
-               <span style="color:#e6db74">&#39;forms[0]&#39;</span><span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;myformname&#39;</span>,
-               <span style="color:#e6db74">&#39;returnFormat&#39;</span><span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;csv&#39;</span>)
-
-
-datadict <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">read.csv</span>(text <span style="color:#f92672">=</span> <span style="color:#a6e22e">rawToChar</span>(
-  <span style="color:#a6e22e">curl_fetch_memory</span>(<span style="color:#e6db74">&#34;https://redcap.sydney.edu.au/api/&#34;</span>, handle <span style="color:#f92672">=</span> h2)<span style="color:#f92672">$</span>content)
-)
-</code></pre></div><p>I hope this is helpful for others who use REDCap on Windows, or who need to write code that works across all of the major operating system platforms!</p>
-<section class="footnotes" role="doc-endnotes">
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span><span style="color:#75715e">#!/usr/bin/env Rscript</span>
+</span></span><span style="display:flex;"><span>apisecret <span style="color:#f92672">&lt;-</span> <span style="color:#e6db74">&#39;myapikey&#39;</span> <span style="color:#75715e"># you get this when you enable REDCap API access for your project</span>
+</span></span><span style="display:flex;"><span>h2 <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">new_handle</span>()
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">handle_setform</span>(h2,
+</span></span><span style="display:flex;"><span>               <span style="color:#e6db74">&#39;token&#39;</span> <span style="color:#f92672">=</span> apisecret,
+</span></span><span style="display:flex;"><span>               <span style="color:#e6db74">&#39;content&#39;</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;metadata&#34;</span>, 
+</span></span><span style="display:flex;"><span>               <span style="color:#e6db74">&#39;format&#39;</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;csv&#34;</span>,
+</span></span><span style="display:flex;"><span>               <span style="color:#e6db74">&#39;forms[0]&#39;</span><span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;myformname&#39;</span>,
+</span></span><span style="display:flex;"><span>               <span style="color:#e6db74">&#39;returnFormat&#39;</span><span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;csv&#39;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>datadict <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">read.csv</span>(text <span style="color:#f92672">=</span> <span style="color:#a6e22e">rawToChar</span>(
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">curl_fetch_memory</span>(<span style="color:#e6db74">&#34;https://redcap.sydney.edu.au/api/&#34;</span>, handle <span style="color:#f92672">=</span> h2)<span style="color:#f92672">$</span>content)
+</span></span><span style="display:flex;"><span>)
+</span></span></code></pre></div><p>I hope this is helpful for others who use REDCap on Windows, or who need to write code that works across all of the major operating system platforms!</p>
+<div class="footnotes" role="doc-endnotes">
 <hr>
 <ol>
-<li id="fn:1" role="doc-endnote">
-<p>Yes, we could have used the <code>curl::curl_fetch_disk()</code> command to download the file to disk, which seems to work a lot better and actually save the file as a non-binary .csv file. However, for this particular project, I&rsquo;m doing a lot of data cleaning <em>before</em> I write the output to disk, and I&rsquo;d rather not store two copies of the same scrape. <a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+<li id="fn:1">
+<p>Yes, we could have used the <code>curl::curl_fetch_disk()</code> command to download the file to disk, which seems to work a lot better and actually save the file as a non-binary .csv file. However, for this particular project, I&rsquo;m doing a lot of data cleaning <em>before</em> I write the output to disk, and I&rsquo;d rather not store two copies of the same scrape.&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
 </li>
 </ol>
-</section>
+</div>
 
       </div>
 
@@ -293,7 +294,7 @@ datadict <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">re
 
     
       
-      <script src="https://daryavanichkina.com/js/dark-mode.min.0213e1773e6d1c5a644f847c67a6f8abac49a3776e2976f6008038af8c5b76a1.js"></script>
+      <script src="https://daryavanichkina.com/js/dark-mode.min.c2d8a1f8f2660e4a46d776277c72695a1e0ca65939d79f754441d47551604af5.js"></script>
     
 
     
@@ -311,7 +312,6 @@ if (!doNotTrack) {
 	ga('send', 'pageview');
 }
 </script>
-
 
     
 

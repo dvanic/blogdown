@@ -6,9 +6,49 @@
     <description>Recent content in analysis on Darya Vanichkina</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 21 Nov 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://daryavanichkina.com/tags/analysis/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 30 Jul 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://daryavanichkina.com/tags/analysis/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Australian corpus preparation</title>
+      <title>Visualising 20 years of plant-available water in the Murray-Darling basin</title>
+      <link>https://daryavanichkina.com/project/nowcasting/</link>
+      <pubDate>Sat, 30 Jul 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://daryavanichkina.com/project/nowcasting/</guid>
+      <description>&lt;p align=&#34;center&#34;&gt;
+&lt;img src=&#34;https://daryavanichkina.com/images/2211_nowcasting_grid.png&#34; width=&#34;700&#34; /&gt;
+&lt;/p&gt;
+&lt;h2 id=&#34;clients&#34;&gt;Clients&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.sydney.edu.au/science/about/our-people/academic-staff/thomas-bishop.html&#34;&gt;Prof Thomas Bishop&lt;/a&gt;, &lt;a href=&#34;https://www.sydney.edu.au/agriculture/&#34;&gt;Sydney Institute of Agriculture&lt;/a&gt;, University of Sydney&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;purpose&#34;&gt;Purpose&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;The client had a hindcast of plant available water (PAW) for the top 1 m of soil for the Murray-Darling Basin at 500 m for the period 2000-2020.&lt;/li&gt;
+&lt;li&gt;The Grains Research and Development Corporation (GRDC) funded a project to visualise this modelling data for farmers and stakeholders.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;approach&#34;&gt;Approach&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Built an R-Shiny dashboard to present this geospatial data, including creating custom scaling functionality that supports increasing image resolution as a user zooms in to an area of interest.&lt;/li&gt;
+&lt;li&gt;Data is hosted on AWS Cloud infrastrucure (S3) - so optimised data structure to support rapid serving of results.&lt;/li&gt;
+&lt;li&gt;App is deployed to &lt;a href=&#34;https://pahgisl.shinyapps.io/shinyapp/&#34;&gt;shinyapps.io&lt;/a&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;outcome&#34;&gt;Outcome&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Project was funded by GRDC, bring in $35000 to SIH.&lt;/li&gt;
+&lt;li&gt;Success of project resulted in acquiring competitive funding for an additional 18 month position at SIH, to create real-time modelling infrastructure and deployment of the results to cloud infrastructure. Value of this additional funding is over $250 000.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;links&#34;&gt;Links&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://pahgisl.shinyapps.io/shinyapp/&#34;&gt;Shiny Dashboard&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;key-tools&#34;&gt;Key tools&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;R: R-Shiny terra, sf, ncdf4, stars, raster, leaflet, leafem, tidyverse, rgdal; Git + GitHub&lt;/em&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Australian obesity corpus preparation, analysis and comparison with the UK</title>
       <link>https://daryavanichkina.com/project/corpus/</link>
       <pubDate>Sun, 21 Nov 2021 00:00:00 +0000</pubDate>
       
@@ -17,16 +57,16 @@
 &lt;img src=&#34;https://daryavanichkina.com/images/2111_corpus.jpg&#34; width=&#34;500&#34; /&gt;
 &lt;/p&gt;
 &lt;p&gt;Photo by &lt;a href=&#34;https://unsplash.com/@ugur?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText&#34;&gt;Ugur Akdemir&lt;/a&gt; on &lt;a href=&#34;https://unsplash.com/s/photos/corpus?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText&#34;&gt;Unsplash&lt;/a&gt;&lt;/p&gt;
-&lt;h2 id=&#34;clients&#34;&gt;Clients&lt;/h2&gt;
+&lt;h2 id=&#34;client&#34;&gt;Client&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;https://www.sydney.edu.au/arts/about/our-people/academic-staff/monika-bednarek.html&#34;&gt;Prof Monika Bednarek&lt;/a&gt;, Faculty of Arts &amp;amp; Social Sciences, University of Sydney&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id=&#34;purpose&#34;&gt;Purpose&lt;/h2&gt;
 &lt;ul&gt;
-&lt;li&gt;The clients prepared a corpus of media articles around a specific topic (&lt;em&gt;confidential&lt;/em&gt;).&lt;/li&gt;
-&lt;li&gt;The corpus was manually downloaded from LexisNexis on Windows.&lt;/li&gt;
-&lt;li&gt;Multiple character encoding issues were encountered as a result of this, which made it incompatible with tools the clients wanted to use.&lt;/li&gt;
-&lt;li&gt;The aim was to generate a &amp;ldquo;clean&amp;rdquo; corpus that could be used for data analysis.&lt;/li&gt;
+&lt;li&gt;The client prepared a corpus of media articles that focused on obesity by manually downloading articles from LexisNexis on Windows.&lt;/li&gt;
+&lt;li&gt;The client then reached out to SIH, as multiple character encoding issues were encountered as a result of the manual download, so the first aim was to generate a &amp;ldquo;clean&amp;rdquo; corpus that could be used for data analysis.&lt;/li&gt;
+&lt;li&gt;The second aim was to compare usage of specific language features between Australian tabloids and broadsheets, and across publications, to see whether journalists were adhering to the Obesity Collective&amp;rsquo;s guidelines on reporting.&lt;/li&gt;
+&lt;li&gt;The final aim was to compare these features between Australian and UK publications.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id=&#34;approach&#34;&gt;Approach&lt;/h2&gt;
 &lt;ul&gt;
@@ -35,10 +75,21 @@
 &lt;li&gt;Used topic modelling to create sub-corpora for further analysis.&lt;/li&gt;
 &lt;li&gt;Translated analytics spreadsheets used by researchers to a standalone Python script, automating and scaling one-vs-all and one-vs-one sub-corpus analysis.&lt;/li&gt;
 &lt;li&gt;Provided comprehensive client-interpretable documentation.&lt;/li&gt;
+&lt;li&gt;Generated parametric and non-parametric statistical analyses within the Australian corpus and between the Australian/UK corpora, including fixed and mixed effects linear modelling, in line with expectations for such analyses in statistical linguistics.&lt;/li&gt;
+&lt;li&gt;Code from the above became part of a larger national project in computational linguistics.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id=&#34;key-tools&#34;&gt;Key tools&lt;/h2&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;em&gt;Key tools: Python: pandas, chardet, spacy, seaborn, gensim, datasketch; Git + GitHub; Jira; fdupes&lt;/em&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;Corpus cleaning/topic modelling: Python: pandas, chardet, spacy, seaborn, gensim, datasketch; Git + GitHub; Jira; fdupes&lt;/em&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;Corpus comparison and modelling: R: tidyverse, coin; Git + GitHub; Jira&lt;/em&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;outcomes&#34;&gt;Outcomes&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Multiple variants of the clean corpus were prepared for use by the client, who carried out their own investigation using a series of GUI tools.&lt;/li&gt;
+&lt;li&gt;The corpus manual has been published &lt;a href=&#34;https://github.com/Sydney-Informatics-Hub/obesitycorpus&#34;&gt;here&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;The Australian corpus comparison has been submitted for publication &lt;a href=&#34;https://sydney-informatics-hub.github.io/PIPE-3034-obesity2/&#34;&gt;code here&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;The Australian vs UK corpus comparison has been submitted for publication as a book chapter &lt;a href=&#34;https://github.com/Sydney-Informatics-Hub/PIPE-3034-obesity2-bookchapter&#34;&gt;code here&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;The code for carrying out topic modelling, duplicate/near-duplicate detection, spreadsheet generalisation, parametric and non-parametric analyses has been generalised and incorporated into the Australian Text Analytics Platform (ATAP), a multi-centre, &lt;a href=&#34;https://ardc.edu.au/project/australian-text-analytics-platform/&#34;&gt;ARDC-funded initiative&lt;/a&gt; to provide linguists with GUI interfaces for carrying out common tasks.&lt;/li&gt;
 &lt;/ul&gt;
 </description>
     </item>

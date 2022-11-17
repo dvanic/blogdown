@@ -57,7 +57,7 @@
 &lt;p&gt;You need a quick and easy way to communicate between you and your co-instructors. I recommend a different, secondary chat application for this, for example Microsoft Teams or Slack (or Telegram/Whatsapp - whatever), if you&amp;rsquo;re using Zoom as your primary teaching tool.&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;Ideally, you set up two channels in this: one for urgent messages to the instructor who&amp;rsquo;s teaching (&amp;ldquo;YOUR SCREEN IS TINY!&amp;quot;), and another for non-teaching instructors to communicate with each other. This allows your helpers to communicate about challenging software installs (&amp;ldquo;Do you have any experience updating R libraries on Ubuntu?&amp;quot;), delegate responsibilities (&amp;ldquo;Can you take over host please? I really need a break for 3 minutes!&amp;quot;) and otherwise manage the class - but all of this is not relevant for the instructor who&amp;rsquo;s teaching and can actually distract them if they keep getting pinged about it.&lt;/p&gt;
+&lt;p&gt;Ideally, you set up two channels in this: one for urgent messages to the instructor who&amp;rsquo;s teaching (&amp;ldquo;YOUR SCREEN IS TINY!&amp;rdquo;), and another for non-teaching instructors to communicate with each other. This allows your helpers to communicate about challenging software installs (&amp;ldquo;Do you have any experience updating R libraries on Ubuntu?&amp;rdquo;), delegate responsibilities (&amp;ldquo;Can you take over host please? I really need a break for 3 minutes!&amp;rdquo;) and otherwise manage the class - but all of this is not relevant for the instructor who&amp;rsquo;s teaching and can actually distract them if they keep getting pinged about it.&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id=&#34;common-problems-learner-with-setup-challenges&#34;&gt;Common problems: learner with setup challenges&lt;/h2&gt;
@@ -73,7 +73,7 @@
 &lt;p&gt;My preferred way of helping debug issues is to have learners post a screenshot of the error message into a specific place in the shared document we&amp;rsquo;re using, and for me to guide them in trying to fix it (via the Zoom chat if at all possible - but note it doesn&amp;rsquo;t work well with line breaks, so you may need to use the shared doc for pasting code as well).&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;Tools like Zoom do provide the functionality to share screens and take over someone&amp;rsquo;s desktop, BUT I&amp;rsquo;ve found taking screenshots is faster, doesn&amp;rsquo;t require you to jump out into a breakout room (so the learner doesn&amp;rsquo;t miss out on core content), and doesn&amp;rsquo;t cause bandwidth problems (I&amp;rsquo;ve tried taking over learners&#39; desktops with suboptimal bandwidth, and it kicked both of us out of the session).&lt;/p&gt;
+&lt;p&gt;Tools like Zoom do provide the functionality to share screens and take over someone&amp;rsquo;s desktop, BUT I&amp;rsquo;ve found taking screenshots is faster, doesn&amp;rsquo;t require you to jump out into a breakout room (so the learner doesn&amp;rsquo;t miss out on core content), and doesn&amp;rsquo;t cause bandwidth problems (I&amp;rsquo;ve tried taking over learners&amp;rsquo; desktops with suboptimal bandwidth, and it kicked both of us out of the session).&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;Finally, it can be helpful to have a backup cloud platform for teaching as well, as the digital equivalent of spare laptops. We&amp;rsquo;ve been successful using &lt;a href=&#34;https://mybinder.org/&#34;&gt;mybinder.org&lt;/a&gt; for python, and have tried but not productionised &lt;a href=&#34;https://rstudio.cloud&#34;&gt;rstudio.cloud&lt;/a&gt; for R. I&amp;rsquo;d love a suggestion for an online terminal for teaching basic Unix!&lt;/p&gt;
@@ -163,14 +163,14 @@
 &lt;/ul&gt;
 &lt;hr&gt;
 &lt;p&gt;I hope these two posts are helpful for you as you prepare to jump into teaching online! Please leave a comment below if you found something useful, unclear or would like to add something else I missed!&lt;/p&gt;
-&lt;section class=&#34;footnotes&#34; role=&#34;doc-endnotes&#34;&gt;
+&lt;div class=&#34;footnotes&#34; role=&#34;doc-endnotes&#34;&gt;
 &lt;hr&gt;
 &lt;ol&gt;
-&lt;li id=&#34;fn:1&#34; role=&#34;doc-endnote&#34;&gt;
-&lt;p&gt;This is why we say all instructors have to be able to teach all content! If you think it&amp;rsquo;s different in-person, ask me about the time I had a massive, I-can&amp;rsquo;t-stop-even-if-I-try-really-hard coughing fit in the middle of teaching. I literally walked out of the classroom to try not to die in public, waving vaguely to my co-instructor to go on without me (which she very successfully did). That&amp;rsquo;s also when I discovered, after 20 minutes of searching, that there is no student-accessible hot water tap in the Sydney Uni Quadrangle (!), and was able to soothe my throat only after some kind caterers who were wrapping up for the day shared a pot of hot honey lemon tea. &lt;a href=&#34;#fnref:1&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;li id=&#34;fn:1&#34;&gt;
+&lt;p&gt;This is why we say all instructors have to be able to teach all content! If you think it&amp;rsquo;s different in-person, ask me about the time I had a massive, I-can&amp;rsquo;t-stop-even-if-I-try-really-hard coughing fit in the middle of teaching. I literally walked out of the classroom to try not to die in public, waving vaguely to my co-instructor to go on without me (which she very successfully did). That&amp;rsquo;s also when I discovered, after 20 minutes of searching, that there is no student-accessible hot water tap in the Sydney Uni Quadrangle (!), and was able to soothe my throat only after some kind caterers who were wrapping up for the day shared a pot of hot honey lemon tea.&amp;#160;&lt;a href=&#34;#fnref:1&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
-&lt;/section&gt;
+&lt;/div&gt;
 </description>
     </item>
     
@@ -214,7 +214,7 @@
 &lt;ul&gt;
 &lt;li&gt;In a 3D workshop this is part of the preliminaries, but you as the instructor have to actively normalise this online.&lt;/li&gt;
 &lt;li&gt;It&amp;rsquo;s one of the hardest things to replicate: the productive interactions and relationship-building/networking among learners that happens when you work together on a bunch of tasks for 2 days straight.&lt;/li&gt;
-&lt;li&gt;A somewhat useful replacement that gets learners talking is an icebreaker task (&lt;a href=&#34;https://carpentries.github.io/instructor-training/icebreakers/&#34;&gt;ideas here&lt;/a&gt;), which can either be posted into the shared document OR carried out orally in small groups in breakout rooms. I find it helpful, in addition to asking about something relatable (&amp;ldquo;What was the most interesting thing you learned working from home last week?&amp;quot;) to ask about learners&#39; setups and screens (&amp;ldquo;What does your learning setup look like today?&amp;quot;). That way, I can suggest tweaks, such as logging in from a mobile device as a modification of a two screen setup. Another option is to ask the latter &lt;a href=&#34;https://support.zoom.us/hc/en-us/articles/213756303-Polling-for-Meetings&#34;&gt;as a poll&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;A somewhat useful replacement that gets learners talking is an icebreaker task (&lt;a href=&#34;https://carpentries.github.io/instructor-training/icebreakers/&#34;&gt;ideas here&lt;/a&gt;), which can either be posted into the shared document OR carried out orally in small groups in breakout rooms. I find it helpful, in addition to asking about something relatable (&amp;ldquo;What was the most interesting thing you learned working from home last week?&amp;rdquo;) to ask about learners&amp;rsquo; setups and screens (&amp;ldquo;What does your learning setup look like today?&amp;rdquo;). That way, I can suggest tweaks, such as logging in from a mobile device as a modification of a two screen setup. Another option is to ask the latter &lt;a href=&#34;https://support.zoom.us/hc/en-us/articles/213756303-Polling-for-Meetings&#34;&gt;as a poll&lt;/a&gt;.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li&gt;
@@ -267,7 +267,7 @@
 &lt;li&gt;Make sure you use/share/project only 1/2 of your screen, and use an appropriate coding &amp;ldquo;tool&amp;rdquo; that encompasses everything in that 1/2 screen. This means jupyter notebooks and the terminal are in, but RStudio/a .R script, in it&amp;rsquo;s native implementation, is out - they just take up too much screen real estate! The best work-around I&amp;rsquo;ve found so far is to use an Rmarkdown document, with inline output for figures. This is what you get the settings to look like:&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;&lt;img src=&#34;../../images/200401_RstudioInline.png&#34; alt=&#34;inlinesetup&#34;&gt;&lt;/p&gt;
-&lt;p&gt;And this is what the learners&#39; screens looked like:&lt;/p&gt;
+&lt;p&gt;And this is what the learners&amp;rsquo; screens looked like:&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;../../images/2004_howtoscreen.png&#34; alt=&#34;howtoo&#34;&gt;&lt;/p&gt;
 &lt;ol start=&#34;2&#34;&gt;
 &lt;li&gt;
@@ -313,14 +313,14 @@
 &lt;p&gt;What does that instructor do? Small talk at the least, and - usually - after getting to know the learners a bit, they WILL ask you questions about their research, your work or other &amp;ldquo;stuff&amp;rdquo; related to the course. It also allows you to reassure them you believe they can learn the content AND that even if their setup is &amp;ldquo;weird&amp;rdquo; (according to them) they can still succeed in the course and  use the tools and techniques later on.&lt;/p&gt;
 &lt;hr&gt;
 &lt;p&gt;Whew! That ended up being a long post! In the &lt;a href=&#34;https://daryavanichkina.com/posts/2020-map-digital-2/&#34;&gt;next post&lt;/a&gt; of this series, I&amp;rsquo;ll explore some common problems and how to deal with them, as well as discuss how to replicate instructor-instructor communication. If you&amp;rsquo;re a learner, &lt;a href=&#34;https://daryavanichkina.com/posts/2020-great-online-learning-student/&#34;&gt;this post&lt;/a&gt; is for you!&lt;/p&gt;
-&lt;section class=&#34;footnotes&#34; role=&#34;doc-endnotes&#34;&gt;
+&lt;div class=&#34;footnotes&#34; role=&#34;doc-endnotes&#34;&gt;
 &lt;hr&gt;
 &lt;ol&gt;
-&lt;li id=&#34;fn:1&#34; role=&#34;doc-endnote&#34;&gt;
-&lt;p&gt;I find 30 - 45 minutes into the first session to be that sweet spot by which time everyone has joined, but people who identify that the training is not for them/they have conflicting scheduling responsibilities have not dropped out yet.] &lt;a href=&#34;#fnref:1&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;li id=&#34;fn:1&#34;&gt;
+&lt;p&gt;I find 30 - 45 minutes into the first session to be that sweet spot by which time everyone has joined, but people who identify that the training is not for them/they have conflicting scheduling responsibilities have not dropped out yet.]&amp;#160;&lt;a href=&#34;#fnref:1&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
-&lt;/section&gt;
+&lt;/div&gt;
 </description>
     </item>
     
